@@ -1,7 +1,6 @@
 import User from "../models/User"
 import bcrypt from "bcrypt"
 import jwt from "jsonwebtoken"
-const secret = "aleatorio124hfhdksdkifhfgh"
 
 
 class UserController{
@@ -43,6 +42,8 @@ class UserController{
             next(error)
           }
     }
+
+    
       
 /*
     async update(req, res, next) {

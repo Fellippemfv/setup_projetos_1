@@ -27,6 +27,21 @@ class User{
         }
     }
 
+    
+        async findByEmail(email){//encontra email
+        try{
+            let result = await knex("users").where({ email: email }).select(["id", "email", "name", "password_hash", "provider"])
+            if(result.length > 0) {
+                return result[0];
+            }else {
+                return undefined;
+            }
+        }catch(error){
+            console.log(error);
+        }
+    }
+    
+
     async create(name, email, password, provider){//parametro que espero pegar
         try{
             const hash = await bcrypt.hash(password, 8)
@@ -36,6 +51,7 @@ class User{
             console.log(error);
         }
     }
+
 /*
     async update_user(id, username){
         try {
