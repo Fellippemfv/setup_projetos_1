@@ -1,6 +1,9 @@
 import User from "../models/User"
 import bcrypt from "bcrypt"
 import jwt from "jsonwebtoken"
+import knex from "../../database";
+
+
 
 
 class UserController{
@@ -36,28 +39,44 @@ class UserController{
                 return res.status(400).json({ error: "User already exists." })
             }
 
-            const user = await User.create(name, email, password, provider)
+            const user = await User.create_user(name, email, password, provider)
             return res.status(201).json({name, email, provider})
           }catch(error){
             next(error)
           }
     }
 
-    
-      
-/*
     async update(req, res, next) {
         try {
-            const { username } = req.body;
-            const { id } = req.params;
+            
+            const { email, oldPassword, name } = req.body;
+            const id = req.userId
+            const user = await User.findById(id)
+            if(email && email != user.email) {//validação1 se o email dele é diferente do banco
+                
+                const userExist = await User.findEmail(email);
+                if (userExist) {//validação2 de email
+                    return res.status(400).json({ error: "User already exists." })
+                }
+            }
+//------------//-----------------///---------------- ok falta senha
 
-            const user = await User.update_user(id, username);
-            return res.status(200).send();
+
+
+
+//------------//-----------------///---------------- ok falta senha
+            
+            await User.update_user(id, email, name);
+            return res.json({
+                user
+            }); 
+            
+
         } catch (error) {
             next(error)
         }
     }
-
+/*
     async delete(req, res, next) {
         try {
             const { id } = req.params;

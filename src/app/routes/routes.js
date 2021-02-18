@@ -1,18 +1,23 @@
 import { Router } from "express";
 import express from "express";
 import User from "../controllers/User";
-import Session from "../controllers/Session"
+import Session from "../controllers/Session";
+import authMiddleware from "../middlewares/auth";
 
 const routes = new Router();
 
-routes
-    //Users
-    .get("/", User.index)
-    .get("/users", User.find)
-    .post("/users", User.create)
+//Users
+routes.get("/", User.index);
+routes.get("/users", User.find);
+routes.post("/users", User.create);
 
-    //Sessions
-    .post("/sessions", Session.store);
+//Sessions
+routes.post("/sessions", Session.store);
+
+//rotas protegidas
+routes.use(authMiddleware);//Global, a partir daqui vai usar esse middleware
+routes.put("/users", User.update);
+
 
     /*
     .post("/users", User.create)

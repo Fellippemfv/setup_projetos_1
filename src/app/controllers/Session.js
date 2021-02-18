@@ -8,7 +8,6 @@ class SessionController {
         try{
           
           const { email, password } = req.body;
-          
           const user = await User.findByEmail(email)
           if(!user) {//validaçao1 de email valido
               return res.status(401).json({ error: " User not found" })
