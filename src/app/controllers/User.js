@@ -48,7 +48,7 @@ class UserController{
 
     async update(req, res, next) {
         try {
-            
+//------------//-----------------///---------------- email
             const { email, oldPassword, name } = req.body;
             const id = req.userId
             const user = await User.findById(id)
@@ -59,12 +59,11 @@ class UserController{
                     return res.status(400).json({ error: "User already exists." })
                 }
             }
-//------------//-----------------///---------------- ok falta senha
-
-
-
-
-//------------//-----------------///---------------- ok falta senha
+//------------//-----------------///---------------- senha
+            const passwordExist = await User.password_hash(id);//validação1 de senha, se confere a senha antiga com o banco
+            if(oldPassword && !(await bcrypt.compare(oldPassword, passwordExist.password_hash))) {
+                return res.status(401).json({ error: "Password does not match"})
+            }
             
             await User.update_user(id, email, name);
             return res.json({

@@ -70,6 +70,14 @@ class User{
         }
     }
 
+    async password_hash(id){
+        try {
+            let result = await knex("users").where({ id }).select("password_hash")
+            return result[0];
+        } catch (error) {
+            console.log(error)
+        }
+    }
     /*
     async delete_user(id){
         try {
