@@ -12,8 +12,9 @@ class SessionController {
           if(!user) {//validaçao1 de email valido
               return res.status(401).json({ error: " User not found" })
           }
-          
-          const result = await bcrypt.compare(password, user.password_hash);
+
+          const passwordExist = await User.findHashByEmail(email);//validação1 de senha, se confere a senha antiga com o banco
+          const result = await bcrypt.compare(password, passwordExist.password_hash);
           if(!result) {//validaçao1 desenha valida
             return res.status(401).json({ error: "Password invalid" })
           }
