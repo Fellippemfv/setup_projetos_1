@@ -24,15 +24,10 @@ class UserController{
 
     async create(req, res, next) {
           try{
-
-//------------//-----------------///---------------- email//------------//-----------------///----------------
+//------------//-----------------///---------------- validação de email//------------//-----------------///----------------
             const { name, email, password } = req.body;
             const provider = 0
-            if(email === undefined) {//validaçao1 de valor indefinido
-                return res.status(400).json({ error: "Invalid email" })
-            }
-
-            const userExist = await User.findEmail(email);
+            const userExist = await User.findOneEmail(email);
             if (userExist) {//validação2 de email
                 return res.status(400).json({ error: "User already exists." })
             }
@@ -45,36 +40,23 @@ class UserController{
     }
 
     async update(req, res, next) {
+//------------//-----------------///---------------- validando email//------------//-----------------///----------------
         try {
-//------------//-----------------///---------------- email//------------//-----------------///----------------
             const { email, oldPassword, password, name } = req.body;
             const id = req.userId
             const user = await User.findById(id)
-
             if(email && email != user.email) {//validação1 se o email dele é diferente do banco
-                const userExist = await User.findEmail(email);
+                const userExist = await User.findOneEmail(email);
                 if (userExist) {//validação2 de email valido
                     return res.status(400).json({ error: "Email already exists." })
-                }else{
-                    await User.updateEmail(id, email)
                 }
             }
-//------------//-----------------///---------------- senha//------------//-----------------///----------------
-            if(oldPassword){//Caso passe senhas antiga
-
-                const passwordExist = await User.findHashById(id);//validação1 de senha, se confere a senha antiga com o banco
-                if(oldPassword && !(await bcrypt.compare(oldPassword, passwordExist.password_hash))) {
-                    return res.status(401).json({ error: "Password does not match"})
-                }else{
-                    await User.updatePassword(id, password)
-                }
+//------------//-----------------///----------------comparando senha//------------//-----------------///----------------
+            const passwordExist = await User.findHashById(id);//validação1 de senha, se confere a senha antiga com o banco
+            if(oldPassword && !(await bcrypt.compare(oldPassword, passwordExist.password_hash))) {
+                return res.status(401).json({ error: "Password does not match"})
             }
-
-//------------//-----------------///---------------- nome//------------//-----------------///----------------
-            if(name){//Caso passe o nome para alterar
-                await User.updateName(id, name)
-            }
-//------------//-----------------///----------------- update//------------//-----------------///----------------
+            await User.update(id, name, email, password);
             return res.json({
                 user
             }); 
