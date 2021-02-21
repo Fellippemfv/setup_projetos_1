@@ -13,6 +13,14 @@ class UserController{
         }
     }
 
+    async singnup(req, res, next) {
+        try{
+            res.render("signup");
+        }catch(error){
+            next(error);
+        }
+    }
+
     async find(req, res, next) {
         try{
             let users = await User.findAll();
