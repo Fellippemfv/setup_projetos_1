@@ -15,9 +15,22 @@ class User{
         }
     }
 
+    async findDelete(id){
+        try{
+            let result = await knex("users").whereNot({ deleted_at: "0000-00-00 00:00:00" }).where({ id }).select("id");
+            if(result.length > 0) {
+                return result[0];
+            }else {
+                return id;
+            }
+        }catch(error){
+            console.log(error);
+        }
+    }
+    
     async findOneEmail(email){//retorna se email existe
         try{
-            let result = await knex("users").where({ email: email })
+            let result = await knex("users").where({ email })
             if(result.length > 0) {
                 return true;
             }else {
@@ -30,7 +43,7 @@ class User{
 
     async findByEmail(email){//retorna algumas informações a partir do email
         try{
-            let result = await knex("users").where({ email }).select([ "email", "name", "provider"])
+            let result = await knex("users").where({ email }).select([ "id", "email", "name", "provider"])
             if(result.length > 0) {
                 return result[0];
             }else {
@@ -43,7 +56,7 @@ class User{
 
     async findById(id) {//retorna algumas informações a partir do id
         try {
-            const result = await knex("users").where({ id }).select("email", "name", "provider");
+            const result = await knex("users").where({ id }).select("id", "email", "name", "provider");
             return result;
         } catch (error) {
             console.log(error);
@@ -97,17 +110,14 @@ class User{
         }
     }
 
-    /*
-    async delete_user(id){
+    async softDelete(id){
         try {
             let result = await knex("users").where({ id }).update("deleted_at", new Date())
-            //.del();
-            return result;
         } catch (error) {
             console.log(error)
         }
     }
-    */
+    
 }
 
 export default new User();

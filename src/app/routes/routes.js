@@ -9,13 +9,12 @@ const routes = new Router();
 routes.get("/", User.index);//rota: /
 routes.get("/users", User.find);
 routes.post("/users", User.create);//rota: /create
-
-//Sessions
 routes.post("/sessions", Session.store);//rota: /login
 
 //rotas protegidas
 routes.use(authMiddleware);//Global, a partir daqui vai usar esse middleware
 routes.put("/users", User.update);//rota: /myperfil
+routes.delete("/users", User.delete);//rota: /myperfil
 
 
     /*

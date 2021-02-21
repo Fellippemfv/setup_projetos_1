@@ -65,19 +65,22 @@ class UserController{
             next(error)
         }
     }
-/*
+
     async delete(req, res, next) {
         try {
-            const { id } = req.params;
+            let id = req.userId            
+            let user = await User.findDelete(id);
+            if(id === user.id){//validação se ja n foi excluido!
+                return res.json({ msg: "você já enviou solitação para deletar! "})
+            }
+            await User.softDelete(id);
+            return res.status(200).json({ msg: "Deletado!" });
 
-            const user = await User.delete_user(id);
-            return res.status(200).send();
         } catch (error) {
             next(error)
         }
     }
 
-*/
 }
 
 

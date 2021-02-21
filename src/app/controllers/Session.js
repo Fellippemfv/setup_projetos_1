@@ -6,6 +6,7 @@ import bcrypt from "bcrypt"
 class SessionController {
     async store(req, res, next) {
         try{
+          
           const { email, password } = req.body;
           const user = await User.findByEmail(email)
           if(!user) {//validaçao1 de email valido
