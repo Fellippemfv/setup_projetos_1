@@ -1,0 +1,73 @@
+/*Menu/header*/
+.menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: rgb(75 75 75 / 25%) 0px 0.0625rem 0.025rem 0px, rgb(75 75 75 / 15%) 0px 0.0625rem 0.1875rem 0px;
+    transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.4, 2) 0s;
+}
+
+.menu__section {
+    margin: 1rem;
+}
+
+.menu__section ul {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+    align-items: center;
+}
+
+.menu__section ul li {
+    display: flex;
+    margin: 0px 5px;
+}
+
+.menu__section ul li .menu__icon{
+    width: 33px;
+    cursor: pointer;
+}
+
+.menu__section ul li .menu__link{
+    display: none;
+}
+
+.menu__section ul li .menu__logo{
+    text-decoration: none;
+}
+
+.menu__section ul li .menu__login{
+    text-decoration: none;
+    color: white;
+    background: #1A73E8;
+    padding: 0.5rem;
+    border-radius: 4px;
+    font-size: 1.5rem;
+
+}
+
+.menu__section ul li .menu__avatar{
+    max-width: 40px;
+    height: auto;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.menu__section ul li .menu__more{
+    width: 33px;
+    height: auto;
+    cursor: pointer;
+}
+
+/* FALTA SIMPLIFICAR */
+/*FALTA MEDIA QUERIES*/
+
+@media (min-width: 763px) {
+    .menu__section ul li .menu__icon{
+        display: none;
+    }
+    .menu__section ul li .menu__link{
+        display: initial;
+    }
+
+} 

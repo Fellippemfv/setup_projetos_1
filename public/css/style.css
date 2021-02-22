@@ -1,7 +1,7 @@
 :root{
     --color-text-base: black;
     --color-page-background: #ffffff;
-    font-size: 60%;
+    font-size: 70%;
 }
 
 *{
@@ -9,6 +9,7 @@
     padding: 0;
     box-sizing: border-box;
 }
+
 
 html {
     width: 100%;
@@ -23,6 +24,10 @@ body {
     color: var(--color-text-base);
     line-height: 1.5;
 }
+
+
+
+/*Index*/
 
 
 .Form-layout__ContentWrapper {
