@@ -1,7 +1,7 @@
 <header class="menu">
     <div class="menu__section left">
         <ul>
-            <li><img  class="menu__icon" src="assets/burger-icon.svg" alt="Burger"></li>
+            <li><img  class="menu__icon" src="assets/burger-icon.svg" alt="Burger" onclick="myFunction()"></li>
             <li><a class="menu__logo" href="">LOGO</a></li>
             <li ><a class="menu__link" href="">Artigos</a></li>
             <li ><a class="menu__link" href="">Sobre</a></li>
@@ -11,10 +11,8 @@
 
     <div class="menu__section right">
         <ul>
-            <!--<li><a class="menu__login" href="">Entrar</a></li>-->
-            <li><img class="menu__more" src="assets/more-icon.svg" alt="More"></li>
-            <li><img onclick="document.getElementById('id01').style.display='block'" class="menu__avatar" src="assets/bussiness-man.svg" alt="Avatar picture"></li>
-            <!-- Button to open the modal login form -->
+            <li><img class="menu__avatar" src="assets/bussiness-man.svg" alt="Avatar picture"></li>
+            <li><button onclick="document.getElementById('id01').style.display='block'" class="menu__login" href="">Entrar</button></li>
         </ul>
     </div>
 
@@ -52,6 +50,16 @@
 
 <script src="js/script.js"></script>
 </header>
-<!--menu mobile-->
+
+    <!--menu mobile-->
+    <div class="topnav">
+    <!-- Navigation links (hidden by default) -->
+    <div id="myLinks">
+        <a href="#news">News</a>
+        <a href="#contact">Contact</a>
+        <a href="#about">About</a>
+    </div>
+    </div>
+
 
 
