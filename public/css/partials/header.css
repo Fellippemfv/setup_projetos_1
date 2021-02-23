@@ -20,7 +20,7 @@
 
 .menu__section ul li {
     display: flex;
-    margin: 0px 5px;
+    padding: 0rem 0.3rem;
 }
 
 .menu__section ul li .menu__icon{
@@ -48,11 +48,34 @@
     cursor: pointer;
 }
 
-.menu__section ul li .menu__more{
-    width: 33px;
-    height: auto;
+.menu__search {
+    display: flex;
+    align-items: center;
+}
+
+.search__input input{
+    border: 1px solid #bbb;
+    border-radius: 1rem;
+    height: 2.7rem;
+    width: 10rem;
+}
+
+/*.search__input input:focus {
+    
+}
+*/
+
+.search__img{
+    width: 24px;;  
+    margin-left: 1rem;  
+}
+
+.search__img:hover {
+    background: #bbb;
     cursor: pointer;
 }
+
+
 /*TERMINA*/
 
 /*----------//--------------MODAL DE LOGIN------------------//------------*/
@@ -231,7 +254,6 @@ button {
 /*TERMINA*/
 
 /*----------//--------------CONFIGURAÇÕES DO MENU-MOBILE------------------//------------*/ 
-
 /* Style the navigation menu */
 .topnav {
     background-color: #333;
@@ -273,6 +295,51 @@ button {
     background-color: #4CAF50;
     color: white;
   }
+  /*Terminou*/
+
+  /*----------//--------------CONFIGURAÇÕES DO MODAL DE PERFIL------------------//------------*/ 
+  /* Style the navigation menu */
+.topnav-2 {
+    background-color: #333;
+    position: absolute;
+    width: 100%;
+  }
+  
+  /* Hide the links inside the navigation menu (except for logo/home) */
+  .topnav-2 #myLinks-2 {
+    display: none;
+  }
+  
+  /* Style navigation menu links */
+  .topnav-2 a {
+    color: white;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    display: block;
+  }
+  
+  /* Style the hamburger menu */
+  .topnav-2 a.icon {
+    background: black;
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  
+  /* Add a grey background color on mouse-over */
+  .topnav-2 a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+  
+  /* Style the active link (or home/logo) */
+  .active {
+    background-color: #4CAF50;
+    color: white;
+  }
+  /*Terminou*/
 
 
 
@@ -288,5 +355,18 @@ button {
     .menu__section ul li .menu__link{
         display: initial;
     }
+
+    .search__input input{
+        border: 1px solid #bbb;
+        border-radius: 1rem;
+        height: 2.7rem;
+        -webkit-transition: width 0.4s ease-in-out;
+        transition: width 0.4s ease-in-out;
+    }
+
+    .search__input input:focus {
+        width: 40vw;
+    }
+    
 
 } 

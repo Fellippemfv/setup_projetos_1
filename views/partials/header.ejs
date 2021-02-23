@@ -1,64 +1,75 @@
-<header class="menu">
-    <div class="menu__section left">
-        <ul>
-            <li><img  class="menu__icon" src="assets/burger-icon.svg" alt="Burger" onclick="myFunction()"></li>
-            <li><a class="menu__logo" href="">LOGO</a></li>
-            <li ><a class="menu__link" href="">Artigos</a></li>
-            <li ><a class="menu__link" href="">Sobre</a></li>
-            <li ><a class="menu__link" href="">Contato</a></li>
-        </ul>
-    </div>
-
-    <div class="menu__section right">
-        <ul>
-            <li><img class="menu__avatar" src="assets/bussiness-man.svg" alt="Avatar picture"></li>
-            <li><button onclick="document.getElementById('id01').style.display='block'" class="menu__login" href="">Entrar</button></li>
-        </ul>
-    </div>
-
-    <!-- The Modal -->
-    <div id="id01" class="modal">
-        <!-- Modal Content -->
-        <div class="modal-content animate ">
-    <div class="Form-layout__ContainerWrapper">
-
-        <h1 class="Text__Heading">Login</h2>            
-        <form action="/signup" method="post"><!--content__field__text//content__button__submit//content__footer__text-->
-            <input class="TextField__FieldWrapper" type="email" name="email" id="email" placeholder="Email" minlength="5" maxlength="150" required>
-            <input class="TextField__FieldWrapper" type="password" name="password" id="password" placeholder="Senha" minlength="5" maxlength="30" required> 
-            <input class="Button_ButtonWrapper" type="submit" value="Entrar">
-        </form>
-
-        <div class="SocialLogin_separator"><!--content__login__separator-->
-            <p>Ou continue com</p>
+    <header class="menu">
+        <div class="menu__section left">
+            <ul>
+                <li><img  class="menu__icon" src="assets/burger-icon.svg" alt="Burger" onclick="myFunction()"></li>
+                <li><a class="menu__logo" href="">LOGO</a></li>
+                <li ><a class="menu__link" href="">Experiências</a></li>
+                <li ><a class="menu__link" href="">Sobre</a></li>
+                <li ><a class="menu__link" href="">Contato</a></li>
+            </ul>
         </div>
 
-        <!--content__button__signup-->
-        <div class="Button__Signup">
-            <div class="Button__Google__Login">
-                <a href=""> <p>Entrar com Google</p> </a>
+        <div class="menu__section right">
+            <ul>
+                <li><form class="menu__search search__input" action="/action_page.php"><input type="text" placeholder="Pesquisar.." name="search"></form></li>
+                <li><img onclick="myFunction2()" class="menu__avatar" src="assets/bussiness-man.svg" alt="Avatar picture"></li>
+                <li><button onclick="document.getElementById('id01').style.display='block'" class="menu__login" href="">Entrar</button></li>
+            </ul>
+        </div>
+
+        <!-- The Modal -->
+        <div id="id01" class="modal">
+            <!-- Modal Content -->
+            <div class="modal-content animate ">
+        <div class="Form-layout__ContainerWrapper">
+
+            <h1 class="Text__Heading">Login</h2>            
+            <form action="/signup" method="post"><!--content__field__text//content__button__submit//content__footer__text-->
+                <input class="TextField__FieldWrapper" type="email" name="email" id="email" placeholder="Email" minlength="5" maxlength="150" required>
+                <input class="TextField__FieldWrapper" type="password" name="password" id="password" placeholder="Senha" minlength="5" maxlength="30" required> 
+                <input class="Button_ButtonWrapper" type="submit" value="Entrar">
+            </form>
+
+            <div class="SocialLogin_separator"><!--content__login__separator-->
+                <p>Ou continue com</p>
+            </div>
+
+            <!--content__button__signup-->
+            <div class="Button__Signup">
+                <div class="Button__Google__Login">
+                    <a href=""> <p>Entrar com Google</p> </a>
+                </div>
+            </div>
+
+            <div class="Button__alternative" style="background-color:#f1f1f1">
+                <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+                <h2 class="Text__footerText">Não tem uma conta?<a href="">Registre-se</a></h3>
+            </div>
+        </div>
             </div>
         </div>
 
-        <div class="Button__alternative" style="background-color:#f1f1f1">
-            <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-            <h2 class="Text__footerText">Não tem uma conta?<a href="">Registre-se</a></h3>
-        </div>
-    </div>
-        </div>
-    </div>
-
-<script src="js/script.js"></script>
-</header>
+    <script src="js/script.js"></script>
+    </header>
 
     <!--menu mobile-->
     <div class="topnav">
     <!-- Navigation links (hidden by default) -->
     <div id="myLinks">
-        <a href="#news">News</a>
-        <a href="#contact">Contact</a>
-        <a href="#about">About</a>
+        <a href="#news">Experiências</a>
+        <a href="#contact">Sobre</a>
+        <a href="#about">Contato</a>
     </div>
+    </div>
+
+    <!--menu perfil-->
+    <div class="topnav-2">
+        <!-- Navigation links (hidden by default) -->
+        <div id="myLinks-2">
+            <a href="#news">Perfil</a>
+            <a href="#contact">Mensagens</a>
+            <a href="#about">Sair</a>
+        </div>
     </div>
 
 
