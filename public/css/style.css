@@ -1,3 +1,4 @@
+/*----------//--------------CONFIGURAÇÕES GLOBAIS------------------//------------*/
 :root{
     --color-text-base: black;
     --color-page-background: #ffffff;
@@ -9,7 +10,6 @@
     padding: 0;
     box-sizing: border-box;
 }
-
 
 html {
     width: 100%;
@@ -26,99 +26,3 @@ body {
 }
 
 
-
-/*Index*/
-
-
-.Form-layout__ContentWrapper {
-    width: auto;
-    height: auto;
-    display: flex;
-    justify-content: center;
-}
-
-.Form-layout__ContainerWrapper {
-    width: 70%;
-}
-.Text__Heading {
-    color: #4A4A4A;
-    margin: 0px 0px 1.875rem;
-    font-size: 2.4rem;
-    font-weight: 100;
-    text-align: center;
-    display: block;
-}
-
-.TextField__FieldWrapper {
-    display: flex;
-    margin-bottom: 2rem;
-    justify-content: center;
-    border-radius: 0.3125rem;
-    border: 0.0625rem solid rgb(218, 220, 224);
-    width: 100%;
-    padding: 1.2rem;
-}
-
-.Button_ButtonWrapper {
-    width: 100%;
-    cursor: pointer;
-    padding: 1.2rem 0rem 1.2rem 0rem;
-    font-size: 2rem;
-    border-radius: 0.3125rem;
-    text-decoration: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgb(34, 64, 245);
-    color: white;
-    border-style: none;
-}
-.Button_ButtonWrapper:hover {
-    background-color:  rgb(47, 73, 223);
-}
-
-.Text__footerText {
-    color: #767676;
-    font-size: 1.2rem;
-    display: flex;
-    justify-content: flex-end;
-    align-items: baseline;
-    margin-top: 2rem;
-}
-
-.SocialLogin_separator {
-    color: rgb(74, 74, 74);
-    text-align: center;
-    margin: 1.75rem 0px;
-    font-size: 1.6rem;
-    background: linear-gradient(rgb(218, 220, 224), rgb(218, 220, 224)) 0px 1.4rem / 1px 1px repeat-x;
-}
-
-.Text__Separator {
-    background: white;
-    display: inline;
-    padding: 0px 0.625rem;
-}
-
-.Button__Signup {
-    height: 3rem;
-    border-radius: 0.3rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-width: max-content;
-    box-shadow: rgb(75 75 75 / 25%) 0px 0.0625rem 0.025rem 0px, rgb(75 75 75 / 15%) 0px 0.0625rem 0.1875rem 0px;
-    transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.4, 2) 0s;
-    margin-top: 3rem;
-    padding: 2.4rem;
-    cursor: pointer;
-}
-
-.Button__Signup:hover {
-    box-shadow: rgb(75 75 750 / 25%) 0px 0.1rem 0rem 0px, rgb(75 75 75 / 15%) 0px 0.1rem 0.1rem 0px;
-}
-
-.Button__Signup a {
-    text-decoration: none;
-    color: rgb(74, 74, 74);
-}

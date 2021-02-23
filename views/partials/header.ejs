@@ -1,11 +1,11 @@
 <header class="menu">
     <div class="menu__section left">
         <ul>
-            <li><img class="menu__icon" src="assets/burger-icon.svg" alt="Burger"></li>
+            <li><img  class="menu__icon" src="assets/burger-icon.svg" alt="Burger"></li>
             <li><a class="menu__logo" href="">LOGO</a></li>
-            <li ><a class="menu__link" href="">link 1</a></li>
-            <li ><a class="menu__link" href="">link 2</a></li>
-            <li ><a class="menu__link" href="">link 3</a></li>
+            <li ><a class="menu__link" href="">Artigos</a></li>
+            <li ><a class="menu__link" href="">Sobre</a></li>
+            <li ><a class="menu__link" href="">Contato</a></li>
         </ul>
     </div>
 
@@ -13,7 +13,45 @@
         <ul>
             <!--<li><a class="menu__login" href="">Entrar</a></li>-->
             <li><img class="menu__more" src="assets/more-icon.svg" alt="More"></li>
-            <li><img class="menu__avatar" src="assets/bussiness-man.svg" alt="Avatar picture"></li>
+            <li><img onclick="document.getElementById('id01').style.display='block'" class="menu__avatar" src="assets/bussiness-man.svg" alt="Avatar picture"></li>
+            <!-- Button to open the modal login form -->
         </ul>
     </div>
+
+    <!-- The Modal -->
+    <div id="id01" class="modal">
+        <!-- Modal Content -->
+        <div class="modal-content animate ">
+    <div class="Form-layout__ContainerWrapper">
+
+        <h1 class="Text__Heading">Login</h2>            
+        <form action="/signup" method="post"><!--content__field__text//content__button__submit//content__footer__text-->
+            <input class="TextField__FieldWrapper" type="email" name="email" id="email" placeholder="Email" minlength="5" maxlength="150" required>
+            <input class="TextField__FieldWrapper" type="password" name="password" id="password" placeholder="Senha" minlength="5" maxlength="30" required> 
+            <input class="Button_ButtonWrapper" type="submit" value="Entrar">
+        </form>
+
+        <div class="SocialLogin_separator"><!--content__login__separator-->
+            <p>Ou continue com</p>
+        </div>
+
+        <!--content__button__signup-->
+        <div class="Button__Signup">
+            <div class="Button__Google__Login">
+                <a href=""> <p>Entrar com Google</p> </a>
+            </div>
+        </div>
+
+        <div class="Button__alternative" style="background-color:#f1f1f1">
+            <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+            <h2 class="Text__footerText">Não tem uma conta?<a href="">Registre-se</a></h3>
+        </div>
+    </div>
+        </div>
+    </div>
+
+<script src="js/script.js"></script>
 </header>
+<!--menu mobile-->
+
+
