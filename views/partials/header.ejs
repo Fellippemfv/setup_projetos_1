@@ -1,55 +1,56 @@
+    <!--menu principal-->
     <header class="menu">
-        <div class="menu__section left">
-            <ul>
-                <li><img  class="menu__icon" src="assets/burger-icon.svg" alt="Burger" onclick="myFunction()"></li>
-                <li><a class="menu__logo" href="">LOGO</a></li><!--colocar dentro de navbar-->
-            
-                <!--menu grande de teste-->
-                <div class="navbar">
-            <a href="#home">Sobre</a>
-            <a href="#news">Contato</a>
-            <div class="dropdown">
-            <button class="dropbtn">Experiências
-                <i class="fa fa-caret-down"></i>
-            </button>
-            <div class="dropdown-content">
-                <div class="header">
-                <h2>Mega Menu</h2>
-                </div>
-                <div class="row">
-                <div class="column">
-                    <h3>Category 1</h3>
-                    <a href="#">Link 1</a>
-                    <a href="#">Link 2</a>
-                    <a href="#">Link 3</a>
-                </div>
-                <div class="column">
-                    <h3>Category 2</h3>
-                    <a href="#">Link 1</a>
-                    <a href="#">Link 2</a>
-                    <a href="#">Link 3</a>
-                </div>
-                <div class="column">
-                    <h3>Category 3</h3>
-                    <a href="#">Link 1</a>
-                    <a href="#">Link 2</a>
-                    <a href="#">Link 3</a>
-                </div>
-                </div>
-            </div>
-            </div>
-                </div>
-            </ul>
-        </div>
+        <div class="menu__section">
+            <div class="menu__section__left">
+                <ul>
+                    <li><img  class="menu__icon" src="assets/burger-icon.svg" alt="Burger" onclick="myFunction()"></li>
+                    <li><img class="menu__logo" src="assets/logo.bmp" alt=""></li>
+                
+                    <!--menu grande de teste-->
+                    <div class="dropdown">
+                        <li><button class="dropbtn">Experiencias</button></li>
 
-        <div class="menu__section right">
-            <ul>
-                <li><form class="menu__search search__input" action="/action_page.php"><input type="text" placeholder="Pesquisar.." name="search"></form></li>
-                <li><img onclick="openSearch()" class="menu__button__search" src="assets/lupa.svg" alt=""></li>
-                <li><img onclick="myFunction2()" class="menu__avatar" src="assets/bussiness-man.svg" alt="Avatar picture"></li>
-            </ul>
+                            <div class="dropdown-content">
+                                <div class="header">
+                                    <h2>Mega Menu</h2>
+                                </div>
+                                
+                                <div class="row">
+                                    <div class="column">
+                                        <h3>Por preço</h3>
+                                        <a href="#">Link 1</a>
+                                        <a href="#">Link 2</a>
+                                        <a href="#">Link 3</a>
+                                    </div>
+                                    <div class="column">
+                                        <h3>Por assunto</h3>
+                                        <a href="#">Link 1</a>
+                                        <a href="#">Link 2</a>
+                                        <a href="#">Link 3</a>
+                                    </div>
+                                    <div class="column">
+                                        <h3>Pela BNCC</h3>
+                                        <a href="#">Link 1</a>
+                                        <a href="#">Link 2</a>
+                                        <a href="#">Link 3</a>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                    <li><a href="#home">Sobre</a></li>
+                    <li><a href="#news">Contato</a></li>
+                </ul>
+            </div>
+    
+            <div class="menu__section__right">
+                <ul>
+                    <li><form class="menu__search search__input" action="/action_page.php"><input type="text" placeholder="Pesquisar.." name="search"></form></li>
+                    <li><img onclick="openSearch()" class="menu__button__search" src="assets/lupa.svg" alt=""></li>
+                    <li><img onclick="myFunction2()" class="menu__avatar" src="assets/bussiness-man.svg" alt="Avatar picture"></li>
+                </ul>
+            </div>
         </div>
-
+      
         <!-- The Modal -->
         <div id="id01" class="modal">
             <!-- Modal Content -->
@@ -82,9 +83,8 @@
             </div>
         </div>
 
-    <script src="js/script.js"></script>
+        <script src="js/script.js"></script>
     </header>
-
 
     <!--menu mobile-->
     <div class="topnav">
