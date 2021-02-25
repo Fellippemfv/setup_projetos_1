@@ -9,9 +9,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 1080px;
+  max-width: 1366px;
   width: 100vw;
-  margin: 0.4rem;
+  margin: 0rem 0.4rem;
 }
 
 .dropdown .dropbtn{
@@ -345,7 +345,7 @@
 .topnav {
     background-color: #333;
     position: absolute;
-    width: 100%;
+    width: 50%;
   }
   
   /* Hide the links inside the navigation menu (except for logo/home) */
@@ -387,9 +387,10 @@
   /*----------//--------------CONFIGURAÇÕES DO MODAL DE PERFIL------------------//------------*/ 
   /* Style the navigation menu */
 .topnav-2 {
-    background-color: #333;
+  background-color: #333;
     position: absolute;
-    width: 100%;
+    right: 0rem;
+    width: 14rem;
   }
   
   /* Hide the links inside the navigation menu (except for logo/home) */
@@ -428,9 +429,6 @@
   }
     /*Terminou*/
 
-
-
-
   /*----------//--------------MODAL DE PESQUISA MOBILE------------------//------------*/
 /* The overlay effect with black background */
 .search__content__mobile {
@@ -458,9 +456,8 @@
 .search__form__input {
   display: flex;
   width: 100%;
-  padding: 0.6rem;
+  padding: 0.5rem;
 }
-
 
 /* Close button */
 .search__content__button {
@@ -475,7 +472,6 @@
     display: flex;
 }
   /*Terminou*/
-
 
 
 /*TERMINA*//* FALTA SIMPLIFICAR */
