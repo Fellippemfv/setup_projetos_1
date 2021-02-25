@@ -111,13 +111,14 @@
         </div>
     </div>
 
-    <!--modal de login mobile-->
-    <div id="myOverlay" class="overlay">
-        <span class="closebtn" onclick="closeSearch()" title="Close Overlay">x</span>
-        <div class="overlay-content">
-          <form action="action_page.php">
-            <input type="text" placeholder="Search.." name="search">
-            <button type="submit"><i class="fa fa-search"></i></button>
+    <!--modal de pesquisa mobile-->
+    <div id="myOverlay" class="search__content__mobile">
+        <div class="search__content__button">
+            <img onclick="closeSearch()" src="assets/seta-esquerda.svg" alt="">
+        </div>
+        <div class="search__content__input">
+          <form class="search__form" action="action_page.php">
+            <input class="search__form__input" type="text" placeholder="Search.." name="search">
           </form>
         </div>
       </div>

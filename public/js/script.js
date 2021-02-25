@@ -32,7 +32,7 @@ function myFunction2() {
 //----------//-----------MODAL DE PESQUISA MOBILE------------//-----------//
 // Open the full screen search box
 function openSearch() {
-  document.getElementById("myOverlay").style.display = "block";
+  document.getElementById("myOverlay").style.display = "flex";
 }
 
 // Close the full screen search box
