@@ -11,6 +11,25 @@
   align-items: center;
   max-width: 1080px;
   width: 100vw;
+  margin: 0.4rem;
+}
+
+.dropdown .dropbtn{
+  border: none;
+  margin: 0px;
+}
+
+.menu__section a, .dropdown .dropbtn {
+  color: Black;
+  text-decoration: none;
+  font-size: 1.3rem; 
+  background: inherit;
+  padding: 14px 20px;
+
+}
+
+.menu__section a:hover{
+  background-color: red;
 }
 
 .menu__section ul {
@@ -20,8 +39,7 @@
 }
 
 .menu__section ul li {
-  display: flex;
-  padding: 0rem 0.3rem;
+  margin-left: 0.4rem;
 }
 
 .menu__icon {
@@ -42,11 +60,8 @@
   overflow: hidden;
 }
 
-/* Dropdown button */
-.dropdown .dropbtn {
-  color: white;
-  padding: 14px 16px;
-  margin: 0; /* Important for vertical align on mobile phones */
+.dropdown, li.drop__links {
+  display: none;
 }
 
 /* Add a red background color to navbar links on hover */
@@ -61,6 +76,7 @@
   background-color: #f9f9f9;
   width: 100%;
   left: 0;
+  top: 4.5rem;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
 }
@@ -80,7 +96,7 @@
 /* Create three equal columns that floats next to each other */
 .column {
   float: left;
-  width: 33.33%;
+  width: 25%;/*Se aumentar colunas diminuimos a porcentagem*/
   padding: 10px;
   background-color: #ccc;
   height: 250px;
@@ -111,19 +127,9 @@
   /*Terminou*/
 
 
+/*----------//--------------CONFIGURAÇÕES do menu__right------------------//------------*/ 
 
-
-
-
-.menu__section ul li .menu__link{
-    display: none;
-    text-decoration: none;
-    color: #1865f2;    
-    font-size: 1.5rem;
-    font-weight: bold;
-}
-
-.menu__section ul li .menu__avatar{
+.menu__avatar{
     max-width: 40px;
     height: auto;
     border-radius: 50%;
@@ -135,35 +141,26 @@
     align-items: center;
 }
 
-.search__input input{
-    border: 1px solid #bbb;
-    border-radius: 1rem;
-    height: 2.7rem;
-    width: 10rem;
-    display: none;
+.menu__search .menu__input{
+  display: none;
+  border: 1px solid #bbb;
+  border-radius: 1rem;
+  height: 2.7rem;
+  width: 12vw;
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
 }
 
-.menu__section ul li .menu__button__search{
+.menu__search .menu__input:focus {
+  width: 32vw;
+}
+
+
+ .menu__button__search{
   width: 2.3rem;  
   display: block;
   cursor: pointer;
 }
-
-/*.search__input input:focus {
-    
-}
-*/
-
-.search__img{
-    width: 24px;;  
-    margin-left: 1rem;  
-}
-
-.search__img:hover {
-    background: #bbb;
-    cursor: pointer;
-}
-
 
 /*TERMINA*/
 
@@ -504,29 +501,25 @@ button {
 
 /*----------//--------------CONFIGURAÇÕES DAS MEDIA QUERIES------------------//------------*/ 
 @media (min-width: 763px) {
-    .menu__section ul li .menu__icon{
+  .dropdown, li.drop__links {/*ocultar links no menu mobile*/
+    display: flex;
+  }
+
+  .menu__button__search {/*ocultar icone de pesquisa no menu normal*/
+    display: none;
+  }
+
+  .menu__section ul li .menu__icon{ /*ocultar icone de hamburguer no menu normal*/
         display: none;
-    }
-    .menu__section ul li .menu__link{
+  }
+  
+  .menu__section ul li .menu__link{/*ocultar links do menu mobile */
         display: initial;
-    }
-
-    .search__input input{
-        border: 1px solid #bbb;
-        border-radius: 1rem;
-        height: 2.7rem;
-        -webkit-transition: width 0.4s ease-in-out;
-        transition: width 0.4s ease-in-out;
-        display: block;
-    }
-
-    .search__input input:focus {
-        width: 40vw;
-    }
-
-    .menu__section ul li .menu__button__search{
-      display: none;
-    }
+  }
+  
+  .menu__search .menu__input{/*mostra imput de pesquisa no menu normal*/
+      display:  block;
+      
+  }
     
-
 } 
