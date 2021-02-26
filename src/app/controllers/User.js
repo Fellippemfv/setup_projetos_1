@@ -13,13 +13,15 @@ class UserController{
         }
     }
 
-    async singnup(req, res, next) {
+    async perfil(req, res, next) {
         try{
-            res.render("signup");
+            res.render("perfil");
         }catch(error){
             next(error);
         }
     }
+
+    
 
     async find(req, res, next) {
         try{

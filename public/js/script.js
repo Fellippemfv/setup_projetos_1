@@ -7,7 +7,7 @@ window.onclick = function(event) {
   if (event.target == modal) {
     modal.style.display = "none";
   }
-}
+}//-------FALTA VER O QUE TA ERRADO NO SCRIPT DE LOGIN
 
 //----------//-----------MENU MOBILE------------//-----------//
 function myFunction() {

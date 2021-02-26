@@ -52,7 +52,7 @@
                 <ul>
                     <li><form class="menu__search" action="/action_page.php"><input class="menu__input" type="text" placeholder="Pesquisar.." name="search"></form></li>
                     <li><img onclick="openSearch()" class="menu__button__search" src="assets/lupa.svg" alt=""></li>
-                    <li><img onclick="myFunction2()" class="menu__avatar" src="assets/bussiness-man.svg" alt="Avatar picture"></li>
+                    <li><img onclick="myFunction2()" class="menu__avatar" src="assets/male-user-shadow-svgrepo-com.svg" alt="Avatar picture"></li>
                 </ul>
             </div>
         </div>
@@ -60,36 +60,58 @@
         <script src="js/script.js"></script>
     </header>
 
-    <!-- The Modal -->
+    <!-- The Modal login -->
     <div id="id01" class="modal">
         <!-- Modal Content -->
         <div class="modal-content animate ">
-    <div class="Form-layout__ContainerWrapper">
+            <div class="form__container">
 
-        <h1 class="Text__Heading">Login</h2>            
-        <form action="/signup" method="post"><!--content__field__text//content__button__submit//content__footer__text-->
-            <input class="TextField__FieldWrapper" type="email" name="email" id="email" placeholder="Email" minlength="5" maxlength="150" required>
-            <input class="TextField__FieldWrapper" type="password" name="password" id="password" placeholder="Senha" minlength="5" maxlength="30" required> 
-            <input class="Button_ButtonWrapper" type="submit" value="Entrar">
-        </form>
+                <div class="form__header">
+                    <h1 class="text__heading">Entrar</h2>
+                    <button class="cancelbtn">Fechar</button> 
+                </div>
+                        
+                <form class="form__login" action="/signup" method="post"><!--content__field__text//content__button__submit//content__footer__text-->
+                    <input class="text__field" type="email" name="email" id="email" placeholder="Email" minlength="5" maxlength="150" required>
+                    <input class="text__field" type="password" name="password" id="password" placeholder="Senha" minlength="5" maxlength="30" required> 
+                    <input class="button_login" type="submit" value="Entrar">
+                </form>
 
-        <div class="SocialLogin_separator"><!--content__login__separator-->
-            <p>Ou continue com</p>
-        </div>
-
-        <!--content__button__signup-->
-        <div class="Button__Signup">
-            <div class="Button__Google__Login">
-                <a href=""> <p>Entrar com Google</p> </a>
+                <div class="alternative__options" style="background-color:#f1f1f1">
+                    <a class="text__forgot" href="">Esqueceu senha?</a>
+                    <h2 class="text__footer">Não tem?<a href="">Registre-se</a></h3>
+                </div>
             </div>
-        </div>
 
-        <div class="Button__alternative" style="background-color:#f1f1f1">
-            <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-            <h2 class="Text__footerText">Não tem uma conta?<a href="">Registre-se</a></h3>
         </div>
     </div>
-        </div>
+    
+
+    <!-- The Modal register -->
+    <div id="id02" class="modal">
+            <!-- Modal Content -->
+            <div class="modal-content animate ">
+                <div class="form__container">
+    
+                    <div class="form__header">
+                        <h1 class="text__heading">Entrar</h2>
+                        <button class="cancelbtn">Fechar</button> 
+                    </div>
+                            
+                    <form class="form__login" action="/signup" method="post"><!--content__field__text//content__button__submit//content__footer__text-->
+                        <input class="text__field" type="text" name="name" id="name" placeholder="Nome" minlength="5" maxlength="60" required>
+                        <input class="text__field" type="email" name="email" id="email" placeholder="Email" minlength="5" maxlength="150" required>
+                        <input class="text__field" type="password" name="password" id="password" placeholder="Senha" minlength="5" maxlength="30" required> 
+                        <input class="text__field" type="password" name="rp" id="rp" placeholder="Digite novamente a senha" minlength="5" maxlength="30" required> 
+                        <input class="button_login" type="submit" value="Entrar">
+                    </form>
+    
+                    <div class="alternative__options" style="background-color:#f1f1f1">
+                        <h2 class="text__footer">Já tem?<a href="">Faça login</a></h3>
+                    </div>
+                </div>
+    
+            </div>
     </div>
 
     <!--menu mobile-->
@@ -119,7 +141,6 @@
         <div class="search__content__input">
           <form class="search__form" action="action_page.php">
             <input class="search__form__input" type="text" placeholder="Search.." name="search">
-            <button class="search__form__button" type="submit" value="Ir"></button>
           </form>
         </div>
       </div>
