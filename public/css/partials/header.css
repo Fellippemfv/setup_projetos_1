@@ -1,5 +1,6 @@
 /*----------//--------------CONFIGURAÇÕES GERAIS DO MENU/HEADER------------------//------------*/
 .menu {
+  padding: 0.2rem;
   display: flex;
   justify-content: center;
   box-shadow: rgb(75 75 75 / 25%) 0px 0.0625rem 0.025rem 0px, rgb(75 75 75 / 15%) 0px 0.0625rem 0.1875rem 0px;

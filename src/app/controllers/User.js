@@ -13,7 +13,7 @@ class UserController{
         }
     }
 
-    async perfil(req, res, next) {
+    async profile(req, res, next) {
         try{
             res.render("perfil");
         }catch(error){

@@ -5,31 +5,36 @@ import Session from "../controllers/Session";
 import authMiddleware from "../middlewares/auth";
 
 const routes = new Router();
-//Users
-routes.get("/", User.index);//rota: /
-routes.get("/users", User.find);
+//------------//------------ROTAS DAS PÁGINAS DO SITES--------------//---------------//
+//------------//ROTAS DE USUÁRIOS//---------------//
+//pagina index/inicial
+routes.get("/", User.index);//rota: //FALTA
+//pagina de perfil usuario
+routes.get("/profile", User.profile);//OK
 
+//------------//ROTAS DE ADMIN//---------------//
+//mostrar lista de todos os usuário
+routes.get("/users", User.find); //FALTA
+//pagina de adiministrador
+//routes.get("/dashboard", User.dashboard);//falta
+//pagina de criar artigo
+//routes.get("/dashboard/article", User.dashboard);//falta
+
+
+
+//------------//------------ROTAS DAS FUNCIONALIDADES(GET/POST)--------------//---------------//
+
+//------------//ROTAS DE USUÁRIOS//---------------//
 //registrar novo usuario
-routes.post("/signup", User.create);//rota: /signup
-
+routes.post("/signup", User.create);//OK
 //login de usuario
-routes.post("/sessions", Session.store);//rota: /login
+routes.post("/signin", Session.store);//OK
+//atualizar dados de usuario
+routes.put("/profile-update", User.update);//OK
+//deletar usuario
+routes.delete("/profile-delete", User.delete);//falta
 
-//rotas protegidas
-//routes.use(authMiddleware)//Global, a partir daqui vai usar esse middleware
-routes.get("/perfil", User.perfil);
-routes.put("/users", User.update);//rota: /perfil
-routes.delete("/users", User.delete);//rota: /perfildelete
-
-
-    /*
-    .post("/users", User.create)
-    .put("/users/:id", User.update)
-    .delete("/users/:id", User.delete)
-    */
-    
-
-
+//------------//ROTAS DE ADMIN//---------------//
 
 
 export default routes;
