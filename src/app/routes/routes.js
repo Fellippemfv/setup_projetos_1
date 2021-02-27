@@ -5,39 +5,60 @@ import Session from "../controllers/Session";
 import authMiddleware from "../middlewares/auth";
 
 const routes = new Router();
-//------------//------------ROTAS DAS PÁGINAS DO SITES--------------//---------------//
+//------------//------------ROTAS DAS PÁGINAS DO SITES (GET)--------------//---------------//
+
 //------------//ROTAS DE USUÁRIOS//---------------//
-//pagina index/inicial
-routes.get("/", User.index);//rota: //FALTA
-//pagina de perfil usuario
-routes.get("/profile", User.profile);//OK
+routes.get("/", User.index);//FALTA//PAGINA INICIAL DO BLOG
+routes.get("/profile", User.profile);//OK//PAGINA DE PERFIL DE USUARIO
+
+//routes.get("/user/:id", User.users); //FALTA//PAGINA DE UM USUÁRIO
+//routes.get("/articles/:id", User.users); //FALTA//PAGINA DE UM ARTIGO
+//routes.get("/articles", User.users); //FALTA//PAGINA DE LISTAR TODOS 0S ARTIGOS
+//routes.get("/about", User.users);//FALTA //PAGINA SOBRE
+//routes.get("/contact", User.users); //FALTA//PAGINA DE CONTATO
+//routes.get("/recover", User.users); //FALTA//PAGINA RECUPERAR SENHA
+
+
+//------------//ROTAS DE ARTIGO//---------------//
+//routes.get("/dashboard/articles", User.users); //FALTA//PAGINA DE LISTAR TODOS 0S ARTIGOS PARA ADMIN
+//routes.get("/dashboard/articles/new", User.users); //FALTA//PAGINA DE CRIAR 0S ARTIGOS
+//routes.get("/dashboard/articles/update", User.users); //FALTA//PAGINA DE ATUALIZAR 0S ARTIGOS
+//routes.get("/dashboard/articles/delete", User.users); //FALTA//PAGINA DE DELETAR  0S ARTIGOS
+
 
 //------------//ROTAS DE ADMIN//---------------//
 //mostrar lista de todos os usuário
-routes.get("/users", User.users); //FALTA-------
+routes.get("dashboard/users", User.users); //OK//LISTA DE USUÁRIOS PARA ADMIN
 
-
-//pagina de adiministrador
-//routes.get("/dashboard", User.dashboard);//falta
-//pagina de criar artigo
-//routes.get("/dashboard/article", User.dashboard);//falta
+//routes.get("/dashboard", User.dashboard);//FALTA//PÁGINA DE ADMINISTRADOR
 
 
 
-//------------//------------ROTAS DAS FUNCIONALIDADES(GET/POST)--------------//---------------//
 
+//------------//------------ROTAS DAS FUNCIONALIDADES(/POST)--------------//---------------//
 //------------//ROTAS DE USUÁRIOS//---------------//
 //registrar novo usuario
-routes.post("/signup", User.create);//OK
+routes.post("/signup", User.create);//OK//ROTA DE LOGIN
 //login de usuario
-routes.post("/signin", Session.store);//OK
+routes.post("/signin", Session.store);//OK//ROTA DE CADASTRO
 //atualizar dados de usuario
-routes.post("/profile-update", User.update);//OK
+routes.post("/profile-update", User.update);//OK//ROTA DE UPTADE DE USUARIO
 //deletar usuario
-routes.post("/profile-delete", User.delete);//ok
+routes.post("/profile-delete", User.delete);//ok/ROTA DE DELETAR DE USUARIO
+
+
+//------------//ROTAS DE ARTIGO//---------------//
+//routes.post("/article/find", User.delete);//FALTA//ROTA DE LISTAR ARTIGOS
+//routes.post("/article/create", User.delete);//FALTA//ROTA DE CRIAR ARTIGO
+//routes.post("/article/update", User.delete);//FALTA//ROTA DE ATUALIZAR ARTIGO
+//routes.post("/article/delete", User.delete);//FALTA//ROTA DE DELETAR ARTIGO
+
+
 
 //------------//ROTAS DE ADMIN//---------------//
-routes.post("/users", User.find); //ok
+routes.post("/users", User.find); //ROTA DE LISTAR TODOS OS USARIOS PARA ADMIN
+
+
 
 
 
