@@ -145,6 +145,7 @@
 .menu__search .menu__input{
   display: none;
   border: 1px solid #bbb;
+  padding: 1rem;
   border-radius: 1rem;
   height: 2.7rem;
   width: 12vw;
