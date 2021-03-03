@@ -3,6 +3,7 @@ import routes from "./app/routes/routes";
 import cookieParser from "cookie-parser";
 import methodOverride from "method-override";
 import cors from "cors";
+import env from "dotenv";
 
 
 class App {
@@ -25,8 +26,7 @@ class App {
         this.server.use(cookieParser());
         this.server.use(methodOverride('_method'));
         this.server.use(cors());
-
-
+        env.config();
 
     }
 
