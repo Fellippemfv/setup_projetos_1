@@ -5,10 +5,10 @@ module.exports = {
   development: {
     client: 'mysql2',
     connection: {
-      host: '127.0.0.1', //IP
-      user: 'root',//Usuario mysql
-      password: '12345', //Senha do mysql
-      database: 'knex_test' // Nome do banco de dados
+      host: process.env.DB_HOST, //IP
+      user: process.env.DB_USER,//Usuario mysql
+      password: process.env.DB_PASS, //Senha do mysql
+      database: process.env.DB_NAME // Nome do banco de dados
     },
     migrations: {
       tableName: 'knex_migrations',

@@ -1,7 +1,5 @@
 import User from "../models/User"
 import bcrypt from "bcrypt"
-import jwt from "jsonwebtoken"
-import knex from "../../database";
 
 class UserController{
 
@@ -28,11 +26,6 @@ class UserController{
             next(error);
         }
     }
-
-
-
-
-
 
     async find(req, res, next) {
         try{
@@ -103,9 +96,5 @@ class UserController{
     }
 
 }
-
-
-
-
 
 export default new UserController();

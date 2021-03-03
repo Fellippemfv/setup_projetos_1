@@ -1,16 +1,26 @@
 import mysql from "mysql2"
-const jwt = require('jsonwebtoken');
+import jwt from "jsonwebtoken"
 import bcrypt from "bcrypt"
 //const mailgun = require('mailgun-js');
-const DOMAIN = process.env.DOMAIN_NAME;
+//const DOMAIN = process.env.DOMAIN_NAME;
 //const mg = mailgun({ apiKey: process.env.MAILGUN_API_KEY, domain: DOMAIN });
+import env from "dotenv";
+env.config();
+
 
 const db = mysql.createConnection({
-    host: process.env.DB_HOST,
-    user: "root",
-    password: "12345",
-    database: 'knex_test'
-}); 
+        host: process.env.DB_HOST, 
+        user: process.env.DB_USER,
+        password: process.env.DB_PASS,
+        database: process.env.DB_NAME
+});
+
+db.connect((err) => {
+        if (err)
+            throw err;
+        else
+            console.log("Mysql Connected")
+});
 
 exports.login = (req, res, next) => {
     try {
@@ -18,7 +28,7 @@ exports.login = (req, res, next) => {
         const { email, password } = req.body;
         if (!email || !password) {//observando se NÂO enviou os dados
             return res.status(400).render('login', {
-                message: 'All fields are mandatory!'
+                message: 'Você precisa preencher todos os campos'
             })
         }
 
@@ -93,7 +103,7 @@ exports.register = (req, res, next) => {
 }
 
 exports.getForgotPassword = (req, res, next) => {
-    res.render('forgotPassword');
+    res.render('auth/forgotPassword');
 }
 
 exports.forgotPassword = (req, res, next) => {
@@ -145,7 +155,7 @@ exports.forgotPassword = (req, res, next) => {
 
 exports.getResetPassword = (req, res, next) => {
     const resetLink = req.params.id;
-    res.render('resetPassword', { message: "Link Verified! Reset Your password", resetLink })
+    res.render('auth/resetPassword', { message: "Link Verified! Reset Your password", resetLink })
 }
 
 exports.resetPassword = (req, res, next) => {

@@ -1,11 +1,15 @@
 import express from "express";
-import routes from "./app/routes/routes";
+import authRoutes from "./app/routes/auth";
+import usersRoutes from "./app/routes/User"
 import cookieParser from "cookie-parser";
 import methodOverride from "method-override";
 import cors from "cors";
 import env from "dotenv";
-import mysql from "mysql2";
 
+//Falta refatorar database 
+//Falta refatorar controller
+//Falta refatorar routes 
+//criar paginas com ejs certinho
 
 class App {
     constructor() {
@@ -14,13 +18,10 @@ class App {
 
         //chamar os metodos criados logo abaixo
         this.middlewares();
-        this.routes();
+        this.routers();
 
         //chamar ViewEngine
         this.ejs();
-
-        //Chamar DB
-        this.database();
 
     }
 
@@ -33,30 +34,14 @@ class App {
         env.config();
     }
 
-    routes() {
-        
-        this.server.use("/user", routes);
+    routers() {
+        this.server.use("/user", authRoutes);
+        this.server.use("/", usersRoutes)
     }
 
     ejs() {
         this.server.set("view engine", "ejs");
         this.server.use(express.static("public"));
-    }
-
-    database() {
-        const db = mysql.createConnection({
-            host: process.env.DB_HOST,
-            user: process.env.DB_USER,
-            password: process.env.DB_PASS,
-            database: 'knex_test'
-        });
-        
-        db.connect((err) => {
-            if (err)
-                throw err;
-            else
-                console.log("Mysql Connected")
-        });
     }
 
 }
