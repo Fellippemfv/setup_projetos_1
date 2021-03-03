@@ -1,25 +1,38 @@
-import jwt from "jsonwebtoken";
-import authConfig from "../config/auth";
-import { promisify } from "util";
+const jwt = require('jsonwebtoken');
 
-export default async (req, res, next) => {
-    const authHeader = req.headers.authorization;
-
-    if(!authHeader) {//Verificação1 se tem token
-        return res.status(401).json({ error: "Token not provided!"});
+const requireAuth = (req, res, next) => {
+    const token = req.cookies.jwt;
+    if (token) {
+        jwt.verify(token, process.env.JWT_SECRET, (err, result) => {
+            if (err) {
+                console.log(err);
+                res.redirect('/user/login');
+            } else {
+                console.log(result);
+                req.user = result.id;
+                next();
+            }
+        })
+    } else {
+        res.redirect('/user/login')
     }
-
-    const [, token] = authHeader.split(" ");
-    
-    try {
-        const decoded = await promisify(jwt.verify)(token, authConfig.secret);
-
-        req.userId = decoded.id
-
-        return next();
-    } catch (error) {
-        return res.status(401).json({ error: "token invalid"});
-    }
-
-    return next();
 }
+
+const forwardAuth = (req, res, next) => {
+    const token = req.cookies.jwt;
+    if (token) {
+        jwt.verify(token, process.env.JWT_SECRET, (err, result) => {
+            if (err) {
+                console.log(err);
+                next();
+            } else {
+                req.user = result.id;
+                res.redirect('/user/dashboard');
+            }
+        });
+    } else {
+        next();
+    }
+}
+
+module.exports = { requireAuth, forwardAuth };
