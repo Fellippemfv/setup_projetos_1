@@ -1,6 +1,7 @@
 import express from "express";
 import routes from "./app/routes/routes";
-import cookieParser from "cookie-parser"
+import cookieParser from "cookie-parser";
+import methodOverride from "method-override";
 
 class App {
     constructor() {
@@ -20,6 +21,8 @@ class App {
         this.server.use(express.json());
         this.server.use(express.urlencoded({ extended: true }));
         this.server.use(cookieParser());
+        this.server.use(methodOverride('_method'));
+
 
     }
 
