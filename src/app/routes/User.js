@@ -1,18 +1,12 @@
-import express from "express";
-import User from "../controllers/User";
 import { Router } from "express";
-const routes = new Router();
+import User from "../controllers/User";
 import authUser from "../middlewares/authUser"
-import authAdmin from "../middlewares/authAdmin"
+const routes = new Router();
 
 
-
- 
 routes.get("/", User.index);//PAGINA INICIAL DO BLOG
-routes.get("/users", User.users);//PAGINA DE UM USUÁRIO
-routes.get("/myprofile",authUser.requireAuth, User.profile);//PAGINA DE UM USUÁRIO
-
-
+routes.get("/user/:nome", User.user);//PAGINA DE UM USUÁRIO
+routes.get("/myprofile",authUser.requireAuth, User.profile);//PAGINA DE EDITAR PERFIL DO USUÁRIO
 
 
 export default routes;

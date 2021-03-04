@@ -43,7 +43,7 @@ class authController{
                         next();
                     } else {
                         req.user = result.id;
-                        res.redirect('/user/dashboard');
+                        res.redirect('/admin/dashboard');//talvez tirar
                     }
                 });
             } else {

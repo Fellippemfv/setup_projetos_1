@@ -56,7 +56,7 @@ exports.login = (req, res, next) => {
                         });
                             res.cookie('jwt', token, { httpOnly: true, maxAge: 24 * 60 * 60 * 1000 });
                             if(user.provider === 1) {
-                                res.redirect('/user/dashboard');
+                                res.redirect('/admin/dashboard');
                             }
                             if(user.provider === 0) {
                                 res.redirect('/');

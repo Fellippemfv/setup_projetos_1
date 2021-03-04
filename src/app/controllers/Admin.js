@@ -3,6 +3,14 @@ import bcrypt from "bcrypt"
 
 class UserController{
 
+    async dashboard(req, res, next) {
+        try{
+            res.render('dashboard', { user: req.user });
+        }catch(error){
+            next(error);
+        }
+    }
+
     async index(req, res, next) {
         try{
             res.render("index");
@@ -22,6 +30,54 @@ class UserController{
     async users(req, res, next) {
         try{
             res.render("users");
+        }catch(error){
+            next(error);
+        }
+    }
+
+    async articles(req, res, next) {
+        try{
+            res.render("articles");
+        }catch(error){
+            next(error);
+        }
+    }
+
+    async articlesEdit(req, res, next) {
+        try{
+            res.render("articlesEdit");
+        }catch(error){
+            next(error);
+        }
+    }
+
+    async articlesNew(req, res, next) {
+        try{
+            res.render("articlesNew");
+        }catch(error){
+            next(error);
+        }
+    }
+
+    async categories(req, res, next) {
+        try{
+            res.render("categories");
+        }catch(error){
+            next(error);
+        }
+    }
+
+    async categoriesEdit(req, res, next) {
+        try{
+            res.render("categoriesEdit");
+        }catch(error){
+            next(error);
+        }
+    }
+
+    async categoriesNew(req, res, next) {
+        try{
+            res.render("categoriesNew");
         }catch(error){
             next(error);
         }

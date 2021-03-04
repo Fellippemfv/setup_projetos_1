@@ -13,7 +13,7 @@ class UserController{
 
     async profile(req, res, next) {
         try{
-            res.render("users/profile");
+            res.render("profile");
         }catch(error){
             next(error);
         }
@@ -22,6 +22,14 @@ class UserController{
     async users(req, res, next) {
         try{
             res.render("users");
+        }catch(error){
+            next(error);
+        }
+    }
+
+    async user(req, res, next) {
+        try{
+            res.render("user");
         }catch(error){
             next(error);
         }

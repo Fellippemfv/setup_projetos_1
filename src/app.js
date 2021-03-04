@@ -1,6 +1,7 @@
 import express from "express";
 import authRoutes from "./app/routes/auth";
 import usersRoutes from "./app/routes/User"
+import adminRoutes from "./app/routes/admin"
 import cookieParser from "cookie-parser";
 import methodOverride from "method-override";
 import cors from "cors";
@@ -36,6 +37,7 @@ class App {
     }
 
     routers() {
+        this.server.use("/admin", adminRoutes)
         this.server.use("/user", authRoutes);
         this.server.use("/", usersRoutes)
     }

@@ -31,31 +31,6 @@ class authController{
         }
     }
 
-    //Se estiver autenticado não entra pois não precisa
-    async forwardAuth(req, res, next) {
-        try {
-
-            const token = req.cookies.jwt;
-            if (token) {
-                await jwt.verify(token, process.env.JWT_SECRET, (err, result) => {
-                    if (err) {
-                        console.log(err);
-                        next();
-                    } else {
-                        req.user = result.id;
-                        res.redirect('/user/dashboard');
-                    }
-                });
-            } else {
-                next();
-            }  
-                   
-                    
-        } catch (error) {
-            next(error)
-        }
-    }
-
 }
 
 export default new authController();
