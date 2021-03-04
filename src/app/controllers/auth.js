@@ -51,7 +51,7 @@ exports.login = (req, res, next) => {
                         });
                     }else {
                         const user = results[0];
-                        const token = jwt.sign({ id: user.uid }, process.env.JWT_SECRET, {
+                        const token = jwt.sign({ id: user.id, provider: user.provider }, process.env.JWT_SECRET, {
                             expiresIn: process.env.JWT_EXPIRE
                         });
                             res.cookie('jwt', token, { httpOnly: true, maxAge: 24 * 60 * 60 * 1000 });
@@ -124,7 +124,7 @@ exports.forgotPassword = (req, res, next) => {
                 });
             }
 
-            const token = jwt.sign({ _id: results[0].uid }, process.env.RESET_PASSWORD_KEY, { expiresIn: '20m' });
+            const token = jwt.sign({ _id: results[0].id }, process.env.RESET_PASSWORD_KEY, { expiresIn: '20m' });
             const data = {
                 from: 'noreplyCMS@mail.com',
                 to: email,
