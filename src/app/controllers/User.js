@@ -3,7 +3,7 @@ import bcrypt from "bcrypt"
 
 class UserController{
 
-    async index(req, res, next) {
+    async getIndex(req, res, next) {
         try{
             res.render("index");
         }catch(error){
@@ -11,7 +11,7 @@ class UserController{
         }
     }
 
-    async profile(req, res, next) {
+    async getProfile(req, res, next) {
         try{
             res.render("profile");
         }catch(error){
@@ -19,15 +19,7 @@ class UserController{
         }
     }
 
-    async users(req, res, next) {
-        try{
-            res.render("users");
-        }catch(error){
-            next(error);
-        }
-    }
-
-    async user(req, res, next) {
+    async getUser(req, res, next) {
         try{
             res.render("user");
         }catch(error){
@@ -35,6 +27,9 @@ class UserController{
         }
     }
 
+
+
+    
     async find(req, res, next) {
         try{
             let users = await User.findAll();

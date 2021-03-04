@@ -1,30 +1,20 @@
-import express from "express"
-import User from "../controllers/Auth"
+import { Router } from "express";
+import Auth from "../controllers/Auth";
 import authUser from "../middlewares/authUser"
+const routes = new Router();
 
-const router = express.Router();
+routes.get('/register', authUser.forwardAuth, Auth.getRegister );
+routes.post('/register', Auth.register);
 
+routes.get('/login', authUser.forwardAuth, Auth.getLogin );
+routes.post('/login', Auth.login);
 
-router.get('/register', authUser.forwardAuth, (req, res, next) => {
-    res.render('register');
-});
+routes.get('/forgot-password', Auth.getForgotPassword );
+routes.put('/forgot-password', Auth.forgotPassword);
 
-router.post('/register', User.register);
+routes.get('/resetpassword/:id', Auth.getResetPassword);
+routes.put('/resetpassword', Auth.resetPassword);
 
-router.get('/login', authUser.forwardAuth, (req, res, next) => {
-    res.render('login');
-});
+routes.get('/logout', Auth.getLogout);
 
-router.post('/login', User.login);
-
-
-router.get('/forgot-password', User.getForgotPassword);
-router.put('/forgot-password', User.forgotPassword);
-
-router.get('/resetpassword/:id', User.getResetPassword);
-router.put('/resetpassword', User.resetPassword);
-
-router.get('/logout', User.getLogout);
-
-
-export default router;
+export default routes;
