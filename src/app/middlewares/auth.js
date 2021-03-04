@@ -1,38 +1,58 @@
-const jwt = require('jsonwebtoken');
+import jwt from "jsonwebtoken";
 
-const requireAuth = (req, res, next) => {
-    const token = req.cookies.jwt;
-    if (token) {
-        jwt.verify(token, process.env.JWT_SECRET, (err, result) => {
-            if (err) {
-                console.log(err);
-                res.redirect('/user/login');
+class authController{
+
+    //Para entrar precisa estar autenticado
+    async requireAuth(req, res, next) {
+        try {
+
+            const token = req.cookies.jwt;
+            if (token) {
+                await jwt.verify(token, process.env.JWT_SECRET, (err, result) => {
+                    if (err) {
+                        console.log(err);
+                        res.redirect('/user/login');
+                    } else {
+                        console.log(result);
+                        req.user = result.id;
+                        next();
+                    }
+                })
             } else {
-                console.log(result);
-                req.user = result.id;
-                next();
+                res.redirect('/user/login')
             }
-        })
-    } else {
-        res.redirect('/user/login')
+           
+            
+        } catch (error) {
+            next(error)
+        }
     }
+
+    //Se estiver autenticado não entra pois não precisa
+    async forwardAuth(req, res, next) {
+        try {
+
+            const token = req.cookies.jwt;
+            if (token) {
+                await jwt.verify(token, process.env.JWT_SECRET, (err, result) => {
+                    if (err) {
+                        console.log(err);
+                        next();
+                    } else {
+                        req.user = result.id;
+                        res.redirect('/user/dashboard');
+                    }
+                });
+            } else {
+                next();
+            }  
+                   
+                    
+        } catch (error) {
+            next(error)
+        }
+    }
+
 }
 
-const forwardAuth = (req, res, next) => {
-    const token = req.cookies.jwt;
-    if (token) {
-        jwt.verify(token, process.env.JWT_SECRET, (err, result) => {
-            if (err) {
-                console.log(err);
-                next();
-            } else {
-                req.user = result.id;
-                res.redirect('/user/dashboard');
-            }
-        });
-    } else {
-        next();
-    }
-}
-
-module.exports = { requireAuth, forwardAuth };
+export default new authController();
