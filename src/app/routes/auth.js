@@ -1,23 +1,25 @@
 import express from "express"
-import User from "../controllers/auth"
-import Auth from "../middlewares/auth"
+import User from "../controllers/Auth"
+import authUser from "../middlewares/authUser"
+import authAdmin from "../middlewares/authAdmin"
+
 const router = express.Router();
 
 
-router.get('/register', Auth.forwardAuth, (req, res, next) => {
+router.get('/register', authUser.forwardAuth, (req, res, next) => {
     res.render('auth/register');
 });
 
 router.post('/register', User.register);
 
-router.get('/login', Auth.forwardAuth, (req, res, next) => {
+router.get('/login', authUser.forwardAuth, (req, res, next) => {
     res.render('auth/login');
 });
 
 router.post('/login', User.login);
 
 
-router.get('/dashboard', Auth.requireAuth, (req, res) => {
+router.get('/dashboard', authAdmin.requireAuth, (req, res) => {
     res.render('admin/dashboard', { user: req.user });
 });
 

@@ -55,7 +55,12 @@ exports.login = (req, res, next) => {
                             expiresIn: process.env.JWT_EXPIRE
                         });
                             res.cookie('jwt', token, { httpOnly: true, maxAge: 24 * 60 * 60 * 1000 });
-                            res.redirect('/user/dashboard');
+                            if(user.provider === 1) {
+                                res.redirect('/user/dashboard');
+                            }
+                            if(user.provider === 0) {
+                                res.redirect('/');
+                            }
                         }
             
                     });
@@ -91,7 +96,7 @@ exports.register = (req, res, next) => {
         let hashed = await bcrypt.hash(password, 8);
 
         let sql2 = 'INSERT INTO users SET ?';
-        db.query(sql2, { name: name, email: email, password_hash: hashed, provider: 1 }, (err, result) => {
+        db.query(sql2, { name: name, email: email, password_hash: hashed, provider: 0 }, (err, result) => {
             if (err)
                 throw err;
             else {

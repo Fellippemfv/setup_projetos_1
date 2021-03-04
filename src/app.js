@@ -6,6 +6,7 @@ import methodOverride from "method-override";
 import cors from "cors";
 import env from "dotenv";
 
+//organizar o maximo que der
 //Falta refatorar database 
 //Falta refatorar controller
 //Falta refatorar routes 

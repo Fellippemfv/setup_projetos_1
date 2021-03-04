@@ -12,10 +12,13 @@ class authController{
                     if (err) {
                         console.log(err);
                         res.redirect('/user/login');
-                    } else {
+                    } else if(result.provider === 1){//(and / ou) (&& / ||) provider ===0
                         console.log(result);
                         req.user = result.id;
                         next();
+                    }else{
+                        res.redirect('/');
+
                     }
                 })
             } else {
