@@ -23,9 +23,9 @@ db.connect((err) => {
 
     class AuthController{
 
-        async getLogin(req, res, next) {
-            try{
-                res.render('login');
+        async getLogin(req, res, next) { 
+            try{ 
+                res.render('login', {message: ""});
             }catch(error){
                 next(error);
             }
@@ -37,9 +37,9 @@ db.connect((err) => {
                 const { email, password } = req.body;
                 if (!email || !password) {//observando se NÂO enviou os dados
                     return res.status(400).render('login', {
-                        message: 'Você precisa preencher todos os campos'
+                        message: 'Você precisa preencher todos os campos', 
                     })
-                }
+                } 
         
                 if (email && password) {//observando se enviou os dados
         
@@ -85,7 +85,7 @@ db.connect((err) => {
 
         async getRegister(req, res, next) {
             try{
-                res.render('register');
+                res.render('register', {message: ""});
             }catch(error){
                 next(error);
             }
@@ -104,7 +104,8 @@ db.connect((err) => {
                     return res.render('register', {
                         message: 'Este email já foi cadastrado'
                     });
-                } else if (password != passwordConfirm) {
+                }  
+                if (password != passwordConfirm) {
                     return res.render('register', {
                         message: 'Senhas não conferem'
                     });
@@ -131,7 +132,7 @@ db.connect((err) => {
 
         async getForgotPassword(req, res, next) {
             try{
-                res.render('auth/forgotPassword');
+                res.render('forgotPassword');
             }catch(error){
                 next(error);
             }
@@ -191,7 +192,7 @@ db.connect((err) => {
         async getResetPassword(req, res, next) {
             try{
                 const resetLink = req.params.id;
-                res.render('auth/resetPassword', { message: "Link Verified! Reset Your password", resetLink })
+                res.render('resetPassword', { message: "Link Verified! Reset Your password", resetLink })
             }catch(error){
                 next(error);
             }

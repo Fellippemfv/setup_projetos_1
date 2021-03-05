@@ -1,61 +1,34 @@
-<!DOCTYPE html>
-<html lang="en">
+<%- include("partials/head.ejs") %>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
-    <link rel="stylesheet" href="/style.css">
-</head>
 
 <body>
+   
+    <main class="content">
+        <div class="form__container">
 
-    <nav>
-        <h4>UMS</h4>
-        <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/user/login">Login</a></li>
-            <li><a href="/user/register">Register</a></li>
-            <li><a href="/user/forgot-password">Forgot password</a></li>
-        </ul>
-    </nav>
-
-    <div class="container mt-4">
-        <div class="card">
-            <div class="card-header">
-                LOGIN FORM
+            <div class="form__header">
+                <h1 class="text__heading">Entrar</h2>
             </div>
-            <div class="card-body">
-                <form action="/user/login" method="POST">
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" class="form-control" id="email" name="email" placeholder="Enter email">
-                    </div>
-                    <div class="form-group">
-                        <label for="password">Password</label>
-                        <input type="password" class="form-control" id="password" name="password" placeholder="Password">
-                    </div>
-                    <button type="submit" class="btn btn-primary">LOGIN</button>
-                </form>
+                    
+            <form class="form__login" action="/user/login" method="POST"><!--content__field__text//content__button__submit//content__footer__text-->
+                <% if (message) { %>
+                    <h2><%= message %> </h2>
+                <% } %>
+                <input class="text__field" type="email" name="email" id="email" placeholder="Email" minlength="3" maxlength="150" required>
+                <input class="text__field" type="password" name="password" id="password" placeholder="Senha" minlength="3" maxlength="30" required> 
+                <input class="button_login" type="submit" value="Entrar">
+            </form>
+
+            <div class="alternative__options" style="background-color:#f1f1f1">
+                <a class="text__forgot" href="/user/forgot-password">Esqueceu senha?</a>
+                <h2 class="text__footer">Não tem?<a href="/user/register">Registre-se</a></h3>
             </div>
         </div>
+    </main>
+   
 
-        
-    </div>
+    <%- include("partials/footer.ejs") %>
 
-
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
 </body>
 
 </html>

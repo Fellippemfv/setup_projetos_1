@@ -6,13 +6,19 @@ import cookieParser from "cookie-parser";
 import methodOverride from "method-override";
 import cors from "cors";
 import env from "dotenv";
+env.config();
 
 //organizar o maximo que der
 //Falta refatorar database 
-//Falta refatorar controller
-//Falta refatorar routes 
+//ver o que ta errado com css das partials do ejs 
 //criar paginas com ejs certinho
 
+/* paginas ok ---------------
+-login
+-register
+-forgot password
+-reset password
+*/
 class App {
     constructor() {
         //chama o servidor
@@ -33,7 +39,6 @@ class App {
         this.server.use(cookieParser());
         this.server.use(methodOverride('_method'));
         this.server.use(cors());
-        env.config();
     }
 
     routers() {

@@ -5,66 +5,58 @@
     <%- include("partials/header.ejs") %>
 
     <main class="content">
-
-
-        <div class="users__content">
-
-            <div class="users__section__header">
-                <h1 class="title__header">Lista de usuários</h1>
-            </div>
-
-            <div class="users__section__body">
-                <div class="user__block">
-                    <div class="user__info">
-                        <h2 class="user__title">foto</h2>
-                    </div>
-                    <div class="user__info">
-                        <img class="user__image" src="assets/male-user-shadow-svgrepo-com.svg" alt="">
-                    </div>
+          
+            <div class="container">
+                <div class="box-nav d-flex justify-between">
+                    <a href="/add-user" class="border-shadow">
+                        <span class="text-gradient">Voltar ao dashboard <i class="fas fa-user"></i></span>
+                    </a>
                 </div>
+    
 
-                <div class="user__block">
-                    <div class="user__info">
-                        <h2 class="user__title">Nome</h2>
-                    </div>
-                    <div class="user__info">
-                        <p>Fellippe Matheus</p>
-                    </div>
-                </div>
+                <!-- form handling -->
+                <form action="/" method="POST">
+                    <table class="table">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>ID</th>
+                                <th>Foto</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>cargo</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <% users.forEach(user => { %>
+                        <tbody>
+                            <tr>
+                                <td><%= user.id %></td>
+                                <td>exemplo</td>
+                                <td><%= user.name %></td>
+                                <td><%= user.email %></td>
+                                <td><%= user.provider %></td>
+                                <td>
+                                    <a href="/" class="btn border-shadow update">
+                                        <span class="text-gradient"><i class="fas fa-pencil-alt"></i></span>
+                                    </a>
+                                    <a class="btn border-shadow delete" >
+                                        <span class="text-gradient"><i class="fas fa-times"></i></span>
+                                    </a>
+                                </td>
+    
+    
+                                
+                            </tr>
+                        </tbody>
+                        <% }) %>
 
-                <div class="user__block">
-                    <div class="user__info">
-                        <h2 class="user__title">Email</h2>
-                    </div>
-                    <div class="user__info">
-                        <p>Fellippe.matheus@hotmail.com</p>
-                    </div>
-                </div>
-
-                <div class="user__block">
-                    <div class="user__info">
-                        <h2 class="user__title">Cargo</h2>
-                    </div>
-                    <div class="user__info">
-                        <p>Administrador</p>
-                    </div>
-                </div>
-
-                <div class="user__block">
-                    <div class="user__info">
-                        <h2 class="user__title">Opções</h2>
-                    </div>
-                    <div class="user__info">
-                        <button>Excluir</button>
-                        <button>Editar</button>
-                    </div>
-                </div>
-                
+                    </table>
+                </form>
 
             </div>
 
-        </div>
-        
+
+
     </main>
     
 

@@ -19,12 +19,15 @@ class AdminController{
     }
 
     async getUsers(req, res, next) {
-        try{
-            res.render("users");
+        try{ 
+            const users = await Admin.findAll();//chamando metodo findall do model
+            res.render("users", {
+                users: users,
+            });
         }catch(error){
             next(error);
         }
-    }
+    } 
 
     async getArticles(req, res, next) {
         try{
