@@ -1,4 +1,4 @@
-import Admin from "../models/models"
+import Admin from "../models/Admin"
 
 class AdminController{
 

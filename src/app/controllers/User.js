@@ -1,4 +1,4 @@
-import User from "../models/models"
+import User from "../models/Users"
 import bcrypt from "bcrypt"
 
 class UserController{

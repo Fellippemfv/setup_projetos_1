@@ -15,7 +15,44 @@ class User{
         }
     }
 
-    async findDelete(id){
+    
+
+
+
+
+
+
+
+    
+    async update(id, name, email, password){//faz update dos dados
+        try {
+            if(name){
+                let result = await knex("users").where({ id }).update({ name, "updated_at": new Date() });
+            }
+
+            if(email){
+                let result = await knex("users").where({ id }).update({ email, "updated_at": new Date() });
+            }
+
+            if(password){
+                const hash = await bcrypt.hash(password, 8)
+                let result = await knex("users").where({ id }).update({ password_hash: hash, "updated_at": new Date() });
+            }
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    async softDelete(id){
+        try {
+            let result = await knex("users").where({ id }).update("deleted_at", new Date())
+        } catch (error) {
+            console.log(error)
+        }
+    }
+/*
+
+async findDelete(id){
         try{
             let result = await knex("users").whereNot({ deleted_at: "0000-00-00 00:00:00" }).where({ id }).select("id");
             if(result.length > 0) {
@@ -91,32 +128,8 @@ class User{
         }
     }
 
-    async update(id, name, email, password){//faz update dos dados
-        try {
-            if(name){
-                let result = await knex("users").where({ id }).update({ name, "updated_at": new Date() });
-            }
 
-            if(email){
-                let result = await knex("users").where({ id }).update({ email, "updated_at": new Date() });
-            }
-
-            if(password){
-                const hash = await bcrypt.hash(password, 8)
-                let result = await knex("users").where({ id }).update({ password_hash: hash, "updated_at": new Date() });
-            }
-        } catch (error) {
-            console.log(error)
-        }
-    }
-
-    async softDelete(id){
-        try {
-            let result = await knex("users").where({ id }).update("deleted_at", new Date())
-        } catch (error) {
-            console.log(error)
-        }
-    }
+    */
     
 }
 
