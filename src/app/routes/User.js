@@ -5,8 +5,11 @@ const routes = new Router();
 
 
 routes.get("/", User.getIndex);//PAGINA INICIAL DO BLOG
-routes.get("/user/:nome", User.getUser);//PAGINA DE UM USUÁRIO
-routes.get("/myprofile",authUser.requireAuth, User.getProfile);//PAGINA DE EDITAR PERFIL DO USUÁRIO
+routes.get("/user/:id", User.getUser);//PAGINA DE UM USUÁRIO//falta
+
+routes.get("/myprofile",authUser.requireAuth, User.getMyProfile);//PAGINA DE EDITAR PERFIL DO USUÁRIO
+routes.post("/myprofile",authUser.requireAuth, User.myProfile);//PAGINA DE EDITAR PERFIL DO USUÁRIO
+
 
 
 export default routes;

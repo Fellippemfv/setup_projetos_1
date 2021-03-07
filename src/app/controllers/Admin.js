@@ -12,7 +12,7 @@ class AdminController{
 
     async getProfile(req, res, next) {
         try{
-            res.render("users/profile");
+            res.render("profile");
         }catch(error){
             next(error);
         }

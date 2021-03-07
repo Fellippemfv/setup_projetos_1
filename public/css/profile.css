@@ -50,6 +50,10 @@
     padding: 1.2rem;
 }
 
+h2 .error {
+    color: red;
+}
+
 @media (min-width: 763px) {
     .perfil__section {
         flex-direction: initial;

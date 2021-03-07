@@ -1,0 +1,73 @@
+
+<%- include("partials/head.ejs") %>
+
+<body>
+
+    <%- include("partials/header.ejs") %>
+
+    <main class="content">
+        
+        <div class="perfil__section">
+            <div class="perfil__section__left">
+                <img class="user__photo" src="assets/male-user-shadow-svgrepo-com.svg" alt="">
+                <img class="change__photo" src="assets/camera-fotografica.svg" alt="">
+                <p>Descrição do usuario Descrição do usuario Descrição do usuario Descrição do usuario Descrição do usuario Descrição do usuario Descrição do usuario Descrição do usuario Descrição do usuario Descrição do usuario Descrição do usuario Descrição do usuario </p>
+            </div>
+
+            <div class="perfil__section__right">
+                <div class="perfil_content">
+                    <h2>ultima atualização:</h2>
+                    <p><%= updated_at %></p>
+                </div>
+
+                <div class="perfil__content">
+                    <% if (message) { %>
+                        <h2 class="error"><%= message %> </h2>
+                    <% } %>
+                </div>
+
+                <form action="/myprofile" method="POST">
+                    <div class="perfil__content">
+                        <label class="perfil__title" for="name">Nome</label>
+                        <input class="perfil__input" type="text" name="name" id="name" value="<%= name %>" minlength="5" maxlength="60" >
+                        <input class="button_login" type="submit" value="Atualizar nome">
+                    </div>
+                </form>
+
+
+                <form action="/myprofile" method="POST">
+                    <div class="perfil__content">
+                        <label class="perfil__title" for="email">Email</label>
+                        <input class="perfil__input" type="email" name="email" id="email" value="<%= email %>" minlength="5" maxlength="150" >
+                        <input class="button_login" type="submit" value="Atualizar email">
+                    </div>
+                </form>
+
+
+                <form action="/myprofile" method="POST">
+                    <div class="perfil__content">
+                        <label class="perfil__title" for="oldPassword">Digite a senha atual</label>
+                        <input class="perfil__input" type="password" name="oldPassword" id="oldPassword" placeholder="Senha atual" minlength="5" maxlength="30" > 
+                        <label class="perfil__title" for="password">Digite a nova senha</label>
+                        <input class="perfil__input" type="password" name="password" id="password" placeholder="senha nova" minlength="5" maxlength="30" > 
+                        <input class="button_login" type="submit" value="Atualizar senha">
+                    </div>
+                </form>
+
+
+                <form action="/myprofile" method="POST">
+                    <div class="perfil__content">
+                        <label class="perfil__title" for="deleted">Deletar conta</label>
+                        <input class="button_login" type="submit" name="deleted" id="deleted" value="Deletar">
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+    </main>
+    
+    <%- include("partials/footer.ejs") %>
+
+
+</body>
+
