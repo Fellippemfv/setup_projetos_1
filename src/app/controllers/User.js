@@ -11,6 +11,9 @@ class UserController{
         }
     }
 
+    //async index
+
+
     async getProfile(req, res, next) {
         try{
             res.render("profile");
@@ -19,6 +22,34 @@ class UserController{
         }
     }
 
+    async myProfile(req, res, next) {
+        //------------//-----------------///---------------- validando email//------------//-----------------///----------------
+                try {
+                    const { email, oldPassword, password, name } = req.body;
+                    const id = req.userId
+                    const user = await User.findById(id)
+                    if(email && email != user.email) {//validação1 se o email dele é diferente do banco
+                        const userExist = await User.findOneEmail(email);
+                        if (userExist) {//validação2 de email valido
+                            return res.status(400).json({ error: "Email already exists." })
+                        }
+                    }
+        //------------//-----------------///----------------comparando senha//------------//-----------------///----------------
+                    const passwordExist = await User.findHashById(id);//validação1 de senha, se confere a senha antiga com o banco
+                    if(oldPassword && !(await bcrypt.compare(oldPassword, passwordExist.password_hash))) {
+                        return res.status(401).json({ error: "Password does not match"})
+                    }
+                    await User.update(id, name, email, password);
+                    return res.json({
+                        user
+                    }); 
+                    
+                } catch (error) {
+                    next(error)
+                }
+            }
+
+
     async getUser(req, res, next) {
         try{
             res.render("user");
@@ -26,6 +57,8 @@ class UserController{
             next(error);
         }
     }
+
+    //async user
 
 
 

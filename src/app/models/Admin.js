@@ -15,15 +15,15 @@ class User{
         }
     }
 
-    
+    async findAllDeleted(){//retorna lista de usuarios
+        try{
+            let result = await knex("users").whereNot("deleted_at", "0000-00-00 00:00:00")
+            return result;
+        }catch(error){
+            console.log(error);
+        }
+    }
 
-
-
-
-
-
-
-    
     async update(id, name, email, password){//faz update dos dados
         try {
             if(name){
@@ -43,9 +43,9 @@ class User{
         }
     }
 
-    async softDelete(id){
+    async hardDelete(id){
         try {
-            let result = await knex("users").where({ id }).update("deleted_at", new Date())
+            let result = await knex("users").where({ id }).delete()
         } catch (error) {
             console.log(error)
         }

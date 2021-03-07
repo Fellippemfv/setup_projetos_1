@@ -31,17 +31,20 @@
                         <tbody>
                             <tr>
                                 <td><%= user.id %></td>
-                                <td><img class="img-users" src="/assets/male-user-shadow-svgrepo-com.svg" alt=""></td>
+                                <td>exemplo</td>
                                 <td><%= user.name %></td>
                                 <td><%= user.email %></td>
                                 <td><%= user.provider %></td>
                                 <td>
-                                    <span class="text-gradient"><img class="img-users" src="/assets/pencil-striped.svg" alt=""></span>
-                                    
-                                    <span class="text-gradient"><img class="img-users" src="/assets/lixeira.svg" alt=""></span>
+                                    <a href="/" class="btn border-shadow update">
+                                        <span class="text-gradient"><i class="fas fa-pencil-alt"></i></span>
+                                    </a>
+                                    <a class="btn border-shadow delete" >
+                                        <span class="text-gradient"><i class="fas fa-times"></i></span>
+                                    </a>
                                 </td>
     
-
+    
                                 
                             </tr>
                         </tbody>

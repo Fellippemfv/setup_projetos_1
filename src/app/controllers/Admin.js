@@ -22,7 +22,18 @@ class AdminController{
         try{ 
             const users = await Admin.findAll();//chamando metodo findall do model
             res.render("users", {
-                users: users,
+                users,
+            });
+        }catch(error){
+            next(error);
+        }
+    }
+    
+    async getUsersDeleted(req, res, next) {
+        try{ 
+            const users = await Admin.findAllDeleted();//chamando metodo findall do model
+            res.render("usersDeleted", {
+                users,
             });
         }catch(error){
             next(error);

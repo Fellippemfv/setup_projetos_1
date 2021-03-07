@@ -34,15 +34,6 @@ a {
     justify-content: space-between;
 }
 
-
-
-.border-shadow{
-    border: 1px solid var(--border-btn);
-    box-shadow: 1px 3px 10px #e9ecef;
-}
-
-
-
 .text-gradient{
     background: linear-gradient(to right, #8e2de2, #4a00e0);
     -webkit-background-clip: text;
@@ -50,6 +41,11 @@ a {
     -webkit-text-fill-color: transparent;
 }
 
+.img-users {
+    width: 2.3rem;
+    cursor: pointer;
+    margin: 0rem 1rem;
+}
 
 
 #site-main{
