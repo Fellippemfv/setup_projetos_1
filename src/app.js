@@ -2,20 +2,16 @@ import express from "express";
 import authRoutes from "./app/routes/auth";
 import usersRoutes from "./app/routes/User"
 import adminRoutes from "./app/routes/admin"
+import articlesRouts from "./app/routes/Articles"
 import cookieParser from "cookie-parser";
 import methodOverride from "method-override";
 import cors from "cors";
 import env from "dotenv";
 env.config();
 
-//organizar o maximo que der
 //Falta refatorar database 
 //ver o que ta errado com css das partials do ejs 
-//criar paginas com ejs certinho
-
-/* paginas ok ---------------
--login
--register
+/* paginas ---------------
 -forgot password
 -reset password
 */
@@ -44,6 +40,7 @@ class App {
     routers() {
         this.server.use("/admin", adminRoutes)
         this.server.use("/user", authRoutes);
+        this.server.use("/articles", articlesRouts);
         this.server.use("/", usersRoutes)
     }
 
