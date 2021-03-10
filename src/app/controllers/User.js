@@ -22,7 +22,8 @@ class UserController{
                 message: "",
                 name: user.name,
                 email: user.email,
-                updated_at: user.updated_at
+                updated_at: user.updated_at,
+                photo: user.img_file
             });
         }catch(error){
             next(error);

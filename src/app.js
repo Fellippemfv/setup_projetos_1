@@ -7,6 +7,7 @@ import cookieParser from "cookie-parser";
 import methodOverride from "method-override";
 import cors from "cors";
 import env from "dotenv";
+import path from "path";
 env.config();
 
 //Falta refatorar database 
@@ -47,6 +48,9 @@ class App {
     ejs() {
         this.server.set("view engine", "ejs");
         this.server.use(express.static("public"));
+        this.server.use("/files", express.static(path.resolve(__dirname, '..', 'tmp', 'uploads')));
+
+
     }
 
 }

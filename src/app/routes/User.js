@@ -1,6 +1,7 @@
 import { Router } from "express";
 import User from "../controllers/User";
 import authUser from "../middlewares/authUser"
+import FileController from "../controllers/FileController"
 const routes = new Router();
 
 
@@ -17,9 +18,7 @@ routes.get("/myprofile",authUser.requireAuth, User.getMyProfile);//PAGINA DE EDI
 routes.post("/myprofile",authUser.requireAuth, User.myProfile);//PAGINA DE EDITAR PERFIL DO USUÁRIO
 
 
-routes.post('/files', authUser.requireAuth, upload.single('file'), (req, res) => {
-    return res.redirect("/myprofile")
-});  
+routes.post('/files', authUser.requireAuth, upload.single('file'), FileController.store );  
 
 
 
