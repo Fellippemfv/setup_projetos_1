@@ -23,7 +23,9 @@ class UserController{
                 name: user.name,
                 email: user.email,
                 updated_at: user.updated_at,
-                photo: user.img_file
+                photo: user.img_file,
+                description: user.description
+
             });
         }catch(error){
             next(error);
@@ -33,7 +35,7 @@ class UserController{
     async myProfile(req, res, next) {
 
         try {
-            const { email, oldPassword, password, name, deleted } = req.body;
+            const { description, email, oldPassword, password, name, deleted } = req.body;
             const id = req.user
             const user = await User.findById(id)
 //------------//-----------------///---------------- validando email//------------//-----------------///----------------
@@ -43,7 +45,9 @@ class UserController{
                                 message: 'Este email é o mesmo que o antigo',
                                 name: user.name,
                                 email: user.email,
-                                updated_at: user.updated_at
+                                updated_at: user.updated_at,
+                                photo: user.img_file,
+                                description: user.description
                             });
                         }
     
@@ -53,7 +57,9 @@ class UserController{
                                 message: 'alguem já cadastrou este email',
                                 name: user.name,
                                 email: user.email,
-                                updated_at: user.updated_at
+                                updated_at: user.updated_at,
+                                photo: user.img_file,
+                                description: user.description
                             });
                         }
     
@@ -66,17 +72,21 @@ class UserController{
                                 message: 'Senha atual não confere',
                                 name: user.name,
                                 email: user.email,
-                                updated_at: user.updated_at
+                                updated_at: user.updated_at,
+                                photo: user.img_file,
+                                description: user.description
                             });                    
                         }
             }
                     
-            await User.update(id, name, email, password, deleted);
+            await User.update(description, id, name, email, password, deleted);
                 res.render("myProfile" , {
                     message: "Dados atualizados com sucesso!",
                     name: user.name,
                     email: user.email,
-                    updated_at: user.updated_at
+                    updated_at: user.updated_at,
+                    photo: user.img_file,
+                    description: user.description
                 });
                     
         } catch (error) {

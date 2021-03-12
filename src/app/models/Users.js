@@ -8,7 +8,7 @@ class User{
 
     async findById(id){//retorna lista de usuarios
         try{
-            let result = await knex("users").where({ id }).select(["name", "email" , "updated_at", "img_file" ])
+            let result = await knex("users").where({ id }).select(["description", "name", "email" , "updated_at", "img_file" ])
             return result[0];
         }catch(error){
             console.log(error);
@@ -37,8 +37,14 @@ class User{
         }
     }
 
-    async update(id, name, email, password, deleted){//faz update dos dados
+    async update(description, id, name, email, password, deleted){//faz update dos dados
         try {
+
+            if(description){
+                let result = await knex("users").where({ id }).update({ description, "updated_at": new Date() });
+                return result
+            }
+
             if(name){
                 let result = await knex("users").where({ id }).update({ name, "updated_at": new Date() });
                 return result

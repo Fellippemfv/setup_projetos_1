@@ -11,7 +11,15 @@
             <div class="perfil__section__left">
                 <img class="user__photo" src="<%= photo %>" alt="">
                 <img class="change__photo" src="assets/camera-fotografica.svg" alt="">
-                <p>Descrição do usuario Descrição do usuario Descrição do usuario Descrição do usuario Descrição do usuario Descrição do usuario Descrição do usuario Descrição do usuario Descrição do usuario Descrição do usuario Descrição do usuario Descrição do usuario </p>
+
+                <form action="/myprofile" method="POST">
+                    <div class="perfil__content">
+                        <label class="perfil__title" for="description">Descrição</label>
+                        <input class="perfil__input" type="text" name="description" id="description" value="<%= description %>" minlength="5" maxlength="250" >
+                        <input class="button_login" type="submit" value="Atualizar Descrição">
+                    </div>
+                </form>
+
                 <form action="/files" enctype="multipart/form-data" method="post">
                     <input type="file"  name="file">
                   <input type="submit" value="enviar arquivo" >            
