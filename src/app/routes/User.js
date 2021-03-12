@@ -16,7 +16,7 @@ routes.get("/user/:id", User.getProfileUser);//PAGINA DE UM USUÁRIO//falta
 
 routes.get("/myprofile",authUser.requireAuth, User.getMyProfile);//PAGINA DE EDITAR PERFIL DO USUÁRIO
 routes.post("/myprofile",authUser.requireAuth, User.myProfile);//PAGINA DE EDITAR PERFIL DO USUÁRIO
-
+ 
 
 routes.post('/files', authUser.requireAuth, upload.single('file'), FileController.store );  
 
