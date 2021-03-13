@@ -8,6 +8,7 @@ import methodOverride from "method-override";
 import cors from "cors";
 import env from "dotenv";
 import path from "path";
+import { localsName } from "ejs";
 env.config();
 
 //Falta refatorar database 
@@ -39,10 +40,15 @@ class App {
     }
 
     routers() {
+        this.server.use(function (req, res, next) {
+            res.locals.isAuthenticated = req.cookies.jwt;
+            next();
+        })
         this.server.use("/admin", adminRoutes)
         this.server.use("/user", authRoutes);
         this.server.use("/articles", articlesRouts);
-        this.server.use("/", usersRoutes)
+        this.server.use("/", usersRoutes) 
+        
     }
 
     ejs() {

@@ -126,13 +126,15 @@
     <!--menu perfil-->
     <div class="topnav-2">
         <!-- Navigation links (hidden by default) -->
-        <div id="myLinks-2">
-            <a href="#news">Perfil</a>
-            <form action="/user/logout" method="get">
-                <input type="submit" value="sair">
-            </form>
-            <a onclick="document.getElementById('id01').style.display='block'"  href="/logout">Sair</a>
-        </div>
+
+       <%if(!isAuthenticated){%>
+
+                <li><a href="/register">Register</a></li>
+                <li><a href="/login">Login</a></li>
+
+                <%}else{%>
+                    <li><a href="/logout">Logout</a></li>
+                <%}%>
     </div>
 
     <!--modal de pesquisa mobile-->
