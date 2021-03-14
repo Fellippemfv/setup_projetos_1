@@ -10,7 +10,7 @@
                 <h1 class="text__heading">Entrar</h2>
             </div>
                     
-            <form class="form__login" action="/user/login" method="POST"><!--content__field__text//content__button__submit//content__footer__text-->
+            <form class="form__login" action="/login" method="POST"><!--content__field__text//content__button__submit//content__footer__text-->
                 <% if (message) { %>
                     <h2><%= message %> </h2>
                 <% } %>
@@ -20,8 +20,8 @@
             </form>
 
             <div class="alternative__options" style="background-color:#f1f1f1">
-                <a class="text__forgot" href="/user/forgot-password">Esqueceu senha?</a>
-                <h2 class="text__footer">Não tem?<a href="/user/register">Registre-se</a></h3>
+                <a class="text__forgot" href="/forgot-password">Esqueceu senha?</a>
+                <h2 class="text__footer">Não tem?<a href="/register">Registre-se</a></h3>
             </div>
         </div>
     </main>

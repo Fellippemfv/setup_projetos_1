@@ -15,6 +15,6 @@ routes.put('/forgot-password', Auth.forgotPassword);
 routes.get('/resetpassword/:id', Auth.getResetPassword);
 routes.put('/resetpassword', Auth.resetPassword);
 
-routes.get('/logout', Auth.getLogout);
+routes.get('/logout', Auth.getLogout);//falta ejitar logout d admin
 
 export default routes;

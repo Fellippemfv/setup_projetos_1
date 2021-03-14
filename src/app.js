@@ -45,7 +45,7 @@ class App {
             next();
         })
         this.server.use("/admin", adminRoutes)
-        this.server.use("/user", authRoutes);
+        this.server.use("/", authRoutes);
         this.server.use("/articles", articlesRouts);
         this.server.use("/", usersRoutes) 
         

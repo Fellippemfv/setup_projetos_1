@@ -11,9 +11,8 @@ class authController{
                 await jwt.verify(token, process.env.JWT_SECRET, (err, result) => {
                     if (err) {
                         console.log(err);
-                        res.redirect('/user/login');
-                    } else if(result.provider === 1){//(and / ou) (&& / ||) provider ===0
-                        console.log(result);
+                        res.redirect('/login');
+                    } else if(result.provider === 1){
                         req.user = result.id;
                         next();
                     }else{
