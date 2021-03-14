@@ -53,7 +53,12 @@
                 <ul>
                     <li><form class="menu__search" action="/action_page.php"><input class="menu__input" type="text" placeholder="Pesquisar.." name="search"></form></li>
                     <li><img onclick="openSearch()" class="menu__button__search" src="/assets/lupa.svg" alt=""></li>
-                    <li><img onclick="myFunction2()" class="menu__avatar" src="/assets/male-user-shadow-svgrepo-com.svg" alt="Avatar picture"></li>
+                    
+                    <%if(!isAuthenticated){%>
+                        <li><img onclick="myFunction2()" class="menu__avatar" src="/assets/signin_106368.svg" alt="Entrar"></li>
+                    <%}else{%>
+                        <li><img onclick="myFunction2()" class="menu__avatar" src="/assets/signout_106525.svg" alt="Sair"></li>
+                    <%}%>
                 </ul>
             </div>
         </div>

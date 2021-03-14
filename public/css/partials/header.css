@@ -131,9 +131,8 @@
 /*----------//--------------CONFIGURAÇÕES do menu__right------------------//------------*/ 
 
 .menu__avatar{
-    width: 3rem;
+    width: 2.1rem;
     height: auto;
-    border-radius: 50%;
     cursor: pointer;
 }
 
