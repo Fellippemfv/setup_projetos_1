@@ -21,7 +21,7 @@ class authController{
                     }
                 })
             } else {
-                res.redirect('/user/login')
+                res.redirect('/login')
             }
            
             
