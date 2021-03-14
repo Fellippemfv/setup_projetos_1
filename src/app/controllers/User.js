@@ -14,6 +14,8 @@ class UserController{
     //async index
 
 
+
+
     async getMyProfile(req, res, next) {
         try{
             const id = req.user;
@@ -94,9 +96,26 @@ class UserController{
         }
     }
 
+
+
+
     async getProfileUser(req, res, next) {
         try{
-            res.render("user");
+            const id = req.params.id;           
+            const user = await User.findUserById(id)
+
+            if(!user) {
+                return res.redirect("/");
+            }
+            return res.render("user" , { 
+                name: user.name,
+                photo: user.img_file,
+                description: user.description
+
+            });
+        
+            
+
         }catch(error){
             next(error);
         }

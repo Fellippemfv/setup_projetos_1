@@ -13,13 +13,22 @@
                 <h1 class="title__header">Pagina de um usuários</h1>
             </div>
 
+            <div class="user__block">
+                <div class="user__info">
+                    <h2 class="user__title">Nome</h2>
+                </div>
+                <div class="user__info">
+                    <p><%= name %></p>
+                </div>
+            </div>
+
             <div class="users__section__body">
                 <div class="user__block">
                     <div class="user__info">
                         <h2 class="user__title">foto</h2>
                     </div>
                     <div class="user__info">
-                        <img class="user__image" src="assets/male-user-shadow-svgrepo-com.svg" alt="">
+                        <img class="user__image" src="<%= photo %>" alt="">
                     </div>
                 </div>
 
@@ -28,27 +37,11 @@
                         <h2 class="user__title">Descrição</h2>
                     </div>
                     <div class="user__info">
-                        <p>Fellippe Matheus</p>
+                        <p><%= description %></p>
                     </div>
                 </div>
 
-                <div class="user__block">
-                    <div class="user__info">
-                        <h2 class="user__title">Nome</h2>
-                    </div>
-                    <div class="user__info">
-                        <p>Fellippe Matheus</p>
-                    </div>
-                </div>
-
-                <div class="user__block">
-                    <div class="user__info">
-                        <h2 class="user__title">Cargo</h2>
-                    </div>
-                    <div class="user__info">
-                        <p>Administrador</p>
-                    </div>
-                </div>
+                
                           
             </div>
 

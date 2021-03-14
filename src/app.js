@@ -12,11 +12,10 @@ import { localsName } from "ejs";
 env.config();
 
 //Falta refatorar database 
-//ver o que ta errado com css das partials do ejs 
-/* paginas ---------------
--forgot password
--reset password
-*/
+//Falta refatorar javascript
+//Falta ver sistema de email
+//Falta terminar sistema de usarios
+
 class App {
     constructor() {
         //chama o servidor
