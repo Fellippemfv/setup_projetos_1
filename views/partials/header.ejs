@@ -1,5 +1,6 @@
     <!--menu principal-->
     <header class="menu">
+        <!--navbar-->
         <div class="menu__section"><!--Falta alinhar os links-->
             <div class="menu__section__left">
                 <ul>
@@ -57,99 +58,71 @@
             </div>
         </div>
 
-
-
         <!-- The Modal login -->
-    <div id="id01" class="modal">
-        <!-- Modal Content -->
-        <div class="modal-content animate ">
-            <div class="form__container">
-
-                <div class="form__header">
-                    <h1 class="text__heading">Entrar</h2>
-                    <button class="cancelbtn">Fechar</button> 
-                </div>
-                        
-                <form class="form__login" action="/signup" method="post"><!--content__field__text//content__button__submit//content__footer__text-->
-                    <input class="text__field" type="email" name="email" id="email" placeholder="Email" minlength="5" maxlength="150" required>
-                    <input class="text__field" type="password" name="password" id="password" placeholder="Senha" minlength="5" maxlength="30" required> 
-                    <input class="button_login" type="submit" value="Entrar">
-                </form>
-
-                <div class="alternative__options" style="background-color:#f1f1f1">
-                    <a class="text__forgot" href="">Esqueceu senha?</a>
-                    <h2 class="text__footer">Não tem?<a href="">Registre-se</a></h3>
-                </div>
-            </div>
-
-        </div>
-    </div>
-    
-
-    <!-- The Modal register -->
-    <div id="id02" class="modal">
+        <div id="id01" class="modal">
             <!-- Modal Content -->
             <div class="modal-content animate ">
                 <div class="form__container">
-    
+
                     <div class="form__header">
                         <h1 class="text__heading">Entrar</h2>
-                        <button class="cancelbtn">Fechar</button> 
                     </div>
                             
-                    <form class="form__login" action="/signup" method="post"><!--content__field__text//content__button__submit//content__footer__text-->
-                        <input class="text__field" type="text" name="name" id="name" placeholder="Nome" minlength="5" maxlength="60" required>
+                    <form class="form__login" action="/login" method="post"><!--content__field__text//content__button__submit//content__footer__text-->
                         <input class="text__field" type="email" name="email" id="email" placeholder="Email" minlength="5" maxlength="150" required>
                         <input class="text__field" type="password" name="password" id="password" placeholder="Senha" minlength="5" maxlength="30" required> 
-                        <input class="text__field" type="password" name="rp" id="rp" placeholder="Digite novamente a senha" minlength="5" maxlength="30" required> 
                         <input class="button_login" type="submit" value="Entrar">
                     </form>
-    
+
                     <div class="alternative__options" style="background-color:#f1f1f1">
-                        <h2 class="text__footer">Já tem?<a href="">Faça login</a></h3>
+                        <a class="text__forgot" href="">Esqueceu senha?</a>
+                        <h2 class="text__footer">Não tem?<a href="/register">Registre-se</a></h3>
                     </div>
                 </div>
-    
+
             </div>
-    </div>
-
-    <!--menu mobile-->
-    <div class="topnav">
-    <!-- Navigation links (hidden by default) -->
-    <div id="myLinks">
-        <a href="#news">Experiências</a>
-        <a href="#contact">Sobre</a>
-        <a href="#about">Contato</a>
-    </div>
-    </div>
-
-    <!--menu perfil-->
-    <div class="topnav-2">
+        </div>
+        
+        <!--menu mobile-->
+        <div class="topnav">
         <!-- Navigation links (hidden by default) -->
-
-       <%if(!isAuthenticated){%>
-
-                <li><a href="/register">Register</a></li>
-                <li><a href="/login">Login</a></li>
-
-        <%}else{%>
-                <li><a href="/myprofile">Perfil</a></li>
-                <li><a href="/logout">Logout</a></li>
-        <%}%>
-    </div>
-
-    <!--modal de pesquisa mobile-->
-    <div id="myOverlay" class="search__content__mobile">
-        <div class="search__content__button">
-            <img onclick="closeSearch()" src="/assets/seta-esquerda.svg" alt="">
+        <div id="myLinks">
+            <a href="#news">Experiências</a>
+            <a href="#contact">Sobre</a>
+            <a href="#about">Contato</a>
         </div>
-        <div class="search__content__input">
-          <form class="search__form" action="action_page.php">
-            <input class="search__form__input" type="text" placeholder="Search.." name="search">
-          </form>
         </div>
-      </div>
+
+        <!--menu perfil-->
+        <div class="topnav-2">
+            <!-- Navigation links (hidden by default) -->
+
+            <div id="myLinks-2">
+                <%if(!isAuthenticated){%>
+                    <li><button onclick="open_modal()">Entrar</button></li>
+                <%}else{%>
+                    <li><a href="/myprofile">Perfil</a></li>
+                    <li><a href="/logout">Sair</a></li>
+                <%}%>
+            </div>
+
+        </div>
+
+        <!--modal de pesquisa mobile-->
+        <div id="myOverlay" class="search__content__mobile">
+            <div class="search__content__button">
+                <img onclick="closeSearch()" src="/assets/seta-esquerda.svg" alt="">
+            </div>
+            <div class="search__content__input">
+            <form class="search__form" action="action_page.php">
+                <input class="search__form__input" type="text" placeholder="Search.." name="search">
+            </form>
+            </div>
+        </div>
+        
+        
         <script src="/js/script.js"></script>
+
     </header>
 
     

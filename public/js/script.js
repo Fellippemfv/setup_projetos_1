@@ -1,14 +1,3 @@
-//----------//-----------MODAL DE LOGIN------------//-----------//
-// Get the modal
-var modal = document.getElementById('id01');
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-}//-------FALTA VER O QUE TA ERRADO NO SCRIPT DE LOGIN
-
 //----------//-----------MENU MOBILE------------//-----------//
 function myFunction() {
   var x = document.getElementById("myLinks");
@@ -29,6 +18,26 @@ function myFunction2() {
   }
 }
 
+//----------//-----------MODAL DE LOGIN------------//-----------//
+// Abrir modal
+function open_modal() {
+  var modal = document.getElementById('id01');
+  
+  if (modal.style.display === "block") {
+    modal.style.display = "none";
+  } else {
+    modal.style.display = "block";
+  }
+}
+
+//Fechar ao clicar fora do modal
+window.onclick = function(event) { 
+  var modal = document.getElementById('id01');
+  if (event.target === modal) {
+    modal.style.display = "none";
+  }
+}
+
 //----------//-----------MODAL DE PESQUISA MOBILE------------//-----------//
 // Open the full screen search box
 function openSearch() {
@@ -40,4 +49,3 @@ function closeSearch() {
   document.getElementById("myOverlay").style.display = "none";
 }
 
-//----------//-----------EFEITO NO MENU------------//-----------//
