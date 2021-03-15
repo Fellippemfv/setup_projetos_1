@@ -1,4 +1,6 @@
 import User from "../models/Users"
+import Article from "../models/Articles";
+import Category from "../models/Categories";
 import bcrypt from "bcrypt"
 
 class UserController{

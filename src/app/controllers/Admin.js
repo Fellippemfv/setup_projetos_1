@@ -1,18 +1,12 @@
-import Admin from "../models/Admin"
+import Admin from "../models/Admin";
+import Article from "../models/Articles";
+import Category from "../models/Categories";
 
 class AdminController{
 
     async getDashboard(req, res, next) {
         try{
             res.render('dashboard', { user: req.user });
-        }catch(error){
-            next(error);
-        }
-    }
-
-    async getProfile(req, res, next) {
-        try{
-            res.render("profile");
         }catch(error){
             next(error);
         }

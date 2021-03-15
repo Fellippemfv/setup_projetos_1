@@ -2,10 +2,10 @@ import { next } from "sucrase/dist/parser/tokenizer";
 import knex from "../../database";
 
 //criando classe
-class Article{
+class Category{
     async findAll(){//retorna lista de usuarios
         try{
-            let result = await knex("articles").where({ id })
+            let result = await knex("categories").where({ id }).select(["title", "picture", "description" , ])
             return result[0];
         }catch(error){
             console.log(error);
@@ -14,7 +14,7 @@ class Article{
 
     async findById(id){//retorna lista de usuarios
         try{
-            let result = await knex("users").where({ id }).select(["name", "email" , "updated_at" ])
+            let result = await knex("categories").where({ id }).select(["name", "email" , "updated_at" ])
             return result[0];
         }catch(error){
             console.log(error);
@@ -23,4 +23,4 @@ class Article{
 
 }
 
-export default new Article();
+export default new Category();

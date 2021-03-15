@@ -2,7 +2,6 @@ import express from "express";
 import authRoutes from "./app/routes/auth";
 import usersRoutes from "./app/routes/User"
 import adminRoutes from "./app/routes/admin"
-import articlesRouts from "./app/routes/Articles"
 import cookieParser from "cookie-parser";
 import methodOverride from "method-override";
 import cors from "cors";
@@ -12,9 +11,7 @@ import { localsName } from "ejs";
 env.config();
 
 //Falta refatorar database 
-//Falta refatorar javascript
 //Falta ver sistema de email
-//Falta terminar sistema de usarios
 
 class App {
     constructor() {
@@ -45,7 +42,6 @@ class App {
         })
         this.server.use("/admin", adminRoutes)
         this.server.use("/", authRoutes);
-        this.server.use("/articles", articlesRouts);
         this.server.use("/", usersRoutes) 
         
     }
