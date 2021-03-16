@@ -1,12 +1,22 @@
 import Admin from "../models/Admin";
 import Article from "../models/Articles";
 import Category from "../models/Categories";
+import User from "../models/Users";
 
 class AdminController{
 
     async getDashboard(req, res, next) {
         try{
-            res.render('dashboard', { user: req.user });
+            const id = req.user; 
+            const user = await User.findById(id)
+            res.render("dashboard" , {
+                message: "",
+                name: user.name,
+                email: user.email,
+                photo: user.img_file,
+
+            });
+
         }catch(error){
             next(error);
         }

@@ -3,8 +3,28 @@
 <body>
     <%- include("partials/header.ejs") %>
 
-    PAGINA DE DASHBOARD
+    <div class="container">
+        <h1>DASHBOARD</h1>
 
-    <%- include("partials/footer.ejs") %>
+        <div class="admin__infos">
+            <div class="infos__left">
+                <figure>
+                    <div class="round-container">
+                        <img src="<%= photo %>">
+                    </div>    
+                </figure>
+            </div>
+            <div class="info__right">
+                <p>Bem vindo(a): <%= name %></p>
+                <p>Email: <%= email %></p>
+            </div>
+        </div>
+       
+
+       
+    </div>
+    
+
+<!-- <%- include("partials/footer.ejs") %> -->   
 
 </body>

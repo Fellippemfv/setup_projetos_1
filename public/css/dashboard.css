@@ -1,0 +1,26 @@
+p{
+    color: red;
+}
+
+.admin__infos {
+    display: flex;
+    align-items: center;
+}
+
+.round-container {
+    width: 9rem;
+    height: 9rem;
+    align-self: center;
+    border-radius: 100%;
+    margin: 2.3rem auto 2.5rem auto;
+    overflow: hidden;
+    position: relative;
+}
+.round-container img {
+    width: initial;
+    height: inherit;
+    max-width: none;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}

@@ -9,7 +9,13 @@
         
         <div class="perfil__section">
             <div class="perfil__section__left">
-                <img class="user__photo" src="<%= photo %>" alt="">
+
+                <figure>
+                    <div class="round-container">
+                        <img src="<%= photo %>">
+                    </div>    
+                </figure>
+
                 <img class="change__photo" src="assets/camera-fotografica.svg" alt="">
 
                 <form action="/myprofile" method="POST">
