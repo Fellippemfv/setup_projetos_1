@@ -44,9 +44,27 @@ class AdminController{
         }
     } 
 
+    async getUsersEdit(req, res, next) {
+        try{
+            res.render("usersEdit");
+        }catch(error){
+            next(error);
+        }
+    }
+
+    
+
     async getArticles(req, res, next) {
         try{
             res.render("articles");
+        }catch(error){
+            next(error);
+        }
+    }
+
+    async getArticlesDeleted(req, res, next) {
+        try{
+            res.render("articlesDeleted");
         }catch(error){
             next(error);
         }
@@ -71,6 +89,14 @@ class AdminController{
     async getCategories(req, res, next) {
         try{
             res.render("categories");
+        }catch(error){
+            next(error);
+        }
+    }
+
+    async getCategoriesDeleted(req, res, next) {
+        try{
+            res.render("categoriesDeleted");
         }catch(error){
             next(error);
         }
