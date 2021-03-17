@@ -63,6 +63,9 @@ db.connect((err) => {
                                     expiresIn: process.env.JWT_EXPIRE
                                 });
                                     res.cookie('jwt', token, { httpOnly: true, maxAge: 24 * 60 * 60 * 1000 });
+                                    if(user.provider === 2) {
+                                        res.redirect('/subadmin/dashboard');
+                                    }
                                     if(user.provider === 1) {
                                         res.redirect('/admin/dashboard');
                                     }
@@ -114,11 +117,11 @@ db.connect((err) => {
                 let hashed = await bcrypt.hash(password, 8);
         
                 let sql2 = 'INSERT INTO users SET ?';
-                db.query(sql2, { name: name, email: email, password_hash: hashed, provider: 0 }, (err, result) => {
+                db.query(sql2, { name: name, email: email, password_hash: hashed, provider: 0, description: "sem descrição" }, (err, result) => {
                     if (err)
                         throw err;
                     else {
-                        return res.redirect('/user/login');
+                        return res.redirect('/login');
                     }
                 })
         

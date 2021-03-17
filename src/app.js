@@ -1,7 +1,8 @@
 import express from "express";
 import authRoutes from "./app/routes/auth";
-import usersRoutes from "./app/routes/User"
-import adminRoutes from "./app/routes/admin"
+import usersRoutes from "./app/routes/User";
+import adminRoutes from "./app/routes/admin";
+import subAdminRoutes from "./app/routes/subAdmin";
 import cookieParser from "cookie-parser";
 import methodOverride from "method-override";
 import cors from "cors";
@@ -41,6 +42,7 @@ class App {
             next();
         })
         this.server.use("/admin", adminRoutes)
+        this.server.use("/subadmin", subAdminRoutes)
         this.server.use("/", authRoutes);
         this.server.use("/", usersRoutes) 
         

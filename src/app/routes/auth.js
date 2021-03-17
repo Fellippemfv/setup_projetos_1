@@ -2,7 +2,7 @@ import { Router } from "express";
 import Auth from "../controllers/Auth";
 import authUser from "../middlewares/authUser"
 const routes = new Router();
-
+ 
 routes.get('/register', authUser.forwardAuth, Auth.getRegister );
 routes.post('/register', Auth.register);
 

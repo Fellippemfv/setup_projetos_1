@@ -12,7 +12,7 @@ class authController{
                     if (err) {
                         console.log(err);
                         res.redirect('/login');
-                    } else if(result.provider === 0 || result.provider === 1){
+                    } else if(result.provider === 0 || result.provider === 1 || result.provider === 2){
                         req.user = result.id;
                         next();
                     }else{
