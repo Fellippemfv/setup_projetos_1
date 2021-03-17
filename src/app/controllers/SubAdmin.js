@@ -24,7 +24,7 @@ class SubAdminController{
 
     async getArticles(req, res, next) {
         try{
-            res.render("articlesAlt");
+            res.render("articlesListSubadmin");
         }catch(error){
             next(error);
         }
@@ -32,7 +32,7 @@ class SubAdminController{
 
     async getArticlesNew(req, res, next) {
         try{
-            res.render("articlesNewAlt");
+            res.render("articlesNewSubadmin");
         }catch(error){
             next(error);
         }

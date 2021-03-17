@@ -56,7 +56,7 @@ class AdminController{
 
     async getArticles(req, res, next) {
         try{
-            res.render("articles");
+            res.render("articlesListAdmin");
         }catch(error){
             next(error);
         }
@@ -80,7 +80,7 @@ class AdminController{
 
     async getArticlesNew(req, res, next) {
         try{
-            res.render("articlesNew");
+            res.render("articlesNewAdmin");
         }catch(error){
             next(error);
         }
