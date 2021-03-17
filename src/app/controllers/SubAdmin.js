@@ -30,6 +30,14 @@ class SubAdminController{
         }
     }
 
+    async getArticlesEdit(req, res, next) {
+        try{
+            res.render("articlesEditSubadmin");
+        }catch(error){
+            next(error);
+        }
+    }
+
     async getArticlesNew(req, res, next) {
         try{
             res.render("articlesNewSubadmin");

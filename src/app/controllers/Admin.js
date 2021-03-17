@@ -72,7 +72,7 @@ class AdminController{
 
     async getArticlesEdit(req, res, next) {
         try{
-            res.render("articlesEdit");
+            res.render("articlesEditAdmin");
         }catch(error){
             next(error);
         }
