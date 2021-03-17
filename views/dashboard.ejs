@@ -18,78 +18,11 @@
             </div>
         </div>
             
-            <div class="tab">
-
-                <h2>ARTIGOS</h2>
-                <button class="tablinks" onclick="openCity(event, 'list-1')" id="defaultOpen">Criar artigo</button>
-                <button class="tablinks" onclick="openCity(event, 'list-2')">Lista de artigos</button>
-
-                <h2>CATEGORIAS</h2>
-                <button class="tablinks" onclick="openCity(event, 'list-3')">Criar categoria</button>
-                <button class="tablinks" onclick="openCity(event, 'list-4')">Lista de categorias</button>
-                <h2>USUÁRIOS</h2>
-                
-                <button class="tablinks" onclick="openCity(event, 'list-5')">Lista de usuários</button>
-
-
-            </div>
+        <%- include("partials/navbarAdmin") %>
             
-            <div id="list-1" class="tabcontent">
-              <h3>Para enviar seu experimento basta clicar no botão enviar e seguir as instrições:</h3>
-              
-              <form action="">
-                  <label for="">Titulo</label>
-                  <input type="text">
-
-                  <label for="">Descrição resumida</label>
-                  <textarea name="" id="" cols="30" rows="10"></textarea>
-
-                  <label for="">Foto referência</label>
-                  <input type="file" name="" id="">
-              </form>
-
-            </div>
-            
-            <div id="list-2" class="tabcontent">
-                <h3>Ao ver a lista você terá opção de editar ou excluir</h3>
-
-                <h3>Lista de TODOS os artigos</h3>
-                <button><a href="/admin/dashboard/articles">Ver lista</a></button>
-
-                <h3>Lista de TODOS os artigos deletados</h3>
-                <button><a href="/admin/dashboard/articles/deleted">Ver lista</a></button>
-
-            </div>
-
-            <div id="list-3" class="tabcontent">
-                <h3>Para criar uma opção a essa catgoria basta colocar o nome da nova categoria abaixo</h3>
-                <form action="">
-                    <label for="">Nome da categoria</label>
-                    <input type="text">
-                    <input type="submit" value="Cadastrar categoria">
-                </form>
-            </div>
-
-            <div id="list-4" class="tabcontent">
-                <h3>Ao ver a lista você terá opção de editar ou excluir</h3>
-
-                <h3>Lista de TODAS as categorias</h3>
-                <button><a href="/admin/dashboard/categories">Ver lista</a></button>
-
-                <h3>Lista de TODAS as categorias deletadas</h3>
-                <button><a href="/admin/dashboard/categories/deleted">Ver lista</a></button>
-            </div>
-
-            <div id="list-5" class="tabcontent">
-                <h3>Ao ver a lista você terá opção de editar ou excluir</h3>
-
-                <h3>Lista de TODOS os usuários</h3>
-                <button><a href="/admin/dashboard/users">Ver lista</a></button>
-
-                <h3>Lista de usuários deletados</h3>
-                <button><a href="/admin/dashboard/users/deleted">Ver lista</a></button>
-
-            </div>
+        <div class="admin__content">
+            <h2>teste</h2>
+        </div>
 
            
             

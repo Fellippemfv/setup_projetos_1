@@ -93,7 +93,7 @@ table{
     background-color: var(--dark) ;
     border-color: #32383e;
 }
-
+/* MOBILE
 @media only screen and (max-width: 1024px){
     table, thead, tbody, th, td, tr{
         display: block;
@@ -113,4 +113,5 @@ table{
     }
 
 }
+*/
 

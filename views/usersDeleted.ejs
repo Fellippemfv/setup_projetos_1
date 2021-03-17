@@ -6,14 +6,9 @@
 
     <main class="content">
           
-            <div class="container">
-                <div class="box-nav d-flex justify-between">
-                    <a href="/admin/dashboard" class="border-shadow">
-                        <span class="text-gradient">Voltar ao dashboard <i class="fas fa-user"></i></span>
-                    </a>
-                </div>
-    
+        <%- include("partials/navbarAdmin") %>
 
+            <div class="admin__content">
                 <!-- form handling -->
                 <form action="/" method="POST">
                     <table class="table">
