@@ -8,7 +8,7 @@ class User{
 
     async findById(id){//retorna lista de usuarios
         try{
-            let result = await knex("users").where({ id }).select(["description", "name", "email" , "updated_at", "img_file" ])
+            let result = await knex("users").where({ id }).select(["id", "description", "name", "email" , "updated_at", "img_file", "provider" ])
             return result[0];
         }catch(error){
             console.log(error);

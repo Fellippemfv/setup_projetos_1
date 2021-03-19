@@ -25,9 +25,9 @@ class AdminController{
     async getUsers(req, res, next) {
         try{ 
             const users = await Admin.findAll();//chamando metodo findall do model
-            res.render("users", {
+            res.render("usersList", {
                 users,
-            });
+            });   
         }catch(error){
             next(error);
         }
@@ -43,10 +43,83 @@ class AdminController{
             next(error);
         }
     } 
+    
+    async userSoftdDel(req, res, next) {
+        try{ 
+            const id = req.params.id;           
+            const user = await User.findUserById(id)
+
+            if(!user) {
+                return res.redirect("/admin/dashboard/users/deleted");
+            }
+
+            await Admin.softDelete(id)
+            return res.redirect("/admin/dashboard/users/deleted")
+        }catch(error){
+            next(error);
+        }
+    }
+
+    async usersHardDel(req, res, next) {
+        try{ 
+            const id = req.params.id;           
+            const user = await User.findUserById(id)
+
+            if(!user) {
+                return res.redirect("/admin/dashboard/users/deleted");
+            }
+
+            await Admin.hardDelete(id)
+            return res.redirect("/admin/dashboard/users/deleted")
+        }catch(error){
+            next(error);
+        }
+    }
+
+    async usersBackDel(req, res, next) {
+        try{ 
+            const id = req.params.id;           
+            const user = await User.findUserById(id)
+
+            if(!user) {
+                return res.redirect("/admin/dashboard/users/deleted");
+            }
+
+            await Admin.backDelete(id)
+            return res.redirect("/admin/dashboard/users/deleted")
+        }catch(error){
+            next(error);
+        }
+    } 
 
     async getUsersEdit(req, res, next) {
         try{
-            res.render("usersEdit");
+            const id = req.params.id;           
+            const user = await User.findById(id)
+            res.render("usersEdit" , {
+                message: "",
+                name: user.name,
+                email: user.email,
+                provider: user.provider,
+                id: user.id 
+
+            });
+        }catch(error){
+            next(error);
+        }
+    }
+ 
+    async usersEdit(req, res, next) {
+        try{
+            const {provider, id} = req.body;
+            const user = await User.findById(id)
+
+            if(!user) {
+                return res.redirect("/admin/dashboard/users");
+            }
+
+            await Admin.update(id, provider);
+            res.redirect("/admin/dashboard/users")
         }catch(error){
             next(error);
         }

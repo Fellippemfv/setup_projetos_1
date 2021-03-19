@@ -62,12 +62,14 @@ db.connect((err) => {
                                 const token = jwt.sign({ id: user.id, provider: user.provider }, process.env.JWT_SECRET, {
                                     expiresIn: process.env.JWT_EXPIRE
                                 });
+                        
                                     res.cookie('jwt', token, { httpOnly: true, maxAge: 24 * 60 * 60 * 1000 });
                                     if(user.provider === 2) {
-                                        res.redirect('/subadmin/dashboard');
+                                        console.log("redirecionando")
+                                        res.redirect('/admin/dashboard');
                                     }
                                     if(user.provider === 1) {
-                                        res.redirect('/admin/dashboard');
+                                        res.redirect('/subadmin/dashboard');
                                     }
                                     if(user.provider === 0) {
                                         res.redirect('/');

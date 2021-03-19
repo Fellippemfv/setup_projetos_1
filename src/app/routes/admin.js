@@ -7,8 +7,13 @@ const routes = new Router();
 routes.get("/dashboard",authAdmin.requireAuth, Admin.getDashboard);//PAGINA DE DASHBOARD DE ADMIN DO BLOG
 
 routes.get("/dashboard/users",authAdmin.requireAuth, Admin.getUsers);//PAGINA DE LISTA DE USUÁRIOS DO BLOG
+routes.get("/dashboard/users/edit/:id",authAdmin.requireAuth, Admin.getUsersEdit);//PAGINA DE LISTA DE USUÁRIOS DO BLOG
+routes.post("/dashboard/users/edit/:id",authAdmin.requireAuth, Admin.usersEdit);//PAGINA DE LISTA DE USUÁRIOS DO BLOG
+routes.post("/dashboard/users/soft/:id",authAdmin.requireAuth, Admin.userSoftdDel);//PAGINA DE LISTA DE USUÁRIOS DO BLOG
+
 routes.get("/dashboard/users/deleted",authAdmin.requireAuth, Admin.getUsersDeleted);//PAGINA DE LISTA DE USUÁRIOS DO BLOG
-routes.get("/dashboard/users/edit",authAdmin.requireAuth, Admin.getUsersEdit);//PAGINA DE LISTA DE USUÁRIOS DO BLOG
+routes.post("/dashboard/users/hard/:id",authAdmin.requireAuth, Admin.usersHardDel);//PAGINA DE LISTA DE USUÁRIOS DO BLOG
+routes.post("/dashboard/users/back/:id",authAdmin.requireAuth, Admin.usersBackDel);//PAGINA DE LISTA DE USUÁRIOS DO BLOG
  
 
 routes.get("/dashboard/articles",authAdmin.requireAuth, Admin.getArticles);//PAGINA DE LISTA DE ARTIGOS DO BLOG

@@ -5,17 +5,34 @@
     <%- include("partials/header.ejs") %>
 
     <main class="content">
+
+        <%- include("partials/navbarAdmin") %>
           
             <div class="container">
-                <div class="box-nav d-flex justify-between">
-                    <a href="/admin/dashboard" class="border-shadow">
-                        <span class="text-gradient">Voltar ao dashboard <i class="fas fa-user"></i></span>
-                    </a>
-                </div>
-    
-
-           
+              
                 <p>Pagina de editar um usuario</p>
+                <h2>Nome</h2>
+                <p><%= name %></p>
+
+                <h3>Email</h3>
+               <p><%= email %></p>
+
+                <h3>Cargo</h3>
+                <p><%= provider %></p>
+
+                <form action="/admin/dashboard/users/edit/<%= id %>" method="post">
+                    <select name="provider" id="">
+                        <option value="" disabled selected>Selecione uma opção</option>
+                        <option value="0">Usuário</option>
+                        <option value="1">SubAdiministrador</option>
+                        <option value="2">Adiministrador</option>
+                    </select>
+                    <!--falta ver permissões-->
+                    <input type="number" name="id" value="<%= id %>" readonly>
+
+                    <input type="submit" value="Trocar permissões">
+                </form>
+                
 
             </div>
 

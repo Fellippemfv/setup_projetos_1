@@ -10,7 +10,6 @@
 
             <div class="admin__content">
                 <!-- form handling -->
-                <form action="/" method="POST">
                     <table class="table">
                         <thead class="thead-dark">
                             <tr>
@@ -31,12 +30,13 @@
                                 <td><%= user.email %></td>
                                 <td><%= user.provider %></td>
                                 <td>
-                                    <a href="/" class="btn border-shadow update">
-                                        <span class="text-gradient"><i class="fas fa-pencil-alt"></i></span>
-                                    </a>
-                                    <a class="btn border-shadow delete" >
-                                        <span class="text-gradient"><i class="fas fa-times"></i></span>
-                                    </a>
+                                    <form action="/admin/dashboard/users/hard/<%= user.id %>" method="POST">
+                                        <input type="image" src="/assets/lixeira.svg" class="img-users">
+                                    </form>
+                                   
+                                    <form action="/admin/dashboard/users/back/<%= user.id %>" method="POST">
+                                        <input type="image" src="/assets/signin_106368.svg" class="img-users">
+                                    </form>
                                 </td>
     
     
@@ -45,8 +45,9 @@
                         </tbody>
                         <% }) %>
 
+                       
+
                     </table>
-                </form>
 
             </div>
 

@@ -27,7 +27,17 @@ class User{
     async update(id, provider){//faz update dos dados
         try {
             let result = await knex("users").where({ id }).update({ provider, "updated_at": new Date() });
+            return result;
             
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    async softDelete(id){
+        try {
+            let result = await knex("users").where({ id }).update({ "deleted_at": new Date() })
+            return result
         } catch (error) {
             console.log(error)
         }
@@ -35,7 +45,17 @@ class User{
 
     async hardDelete(id){
         try {
-            let result = await knex("users").where({ id }).delete()
+            let result = await knex("users").where({ id }).del()
+            return result
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    async backDelete(id){
+        try {
+            let result = await knex("users").where({ id }).update({ "deleted_at": "0000-00-00 00:00:00" })
+            return result
         } catch (error) {
             console.log(error)
         }

@@ -11,7 +11,6 @@
             <div class="admin__content">
                 
                 <!-- form handling -->
-                <form action="/" method="POST">
                     <table class="table">
                         <thead class="thead-dark">
                             <tr>
@@ -32,9 +31,10 @@
                                 <td><%= user.email %></td>
                                 <td><%= user.provider %></td>
                                 <td>
-                                    <span class="text-gradient"><img class="img-users" src="/assets/pencil-striped.svg" alt=""></span>
-                                    
-                                    <span class="text-gradient"><img class="img-users" src="/assets/lixeira.svg" alt=""></span>
+                                    <a href="/admin/dashboard/users/edit/<%= user.id %>"><img class="img-users" src="/assets/pencil-striped.svg" alt=""></a>
+                                    <form action="/admin/dashboard/users/soft/<%= user.id %>" method="post">
+                                        <input type="image" src="/assets/lixeira.svg" class="img-users">
+                                    </form>
                                 </td>
     
 
@@ -44,7 +44,6 @@
                         <% }) %>
 
                     </table>
-                </form>
 
             </div>
 
