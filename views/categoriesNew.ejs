@@ -14,45 +14,12 @@
                 <h1 class="title__header">Criar nova categoria</h1>
             </div>
 
-            <div class="users__section__body">
-                
-                <div class="user__block">
-                    <div class="user__info">
-                        <h2 class="user__title">Nome</h2>
-                    </div>
-                    <div class="user__info">
-                        <p>Fellippe Matheus</p>
-                    </div>
-                </div>
-
-                <div class="user__block">
-                    <div class="user__info">
-                        <h2 class="user__title">Email</h2>
-                    </div>
-                    <div class="user__info">
-                        <p>Fellippe.matheus@hotmail.com</p>
-                    </div>
-                </div>
-
-                <div class="user__block">
-                    <div class="user__info">
-                        <h2 class="user__title">Cargo</h2>
-                    </div>
-                    <div class="user__info">
-                        <p>Administrador</p>
-                    </div>
-                </div>
-
-                <div class="user__block">
-                    <div class="user__info">
-                        <h2 class="user__title">Opções</h2>
-                    </div>
-                    <div class="user__info">
-                        <button>Excluir</button>
-                        <button>Editar</button>
-                    </div>
-                </div>
-                
+            <form action="/admin/dashboard/categories/new" method="post">
+                <label for="title">Nome da categoria</label>
+                <input type="text" placeholder="Ex: Até 5 reais" name="title">
+                <input type="submit" value="Cadastrar categoria">
+            </form>
+            
 
             </div>
 

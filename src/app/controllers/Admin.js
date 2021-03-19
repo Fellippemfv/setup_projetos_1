@@ -2,6 +2,7 @@ import Admin from "../models/Admin";
 import Article from "../models/Articles";
 import Category from "../models/Categories";
 import User from "../models/Users";
+import slugify from "slugify";
 
 class AdminController{
 
@@ -21,6 +22,9 @@ class AdminController{
             next(error);
         }
     }
+
+
+/*-------//-----------//-------USUÁRIOS------//------------//---------- */
 
     async getUsers(req, res, next) {
         try{ 
@@ -43,7 +47,7 @@ class AdminController{
             next(error);
         }
     } 
-    
+
     async userSoftdDel(req, res, next) {
         try{ 
             const id = req.params.id;           
@@ -126,6 +130,7 @@ class AdminController{
     }
 
     
+/*-------//-----------//-------ARTIGOS------//------------//---------- */
 
     async getArticles(req, res, next) {
         try{
@@ -159,17 +164,14 @@ class AdminController{
         }
     }
 
+
+/*-------//-----------//-------CATEGORIAS------//------------//---------- */
     async getCategories(req, res, next) {
         try{
-            res.render("categories");
-        }catch(error){
-            next(error);
-        }
-    }
-
-    async getCategoriesDeleted(req, res, next) {
-        try{
-            res.render("categoriesDeleted");
+            const categories = await Category.findAll();//chamando metodo findall do model
+            res.render("categoriesList", {  
+                categories,
+            });   
         }catch(error){
             next(error);
         }
@@ -177,7 +179,29 @@ class AdminController{
 
     async getCategoriesEdit(req, res, next) {
         try{
-            res.render("categoriesEdit");
+            const id = req.params.id;           
+            const category = await Category.findById(id)
+            res.render("categoriesEdit" , {
+                message: "",
+                id: category.id,
+                title: category.title
+            });
+        }catch(error){
+            next(error);
+        }
+    }
+
+    async categoriesEdit(req, res, next) {
+        try{
+            const {id, title} = req.body;
+            const category = await Category.findById(id)
+
+            if(!category) {
+                return res.redirect("/admin/dashboard/categories");
+            }
+
+            await Category.update(id, title)
+            res.redirect("/admin/dashboard/categories")
         }catch(error){
             next(error);
         }
@@ -186,6 +210,38 @@ class AdminController{
     async getCategoriesNew(req, res, next) {
         try{
             res.render("categoriesNew");
+        }catch(error){
+            next(error);
+        }
+    }
+
+    async categoriesNew(req, res, next) {
+        try{
+            const title = req.body.title;
+            if(title === undefined) {
+                res.redirect("/admin/dashboard/categories/new")
+            }
+
+            const slug = slugify(title)
+            await Category.create(title, slug)
+
+            res.redirect("/admin/dashboard/categories")
+        }catch(error){
+            next(error);
+        }
+    }
+
+    async categoriesHardDelete(req, res, next) {
+        try{
+            const id = req.params.id;           
+            const category = await Category.findById(id);
+
+            if(!category) {
+                return res.redirect("/admin/dashboard/categories");
+            }
+
+            await Category.deleteHard(id)
+            return res.redirect("/admin/dashboard/categories")
         }catch(error){
             next(error);
         }

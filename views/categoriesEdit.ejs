@@ -6,54 +6,24 @@
 
     <main class="content">
 
+        <%- include("partials/navbarAdmin") %>
 
-        <div class="users__content">
+        <div class="admin__content">
 
             <div class="users__section__header">
                 <h1 class="title__header">Editar categoria</h1>
             </div>
 
-            <div class="users__section__body">
-                
-                <div class="user__block">
-                    <div class="user__info">
-                        <h2 class="user__title">Nome</h2>
-                    </div>
-                    <div class="user__info">
-                        <p>Fellippe Matheus</p>
-                    </div>
-                </div>
+                <form action="/admin//dashboard/categories/edit/<%= id %>" method="post">
+                    
+                    <h2>Titulo</h2>
+                    <input type="text" value="<%= title %>" name="title">
+                    <h2>Id</h2>
+                    <input type="number" name="id" value="<%= id %>" readonly>
+                    <input type="submit" value="Editar categoria">
+                </form>
 
-                <div class="user__block">
-                    <div class="user__info">
-                        <h2 class="user__title">Email</h2>
-                    </div>
-                    <div class="user__info">
-                        <p>Fellippe.matheus@hotmail.com</p>
-                    </div>
-                </div>
-
-                <div class="user__block">
-                    <div class="user__info">
-                        <h2 class="user__title">Cargo</h2>
-                    </div>
-                    <div class="user__info">
-                        <p>Administrador</p>
-                    </div>
-                </div>
-
-                <div class="user__block">
-                    <div class="user__info">
-                        <h2 class="user__title">Opções</h2>
-                    </div>
-                    <div class="user__info">
-                        <button>Excluir</button>
-                        <button>Editar</button>
-                    </div>
-                </div>
-                
-
-            </div>
+            
 
         </div>
         

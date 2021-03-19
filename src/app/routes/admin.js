@@ -21,10 +21,17 @@ routes.get("/dashboard/articles/deleted",authAdmin.requireAuth, Admin.getArticle
 routes.get("/dashboard/articles/edit",authAdmin.requireAuth, Admin.getArticlesEdit);//PAGINA DE EDITAR ARTIGOS DO BLOG
 routes.get("/dashboard/articles/new",authAdmin.requireAuth, Admin.getArticlesNew);//PAGINA DE CRIAR ARTIGOS DO BLOG
 
+
+
 routes.get("/dashboard/categories",authAdmin.requireAuth, Admin.getCategories);//PAGINA DE LISTA DE CATEGORIAS DO BLOG
-routes.get("/dashboard/categories/deleted",authAdmin.requireAuth, Admin.getCategoriesDeleted);//PAGINA DE LISTA DE ARTIGOS DO BLOG
-routes.get("/dashboard/categories/edit",authAdmin.requireAuth, Admin.getCategoriesEdit);//PAGINA DE EDITAR CATEGORIAS DO BLOG
+
+routes.get("/dashboard/categories/edit/:id",authAdmin.requireAuth, Admin.getCategoriesEdit);//PAGINA DE EDITAR CATEGORIAS DO BLOG
+routes.post("/dashboard/categories/edit/:id",authAdmin.requireAuth, Admin.categoriesEdit);//PAGINA DE EDITAR CATEGORIAS DO BLOG
+routes.post("/dashboard/categories/del/:id",authAdmin.requireAuth, Admin.categoriesHardDelete);//PAGINA DE EDITAR CATEGORIAS DO BLOG
+
+
 routes.get("/dashboard/categories/new",authAdmin.requireAuth, Admin.getCategoriesNew);//PAGINA DE CRIAR CATEGORIAS DO BLOG
+routes.post("/dashboard/categories/new",authAdmin.requireAuth, Admin.categoriesNew);//PAGINA DE CRIAR CATEGORIAS DO BLOG
 
 
 export default routes;

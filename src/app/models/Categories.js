@@ -5,8 +5,8 @@ import knex from "../../database";
 class Category{
     async findAll(){//retorna lista de usuarios
         try{
-            let result = await knex("categories").where({ id }).select([ "title" ])
-            return result[0];
+            let result = await knex("categories").select([ "id", "title", "slug" ])
+            return result;
         }catch(error){
             console.log(error);
         }
@@ -14,16 +14,16 @@ class Category{
 
     async findById(id){//retorna lista de usuarios
         try{
-            let result = await knex("categories").where({ id }).select([ "title" ])
+            let result = await knex("categories").where({ id }).select([ "id", "title" ])
             return result[0];
         }catch(error){
             console.log(error);
         }
     }
 
-    async create(title){//retorna lista de usuarios
+    async create(title, slug){//retorna lista de usuarios
         try{
-            let result = await knex("categories").insert({ title })
+            let result = await knex("categories").insert({ title, slug })
             return result[0];
         }catch(error){
             console.log(error);
@@ -32,7 +32,7 @@ class Category{
 
     async update(id, title){//retorna lista de usuarios
         try{
-            let result = await knex("categories").where({ id }).update({ title });
+            let result = await knex("categories").where({ id }).update({ title, "updated_at": new Date()});
             return result[0];
         }catch(error){
             console.log(error);
@@ -40,7 +40,7 @@ class Category{
 
     }
 
-    async delete(id){//retorna lista de usuarios
+    async deleteHard(id){//retorna lista de usuarios
         try{
             let result = await knex("categories").where({ id }).delete();
             return result[0];
