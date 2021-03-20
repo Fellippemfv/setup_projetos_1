@@ -7,7 +7,11 @@ class UserController{
 
     async getIndex(req, res, next) {
         try{
-            res.render("index");
+            const categories = await Category.findAll();//chamando metodo findall do model
+            res.render("index", {  
+                categories,
+            });   
+           
         }catch(error){
             next(error);
         }

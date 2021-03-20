@@ -11,6 +11,9 @@ import path from "path";
 import { localsName } from "ejs";
 env.config();
 
+//Criar header apenas para index,e artigos(talvez categoria) com o as categorias
+//as outras devem ter apenas menu/inicio
+//criar mais 3 tabelas de categoria : categoria2, categoria3, categoria4 (só repetir o que já fizemos em "categoria")
 //Falta refatorar database 
 //Falta ver sistema de email
 
