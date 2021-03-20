@@ -76,7 +76,6 @@
   position: absolute;
   background-color: #f9f9f9;
   width: 100%;
-  left: 0;
   top: 4.5rem;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
@@ -92,15 +91,13 @@
 /* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {
   display: block;
+  width: 50%;
 }
 
 /* Create three equal columns that floats next to each other */
 .column {
-  float: left;
-  width: 25%;/*Se aumentar colunas diminuimos a porcentagem*/
   padding: 10px;
   background-color: #ccc;
-  height: 250px;
 }
 
 /* Style links inside the columns */

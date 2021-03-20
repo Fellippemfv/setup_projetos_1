@@ -8,45 +8,86 @@
                     <li><img class="menu__logo" src="/assets/logo.bmp" alt=""></li>
                 
                     <!--menu grande de teste-->
+
                     <div class="dropdown">
-                        <li><button class="dropbtn">Experiencias</button></li>
+                        <li><button class="dropbtn">Por assunto</button></li>
 
                             <div class="dropdown-content">
                                 <div class="header">
-                                    <h2>Mega Menu</h2>
+                                    <h2>Experiências por assuntos</h2>
                                 </div>
                                 
                                 <div class="row">
                                     <div class="column">
-                                        <h3>Por preços</h3>
                                         <% categories.forEach(category => { %>
                                             <a href="#"><%= category.title %></a>                                           
                                         <% }) %>
                                         
                                     </div>
-                                    <div class="column">
-                                        <h3>Por assunto</h3>
-                                        <a href="#">Link 1</a>
-                                        <a href="#">Link 2</a>
-                                        <a href="#">Link 3</a>
-                                    </div>
-                                    <div class="column">
-                                        <h3>Pela BNCC</h3>
-                                        <a href="#">Link 1</a>
-                                        <a href="#">Link 2</a>
-                                        <a href="#">Link 3</a>
-                                    </div>
-                                    <div class="column">
-                                        <h3>Por série</h3>
-                                        <a href="#">Link 1</a>
-                                        <a href="#">Link 2</a>
-                                        <a href="#">Link 3</a>
-                                    </div>
+                                    
                                 </div>
                             </div>
                     </div>
-                    <li class="drop__links"><a href="#home">Sobre</a></li>
-                    <li class="drop__links"><a href="#news">Contato</a></li>
+
+                    <div class="dropdown">
+                        <li><button class="dropbtn">Por preço</button></li>
+
+                            <div class="dropdown-content">
+                                <div class="header">
+                                    <h2>Experiências por preços</h2>
+                                </div>
+                                
+                                <div class="row">
+                                    <div class="column">
+                                        <% categories.forEach(category => { %>
+                                            <a href="#"><%= category.title %></a>                                           
+                                        <% }) %>
+                                        
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                    </div>
+
+                    <div class="dropdown">
+                        <li><button class="dropbtn">Pela BNCC</button></li>
+
+                            <div class="dropdown-content">
+                                <div class="header">
+                                    <h2>Experiências pela BNCC</h2>
+                                </div>
+                                
+                                <div class="row">
+                                    <div class="column">
+                                        <% categories.forEach(category => { %>
+                                            <a href="#"><%= category.title %></a>                                           
+                                        <% }) %>
+                                        
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                    </div>
+
+                    <div class="dropdown">
+                        <li><button class="dropbtn">Mais</button></li>
+
+                            <div class="dropdown-content">
+                                <div class="header">
+                                    <h2>Quer conhecer mais?</h2>
+                                </div>
+                                
+                                <div class="row">
+                                    <div class="column">
+                                        <a href="#">Sobre</a>  
+                                        <a href="#">Contato</a>                                                                                   
+
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                    </div>
+
                 </ul>
             </div>
     
