@@ -1,0 +1,34 @@
+<%- include("partials/head.ejs") %>
+
+
+<body>
+    <%- include("partials/header.ejs") %>
+
+    <main class="content">
+
+        <%- include("partials/navbarAdmin") %>
+
+        <div class="admin__content">
+
+            <div class="users__section__header">
+                <h1 class="title__header">Criar nova categoria</h1>
+            </div>
+
+            <form action="/admin/dashboard/categories3/new" method="post">
+                <label for="title">Nome da categoria</label>
+                <input type="text" placeholder="Ex: Até 5 reais" name="title">
+                <input type="submit" value="Cadastrar categoria">
+            </form>
+            
+
+            </div>
+
+        </div>
+        
+    </main>
+    
+
+    <%- include("partials/footer.ejs") %>
+
+</body>
+

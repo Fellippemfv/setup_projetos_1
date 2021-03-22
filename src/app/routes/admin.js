@@ -3,7 +3,7 @@ import Admin from "../controllers/Admin";
 import authAdmin from "../middlewares/authAdmin"
 const routes = new Router();
  
-
+/* -------///-------DASHBOARD------///--------------- */
 routes.get("/dashboard",authAdmin.requireAuth, Admin.getDashboard);//PAGINA DE DASHBOARD DE ADMIN DO BLOG
 
 routes.get("/dashboard/users",authAdmin.requireAuth, Admin.getUsers);//PAGINA DE LISTA DE USUÁRIOS DO BLOG
@@ -15,23 +15,37 @@ routes.get("/dashboard/users/deleted",authAdmin.requireAuth, Admin.getUsersDelet
 routes.post("/dashboard/users/hard/:id",authAdmin.requireAuth, Admin.usersHardDel);//PAGINA DE LISTA DE USUÁRIOS DO BLOG
 routes.post("/dashboard/users/back/:id",authAdmin.requireAuth, Admin.usersBackDel);//PAGINA DE LISTA DE USUÁRIOS DO BLOG
  
-
+/* -------///-------ARTIGOS------///--------------- */
 routes.get("/dashboard/articles",authAdmin.requireAuth, Admin.getArticles);//PAGINA DE LISTA DE ARTIGOS DO BLOG
 routes.get("/dashboard/articles/deleted",authAdmin.requireAuth, Admin.getArticlesDeleted);//PAGINA DE LISTA DE ARTIGOS DO BLOG
 routes.get("/dashboard/articles/edit",authAdmin.requireAuth, Admin.getArticlesEdit);//PAGINA DE EDITAR ARTIGOS DO BLOG
 routes.get("/dashboard/articles/new",authAdmin.requireAuth, Admin.getArticlesNew);//PAGINA DE CRIAR ARTIGOS DO BLOG
 
 
-
+/* -------///-------CATEGORIA1------///--------------- */
 routes.get("/dashboard/categories",authAdmin.requireAuth, Admin.getCategories);//PAGINA DE LISTA DE CATEGORIAS DO BLOG
-
 routes.get("/dashboard/categories/edit/:id",authAdmin.requireAuth, Admin.getCategoriesEdit);//PAGINA DE EDITAR CATEGORIAS DO BLOG
 routes.post("/dashboard/categories/edit/:id",authAdmin.requireAuth, Admin.categoriesEdit);//PAGINA DE EDITAR CATEGORIAS DO BLOG
 routes.post("/dashboard/categories/del/:id",authAdmin.requireAuth, Admin.categoriesHardDelete);//PAGINA DE EDITAR CATEGORIAS DO BLOG
-
-
 routes.get("/dashboard/categories/new",authAdmin.requireAuth, Admin.getCategoriesNew);//PAGINA DE CRIAR CATEGORIAS DO BLOG
 routes.post("/dashboard/categories/new",authAdmin.requireAuth, Admin.categoriesNew);//PAGINA DE CRIAR CATEGORIAS DO BLOG
+
+/* -------///-------CATEGORIA2------///--------------- */
+routes.get("/dashboard/categories2",authAdmin.requireAuth, Admin.getCategories2);//PAGINA DE LISTA DE CATEGORIAS DO BLOG
+routes.get("/dashboard/categories2/edit/:id",authAdmin.requireAuth, Admin.getCategoriesEdit2);//PAGINA DE EDITAR CATEGORIAS DO BLOG
+routes.post("/dashboard/categories2/edit/:id",authAdmin.requireAuth, Admin.categoriesEdit2);//PAGINA DE EDITAR CATEGORIAS DO BLOG
+routes.post("/dashboard/categories2/del/:id",authAdmin.requireAuth, Admin.categoriesHardDelete2);//PAGINA DE EDITAR CATEGORIAS DO BLOG
+routes.get("/dashboard/categories2/new",authAdmin.requireAuth, Admin.getCategoriesNew2);//PAGINA DE CRIAR CATEGORIAS DO BLOG
+routes.post("/dashboard/categories2/new",authAdmin.requireAuth, Admin.categoriesNew2);//PAGINA DE CRIAR CATEGORIAS DO BLOG
+
+/* -------///-------CATEGORIA3------///--------------- */
+routes.get("/dashboard/categories3",authAdmin.requireAuth, Admin.getCategories3);//PAGINA DE LISTA DE CATEGORIAS DO BLOG
+routes.get("/dashboard/categories3/edit/:id",authAdmin.requireAuth, Admin.getCategoriesEdit3);//PAGINA DE EDITAR CATEGORIAS DO BLOG
+routes.post("/dashboard/categories3/edit/:id",authAdmin.requireAuth, Admin.categoriesEdit3);//PAGINA DE EDITAR CATEGORIAS DO BLOG
+routes.post("/dashboard/categories3/del/:id",authAdmin.requireAuth, Admin.categoriesHardDelete3);//PAGINA DE EDITAR CATEGORIAS DO BLOG
+routes.get("/dashboard/categories3/new",authAdmin.requireAuth, Admin.getCategoriesNew3);//PAGINA DE CRIAR CATEGORIAS DO BLOG
+routes.post("/dashboard/categories3/new",authAdmin.requireAuth, Admin.categoriesNew3);//PAGINA DE CRIAR CATEGORIAS DO BLOG
+
 
 
 export default routes;

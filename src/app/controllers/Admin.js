@@ -1,6 +1,9 @@
 import Admin from "../models/Admin";
 import Article from "../models/Articles";
 import Category from "../models/Categories";
+import Category2 from "../models/Categories2";
+import Category3 from "../models/Categories3";
+
 import User from "../models/Users";
 import slugify from "slugify";
 
@@ -200,7 +203,8 @@ class AdminController{
                 return res.redirect("/admin/dashboard/categories");
             }
 
-            await Category.update(id, title)
+            const slug = slugify(title)
+            await Category.update(id, title, slug)
             res.redirect("/admin/dashboard/categories")
         }catch(error){
             next(error);
@@ -242,6 +246,174 @@ class AdminController{
 
             await Category.deleteHard(id)
             return res.redirect("/admin/dashboard/categories")
+        }catch(error){
+            next(error);
+        }
+    }
+
+
+/*-------//-----------//-------CATEGORIAS 2------//------------//---------- */
+    async getCategories2(req, res, next) {
+        try{
+            const categories = await Category2.findAll();//chamando metodo findall do model
+            res.render("categoriesList2", {  
+                categories,
+            });   
+        }catch(error){
+            next(error);
+        }
+    }
+
+    async getCategoriesEdit2(req, res, next) {
+        try{
+            const id = req.params.id;           
+            const category = await Category2.findById(id)
+            res.render("categoriesEdit2" , {
+                message: "",
+                id: category.id,
+                title: category.title
+            });
+        }catch(error){
+            next(error);
+        }
+    }
+
+    async categoriesEdit2(req, res, next) {
+        try{
+            const {id, title} = req.body;
+            const category = await Category2.findById(id)
+
+            if(!category) {
+                return res.redirect("/admin/dashboard/categories2");
+            }
+
+            const slug = slugify(title)
+            await Category2.update(id, title, slug)
+            res.redirect("/admin/dashboard/categories2")
+        }catch(error){
+            next(error);
+        }
+    }
+
+    async getCategoriesNew2(req, res, next) {
+        try{
+            res.render("categoriesNew2");
+        }catch(error){
+            next(error);
+        }
+    }
+
+    async categoriesNew2(req, res, next) {
+        try{
+            const title = req.body.title;
+            if(title === undefined) {
+                res.redirect("/admin/dashboard/categories2/new")
+            }
+
+            const slug = slugify(title)
+            await Category2.create(title, slug)
+
+            res.redirect("/admin/dashboard/categories2")
+        }catch(error){
+            next(error);
+        }
+    }
+
+    async categoriesHardDelete2(req, res, next) {
+        try{
+            const id = req.params.id;           
+            const category = await Category2.findById(id);
+
+            if(!category) {
+                return res.redirect("/admin/dashboard/categories2");
+            }
+
+            await Category2.deleteHard(id)
+            return res.redirect("/admin/dashboard/categories2")
+        }catch(error){
+            next(error);
+        }
+    }
+
+
+/*-------//-----------//-------CATEGORIAS 3------//------------//---------- */
+    async getCategories3(req, res, next) {
+        try{
+            const categories = await Category3.findAll();//chamando metodo findall do model
+            res.render("categoriesList3", {  
+                categories,
+            });   
+        }catch(error){
+            next(error);
+        }
+    }
+
+    async getCategoriesEdit3(req, res, next) {
+        try{
+            const id = req.params.id;           
+            const category = await Category3.findById(id)
+            res.render("categoriesEdit3" , {
+                message: "",
+                id: category.id,
+                title: category.title
+            });
+        }catch(error){
+            next(error);
+        }
+    }
+
+    async categoriesEdit3(req, res, next) {
+        try{
+            const {id, title} = req.body;
+            const category = await Category3.findById(id)
+
+            if(!category) {
+                return res.redirect("/admin/dashboard/categories3");
+            }
+
+            const slug = slugify(title)
+            await Category3.update(id, title, slug)
+            res.redirect("/admin/dashboard/categories3")
+        }catch(error){
+            next(error);
+        }
+    }
+
+    async getCategoriesNew3(req, res, next) {
+        try{
+            res.render("categoriesNew3");
+        }catch(error){
+            next(error);
+        }
+    }
+
+    async categoriesNew3(req, res, next) {
+        try{
+            const title = req.body.title;
+            if(title === undefined) {
+                res.redirect("/admin/dashboard/categories3/new")
+            }
+
+            const slug = slugify(title)
+            await Category3.create(title, slug)
+
+            res.redirect("/admin/dashboard/categories3")
+        }catch(error){
+            next(error);
+        }
+    }
+
+    async categoriesHardDelete3(req, res, next) {
+        try{
+            const id = req.params.id;           
+            const category = await Category3.findById(id);
+
+            if(!category) {
+                return res.redirect("/admin/dashboard/categories3");
+            }
+
+            await Category3.deleteHard(id)
+            return res.redirect("/admin/dashboard/categories3")
         }catch(error){
             next(error);
         }

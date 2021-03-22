@@ -1,0 +1,36 @@
+<%- include("partials/head.ejs") %>
+
+
+<body>
+    <%- include("partials/header.ejs") %>
+
+    <main class="content">
+
+        <%- include("partials/navbarAdmin") %>
+
+        <div class="admin__content">
+
+            <div class="users__section__header">
+                <h1 class="title__header">Editar categoria</h1>
+            </div>
+
+                <form action="/admin/dashboard/categories2/edit/<%= id %>" method="post">
+                    
+                    <h2>Titulo</h2>
+                    <input type="text" value="<%= title %>" name="title">
+                    <h2>Id</h2>
+                    <input type="number" name="id" value="<%= id %>" readonly>
+                    <input type="submit" value="Editar categoria">
+                </form>
+
+            
+
+        </div>
+        
+    </main>
+    
+
+    <%- include("partials/footer.ejs") %>
+
+</body>
+

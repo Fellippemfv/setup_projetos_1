@@ -1,6 +1,8 @@
 import User from "../models/Users"
 import Article from "../models/Articles";
 import Category from "../models/Categories";
+import Category2 from "../models/Categories2";
+import Category3 from "../models/Categories3";
 import bcrypt from "bcrypt"
 
 class UserController{
@@ -8,8 +10,12 @@ class UserController{
     async getIndex(req, res, next) {
         try{
             const categories = await Category.findAll();//chamando metodo findall do model
+            const categories2 = await Category2.findAll();//chamando metodo findall do model
+            const categories3 = await Category3.findAll();//chamando metodo findall do model
             res.render("index", {  
                 categories,
+                categories2,
+                categories3
             });   
            
         }catch(error){
