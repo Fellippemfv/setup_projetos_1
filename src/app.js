@@ -11,6 +11,8 @@ import path from "path";
 import { localsName } from "ejs";
 env.config();
 
+//Falta ver os arquivos de foto ao criar/editar arigo
+
 //Falta refatorar database 
 //Falta ver sistema de email
 

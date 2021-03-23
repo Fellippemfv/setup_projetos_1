@@ -6,6 +6,7 @@ const routes = new Router();
 /* -------///-------DASHBOARD------///--------------- */
 routes.get("/dashboard",authAdmin.requireAuth, Admin.getDashboard);//PAGINA DE DASHBOARD DE ADMIN DO BLOG
 
+/* -------///-------USUARIOS------///--------------- */ 
 routes.get("/dashboard/users",authAdmin.requireAuth, Admin.getUsers);//PAGINA DE LISTA DE USUÁRIOS DO BLOG
 routes.get("/dashboard/users/edit/:id",authAdmin.requireAuth, Admin.getUsersEdit);//PAGINA DE LISTA DE USUÁRIOS DO BLOG
 routes.post("/dashboard/users/edit/:id",authAdmin.requireAuth, Admin.usersEdit);//PAGINA DE LISTA DE USUÁRIOS DO BLOG
@@ -15,12 +16,18 @@ routes.get("/dashboard/users/deleted",authAdmin.requireAuth, Admin.getUsersDelet
 routes.post("/dashboard/users/hard/:id",authAdmin.requireAuth, Admin.usersHardDel);//PAGINA DE LISTA DE USUÁRIOS DO BLOG
 routes.post("/dashboard/users/back/:id",authAdmin.requireAuth, Admin.usersBackDel);//PAGINA DE LISTA DE USUÁRIOS DO BLOG
  
-/* -------///-------ARTIGOS------///--------------- */
+/* -------///-------ARTIGOS------///--------------- */ 
 routes.get("/dashboard/articles",authAdmin.requireAuth, Admin.getArticles);//PAGINA DE LISTA DE ARTIGOS DO BLOG
-routes.get("/dashboard/articles/deleted",authAdmin.requireAuth, Admin.getArticlesDeleted);//PAGINA DE LISTA DE ARTIGOS DO BLOG
-routes.get("/dashboard/articles/edit",authAdmin.requireAuth, Admin.getArticlesEdit);//PAGINA DE EDITAR ARTIGOS DO BLOG
-routes.get("/dashboard/articles/new",authAdmin.requireAuth, Admin.getArticlesNew);//PAGINA DE CRIAR ARTIGOS DO BLOG
+routes.get("/dashboard/articles/edit/:id",authAdmin.requireAuth, Admin.getArticlesEdit);//PAGINA DE LISTA DE USUÁRIOS DO BLOG
+routes.post("/dashboard/articles/edit/:id",authAdmin.requireAuth, Admin.articlesEdit);//PAGINA DE LISTA DE USUÁRIOS DO BLOG
+routes.post("/dashboard/articles/soft/:id",authAdmin.requireAuth, Admin.articleSoftdDel);//PAGINA DE LISTA DE USUÁRIOS DO BLOG
 
+routes.get("/dashboard/articles/deleted",authAdmin.requireAuth, Admin.getArticlesDeleted);//PAGINA DE LISTA DE ARTIGOS DO BLOG
+routes.post("/dashboard/articles/hard/:id",authAdmin.requireAuth, Admin.articlesHardDel);//PAGINA DE LISTA DE USUÁRIOS DO BLOG
+routes.post("/dashboard/articles/back/:id",authAdmin.requireAuth, Admin.articlesBackDel);//PAGINA DE LISTA DE USUÁRIOS DO BLOG
+ 
+routes.get("/dashboard/articles/new",authAdmin.requireAuth, Admin.getArticlesNew);//PAGINA DE CRIAR ARTIGOS DO BLOG
+routes.post("/dashboard/articles/new",authAdmin.requireAuth, Admin.articlesNew);//PAGINA DE CRIAR ARTIGOS DO BLOG
 
 /* -------///-------CATEGORIA1------///--------------- */
 routes.get("/dashboard/categories",authAdmin.requireAuth, Admin.getCategories);//PAGINA DE LISTA DE CATEGORIAS DO BLOG

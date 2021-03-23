@@ -8,7 +8,8 @@ module.exports = {
       host: process.env.DB_HOST, //IP
       user: process.env.DB_USER,//Usuario mysql
       password: process.env.DB_PASS, //Senha do mysql
-      database: process.env.DB_NAME // Nome do banco de dados
+      database: process.env.DB_NAME, // Nome do banco de dados
+      timezone: "-03:00"
     },
     migrations: {
       tableName: 'knex_migrations',

@@ -39,17 +39,6 @@ class AdminController{
             next(error);
         }
     }
-    
-    async getUsersDeleted(req, res, next) {
-        try{ 
-            const users = await Admin.findAllDeleted();//chamando metodo findall do model
-            res.render("usersDeleted", {
-                users,
-            });
-        }catch(error){
-            next(error);
-        }
-    } 
 
     async userSoftdDel(req, res, next) {
         try{ 
@@ -66,38 +55,6 @@ class AdminController{
             next(error);
         }
     }
-
-    async usersHardDel(req, res, next) {
-        try{ 
-            const id = req.params.id;           
-            const user = await User.findUserById(id)
-
-            if(!user) {
-                return res.redirect("/admin/dashboard/users/deleted");
-            }
-
-            await Admin.hardDelete(id)
-            return res.redirect("/admin/dashboard/users/deleted")
-        }catch(error){
-            next(error);
-        }
-    }
-
-    async usersBackDel(req, res, next) {
-        try{ 
-            const id = req.params.id;           
-            const user = await User.findUserById(id)
-
-            if(!user) {
-                return res.redirect("/admin/dashboard/users/deleted");
-            }
-
-            await Admin.backDelete(id)
-            return res.redirect("/admin/dashboard/users/deleted")
-        }catch(error){
-            next(error);
-        }
-    } 
 
     async getUsersEdit(req, res, next) {
         try{
@@ -131,21 +88,77 @@ class AdminController{
             next(error);
         }
     }
+    
+    async getUsersDeleted(req, res, next) {
+        try{ 
+            const users = await Admin.findAllDeleted();//chamando metodo findall do model
+            res.render("usersDeleted", {
+                users,
+            });
+        }catch(error){
+            next(error);
+        }
+    } 
+
+    async usersHardDel(req, res, next) {
+        try{ 
+            const id = req.params.id;           
+            const user = await User.findUserById(id)
+
+            if(!user) {
+                return res.redirect("/admin/dashboard/users/deleted");
+            }
+
+            await Admin.hardDelete(id)
+            return res.redirect("/admin/dashboard/users/deleted")
+        }catch(error){
+            next(error);
+        }
+    }
+
+    async usersBackDel(req, res, next) {
+        try{ 
+            const id = req.params.id;           
+            const user = await User.findUserById(id)
+
+            if(!user) {
+                return res.redirect("/admin/dashboard/users/deleted");
+            }
+
+            await Admin.backDelete(id)
+            return res.redirect("/admin/dashboard/users/deleted")
+        }catch(error){
+            next(error);
+        }
+    } 
+
+    
 
     
 /*-------//-----------//-------ARTIGOS------//------------//---------- */
 
     async getArticles(req, res, next) {
         try{
-            res.render("articlesListAdmin");
+            const articles = await Article.findAll();//chamando metodo findall do model
+            res.render("articlesListAdmin", {
+                articles,
+            });   
         }catch(error){
             next(error);
         }
     }
 
-    async getArticlesDeleted(req, res, next) {
-        try{
-            res.render("articlesDeleted");
+    async articleSoftdDel(req, res, next) {
+        try{ 
+            const id = req.params.id;           
+            const article = await Article.findById(id);
+
+            if(!article) {
+                return res.redirect("/admin/dashboard/articles/deleted");
+            }
+
+            await Article.softDelete(id)
+            return res.redirect("/admin/dashboard/articles/deleted")
         }catch(error){
             next(error);
         }
@@ -153,15 +166,120 @@ class AdminController{
 
     async getArticlesEdit(req, res, next) {
         try{
-            res.render("articlesEditAdmin");
+            const id = req.params.id;           
+            const article = await Article.findById(id)
+            const categories = await Category.findAll();//chamando metodo findall do model
+            const categories2 = await Category2.findAll();//chamando metodo findall do model
+            const categories3 = await Category3.findAll();//chamando metodo findall do model
+            res.render("articlesEditAdmin" , {
+                message: "",
+                id: article.id,
+                title: article.title,
+                exp_image_home: article.exp_image_home,
+                description_home: article.description_home,
+                materials: article.materials,
+                steps_by_step: article.steps_by_step,
+                exp_video: article.exp_video,
+                exp_image_initial: article.exp_image_initial,
+                exp_image_done: article.exp_image_done,
+                tips_important: article.tips_important,
+                tips_ead: article.tips_ead,
+                updated_at: article.updated_at,
+                categories: categories,
+                categories2: categories2,
+                categories3: categories3
+
+            });
         }catch(error){
             next(error);
         }
     }
 
+    async articlesEdit(req, res, next) {
+        try{ 
+            const {id, title, exp_image_home, description_home, materials, steps_by_step, exp_video, exp_image_done, exp_image_initial, tips_important, tips_ead} = req.body;
+            const article = await Article.findById(id)
+
+            if(!article) {
+                return res.redirect("/admin/dashboard/articles");
+            }
+
+            await Article.update(id, title, exp_image_home, description_home, materials, steps_by_step, exp_video, exp_image_done, exp_image_initial, tips_important, tips_ead);//falta ajeitar update
+            res.redirect("/admin/dashboard/articles")
+        }catch(error){
+            next(error);
+        }
+    }
+
+    async getArticlesDeleted(req, res, next) {
+        try{
+            const articles = await Article.findAllDeleted();//chamando metodo findall do model
+            res.render("articlesDeleted", {
+                articles,
+            });
+        }catch(error){
+            next(error);
+        }
+    }
+
+    async articlesHardDel(req, res, next) {
+        try{ 
+            const id = req.params.id;           
+            const article = await Article.findById(id);
+
+            if(!article) {
+                return res.redirect("/admin/dashboard/articles/deleted");
+            }
+
+            await Article.hardDelete(id);
+            return res.redirect("/admin/dashboard/articles/deleted")
+        }catch(error){
+            next(error);
+        }
+    }
+
+    async articlesBackDel(req, res, next) {
+        try{ 
+            const id = req.params.id;           
+            const article = await Article.findById(id);
+
+            if(!article) {
+                return res.redirect("/admin/dashboard/articles/deleted");
+            }
+
+            await Article.backDelete(id);
+            return res.redirect("/admin/dashboard/articles/deleted")
+        }catch(error){
+            next(error);
+        }
+    } 
+
+
     async getArticlesNew(req, res, next) {
         try{
-            res.render("articlesNewAdmin");
+            const categories = await Category.findAll();//chamando metodo findall do model
+            const categories2 = await Category2.findAll();//chamando metodo findall do model
+            const categories3 = await Category3.findAll();//chamando metodo findall do model
+            res.render("articlesNewAdmin", {
+                categories,
+                categories2,
+                categories3
+            });
+        }catch(error){
+            next(error);
+        }
+    }
+
+    async articlesNew(req, res, next) {
+        try{
+            const { title, exp_image_home, description_home, materials, steps_by_step, exp_video, exp_image_done, exp_image_initial, tips_important, tips_ead } = req.body;
+            const slug = slugify(title)
+
+            if(!title || !description_home || !materials || !steps_by_step || !tips_important || !tips_ead) {
+                res.redirect("/admin/dashboard")
+            }
+            await Article.create(title, slug, exp_image_home, description_home, materials, steps_by_step, exp_video, exp_image_done, exp_image_initial, tips_important, tips_ead)
+            res.redirect("/admin/dashboard/articles/new");
         }catch(error){
             next(error);
         }
@@ -204,7 +322,7 @@ class AdminController{
             }
 
             const slug = slugify(title)
-            await Category.update(id, title, slug)
+            await Category.update(id, title, slug, exp_image_home, description_home, materials, steps_by_step, exp_video, exp_image_done, exp_image_initial, tips_important, tips_ead)
             res.redirect("/admin/dashboard/categories")
         }catch(error){
             next(error);

@@ -10,52 +10,37 @@
         <%- include("partials/navbarAdmin") %>
 
         <div class="admin__content">
-
-            <div class="users__section__header">
-                <h1 class="title__header">Lista de Projetos</h1>
-            </div>
-
-            <div class="users__section__body">
                 
-                <div class="user__block">
-                    <div class="user__info">
-                        <h2 class="user__title">Nome</h2>
-                    </div>
-                    <div class="user__info">
-                        <p>Fellippe Matheus</p>
-                    </div>
-                </div>
+            <!-- form handling -->
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>ID</th>
+                            <th>Titulo</th>
+                            <th>Descrição</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <% articles.forEach(article => { %>
+                    <tbody>
+                        <tr>
+                            <td><%= article.id %></td> 
+                            <td><%= article.title %></td> 
+                            <td><%= article.description_home %></td>
+                            <td>
+                                <a href="/admin/dashboard/articles/edit/<%= article.id %>"><img class="img-users" src="/assets/pencil-striped.svg" alt=""></a>
+                                <form action="/admin/dashboard/articles/soft/<%= article.id %>" method="post">
+                                    <input type="image" src="/assets/lixeira.svg" class="img-users">
+                                </form>
+                            </td>
 
-                <div class="user__block">
-                    <div class="user__info">
-                        <h2 class="user__title">Email</h2>
-                    </div>
-                    <div class="user__info">
-                        <p>Fellippe.matheus@hotmail.com</p>
-                    </div>
-                </div>
 
-                <div class="user__block">
-                    <div class="user__info">
-                        <h2 class="user__title">Cargo</h2>
-                    </div>
-                    <div class="user__info">
-                        <p>Administrador</p>
-                    </div>
-                </div>
+                            
+                        </tr>
+                    </tbody>
+                    <% }) %>
 
-                <div class="user__block">
-                    <div class="user__info">
-                        <h2 class="user__title">Opções</h2>
-                    </div>
-                    <div class="user__info">
-                        <button>Excluir</button>
-                        <button>Editar</button>
-                    </div>
-                </div>
-                
-
-            </div>
+                </table>
 
         </div>
         

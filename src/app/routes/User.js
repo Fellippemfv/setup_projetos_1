@@ -10,6 +10,8 @@ import multerConfig from '../config/multer';
 const upload = multer(multerConfig);
 
 routes.get("/", User.getIndex);//PAGINA INICIAL DO BLOG
+routes.get("/:slug", User.getOneArticle);//PAGINA DE UM ARTIGO
+
 //PAGINA DE ARTIGOS POR CATEGORIA
 //PAGINA DE ARTIGOS POR POR RECENTE
 
