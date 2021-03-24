@@ -25,7 +25,7 @@ class UserController{
         }
     }
 
-    async getOneArticle(req, res, next) {
+    async getOneArticle(req, res, next) {//algo errado
         try{
             const slug = req.params.slug;
             const categories = await Category.findAll();//chamando metodo findall do model

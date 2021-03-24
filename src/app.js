@@ -46,7 +46,7 @@ class App {
         this.server.use("/admin", adminRoutes)
         this.server.use("/subadmin", subAdminRoutes)
         this.server.use("/", authRoutes);
-        this.server.use("/", usersRoutes) 
+        this.server.use("/", usersRoutes)  
         
     }
 
