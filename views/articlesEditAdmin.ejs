@@ -35,7 +35,7 @@
                     <form action="/admin/dashboard/articles/edit/<%= id %>" method="POST">
                             <div class="article__item">
                                 <label for="exp_image_home">Foto que representa o experimento</label>
-                                <input type="file" name="exp_image_home">     
+                                <input type="text" value="<%= exp_image_home %>" name="exp_image_home">
                                 <input class="article__id" name="id" type="number" value="<%= id %>" readonly>
                                 <input type="submit" value="Atualizar">
                             </div>
@@ -84,7 +84,7 @@
                     <form action="/admin/dashboard/articles/edit/<%= id %>" method="POST">
                             <div class="article__item">
                                 <label for="exp_image_initial">Imagem do ínicio do experimento</label>
-                                <input type="file" name="exp_image_initial">
+                                <input type="text" name="exp_image_initial" id="" value="<%= exp_image_initial %>" >
                                 <input class="article__id" name="id" type="number" value="<%= id %>" readonly>
                                 <input type="submit" value="Atualizar">
                             </div>
@@ -93,7 +93,7 @@
                     <form action="/admin/dashboard/articles/edit/<%= id %>" method="POST">
                             <div class="article__item">
                                 <label for="">Imagem do final do experimento</label>
-                                <input type="file" name="exp_image_done">
+                                <input type="text"   name="exp_image_done" value="<%= exp_image_done %>">
                                 <input class="article__id" name="id" type="number" value="<%= id %>" readonly>
                                 <input type="submit" value="Atualizar">
                             </div>

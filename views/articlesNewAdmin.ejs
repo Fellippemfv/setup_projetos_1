@@ -24,8 +24,8 @@
                     </div>
                    
                     <div class="article__item">
-                        <label for="">Foto que representa o experimento</label>
-                        <input type="file" name="exp_image_home">     
+                        <label for="">Link da foto que representa o experimento</label>
+                        <input type="text" name="exp_image_home" placeholder="Ex: https://lh3.googleusercontent.com/Hv">
                     </div>
                    
                     <div class="article__item">
@@ -38,12 +38,19 @@
                     <legend>Corpo do experimento</legend>
                     <div class="article__item">
                         <label for="">Materiais</label>
-                        <input type="text" name="materials" placeholder="Ex: 1 Bacia com água, 1 bom ar, 1 caixa de maizena" required>
+                        <textarea name="materials" id="" cols="30" rows="10" placeholder="Primeiro é preciso encher o balde com água com bom ar, depois misturar muito bem..." required>2 - Palitos
+5 - Papeis
+....
+                        </textarea>
+
                     </div>
 
                     <div class="article__item">
                         <label for="">Passo a passo</label>
-                        <textarea name="steps_by_step" id="" cols="30" rows="10" placeholder="Primeiro é preciso encher o balde com água com bom ar, depois misturar muito bem..." required></textarea>
+                        <textarea name="steps_by_step" id="" cols="30" rows="10" placeholder="Primeiro é preciso encher o balde com água com bom ar, depois misturar muito bem..." required>1- É preciso pegar a..
+2- Misturamos tudo e..
+....
+                        </textarea>
                     </div>
 
                     <div class="article__item">
@@ -52,13 +59,13 @@
                     </div>
 
                     <div class="article__item">
-                        <label for="">Imagem do ínicio do experimento</label>
-                        <input type="file" name="exp_image_initial">
+                        <label for="">Link da imagem do ínicio do experimento</label>
+                        <input type="text" name="exp_image_initial" id="" placeholder="Ex: https://lh3.googleusercontent.com/Hv">
                     </div>
 
                     <div class="article__item">
-                        <label for="">Imagem do final do experimento</label>
-                        <input type="file" name="exp_image_done">
+                        <label for="">Link da imagem do final do experimento</label>
+                        <input type="text"  name="exp_image_done" placeholder="Ex: https://lh3.googleusercontent.com/Hv" >
                     </div>
                     
                 </fieldset>

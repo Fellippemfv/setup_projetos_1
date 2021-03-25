@@ -200,7 +200,7 @@ class AdminController{
             const {id, title, exp_image_home, description_home, materials, steps_by_step, exp_video, exp_image_done, exp_image_initial, tips_important, tips_ead} = req.body;
             const article = await Article.findById(id)
 
-            if(!article) {
+            if(!article) { 
                 return res.redirect("/admin/dashboard/articles");
             }
 
