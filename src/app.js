@@ -11,7 +11,8 @@ import path from "path";
 import { localsName } from "ejs";
 env.config();
 
-//Falta ver os arquivos de foto ao criar/editar arigo
+//Falta ver só edição de subadmin
+//falta ver o menu mobile normal e /alternativo
 
 //Falta refatorar database 
 //Falta ver sistema de email

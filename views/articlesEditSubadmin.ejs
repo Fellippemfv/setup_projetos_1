@@ -13,51 +13,153 @@
 
             <div class="users__section__header">
                 <h1 class="title__header">Editar artigo</h1>
+                <h2>Ultima atualização: <%= updated_at %></h2>
             </div>
 
             <div class="users__section__body">
                 
-                <div class="user__block">
-                    <div class="user__info">
-                        <h2 class="user__title">Nome</h2>
-                    </div>
-                    <div class="user__info">
-                        <p>Fellippe Matheus</p>
-                    </div>
-                </div>
 
-                <div class="user__block">
-                    <div class="user__info">
-                        <h2 class="user__title">Email</h2>
-                    </div>
-                    <div class="user__info">
-                        <p>Fellippe.matheus@hotmail.com</p>
-                    </div>
-                </div>
 
-                <div class="user__block">
-                    <div class="user__info">
-                        <h2 class="user__title">Cargo</h2>
-                    </div>
-                    <div class="user__info">
-                        <p>Administrador</p>
-                    </div>
-                </div>
+                <div class="admin__content">
+                    <form action="/subadmin/dashboard/articles/edit/<%= id %>" method="POST">
+                        <fieldset>
+                            <legend>Tela inicial</legend>
+                            <div class="article__item">
+                                <label for="title"> Titulo do experimento</label>
+                                <input type="text" name="title"  value="<%= title %>">
+                                <input class="article__id" name="id" type="number" value="<%= id %>" readonly>
+                                <input type="submit" value="Atualizar">
+                            </div>
+                    </form>
+                           
+                    <form action="/subadmin/dashboard/articles/edit/<%= id %>" method="POST">
+                            <div class="article__item">
+                                <label for="exp_image_home">Foto que representa o experimento</label>
+                                <input type="text" value="<%= exp_image_home %>" name="exp_image_home">
+                                <input class="article__id" name="id" type="number" value="<%= id %>" readonly>
+                                <input type="submit" value="Atualizar">
+                            </div>
+                    </form>
 
-                <div class="user__block">
-                    <div class="user__info">
-                        <h2 class="user__title">Opções</h2>
-                    </div>
-                    <div class="user__info">
-                        <button>Excluir</button>
-                        <button>Editar</button>
-                    </div>
+                    <form action="/subadmin/dashboard/articles/edit/<%= id %>" method="POST">
+                            <div class="article__item">
+                                <label for="description_home">Descrição resumida do experimento</label>
+                                <textarea name="description_home"  id="" cols="30" rows="10"><%= description_home %></textarea>    
+                                <input class="article__id" name="id" type="number" value="<%= id %>" readonly>
+                                <input type="submit" value="Atualizar">
+                            </div>
+                    </form>
+                        </fieldset>
+
+        
+                    <form action="/subadmin/dashboard/articles/edit/<%= id %>" method="POST">
+                        <fieldset>
+                            <legend>Corpo do experimento</legend>
+                            <div class="article__item">
+                                <label for="materials">Materiais</label>
+                                <input type="text" name="materials" value="<%= materials %>" >
+                                <input class="article__id" name="id" type="number" value="<%= id %>" readonly>
+                                <input type="submit" value="Atualizar">
+                            </div>
+                    </form>
+
+                    <form action="/subadmin/dashboard/articles/edit/<%= id %>" method="POST">
+                            <div class="article__item">
+                                <label for="steps_by_step">Passo a passo</label>
+                                <textarea name="steps_by_step" id="" cols="30" rows="10" ><%= steps_by_step %></textarea>
+                                <input class="article__id" name="id" type="number" value="<%= id %>" readonly>
+                                <input type="submit" value="Atualizar">
+                            </div>
+                    </form>
+
+                    <form action="/subadmin/dashboard/articles/edit/<%= id %>" method="POST">
+                            <div class="article__item">
+                                <label for="exp_video">Link do video do experimento</label>
+                                <input type="text" name="exp_video" value="<%= exp_video %>">
+                                <input class="article__id" name="id" type="number" value="<%= id %>" readonly>
+                                <input type="submit" value="Atualizar">
+                            </div>
+                    </form>
+
+                    <form action="/subadmin/dashboard/articles/edit/<%= id %>" method="POST">
+                            <div class="article__item">
+                                <label for="exp_image_initial">Imagem do ínicio do experimento</label>
+                                <input type="text" name="exp_image_initial" id="" value="<%= exp_image_initial %>" >
+                                <input class="article__id" name="id" type="number" value="<%= id %>" readonly>
+                                <input type="submit" value="Atualizar">
+                            </div>
+                    </form>
+
+                    <form action="/subadmin/dashboard/articles/edit/<%= id %>" method="POST">
+                            <div class="article__item">
+                                <label for="">Imagem do final do experimento</label>
+                                <input type="text"   name="exp_image_done" value="<%= exp_image_done %>">
+                                <input class="article__id" name="id" type="number" value="<%= id %>" readonly>
+                                <input type="submit" value="Atualizar">
+                            </div>
+                    </form>  
+                        </fieldset>
+
+                    <form action="/subadmin/dashboard/articles/edit/<%= id %>" method="post">
+                        <fieldset>
+                            <legend>Categorias</legend>
+                            <label for="category">Assunto</label>
+                            <select name="category" id="">
+                                <% categories.forEach((category) => {  %>
+                                    <option value="<%= category.id %>"><%= category.title %></option>
+                                <% }) %>
+                            </select>
+
+                            <label for="category2">Preço</label>
+                            <select name="category2" id="">
+                                <% categories2.forEach((category2) => {  %>
+                                    <option value="<%= category2.id %>"><%= category2.title %></option>
+                                <% }) %>
+                            </select>
+
+                            <label for="category3">BNCC</label>
+                            <select name="category3" id="">
+                                <% categories3.forEach((category3) => {  %>
+                                    <option value="<%= category3.id %>"><%= category3.title %></option>
+                                <% }) %>
+                            </select>
+                        </fieldset>
+                    </form>
+        
+                    <form action="/subadmin/dashboard/articles/edit/<%= id %>" method="POST">
+                        <fieldset>
+                            <legend>Orientações para professores</legend>
+                            <div class="article__item">
+                                <label for="tips_important">Dicas importantes</label>
+                                <textarea name="tips_important" id="" cols="30" rows="10"><%= tips_important %></textarea>
+                                <input class="article__id" name="id" type="number" value="<%= id %>" readonly>
+                                <input type="submit" value="Atualizar">
+                            </div>
+                    </form>  
+
+                    <form action="/subadmin/dashboard/articles/edit/<%= id %>" method="POST">
+                            <div class="article__item">
+                                <label for="tips_ead">Dicas para o EaD</label>
+                                <textarea name="tips_ead" id="" cols="30" rows="10" ><%= tips_ead %></textarea>
+                                <input class="article__id" name="id" type="number"  name="id" value="<%= id %>" readonly>
+                                <input type="submit" value="Atualizar">
+                            </div>
+                    </form>  
+                        </fieldset>
+                   
+        
+                    
+                        
+        
+        
                 </div>
                 
 
             </div>
 
         </div>
+        
+        
         
     </main>
     
