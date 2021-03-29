@@ -21,6 +21,15 @@ class Category{
         }
     }
 
+    async findBySlug(slug){//retorna lista de usuarios
+        try{
+            let result = await knex("categories").where({ slug }).select([ "id", "title" ])
+            return result[0];
+        }catch(error){
+            console.log(error);
+        }
+    }
+
     async create(title, slug){//retorna lista de usuarios
         try{
             let result = await knex("categories").insert({ title, slug })

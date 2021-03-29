@@ -25,13 +25,48 @@ class UserController{
         }
     }
 
-    async getOneArticle(req, res, next) {//algo errado
+    async getOneArticle(req, res, next) {
         try{
             const slug = req.params.slug;
             const categories = await Category.findAll();//chamando metodo findall do model
             const categories2 = await Category2.findAll();//chamando metodo findall do model
             const categories3 = await Category3.findAll();//chamando metodo findall do model
             const article = await Article.findOne(slug)
+
+            if(article === undefined){
+                res.redirect("/");
+            }
+            res.render("articleOne", {  
+                categories,
+                categories2,
+                categories3,
+                title: article.title,
+                exp_image_home: article.exp_image_home,
+                description_home: article.description_home,
+                materials: article.materials,
+                steps_by_step: article.steps_by_step,
+                exp_video: article.exp_video,
+                exp_image_initial: article.exp_image_initial,
+                exp_image_done: article.exp_image_done,
+                tips_important: article.tips_important,
+                tips_ead: article.tips_ead,
+                created_at: article.created_at,
+                updated_at: article.updated_at,
+
+            });   
+           
+        }catch(error){
+            next(error);
+        }
+    }
+
+    async getOneCategory(req, res, next) {//algo errado/ precisa dar um join
+        try{
+            const slug = req.params.slug;
+            const categories = await Category.findAll();//chamando metodo findall do model
+            const categories2 = await Category2.findAll();//chamando metodo findall do model
+            const categories3 = await Category3.findAll();//chamando metodo findall do model
+            const article = await Category.findById .findOne(slug)
 
             if(article === undefined){
                 res.redirect("/");

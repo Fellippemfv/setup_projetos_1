@@ -11,8 +11,8 @@ import path from "path";
 import { localsName } from "ejs";
 env.config();
 
-//Falta ver só edição de subadmin
 //falta ver o menu mobile normal e /alternativo
+//falta ver o codigo mysql que conecta os artigos com categorias, e pra colocar nas view de criação, edição
 
 //Falta refatorar database 
 //Falta ver sistema de email

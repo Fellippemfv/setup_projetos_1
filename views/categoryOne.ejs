@@ -1,0 +1,44 @@
+<%- include("partials/head.ejs") %>
+
+
+<body>
+    <%- include("partials/headerAlternativo.ejs") %>
+
+    <main class="content">
+    
+        <!--Principal-->
+    <div class="wrapper">
+        <!--Itens-->
+        <!--vai ter um for each e pra cada "block" um titulo, foto, descrição-->
+      
+
+        <% articles.forEach(article => { %>
+
+                    <div class="block">
+                       
+                        <div class="block-img">
+                            <img src="/assets/img-test/copos-coloridos.jpg" alt="HTML5">
+                        </div>
+                        <div class="block-desc">
+                            <h2><%= article.title %></h2>
+                            <p><%= article.description_home  %></p>
+                        </div>
+                        <div class="block-link">
+                            <a href="/article/<%= article.slug %>">Ver mais</a>
+                        </div>
+                    </div>
+        <% }) %>
+
+                   
+
+                    
+        <!--Termina Itens-->
+    </div>
+       
+    </main>
+    
+
+    <%- include("partials/footer.ejs") %>
+
+</body>
+

@@ -270,15 +270,15 @@ class AdminController{
         }
     }
 
-    async articlesNew(req, res, next) {
+    async articlesNew(req, res, next) { 
         try{
-            const { title, exp_image_home, description_home, materials, steps_by_step, exp_video, exp_image_done, exp_image_initial, tips_important, tips_ead } = req.body;
+            const { title, exp_image_home, description_home, materials, steps_by_step, exp_video, exp_image_done, exp_image_initial, tips_important, tips_ead, category, category2, category3 } = req.body;
             const slug = slugify(title)
 
             if(!title || !description_home || !materials || !steps_by_step || !tips_important || !tips_ead) {
                 res.redirect("/admin/dashboard")
             }
-            await Article.create(title, slug, exp_image_home, description_home, materials, steps_by_step, exp_video, exp_image_done, exp_image_initial, tips_important, tips_ead)
+            await Article.create(title, slug, exp_image_home, description_home, materials, steps_by_step, exp_video, exp_image_done, exp_image_initial, tips_important, tips_ead, category, category2, category3)
             res.redirect("/admin/dashboard/articles/new");
         }catch(error){
             next(error);
