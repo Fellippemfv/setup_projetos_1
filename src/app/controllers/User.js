@@ -13,6 +13,7 @@ class UserController{
             const categories2 = await Category2.findAll();//chamando metodo findall do model
             const categories3 = await Category3.findAll();//chamando metodo findall do model
             const articles = await Article.findAll();
+
             res.render("index", {  
                 categories,
                 categories2,
@@ -66,27 +67,72 @@ class UserController{
             const categories = await Category.findAll();//chamando metodo findall do model
             const categories2 = await Category2.findAll();//chamando metodo findall do model
             const categories3 = await Category3.findAll();//chamando metodo findall do model
-            const article = await Category.findById .findOne(slug)
+            const articles = await Article.findAllCategory(slug);
 
-            if(article === undefined){
+            
+
+            if(articles === undefined){
                 res.redirect("/");
             }
-            res.render("articleOne", {  
+            res.render("categoryOne", {  
                 categories,
                 categories2,
                 categories3,
-                title: article.title,
-                exp_image_home: article.exp_image_home,
-                description_home: article.description_home,
-                materials: article.materials,
-                steps_by_step: article.steps_by_step,
-                exp_video: article.exp_video,
-                exp_image_initial: article.exp_image_initial,
-                exp_image_done: article.exp_image_done,
-                tips_important: article.tips_important,
-                tips_ead: article.tips_ead,
-                created_at: article.created_at,
-                updated_at: article.updated_at,
+                articles
+                
+
+            });   
+           
+        }catch(error){
+            next(error);
+        }
+    }
+
+    async getOneCategory2(req, res, next) {//algo errado/ precisa dar um join
+        try{
+            const slug = req.params.slug;
+            const categories = await Category.findAll();//chamando metodo findall do model
+            const categories2 = await Category2.findAll();//chamando metodo findall do model
+            const categories3 = await Category3.findAll();//chamando metodo findall do model
+            const articles = await Article.findAllCategory2(slug); 
+            
+
+            if(articles === undefined){
+                res.redirect("/");
+            }
+            res.render("category2One", {  
+                categories,
+                categories2,
+                categories3,
+                articles
+                
+
+            });   
+           
+        }catch(error){
+            next(error);
+        }
+    }
+
+    async getOneCategory3(req, res, next) {//algo errado/ precisa dar um join
+        try{
+            const slug = req.params.slug;
+            const categories = await Category.findAll();//chamando metodo findall do model
+            const categories2 = await Category2.findAll();//chamando metodo findall do model
+            const categories3 = await Category3.findAll();//chamando metodo findall do model
+            const articles = await Article.findAllCategory3(slug); 
+
+            
+
+            if(articles === undefined){
+                res.redirect("/");
+            }
+            res.render("category3One", {  
+                categories,
+                categories2,
+                categories3,
+                articles
+                
 
             });   
            

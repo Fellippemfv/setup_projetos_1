@@ -20,7 +20,7 @@
                                 <div class="row">
                                     <div class="column">
                                         <% categories.forEach(category => { %>
-                                            <a href="#"><%= category.title %></a>                                           
+                                            <a href="/category/<%= category.slug %>"><%= category.title %></a>                                           
                                         <% }) %>
                                         
                                     </div>
@@ -40,7 +40,7 @@
                                 <div class="row">
                                     <div class="column">
                                         <% categories2.forEach(category2 => { %>
-                                            <a href="#"><%= category2.title %></a>                                           
+                                            <a href="/category2/<%= category2.slug %>"><%= category2.title %></a>                                           
                                         <% }) %>
                                         
                                     </div>
@@ -60,7 +60,7 @@
                                 <div class="row">
                                     <div class="column">
                                         <% categories3.forEach(category3 => { %>
-                                            <a href="#"><%= category3.title %></a>                                           
+                                            <a href="/category3/<%= category3.slug %>""><%= category3.title %></a>                                           
                                         <% }) %>
                                         
                                     </div>

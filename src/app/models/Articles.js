@@ -14,6 +14,33 @@ class Article{
         }
     }
 
+    async findAllCategory(slug){//retorna lista de usuarios//reformar a tabela => id deve ser slug
+        try{
+            let result = await knex.select("articles.id", "articles.title", "articles.description_home", "articles.slug", "categories.id as cat_id", "categories.title as cat_title").table("articles").innerJoin("categories", "articles.category_id", "categories.id").where({  "categories.slug": slug  })
+            return result;
+        }catch(error){
+            console.log(error);
+        }
+    }
+
+    async findAllCategory2(slug){//retorna lista de usuarios//reformar a tabela => id deve ser slug
+        try{
+            let result = await knex.select("articles.id", "articles.title", "articles.description_home", "articles.slug", "categories2.id as cat2_id").table("articles").innerJoin("categories2", "articles.category2_id", "categories2.id").where({  "categories2.slug": slug  })
+            return result;
+        }catch(error){
+            console.log(error);
+        }
+    }
+
+    async findAllCategory3(slug){//retorna lista de usuarios//reformar a tabela => id deve ser slug
+        try{
+            let result = await knex.select("articles.id", "articles.title", "articles.description_home", "articles.slug", "categories3.id as cat_id").table("articles").innerJoin("categories3", "articles.category3_id", "categories3.id").where({  "categories3.slug": slug  })
+            return result;
+        }catch(error){
+            console.log(error);
+        }
+    }
+
     async findOne(slug){//retorna lista de usuarios
         try{
             let result = await knex("articles").where({ slug })
