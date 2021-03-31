@@ -11,10 +11,12 @@ import path from "path";
 import { localsName } from "ejs";
 env.config();
 
-//falta ver o required do select (n ta funcionando)
-//falta ver o menu mobile normal e /alternativo
+//falta ver rolamento infinito de artigos/users/categorys
+//falta ver visual: css
+//falta testar num site real
 //Falta refatorar database 
 //Falta ver sistema de email
+//falta ver detalhes de tudo e descobrir bugs
 
 class App {
     constructor() {
