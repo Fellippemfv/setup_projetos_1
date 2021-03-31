@@ -38,7 +38,7 @@ class UserController{
                 res.redirect("/");
             }
             res.render("articleOne", {  
-                categories,
+                categories, 
                 categories2,
                 categories3,
                 title: article.title,
