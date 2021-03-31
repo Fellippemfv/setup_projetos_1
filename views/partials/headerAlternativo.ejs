@@ -95,12 +95,15 @@
                 <ul>
                     <li><form class="menu__search" action="/action_page.php"><input class="menu__input" type="text" placeholder="Pesquisar.." name="search"></form></li>
                     <li><img onclick="openSearch()" class="menu__button__search" src="/assets/lupa.svg" alt=""></li>
-                    
                     <%if(!isAuthenticated){%>
-                        <li><img onclick="myFunction2()" class="menu__avatar" src="/assets/signin_106368.svg" alt="Entrar"></li>
+                        <li><button onclick="open_modal()">Entrar</button></li>
+                        <li><button onclick="open_modal()">Registrar</button></li>
                     <%}else{%>
-                        <li><img onclick="myFunction2()" class="menu__avatar" src="/assets/signout_106525.svg" alt="Sair"></li>
+                        <li><button onclick="myFunction2()">Opções</button></li>
                     <%}%>
+                        
+
+                   
                 </ul>
             </div>
         </div>
@@ -144,14 +147,15 @@
         <div class="topnav-2">
             <!-- Navigation links (hidden by default) -->
 
+            <%if(isAuthenticated){%>
             <div id="myLinks-2">
-                <%if(!isAuthenticated){%>
-                    <li><button onclick="open_modal()">Entrar</button></li>
-                <%}else{%>
                     <li><a href="/myprofile">Perfil</a></li>
-                    <li><a href="/logout">Sair</a></li>
-                <%}%>
+                    <li><a href="/logout">Sair
+                            <img src="/assets/signout_106525.svg" alt="">
+                            </a>
+                    </li>
             </div>
+            <%}%>
 
         </div>
 

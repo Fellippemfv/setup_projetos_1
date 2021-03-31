@@ -7,11 +7,19 @@
             
         <div class="admin__infos">
             <div class="infos__left">
-                <figure>
-                    <div class="round-container">
-                        <img src="<%= photo %>">
-                    </div>    
-                </figure>
+                <%if(photo === null){%>
+                    <figure>
+                        <div class="round-container">
+                            <img src="/assets/male-user-shadow-svgrepo-com.svg">
+                        </div>    
+                    </figure>
+                <%}else{%>
+                    <figure>
+                        <div class="round-container">
+                            <img src="<%= photo %>">
+                        </div>    
+                    </figure>
+                <%}%>
             </div>
             <div class="info__right">
                 <p>Bem vindo(a): <%= name %></p>

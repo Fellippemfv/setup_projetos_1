@@ -10,13 +10,19 @@
         <div class="perfil__section">
             <div class="perfil__section__left">
 
-                <figure>
-                    <div class="round-container">
-                        <img src="<%= photo %>">
-                    </div>    
-                </figure>
+               
 
-                <img class="change__photo" src="assets/camera-fotografica.svg" alt="">
+                <form action="/files" enctype="multipart/form-data" method="post">
+                    <label for="file">Foto atual</label>
+                    <figure>
+                        <div class="round-container">
+                            <img src="<%= photo %>">
+                        </div>    
+                    </figure>
+
+                    <input type="file" name="file">
+                    <input type="submit" value="Trocar de foto" >            
+                </form>
 
                 <form action="/myprofile" method="POST">
                     <div class="perfil__content">
@@ -25,11 +31,6 @@
                         <input class="button_login" type="submit" value="Atualizar Descrição">
                     </div>
                 </form>
-
-                <form action="/files" enctype="multipart/form-data" method="post">
-                    <input type="file"  name="file">
-                  <input type="submit" value="enviar arquivo" >            
-              </form>
               
             </div>
 
