@@ -41,9 +41,9 @@ class Article{
         }
     }
 
-    async findOne(slug){//retorna lista de usuarios
+    async findOneArticle(slug){//retorna lista de usuarios
         try{
-            let result = await knex("articles").where({ slug })
+            let result = await knex.select("articles. *", "categories.title as cat_title", "categories2.title as cat2_title", "categories3.title as cat3_title").table("articles").innerJoin("categories", "articles.category_id", "categories.id").innerJoin("categories2", "articles.category2_id", "categories2.id").innerJoin("categories3", "articles.category3_id", "categories3.id").where({ "articles.slug": slug })
             return result[0];
         }catch(error){
             console.log(error);
@@ -68,6 +68,15 @@ class Article{
         }
     }
 
+    async findByIdArticle(id){//retorna lista de usuarios
+        try{
+            let result = await knex.select("articles. *", "categories.title as cat_title", "categories2.title as cat2_title", "categories3.title as cat3_title").table("articles").innerJoin("categories", "articles.category_id", "categories.id").innerJoin("categories2", "articles.category2_id", "categories2.id").innerJoin("categories3", "articles.category3_id", "categories3.id").where({ "articles.id": id })
+            return result[0];
+        }catch(error){
+            console.log(error);
+        }
+    }
+
     async create(title, slug, exp_image_home, description_home, materials, steps_by_step, exp_video, exp_image_done, exp_image_initial, tips_important, tips_ead, category, category2, category3){//retorna lista de usuarios
         try{
             let result = await knex("articles").insert({ title, slug, exp_image_home, description_home, materials, steps_by_step, exp_video, exp_image_done, exp_image_initial, tips_important, tips_ead, "category_id": category, "category2_id": category2, "category3_id": category3 })
@@ -77,7 +86,7 @@ class Article{
         }
     }
 
-    async update(id, title, exp_image_home, description_home, materials, steps_by_step, exp_video, exp_image_done, exp_image_initial, tips_important, tips_ead){//retorna lista de usuarios
+    async update(id, title, exp_image_home, description_home, materials, steps_by_step, exp_video, exp_image_done, exp_image_initial, tips_important, tips_ead, category_id, category2_id, category3_id){//retorna lista de usuarios
         try{
             if(title){
                 const slug = slugify(title)
@@ -127,6 +136,21 @@ class Article{
 
             if(tips_ead){
                 let result = await knex("articles").where({ id }).update({ tips_ead, "updated_at": new Date() });
+                return true;
+            }
+
+            if(category_id){
+                let result = await knex("articles").where({ id }).update({ category_id, "updated_at": new Date() });
+                return true;
+            }
+
+            if(category2_id){
+                let result = await knex("articles").where({ id }).update({ category2_id, "updated_at": new Date() });
+                return true;
+            }
+
+            if(category3_id){
+                let result = await knex("articles").where({ id }).update({ category3_id, "updated_at": new Date() });
                 return true;
             }
 

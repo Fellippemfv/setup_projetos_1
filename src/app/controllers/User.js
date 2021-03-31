@@ -32,7 +32,7 @@ class UserController{
             const categories = await Category.findAll();//chamando metodo findall do model
             const categories2 = await Category2.findAll();//chamando metodo findall do model
             const categories3 = await Category3.findAll();//chamando metodo findall do model
-            const article = await Article.findOne(slug)
+            const article = await Article.findOneArticle(slug)
 
             if(article === undefined){
                 res.redirect("/");
@@ -53,6 +53,9 @@ class UserController{
                 tips_ead: article.tips_ead,
                 created_at: article.created_at,
                 updated_at: article.updated_at,
+                cat_title: article.cat_title,
+                cat2_title: article.cat2_title,
+                cat3_title: article.cat3_title,
 
             });   
            

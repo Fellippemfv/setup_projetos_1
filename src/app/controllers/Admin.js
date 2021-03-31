@@ -167,12 +167,12 @@ class AdminController{
     async getArticlesEdit(req, res, next) {
         try{
             const id = req.params.id;           
-            const article = await Article.findById(id)
+            const article = await Article.findByIdArticle(id)
             const categories = await Category.findAll();//chamando metodo findall do model
             const categories2 = await Category2.findAll();//chamando metodo findall do model
             const categories3 = await Category3.findAll();//chamando metodo findall do model
             res.render("articlesEditAdmin" , {
-                message: "",
+                message: "", 
                 id: article.id,
                 title: article.title,
                 exp_image_home: article.exp_image_home,
@@ -186,8 +186,12 @@ class AdminController{
                 tips_ead: article.tips_ead,
                 updated_at: article.updated_at,
                 categories: categories,
+                cat_title: article.cat_title,
                 categories2: categories2,
-                categories3: categories3
+                cat2_title: article.cat2_title,
+                categories3: categories3,
+                cat3_title: article.cat3_title,
+
 
             });
         }catch(error){
@@ -197,14 +201,14 @@ class AdminController{
 
     async articlesEdit(req, res, next) {
         try{ 
-            const {id, title, exp_image_home, description_home, materials, steps_by_step, exp_video, exp_image_done, exp_image_initial, tips_important, tips_ead} = req.body;
+            const {id, title, exp_image_home, description_home, materials, steps_by_step, exp_video, exp_image_done, exp_image_initial, tips_important, tips_ead, category_id, category2_id, category3_id } = req.body;
             const article = await Article.findById(id)
 
             if(!article) { 
                 return res.redirect("/admin/dashboard/articles");
             }
 
-            await Article.update(id, title, exp_image_home, description_home, materials, steps_by_step, exp_video, exp_image_done, exp_image_initial, tips_important, tips_ead);//falta ajeitar update
+            await Article.update(id, title, exp_image_home, description_home, materials, steps_by_step, exp_video, exp_image_done, exp_image_initial, tips_important, tips_ead, category_id, category2_id, category3_id);//falta ajeitar update
             res.redirect("/admin/dashboard/articles")
         }catch(error){
             next(error);

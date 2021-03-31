@@ -17,8 +17,10 @@ routes.get("/category3/:slug", User.getOneCategory3);//PAGINA DE ARTIGOS EM RELA
 
 
  
-//PAGINA DE ARTIGOS POR CATEGORIA
-//PAGINA DE ARTIGOS POR POR RECENTE
+//PAGINA DE ARTIGOS POR POR RECENTE (orderby) no index(colocando para infinito estilo facebook)
+//Ajeitar view de edição de categoria e view de artigo (mostrando categoria) possivelmente usando innerjoin
+//ajeitar visual do css
+//testar no site real
 
 routes.get("/profile/:id", User.getProfileUser);//PAGINA DE UM USUÁRIO
 

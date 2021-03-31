@@ -26,7 +26,7 @@
                             <legend>Tela inicial</legend>
                             <div class="article__item">
                                 <label for="title"> Titulo do experimento</label>
-                                <input type="text" name="title"  value="<%= title %>">
+                                <input type="text" name="title"  value="<%= title %>" required>
                                 <input class="article__id" name="id" type="number" value="<%= id %>" readonly>
                                 <input type="submit" value="Atualizar">
                             </div>
@@ -44,7 +44,7 @@
                     <form action="/admin/dashboard/articles/edit/<%= id %>" method="POST">
                             <div class="article__item">
                                 <label for="description_home">Descrição resumida do experimento</label>
-                                <textarea name="description_home"  id="" cols="30" rows="10"><%= description_home %></textarea>    
+                                <textarea name="description_home" required><%= description_home %></textarea>    
                                 <input class="article__id" name="id" type="number" value="<%= id %>" readonly>
                                 <input type="submit" value="Atualizar">
                             </div>
@@ -56,8 +56,8 @@
                         <fieldset>
                             <legend>Corpo do experimento</legend>
                             <div class="article__item">
-                                <label for="materials">Materiais</label>
-                                <input type="text" name="materials" value="<%= materials %>" >
+                                <label for="">Materiais</label>
+                                <textarea name="materials" id="" placeholder="Primeiro é preciso encher o balde com água com bom ar, depois misturar muito bem..." required><%= materials %></textarea>
                                 <input class="article__id" name="id" type="number" value="<%= id %>" readonly>
                                 <input type="submit" value="Atualizar">
                             </div>
@@ -66,7 +66,7 @@
                     <form action="/admin/dashboard/articles/edit/<%= id %>" method="POST">
                             <div class="article__item">
                                 <label for="steps_by_step">Passo a passo</label>
-                                <textarea name="steps_by_step" id="" cols="30" rows="10" ><%= steps_by_step %></textarea>
+                                <textarea name="steps_by_step" id="" required><%= steps_by_step %></textarea>
                                 <input class="article__id" name="id" type="number" value="<%= id %>" readonly>
                                 <input type="submit" value="Atualizar">
                             </div>
@@ -103,26 +103,42 @@
                     <form action="/admin/dashboard/articles/edit/<%= id %>" method="post">
                         <fieldset>
                             <legend>Categorias</legend>
-                            <label for="category">Assunto</label>
-                            <select name="category" id="">
+                            <label for="category_id">Assunto</label>
+                            <h3>Atual: <span><%= cat_title %></span></h3>
+                            <select name="category_id" id="" required>
+                                <option value="" disabled selected>Escolha uma opção</option>
                                 <% categories.forEach((category) => {  %>
                                     <option value="<%= category.id %>"><%= category.title %></option>
                                 <% }) %>
                             </select>
+                            <input class="article__id" name="id" type="number"  name="id" value="<%= id %>" readonly>
+                            <input type="submit" value="Atualizar">
+                    </form>
 
-                            <label for="category2">Preço</label>
-                            <select name="category2" id="">
+                    <form action="/admin/dashboard/articles/edit/<%= id %>" method="post">
+                            <label for="category2_id">Preço</label>
+                            <h3>Atual: <span><%= cat2_title %></span></h3>
+                            <select name="category2_id" id="" required>
+                                <option value="" disabled selected>Escolha uma opção</option>
                                 <% categories2.forEach((category2) => {  %>
                                     <option value="<%= category2.id %>"><%= category2.title %></option>
                                 <% }) %>
                             </select>
+                            <input class="article__id" name="id" type="number"  name="id" value="<%= id %>" readonly>
+                            <input type="submit" value="Atualizar">
+                    </form>
 
-                            <label for="category3">BNCC</label>
-                            <select name="category3" id="">
+                    <form action="/admin/dashboard/articles/edit/<%= id %>" method="post">
+                            <label for="category3_id">BNCC</label>
+                            <h3>Atual: <span><%= cat3_title %></span></h3>
+                            <select name="category3_id" id="" required>
+                                <option value="" disabled selected>Escolha uma opção</option>
                                 <% categories3.forEach((category3) => {  %>
                                     <option value="<%= category3.id %>"><%= category3.title %></option>
                                 <% }) %>
                             </select>
+                            <input class="article__id" name="id" type="number"  name="id" value="<%= id %>" readonly>
+                            <input type="submit" value="Atualizar">
                         </fieldset>
                     </form>
         
@@ -131,7 +147,7 @@
                             <legend>Orientações para professores</legend>
                             <div class="article__item">
                                 <label for="tips_important">Dicas importantes</label>
-                                <textarea name="tips_important" id="" cols="30" rows="10"><%= tips_important %></textarea>
+                                <textarea name="tips_important" id="" required><%= tips_important %></textarea>
                                 <input class="article__id" name="id" type="number" value="<%= id %>" readonly>
                                 <input type="submit" value="Atualizar">
                             </div>
@@ -140,7 +156,7 @@
                     <form action="/admin/dashboard/articles/edit/<%= id %>" method="POST">
                             <div class="article__item">
                                 <label for="tips_ead">Dicas para o EaD</label>
-                                <textarea name="tips_ead" id="" cols="30" rows="10" ><%= tips_ead %></textarea>
+                                <textarea name="tips_ead" id="" required><%= tips_ead %></textarea>
                                 <input class="article__id" name="id" type="number"  name="id" value="<%= id %>" readonly>
                                 <input type="submit" value="Atualizar">
                             </div>
