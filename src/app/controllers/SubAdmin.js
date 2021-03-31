@@ -40,12 +40,12 @@ class SubAdminController{
     async getArticlesEdit(req, res, next) {
         try{
             const id = req.params.id;           
-            const article = await Article.findById(id)
+            const article = await Article.findByIdArticle(id)
             const categories = await Category.findAll();//chamando metodo findall do model
             const categories2 = await Category2.findAll();//chamando metodo findall do model
             const categories3 = await Category3.findAll();//chamando metodo findall do model
-            res.render("articlesEditSubadmin" , {
-                message: "",
+            res.render("articlesEditSubAdmin" , {
+                message: "", 
                 id: article.id,
                 title: article.title,
                 exp_image_home: article.exp_image_home,
@@ -59,8 +59,12 @@ class SubAdminController{
                 tips_ead: article.tips_ead,
                 updated_at: article.updated_at,
                 categories: categories,
+                cat_title: article.cat_title,
                 categories2: categories2,
-                categories3: categories3
+                cat2_title: article.cat2_title,
+                categories3: categories3,
+                cat3_title: article.cat3_title,
+
 
             });
         }catch(error){
@@ -70,14 +74,14 @@ class SubAdminController{
 
     async articlesEdit(req, res, next) {
         try{ 
-            const {id, title, exp_image_home, description_home, materials, steps_by_step, exp_video, exp_image_done, exp_image_initial, tips_important, tips_ead} = req.body;
+            const {id, title, exp_image_home, description_home, materials, steps_by_step, exp_video, exp_image_done, exp_image_initial, tips_important, tips_ead, category_id, category2_id, category3_id } = req.body;
             const article = await Article.findById(id)
 
             if(!article) { 
                 return res.redirect("/subadmin/dashboard/articles");
             }
 
-            await Article.update(id, title, exp_image_home, description_home, materials, steps_by_step, exp_video, exp_image_done, exp_image_initial, tips_important, tips_ead);//falta ajeitar update
+            await Article.update(id, title, exp_image_home, description_home, materials, steps_by_step, exp_video, exp_image_done, exp_image_initial, tips_important, tips_ead, category_id, category2_id, category3_id);//falta ajeitar update
             res.redirect("/subadmin/dashboard/articles")
         }catch(error){
             next(error);
@@ -100,7 +104,6 @@ class SubAdminController{
         }
     }
 
-
     async getArticlesNew(req, res, next) {
         try{
             const categories = await Category.findAll();//chamando metodo findall do model
@@ -118,13 +121,13 @@ class SubAdminController{
 
     async articlesNew(req, res, next) {
         try{
-            const { title, exp_image_home, description_home, materials, steps_by_step, exp_video, exp_image_done, exp_image_initial, tips_important, tips_ead } = req.body;
+            const { title, exp_image_home, description_home, materials, steps_by_step, exp_video, exp_image_done, exp_image_initial, tips_important, tips_ead, category, category2, category3 } = req.body;
             const slug = slugify(title)
 
             if(!title || !description_home || !materials || !steps_by_step || !tips_important || !tips_ead) {
                 res.redirect("/subadmin/dashboard")
             }
-            await Article.create(title, slug, exp_image_home, description_home, materials, steps_by_step, exp_video, exp_image_done, exp_image_initial, tips_important, tips_ead)
+            await Article.create(title, slug, exp_image_home, description_home, materials, steps_by_step, exp_video, exp_image_done, exp_image_initial, tips_important, tips_ead, category, category2, category3)
             res.redirect("/subadmin/dashboard/articles/new");
         }catch(error){
             next(error);

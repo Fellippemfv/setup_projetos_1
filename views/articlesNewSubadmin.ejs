@@ -30,7 +30,7 @@
                    
                     <div class="article__item">
                         <label for="">Descrição resumida do experimento</label>
-                        <textarea name="description_home" id="" cols="30" rows="10" placeholder="Experiência envolvendo fogo na mão usando maiseza" required></textarea>    
+                        <textarea name="description_home" id="" placeholder="Experiência envolvendo fogo na mão usando maiseza" required></textarea>    
                     </div>
                 </fieldset>
 
@@ -38,7 +38,7 @@
                     <legend>Corpo do experimento</legend>
                     <div class="article__item">
                         <label for="">Materiais</label>
-                        <textarea name="materials" id="" cols="30" rows="10" placeholder="Primeiro é preciso encher o balde com água com bom ar, depois misturar muito bem..." required>2 - Palitos
+                        <textarea name="materials" id="" placeholder="Primeiro é preciso encher o balde com água com bom ar, depois misturar muito bem..." required>2 - Palitos
 5 - Papeis
 ....
                         </textarea>
@@ -47,7 +47,7 @@
 
                     <div class="article__item">
                         <label for="">Passo a passo</label>
-                        <textarea name="steps_by_step" id="" cols="30" rows="10" placeholder="Primeiro é preciso encher o balde com água com bom ar, depois misturar muito bem..." required>1- É preciso pegar a..
+                        <textarea name="steps_by_step" id="" placeholder="Primeiro é preciso encher o balde com água com bom ar, depois misturar muito bem..." required>1- É preciso pegar a..
 2- Misturamos tudo e..
 ....
                         </textarea>
@@ -70,48 +70,50 @@
                     
                 </fieldset>
 
-                <!--
                     <fieldset>
                         <legend>Categorias</legend>
                         <label for="category">Assunto</label>
-                        <select name="category" id="">
+                        <select name="category" required>
+                            <option value="" disabled selected>Escolha uma opção</option>
                             <% categories.forEach((category) => {  %>
                                 <option value="<%= category.id %>"><%= category.title %></option>
                             <% }) %>
                         </select>
 
                         <label for="category2">Preço</label>
-                        <select name="category2" id="">
+                        <select name="category2" required>
+                            <option value="" disabled selected>Escolha uma opção</option>
                             <% categories2.forEach((category2) => {  %>
                                 <option value="<%= category2.id %>"><%= category2.title %></option>
                             <% }) %>
                         </select>
 
                         <label for="category3">BNCC</label>
-                        <select name="category3" id="">
+                        <select name="category3" required>
+                            <option value="" disabled selected>Escolha uma opção</option>
                             <% categories3.forEach((category3) => {  %>
                                 <option value="<%= category3.id %>"><%= category3.title %></option>
                             <% }) %>
                         </select>
                     </fieldset>
-                -->
 
                 <fieldset>
                     <legend>Orientações para professores</legend>
                     <div class="article__item">
                         <label for="">Dicas importantes</label>
-                        <textarea name="tips_important" id="" cols="30" rows="10" placeholder="Um ponto negativo deste experimento é que se deve ter cuidado na hora de colocar fogo na mão" required></textarea>
+                        <textarea name="tips_important" id="" placeholder="Um ponto negativo deste experimento é que se deve ter cuidado na hora de colocar fogo na mão" required></textarea>
                     </div>
 
                     <div class="article__item">
                         <label for="">Dicas para o EaD</label>
-                        <textarea name="tips_ead" id="" cols="30" rows="10" placeholder="No EaD, é preciso muita atenção a orientação para o aluno não cometer erros..." required></textarea>
+                        <textarea name="tips_ead" id="" placeholder="No EaD, é preciso muita atenção a orientação para o aluno não cometer erros..." required></textarea>
                     </div>
 
                     <input type="submit" value="Enviar experimento">
 
                 </fieldset>
             </form>
+           
            
 
             
