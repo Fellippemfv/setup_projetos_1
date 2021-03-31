@@ -2,13 +2,16 @@ import { next } from "sucrase/dist/parser/tokenizer";
 import knex from "../../database";
 import jwt from "jsonwebtoken"
 import bcrypt from "bcrypt";
+import dateFormat from "dateformat";
+dateFormat.masks.dateBr = 'dd/mm/yyyy "às" HH:MM:ss';//Modelo de data ao estilo brasileiro
+
 
 //criando classe
 class User{
 
     async findById(id){//retorna lista de usuarios
         try{
-            let result = await knex("users").where({ id }).select(["id", "description", "name", "email" , "updated_at", "img_file", "provider" ])
+            let result = await knex("users").where({ id }).select(["id", "description", "name", "email" , "updated_at", "created_at", "img_file", "provider" ])
             return result[0];
         }catch(error){
             console.log(error);
@@ -41,24 +44,24 @@ class User{
         try {
 
             if(description){
-                let result = await knex("users").where({ id }).update({ description, "updated_at": new Date() });
+                let result = await knex("users").where({ id }).update({ description, "updated_at": dateFormat(new Date(), "dateBr") });
                 return result
             }
 
             if(name){
-                let result = await knex("users").where({ id }).update({ name, "updated_at": new Date() });
+                let result = await knex("users").where({ id }).update({ name, "updated_at": dateFormat(new Date(), "dateBr") });
                 return result
             }
 
             if(email){
-                let result = await knex("users").where({ id }).update({ email, "updated_at": new Date() });
+                let result = await knex("users").where({ id }).update({ email, "updated_at": dateFormat(new Date(), "dateBr") });
                 return result
 
             }
 
             if(password){
                 const hash = await bcrypt.hash(password, 8)
-                let result = await knex("users").where({ id }).update({ password_hash: hash, "updated_at": new Date() });
+                let result = await knex("users").where({ id }).update({ password_hash: hash, "updated_at": dateFormat(new Date(), "dateBr") });
                 return result
             }
 

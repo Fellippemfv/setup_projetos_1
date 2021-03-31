@@ -5,6 +5,8 @@ import bcrypt from "bcrypt"
 //const DOMAIN = process.env.DOMAIN_NAME;
 //const mg = mailgun({ apiKey: process.env.MAILGUN_API_KEY, domain: DOMAIN });
 import env from "dotenv";
+import dateFormat from "dateformat";
+dateFormat.masks.dateBr = 'dd/mm/yyyy "às" HH:MM:ss';//Modelo de data ao estilo brasileiro
 env.config();
 
 const db = mysql.createConnection({
@@ -119,7 +121,7 @@ db.connect((err) => {
                 let hashed = await bcrypt.hash(password, 8);
         
                 let sql2 = 'INSERT INTO users SET ?';
-                db.query(sql2, { name: name, email: email, password_hash: hashed, provider: 0, description: "sem descrição" }, (err, result) => {
+                db.query(sql2, { name: name, email: email, password_hash: hashed, provider: 0, description: "sem descrição", created_at: dateFormat(new Date(), "dateBr"), updated_at: dateFormat(new Date(), "dateBr") }, (err, result) => {
                     if (err)
                         throw err;
                     else {

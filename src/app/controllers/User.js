@@ -156,6 +156,7 @@ class UserController{
                 name: user.name,
                 email: user.email,
                 updated_at: user.updated_at,
+                created_at: user.created_at,
                 photo: user.img_file,
                 description: user.description
 
