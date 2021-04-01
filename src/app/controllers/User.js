@@ -12,9 +12,64 @@ class UserController{
             const categories = await Category.findAll();//chamando metodo findall do model
             const categories2 = await Category2.findAll();//chamando metodo findall do model
             const categories3 = await Category3.findAll();//chamando metodo findall do model
-            const articles = await Article.findAll();
+            const articles = await Article.findAllLastPage();
+            console.log(articles)
 
             res.render("index", {  
+                categories,
+                categories2,
+                categories3,
+                articles
+            });   
+           
+        }catch(error){
+            next(error);
+        }
+    }
+
+    async getArticlePage(req, res, next) {
+        try{
+            const num = req.params.num;
+            const categories = await Category.findAll();//chamando metodo findall do model
+            const categories2 = await Category2.findAll();//chamando metodo findall do model
+            const categories3 = await Category3.findAll();//chamando metodo findall do model
+            const articles = await Article.findAllPages(num);
+            //cahama variavel com dados da quantidade de paginas e verificar se não passou!
+            console.log(articles)
+
+            if(isNaN(num)){
+                res.redirect("/")
+            }
+            
+
+            res.render("articlePage", {  
+                categories,
+                categories2,
+                categories3,
+                articles
+            });   
+           
+        }catch(error){
+            next(error);
+        }
+    }
+
+    async articlePage(req, res, next) {
+        try{
+            const num = req.params.num;
+            const categories = await Category.findAll();//chamando metodo findall do model
+            const categories2 = await Category2.findAll();//chamando metodo findall do model
+            const categories3 = await Category3.findAll();//chamando metodo findall do model
+            const articles = await Article.findAllPages(num);
+            //cahama variavel com dados da quantidade de paginas e verificar se não passou!
+            console.log(articles)
+
+            if(isNaN(num)){
+                res.redirect("/")
+            }
+            
+
+            res.render("articlePage", {  
                 categories,
                 categories2,
                 categories3,
