@@ -147,9 +147,6 @@ class UserController{
         }
     }
 
-    
-
-
     async getMyProfile(req, res, next) {
         try{
             const id = req.user;
@@ -253,20 +250,6 @@ class UserController{
             next(error);
         }
     }
-
-    async ProfileUser(req, res, next) {
-
-        try {
-            const id = req.header;
-            const user = await User.findById(id)
-            console.log(user)
-
-                    
-        } catch (error) {
-            next(error)
-        }
-    }
-
 
     async find(req, res, next) {
         try{
