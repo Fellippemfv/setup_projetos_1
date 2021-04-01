@@ -11,11 +11,16 @@
 
             <div class="article__section__header">
                 <h3 class="article__user__photo">Publicado por:</h3>
-                <div class="article__round-container">
-                    <img src="/assets/male-user-shadow-svgrepo-com.svg">
-                </div>   
-                <p class="article__user__name" >Fellippe Matheus</p>
-                
+
+                    <div class="article__round-container">
+                        <%if(us_img === null){%>
+                            <img src="/assets/male-user-shadow-svgrepo-com.svg" alt="">
+                        <%}else{%>
+                            <img src="<%= us_img %>">
+                        <%}%>
+                    </div>   
+                    <a href="/profile/<%= us_id %>"><%= us_name %></a>
+
                 <h3 class="article__date__title">Em:</h3>
                 <p class="article__date"><%= created_at %></p>
                 
@@ -30,7 +35,7 @@
                 <h1><%= title %></h3>
                 <p><%= description_home %></p>
 
-                <h3>Materiais</h3>
+                <h3>Materiais utilizados</h3>
                 <p><%= materials %></p>
 
                 <h3>Passo a passo</h3>

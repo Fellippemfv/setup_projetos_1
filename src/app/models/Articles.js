@@ -45,7 +45,7 @@ class Article{
 
     async findOneArticle(slug){//retorna lista de usuarios
         try{
-            let result = await knex.select("articles. *", "categories.title as cat_title", "categories2.title as cat2_title", "categories3.title as cat3_title").table("articles").innerJoin("categories", "articles.category_id", "categories.id").innerJoin("categories2", "articles.category2_id", "categories2.id").innerJoin("categories3", "articles.category3_id", "categories3.id").where({ "articles.slug": slug })
+            let result = await knex.select("articles. *", "categories.title as cat_title", "categories2.title as cat2_title", "categories3.title as cat3_title", "users.name as us_name", "users.img_file as us_img").table("articles").innerJoin("categories", "articles.category_id", "categories.id").innerJoin("categories2", "articles.category2_id", "categories2.id").innerJoin("categories3", "articles.category3_id", "categories3.id").innerJoin("users", "articles.user_id", "users.id").where({ "articles.slug": slug })
             return result[0];
         }catch(error){
             console.log(error);
@@ -79,9 +79,9 @@ class Article{
         }
     }
 
-    async create(title, slug, exp_image_home, description_home, materials, steps_by_step, exp_video, exp_image_done, exp_image_initial, tips_important, tips_ead, category, category2, category3){//retorna lista de usuarios
+    async create(title, slug, exp_image_home, description_home, materials, steps_by_step, exp_video, exp_image_done, exp_image_initial, tips_important, tips_ead, category, category2, category3, user_id){//retorna lista de usuarios
         try{
-            let result = await knex("articles").insert({ title, slug, exp_image_home, description_home, materials, steps_by_step, exp_video, exp_image_done, exp_image_initial, tips_important, tips_ead, "category_id": category, "category2_id": category2, "category3_id": category3, "created_at": dateFormat(new Date(), "dateBr"), "updated_at": dateFormat(new Date(), "dateBr") })
+            let result = await knex("articles").insert({ title, slug, exp_image_home, description_home, materials, steps_by_step, exp_video, exp_image_done, exp_image_initial, tips_important, tips_ead, "category_id": category, "category2_id": category2, "category3_id": category3, user_id ,"created_at": dateFormat(new Date(), "dateBr"), "updated_at": dateFormat(new Date(), "dateBr") })
             return result;
         }catch(error){
             console.log(error);

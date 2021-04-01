@@ -11,12 +11,13 @@ import path from "path";
 import { localsName } from "ejs";
 env.config();
 
-//falta ver rolamento infinito de artigos/users/categorys
-//falta ver visual: css
-//falta testar num site real
+//Falta ver na tabela/pagina de artigo a relação com usuario que a criou --> apontando link para perfil
+//Falta ver rolamento infinito de artigos/users/categorys
+//Falta ver visual: css
+//Falta testar num site real
 //Falta refatorar database 
 //Falta ver sistema de email
-//falta ver detalhes de tudo e descobrir bugs
+//Falta ver detalhes de tudo e descobrir bugs
 
 class App {
     constructor() {

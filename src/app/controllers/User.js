@@ -56,6 +56,9 @@ class UserController{
                 cat_title: article.cat_title,
                 cat2_title: article.cat2_title,
                 cat3_title: article.cat3_title,
+                us_id: article.user_id,
+                us_name: article.us_name,
+                us_img: article.us_img
 
             });   
            
