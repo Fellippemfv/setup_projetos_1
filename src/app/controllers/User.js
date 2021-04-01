@@ -242,7 +242,8 @@ class UserController{
             return res.render("user" , { 
                 name: user.name,
                 photo: user.img_file,
-                description: user.description
+                description: user.description,
+                created: user.created_at
 
             });
         

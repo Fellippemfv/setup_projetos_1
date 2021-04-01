@@ -77,7 +77,7 @@ class User{
 
     async findUserById(id){//retorna lista de usuarios
         try{
-            let result = await knex("users").where({ id }).select(["description", "name", "img_file" ])
+            let result = await knex("users").where({ id }).select(["description", "name", "img_file" , "created_at" ])
             return result[0];
         }catch(error){
             console.log(error);

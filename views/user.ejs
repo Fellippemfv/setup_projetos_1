@@ -28,7 +28,13 @@
                         <h2 class="user__title">foto</h2>
                     </div>
                     <div class="user__info">
-                        <img class="user__image" src="<%= photo %>" alt="">
+                        <div class="article__round-container">
+                            <%if(photo === null){%>
+                                <img src="/assets/male-user-shadow-svgrepo-com.svg" alt="">
+                            <%}else{%>
+                                <img class="user__image" src="<%= photo %>" alt="">
+                            <%}%>
+                        </div>
                     </div>
                 </div>
 
@@ -41,6 +47,15 @@
                     </div>
                 </div>
 
+                <div class="user__block">
+                    <div class="user__info">
+                        <h2 class="user__title">Usuário desde:</h2>
+                    </div>
+                    <div class="user__info">
+                        <p><%= created %></p>
+                    </div>
+                </div>
+                
                 
                           
             </div>

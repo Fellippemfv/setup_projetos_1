@@ -11,7 +11,6 @@ import path from "path";
 import { localsName } from "ejs";
 env.config();
 
-//Falta ver na tabela/pagina de artigo a relação com usuario que a criou --> apontando link para perfil
 //Falta ver rolamento infinito de artigos/users/categorys
 //Falta ver visual: css
 //Falta testar num site real
@@ -19,7 +18,7 @@ env.config();
 //Falta ver sistema de email
 //Falta ver detalhes de tudo e descobrir bugs
 
-class App {
+class App { 
     constructor() {
         //chama o servidor
         this.server = express();
