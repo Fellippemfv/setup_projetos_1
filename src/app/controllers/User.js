@@ -13,7 +13,6 @@ class UserController{
             const categories2 = await Category2.findAll();//chamando metodo findall do model
             const categories3 = await Category3.findAll();//chamando metodo findall do model
             const articles = await Article.findAllLastPage();
-            console.log(articles)
 
             res.render("index", {  
                 categories,
@@ -35,7 +34,11 @@ class UserController{
             const categories3 = await Category3.findAll();//chamando metodo findall do model
             const articles = await Article.findAllPages(num);
             //cahama variavel com dados da quantidade de paginas e verificar se não passou!
-            console.log(articles)
+            const countArticles = await Article.findAllCountPages(num);
+            let count = countArticles.currentPage++;
+
+            console.log(count)
+
 
             if(isNaN(num)){
                 res.redirect("/")
@@ -46,7 +49,8 @@ class UserController{
                 categories,
                 categories2,
                 categories3,
-                articles
+                articles,
+                count_articles: count + 1
             });   
            
         }catch(error){
@@ -54,32 +58,6 @@ class UserController{
         }
     }
 
-    async articlePage(req, res, next) {
-        try{
-            const num = req.params.num;
-            const categories = await Category.findAll();//chamando metodo findall do model
-            const categories2 = await Category2.findAll();//chamando metodo findall do model
-            const categories3 = await Category3.findAll();//chamando metodo findall do model
-            const articles = await Article.findAllPages(num);
-            //cahama variavel com dados da quantidade de paginas e verificar se não passou!
-            console.log(articles)
-
-            if(isNaN(num)){
-                res.redirect("/")
-            }
-            
-
-            res.render("articlePage", {  
-                categories,
-                categories2,
-                categories3,
-                articles
-            });   
-           
-        }catch(error){
-            next(error);
-        }
-    }
 
     async getOneArticle(req, res, next) {
         try{

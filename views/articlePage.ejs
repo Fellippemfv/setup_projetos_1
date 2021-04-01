@@ -14,35 +14,39 @@
 
         <% articles.forEach(article => { %>
 
-                    <div class="block">     
-                        <div class="block-img">
-                            <img src="/assets/img-test/copos-coloridos.jpg" alt="HTML5">
-                        </div>
-                        <div class="block-desc">
-                            <h2><%= article.title %></h2>
-                            <p><%= article.description_home  %></p>
-                        </div>
-                        <div class="block-link">
-                            <a href="/article/<%= article.slug %>">Ver mais</a>
-                        </div>
+                    <div class="block">
+                        <div class="item2">
+
+                            <div class="block-img">
+                                <img src="/assets/img-test/copos-coloridos.jpg" alt="HTML5">
+                            </div>
+                            <div class="block-desc">
+                                <h2><%= article.title %></h2>
+                                <p><%= article.description_home  %></p>
+                            </div>
+                            <div class="block-link">
+                                <a href="/article/<%= article.slug %>">Ver mais</a>
+                            </div>
+                        
+                        </div>     
                     </div>
+                     <div class="pagination">
+                    <a href="/articles/page/<%= count_articles %>" class="next">Next</a>
+        </div>
 
         <% }) %>
 
-
-
-        
-
-                   
-
-                    
+        <div class="no-more">Sem mais artigos :(</div>
+           
         <!--Termina Itens-->
     </div>
        
     </main>
     
-    
-    <script src="/js/script.js"></script>
+    <script src="https://unpkg.com/@webcreate/infinite-ajax-scroll/dist/infinite-ajax-scroll.min.js"></script>
+
+    <script src="/js/infinitescroll.js" ></script>
+
     <%- include("partials/footer.ejs") %>
 
 </body>

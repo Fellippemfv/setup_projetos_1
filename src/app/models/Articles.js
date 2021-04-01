@@ -34,6 +34,15 @@ class Article{
         }
     }
 
+    async findAllCountPages(num){//retorna lista de usuarios
+        try{
+            let result = await knex("articles").select("id").where( "deleted_at", "0000-00-00 00:00:00").paginate({ currentPage: num })
+            return result.pagination; 
+        }catch(error){
+            console.log(error);
+        }
+    }
+
     async findAllCategory(slug){//retorna lista de usuarios//reformar a tabela => id deve ser slug
         try{
             let result = await knex.select("articles.id", "articles.title", "articles.description_home", "articles.slug", "categories.id as cat_id", "categories.title as cat_title").table("articles").innerJoin("categories", "articles.category_id", "categories.id").where({  "categories.slug": slug  })

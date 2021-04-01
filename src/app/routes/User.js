@@ -11,7 +11,6 @@ const upload = multer(multerConfig);
 
 routes.get("/", User.getIndex);//PAGINA INICIAL DO BLOG
 routes.get("/articles/page/:num", User.getArticlePage);//PAGINA INICIAL DO BLOG
-routes.post("/articles/page/:num", User.articlePage);//PAGINA INICIAL DO BLOG
 
 
 routes.get("/article/:slug", User.getOneArticle);//PAGINA DE LEITURA DE UM ARTIGO
