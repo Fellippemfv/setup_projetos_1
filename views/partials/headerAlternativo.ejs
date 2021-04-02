@@ -20,7 +20,7 @@
                                 <div class="row">
                                     <div class="column">
                                         <% categories.forEach(category => { %>
-                                            <a href="/category/<%= category.slug %>"><%= category.title %></a>                                           
+                                            <a href="/category/<%= category.slug %>/1"><%= category.title %></a>                                           
                                         <% }) %>
                                         
                                     </div>
@@ -40,7 +40,7 @@
                                 <div class="row">
                                     <div class="column">
                                         <% categories2.forEach(category2 => { %>
-                                            <a href="/category2/<%= category2.slug %>"><%= category2.title %></a>                                           
+                                            <a href="/category2/<%= category2.slug %>/1"><%= category2.title %></a>                                           
                                         <% }) %>
                                         
                                     </div>
@@ -60,7 +60,7 @@
                                 <div class="row">
                                     <div class="column">
                                         <% categories3.forEach(category3 => { %>
-                                            <a href="/category3/<%= category3.slug %>""><%= category3.title %></a>                                           
+                                            <a href="/category3/<%= category3.slug %>/1""><%= category3.title %></a>                                           
                                         <% }) %>
                                         
                                     </div>
@@ -97,7 +97,6 @@
                     <li><img onclick="openSearch()" class="menu__button__search" src="/assets/lupa.svg" alt=""></li>
                     <%if(!isAuthenticated){%>
                         <li><button onclick="open_modal()">Entrar</button></li>
-                        <li><button onclick="open_modal()">Registrar</button></li>
                     <%}else{%>
                         <li><button onclick="myFunction2()">Opções</button></li>
                     <%}%>

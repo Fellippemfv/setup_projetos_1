@@ -9,16 +9,22 @@ class UserController{
 
     async getIndex(req, res, next) {
         try{
+            const num = req.params.num;
+            //Talvez consiga juntar todas as categorias nnuma querie
             const categories = await Category.findAll();//chamando metodo findall do model
             const categories2 = await Category2.findAll();//chamando metodo findall do model
             const categories3 = await Category3.findAll();//chamando metodo findall do model
-            const articles = await Article.findAllLastPage();
+            const articles = await Article.findAllPages(num);
+            //cahama variavel com dados da quantidade de paginas e verificar se não passou!
+            const countArticles = await Article.findAllCountPages(num);
+            let count = countArticles.currentPage++;
 
             res.render("index", {  
                 categories,
                 categories2,
                 categories3,
-                articles
+                articles,
+                count_articles: count + 1
             });   
            
         }catch(error){
@@ -37,6 +43,7 @@ class UserController{
             const countArticles = await Article.findAllCountPages(num);
             let count = countArticles.currentPage++;
 
+            console.log(countArticles)
             console.log(count)
 
 
@@ -103,10 +110,22 @@ class UserController{
     async getOneCategory(req, res, next) {//algo errado/ precisa dar um join
         try{
             const slug = req.params.slug;
+            const num = req.params.num;
+            
+            //juntar toda a consulta numa querie? é preciso mesmo carregar toa hora isso?
             const categories = await Category.findAll();//chamando metodo findall do model
             const categories2 = await Category2.findAll();//chamando metodo findall do model
             const categories3 = await Category3.findAll();//chamando metodo findall do model
-            const articles = await Article.findAllCategory(slug);
+            
+            //juntar essa consulta numa querie?
+            const articles = await Article.findAllCategory(slug, num);
+            const countArticles = await Article.findAllCategoryCount(slug, num);
+            let count = countArticles.currentPage++;
+
+            console.log(countArticles)
+            console.log(count)
+            console.log(categories)
+
 
             
 
@@ -117,7 +136,9 @@ class UserController{
                 categories,
                 categories2,
                 categories3,
-                articles
+                articles,
+                slug: slug,
+                count_articles: count + 1
                 
 
             });   

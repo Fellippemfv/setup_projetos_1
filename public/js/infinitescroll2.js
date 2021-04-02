@@ -2,15 +2,14 @@
 //infinito de verdade para artigos por categoria!
 
 
-//Scroll limitado com botão de mais e mensagem de acabou
-let ias2 = new InfiniteAjaxScroll('.wrapper', {
+//Scroll infinito e mensagem de acabou
+let ias = new InfiniteAjaxScroll('.wrapper', {
     item: '.block',
     next: '.next',
-    pagination: '.pagination',
-    trigger: '.load-more'
+    pagination: '.pagination'
 });
 
-ias2.on('last', function() {
+ias.on('last', function() {
   let el = document.querySelector('.no-more');
   el.style.opacity = '1';
 })
