@@ -138,9 +138,21 @@ class AdminController{
 
     async getArticles(req, res, next) {
         try{
-            const articles = await Article.findAll();//chamando metodo findall do model
+            const num = req.params.num;
+            if(isNaN(num)){
+                res.redirect("/")
+            }
+            
+            const num_number = parseInt(num);
+            console.log(num_number)
+            const articles = await Article.findAll(num);//chamando metodo findall do model
+             if(articles === undefined){
+                res.redirect("/");
+            }
+
             res.render("articlesListAdmin", {
                 articles,
+                count_articles: num_number + 1
             });   
         }catch(error){
             next(error);

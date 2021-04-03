@@ -7,10 +7,10 @@ dateFormat.masks.dateBr = 'dd/mm/yyyy "às" HH:MM:ss';//Modelo de data ao estilo
 
 //criando classe
 class Article{
-    async findAll(){//retorna lista de usuarios
+    async findAll(num){//retorna lista de usuarios
         try{
-            let result = await knex("articles").where( "deleted_at", "0000-00-00 00:00:00")
-            return result;
+            let result = await knex("articles").orderBy("id", "desc").select("id" ,"title", "slug", "description_home").where( "deleted_at", "0000-00-00 00:00:00").paginate({ perPage: 5, currentPage: num });
+            return result.data;
         }catch(error){
             console.log(error);
         }

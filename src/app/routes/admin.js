@@ -17,7 +17,7 @@ routes.post("/dashboard/users/hard/:id",authAdmin.requireAuth, Admin.usersHardDe
 routes.post("/dashboard/users/back/:id",authAdmin.requireAuth, Admin.usersBackDel);//PAGINA DE LISTA DE USUÁRIOS DO BLOG
  
 /* -------///-------ARTIGOS------///--------------- */ 
-routes.get("/dashboard/articles",authAdmin.requireAuth, Admin.getArticles);//PAGINA DE LISTA DE ARTIGOS DO BLOG
+routes.get("/dashboard/articles/:num",authAdmin.requireAuth, Admin.getArticles);//PAGINA DE LISTA DE ARTIGOS DO BLOG
 routes.get("/dashboard/articles/edit/:id",authAdmin.requireAuth, Admin.getArticlesEdit);//PAGINA DE LISTA DE USUÁRIOS DO BLOG
 routes.post("/dashboard/articles/edit/:id",authAdmin.requireAuth, Admin.articlesEdit);//PAGINA DE LISTA DE USUÁRIOS DO BLOG
 routes.post("/dashboard/articles/soft/:id",authAdmin.requireAuth, Admin.articleSoftdDel);//PAGINA DE LISTA DE USUÁRIOS DO BLOG
