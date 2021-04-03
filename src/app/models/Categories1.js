@@ -2,10 +2,10 @@ import { next } from "sucrase/dist/parser/tokenizer";
 import knex from "../../database";
 
 //criando classe
-class Category3{
+class Category1{
     async findAll(){//retorna lista de usuarios
         try{
-            let result = await knex("categories3").select([ "id", "title", "slug" ])
+            let result = await knex("categories1").select([ "id", "title", "slug" ])
             return result;
         }catch(error){
             console.log(error);
@@ -14,16 +14,17 @@ class Category3{
 
     async findById(id){//retorna lista de usuarios
         try{
-            let result = await knex("categories3").where({ id }).select([ "id", "title" ])
+            let result = await knex("categories1").where({ id }).select([ "id", "title" ])
             return result[0];
         }catch(error){
             console.log(error);
         }
     }
 
+
     async create(title, slug){//retorna lista de usuarios
         try{
-            let result = await knex("categories3").insert({ title, slug })
+            let result = await knex("categories1").insert({ title, slug })
             return result[0];
         }catch(error){
             console.log(error);
@@ -32,7 +33,7 @@ class Category3{
 
     async update(id, title, slug){//retorna lista de usuarios
         try{
-            let result = await knex("categories3").where({ id }).update({ title, slug, "updated_at": new Date()});
+            let result = await knex("categories1").where({ id }).update({ title, slug, "updated_at": new Date()});
             return result[0];
         }catch(error){
             console.log(error);
@@ -42,7 +43,7 @@ class Category3{
 
     async deleteHard(id){//retorna lista de usuarios
         try{
-            let result = await knex("categories3").where({ id }).delete();
+            let result = await knex("categories1").where({ id }).delete();
             return result[0];
         }catch(error){
             console.log(error);
@@ -53,4 +54,4 @@ class Category3{
 
 }
 
-export default new Category3();
+export default new Category1();

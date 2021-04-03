@@ -18,55 +18,30 @@ class Article{
 
     async findAllPages(num){//retorna lista de usuarios
         try{
-            let result = await knex("articles").select("title", "slug", "description_home").where( "deleted_at", "0000-00-00 00:00:00").paginate({ perPage: 6, currentPage: num })
+            let result = await knex("articles").orderBy("id", "desc").select("title", "slug", "description_home").where( "deleted_at", "0000-00-00 00:00:00").paginate({ perPage: 6, currentPage: num });
             return result.data; 
         }catch(error){
             console.log(error);
         }
     }
 
-    async findAllCountPages(num){//retorna lista de usuarios
-        try{
-            let result = await knex("articles").select("id").where( "deleted_at", "0000-00-00 00:00:00").paginate({ currentPage: num })
-            return result.pagination; 
-        }catch(error){
-            console.log(error);
-        }
-    }
 
-
-//--------//----------//------CATEGORIA 1-----//------------//------------//
+//--------//----------//------CATEGORIA-----//------------//------------//
     async findAllCategory(slug, num){//retorna lista de usuarios//reformar a tabela => id deve ser slug
         try{
-            let result = await knex.select("articles.id", "articles.title", "articles.description_home", "articles.slug", "categories.title as cat_title").table("articles").innerJoin("categories", "articles.category_id", "categories.id").where({  "categories.slug": slug  }).paginate({ perPage: 6, currentPage: num })
+            let result = await knex.select("articles.id", "articles.title", "articles.description_home", "articles.slug", "categories1.title as cat_title").table("articles").orderBy("id", "desc").innerJoin("categories1", "articles.category_id", "categories1.id").where({  "categories1.slug": slug  }).paginate({ perPage: 6, currentPage: num })
             return result.data;
         }catch(error){
             console.log(error);
         }
     }
 
-    async findAllCategoryCount(slug, num){//retorna lista de usuarios//reformar a tabela => id deve ser slug
+    async findAllCategory2(slug, num){//retorna lista de usuarios//reformar a tabela => id deve ser slug
         try{
-            let result = await knex.select("articles.id", "articles.title", "articles.description_home", "articles.slug", "categories.title as cat_title").table("articles").innerJoin("categories", "articles.category_id", "categories.id").where({  "categories.slug": slug  }).paginate({ currentPage: num })
-            return result.pagination;
-        }catch(error){
-            console.log(error);
-        }
-    }
-
-    async findAllCategory2(slug){//retorna lista de usuarios//reformar a tabela => id deve ser slug
-        try{
-            let result = await knex.select("articles.id", "articles.title", "articles.description_home", "articles.slug", "categories2.id as cat2_id").table("articles").innerJoin("categories2", "articles.category2_id", "categories2.id").where({  "categories2.slug": slug  })
-            return result;
-        }catch(error){
-            console.log(error);
-        }
-    }
-
-    async findAllCategory3(slug){//retorna lista de usuarios//reformar a tabela => id deve ser slug
-        try{
-            let result = await knex.select("articles.id", "articles.title", "articles.description_home", "articles.slug", "categories3.id as cat_id").table("articles").innerJoin("categories3", "articles.category3_id", "categories3.id").where({  "categories3.slug": slug  })
-            return result;
+            let result = await knex.select("articles.id", "articles.title", "articles.description_home", "articles.slug", "categories2.title as cat_title").table("articles").orderBy("id", "desc").innerJoin("categories2", "articles.category2_id", "categories2.id").where({  "categories2.slug": slug  }).paginate({ perPage: 6, currentPage: num })
+            
+            //let result = await knex.select("articles.id", "articles.title", "articles.description_home", "articles.slug", "categories2.id as cat2_id").table("articles").innerJoin("categories2", "articles.category2_id", "categories2.id").where({  "categories2.slug": slug  })
+            return result.data;
         }catch(error){
             console.log(error);
         }
@@ -74,7 +49,9 @@ class Article{
 
     async findOneArticle(slug){//retorna lista de usuarios
         try{
-            let result = await knex.select("articles. *", "categories.title as cat_title", "categories2.title as cat2_title", "categories3.title as cat3_title", "users.name as us_name", "users.img_file as us_img").table("articles").innerJoin("categories", "articles.category_id", "categories.id").innerJoin("categories2", "articles.category2_id", "categories2.id").innerJoin("categories3", "articles.category3_id", "categories3.id").innerJoin("users", "articles.user_id", "users.id").where({ "articles.slug": slug })
+            
+            let result = await knex.select("articles. *", "categories1.title as cat_title", "categories2.title as cat2_title", "users.name as us_name", "users.img_file as us_img").table("articles").innerJoin("categories1", "articles.category_id", "categories1.id").innerJoin("categories2", "articles.category2_id", "categories2.id").innerJoin("users", "articles.user_id", "users.id").where({ "articles.slug": slug })
+
             return result[0];
         }catch(error){
             console.log(error);
@@ -101,23 +78,23 @@ class Article{
 
     async findByIdArticle(id){//retorna lista de usuarios
         try{
-            let result = await knex.select("articles. *", "categories.title as cat_title", "categories2.title as cat2_title", "categories3.title as cat3_title").table("articles").innerJoin("categories", "articles.category_id", "categories.id").innerJoin("categories2", "articles.category2_id", "categories2.id").innerJoin("categories3", "articles.category3_id", "categories3.id").where({ "articles.id": id })
+            let result = await knex.select("articles. *", "categories1.title as cat_title", "categories2.title as cat2_title").table("articles").innerJoin("categories1", "articles.category_id", "categories1.id").innerJoin("categories2", "articles.category2_id", "categories2.id").where({ "articles.id": id })
             return result[0];
         }catch(error){
             console.log(error);
         }
     }
 
-    async create(title, slug, exp_image_home, description_home, materials, steps_by_step, exp_video, exp_image_done, exp_image_initial, tips_important, tips_ead, category, category2, category3, user_id){//retorna lista de usuarios
+    async create(title, slug, exp_image_home, description_home, materials, steps_by_step, exp_video, exp_image_done, exp_image_initial, tips_important, tips_ead, category1, category2, user_id){//retorna lista de usuarios
         try{
-            let result = await knex("articles").insert({ title, slug, exp_image_home, description_home, materials, steps_by_step, exp_video, exp_image_done, exp_image_initial, tips_important, tips_ead, "category_id": category, "category2_id": category2, "category3_id": category3, user_id ,"created_at": dateFormat(new Date(), "dateBr"), "updated_at": dateFormat(new Date(), "dateBr") })
+            let result = await knex("articles").insert({ title, slug, exp_image_home, description_home, materials, steps_by_step, exp_video, exp_image_done, exp_image_initial, tips_important, tips_ead, "category_id": category1, "category2_id": category2, user_id ,"created_at": dateFormat(new Date(), "dateBr"), "updated_at": dateFormat(new Date(), "dateBr") })
             return result;
         }catch(error){
             console.log(error);
         }
     }
 
-    async update(id, title, exp_image_home, description_home, materials, steps_by_step, exp_video, exp_image_done, exp_image_initial, tips_important, tips_ead, category_id, category2_id, category3_id){//retorna lista de usuarios
+    async update(id, title, exp_image_home, description_home, materials, steps_by_step, exp_video, exp_image_done, exp_image_initial, tips_important, tips_ead, category_id, category2_id){//retorna lista de usuarios
         try{
             if(title){
                 const slug = slugify(title)
@@ -180,14 +157,7 @@ class Article{
                 let result = await knex("articles").where({ id }).update({ category2_id, "updated_at":  dateFormat(new Date(), "dateBr") });
                 return true;
             }
-
-            if(category3_id){
-                let result = await knex("articles").where({ id }).update({ category3_id, "updated_at":  dateFormat(new Date(), "dateBr") });
-                return true;
-            }
-
-            
-            
+ 
         }catch(error){
             console.log(error);
         }

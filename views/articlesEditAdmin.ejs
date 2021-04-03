@@ -107,8 +107,8 @@
                             <h3>Atual: <span><%= cat_title %></span></h3>
                             <select name="category_id" id="" required>
                                 <option value="" disabled selected>Escolha uma opção</option>
-                                <% categories.forEach((category) => {  %>
-                                    <option value="<%= category.id %>"><%= category.title %></option>
+                                <% categories1.forEach((category1) => {  %>
+                                    <option value="<%= category1.id %>"><%= category1.title %></option>
                                 <% }) %>
                             </select>
                             <input class="article__id" name="id" type="number"  name="id" value="<%= id %>" readonly>
@@ -116,7 +116,7 @@
                     </form>
 
                     <form action="/admin/dashboard/articles/edit/<%= id %>" method="post">
-                            <label for="category2_id">Preço</label>
+                            <label for="category2_id">BNCC</label>
                             <h3>Atual: <span><%= cat2_title %></span></h3>
                             <select name="category2_id" id="" required>
                                 <option value="" disabled selected>Escolha uma opção</option>
@@ -128,19 +128,7 @@
                             <input type="submit" value="Atualizar">
                     </form>
 
-                    <form action="/admin/dashboard/articles/edit/<%= id %>" method="post">
-                            <label for="category3_id">BNCC</label>
-                            <h3>Atual: <span><%= cat3_title %></span></h3>
-                            <select name="category3_id" id="" required>
-                                <option value="" disabled selected>Escolha uma opção</option>
-                                <% categories3.forEach((category3) => {  %>
-                                    <option value="<%= category3.id %>"><%= category3.title %></option>
-                                <% }) %>
-                            </select>
-                            <input class="article__id" name="id" type="number"  name="id" value="<%= id %>" readonly>
-                            <input type="submit" value="Atualizar">
-                        </fieldset>
-                    </form>
+                    
         
                     <form action="/admin/dashboard/articles/edit/<%= id %>" method="POST">
                         <fieldset>

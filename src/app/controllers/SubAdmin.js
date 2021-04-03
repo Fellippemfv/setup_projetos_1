@@ -1,8 +1,5 @@
 import Admin from "../models/Admin";
 import Article from "../models/Articles";
-import Category from "../models/Categories";
-import Category2 from "../models/Categories2";
-import Category3 from "../models/Categories3";
 import User from "../models/Users";
 import slugify from "slugify";
 

@@ -45,14 +45,6 @@ routes.post("/dashboard/categories2/del/:id",authAdmin.requireAuth, Admin.catego
 routes.get("/dashboard/categories2/new",authAdmin.requireAuth, Admin.getCategoriesNew2);//PAGINA DE CRIAR CATEGORIAS DO BLOG
 routes.post("/dashboard/categories2/new",authAdmin.requireAuth, Admin.categoriesNew2);//PAGINA DE CRIAR CATEGORIAS DO BLOG
 
-/* -------///-------CATEGORIA3------///--------------- */
-routes.get("/dashboard/categories3",authAdmin.requireAuth, Admin.getCategories3);//PAGINA DE LISTA DE CATEGORIAS DO BLOG
-routes.get("/dashboard/categories3/edit/:id",authAdmin.requireAuth, Admin.getCategoriesEdit3);//PAGINA DE EDITAR CATEGORIAS DO BLOG
-routes.post("/dashboard/categories3/edit/:id",authAdmin.requireAuth, Admin.categoriesEdit3);//PAGINA DE EDITAR CATEGORIAS DO BLOG
-routes.post("/dashboard/categories3/del/:id",authAdmin.requireAuth, Admin.categoriesHardDelete3);//PAGINA DE EDITAR CATEGORIAS DO BLOG
-routes.get("/dashboard/categories3/new",authAdmin.requireAuth, Admin.getCategoriesNew3);//PAGINA DE CRIAR CATEGORIAS DO BLOG
-routes.post("/dashboard/categories3/new",authAdmin.requireAuth, Admin.categoriesNew3);//PAGINA DE CRIAR CATEGORIAS DO BLOG
-
 
 
 export default routes;

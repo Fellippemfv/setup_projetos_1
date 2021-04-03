@@ -2,7 +2,7 @@ import { next } from "sucrase/dist/parser/tokenizer";
 import knex from "../../database";
 
 //criando classe
-class Category2{
+class Category3{
     async findAll(){//retorna lista de usuarios
         try{
             let result = await knex("categories2").select([ "id", "title", "slug" ])
@@ -53,4 +53,4 @@ class Category2{
 
 }
 
-export default new Category2();
+export default new Category3();

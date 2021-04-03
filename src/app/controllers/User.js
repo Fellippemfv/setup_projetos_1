@@ -1,30 +1,28 @@
 import User from "../models/Users"
 import Article from "../models/Articles";
-import Category from "../models/Categories";
+import Category1 from "../models/Categories1";
 import Category2 from "../models/Categories2";
-import Category3 from "../models/Categories3";
 import bcrypt from "bcrypt"
 
 class UserController{
 
     async getIndex(req, res, next) {
         try{
-            const num = req.params.num;
+            let num = 1;
             //Talvez consiga juntar todas as categorias nnuma querie
-            const categories = await Category.findAll();//chamando metodo findall do model
-            const categories2 = await Category2.findAll();//chamando metodo findall do model
-            const categories3 = await Category3.findAll();//chamando metodo findall do model
+            const categories1 = await Category1.findAll();
+            const categories2 = await Category2.findAll();
+            
             const articles = await Article.findAllPages(num);
-            //cahama variavel com dados da quantidade de paginas e verificar se não passou!
-            const countArticles = await Article.findAllCountPages(num);
-            let count = countArticles.currentPage++;
+            if(articles === undefined){
+                res.redirect("/");
+            }
 
             res.render("index", {  
-                categories,
+                categories1,
                 categories2,
-                categories3,
                 articles,
-                count_articles: count + 1
+                count_articles: num + 1
             });   
            
         }catch(error){
@@ -34,30 +32,27 @@ class UserController{
 
     async getArticlePage(req, res, next) {
         try{
+
             const num = req.params.num;
-            const categories = await Category.findAll();//chamando metodo findall do model
-            const categories2 = await Category2.findAll();//chamando metodo findall do model
-            const categories3 = await Category3.findAll();//chamando metodo findall do model
-            const articles = await Article.findAllPages(num);
-            //cahama variavel com dados da quantidade de paginas e verificar se não passou!
-            const countArticles = await Article.findAllCountPages(num);
-            let count = countArticles.currentPage++;
-
-            console.log(countArticles)
-            console.log(count)
-
-
             if(isNaN(num)){
                 res.redirect("/")
             }
-            
+
+            //juntar toda a consulta numa querie? é preciso mesmo carregar toa hora isso?
+            const categories1 = await Category1.findAll();
+            const categories2 = await Category2.findAll();
+            const num_number = parseInt(num);
+
+            const articles = await Article.findAllPages(num);
+            if(articles === undefined){
+                res.redirect("/");
+            }
 
             res.render("articlePage", {  
-                categories,
+                categories1,
                 categories2,
-                categories3,
                 articles,
-                count_articles: count + 1
+                count_articles: num_number + 1
             });   
            
         }catch(error){
@@ -65,22 +60,19 @@ class UserController{
         }
     }
 
-
     async getOneArticle(req, res, next) {
         try{
             const slug = req.params.slug;
-            const categories = await Category.findAll();//chamando metodo findall do model
+            const categories1 = await Category1.findAll();//chamando metodo findall do model
             const categories2 = await Category2.findAll();//chamando metodo findall do model
-            const categories3 = await Category3.findAll();//chamando metodo findall do model
             const article = await Article.findOneArticle(slug)
 
             if(article === undefined){
                 res.redirect("/");
             }
             res.render("articleOne", {  
-                categories, 
+                categories1, 
                 categories2,
-                categories3,
                 title: article.title,
                 exp_image_home: article.exp_image_home,
                 description_home: article.description_home,
@@ -95,7 +87,6 @@ class UserController{
                 updated_at: article.updated_at,
                 cat_title: article.cat_title,
                 cat2_title: article.cat2_title,
-                cat3_title: article.cat3_title,
                 us_id: article.user_id,
                 us_name: article.us_name,
                 us_img: article.us_img
@@ -111,36 +102,24 @@ class UserController{
         try{
             const slug = req.params.slug;
             const num = req.params.num;
+            if(isNaN(num)){
+                res.redirect("/")
+            }
             
-            //juntar toda a consulta numa querie? é preciso mesmo carregar toa hora isso?
-            const categories = await Category.findAll();//chamando metodo findall do model
-            const categories2 = await Category2.findAll();//chamando metodo findall do model
-            const categories3 = await Category3.findAll();//chamando metodo findall do model
+            const categories1 = await Category1.findAll();
+            const categories2 = await Category2.findAll();
+            const num_number = parseInt(num);
             
-            //juntar essa consulta numa querie?
             const articles = await Article.findAllCategory(slug, num);
-            const countArticles = await Article.findAllCategoryCount(slug, num);
-            let count = countArticles.currentPage++;
-
-            console.log(countArticles)
-            console.log(count)
-            console.log(categories)
-
-
-            
-
             if(articles === undefined){
                 res.redirect("/");
             }
             res.render("categoryOne", {  
-                categories,
+                categories1,
                 categories2,
-                categories3,
                 articles,
                 slug: slug,
-                count_articles: count + 1
-                
-
+                count_articles: num_number + 1
             });   
            
         }catch(error){
@@ -151,49 +130,25 @@ class UserController{
     async getOneCategory2(req, res, next) {//algo errado/ precisa dar um join
         try{
             const slug = req.params.slug;
-            const categories = await Category.findAll();//chamando metodo findall do model
-            const categories2 = await Category2.findAll();//chamando metodo findall do model
-            const categories3 = await Category3.findAll();//chamando metodo findall do model
-            const articles = await Article.findAllCategory2(slug); 
-            
+            const num = req.params.num;
+            if(isNaN(num)){
+                res.redirect("/")
+            }
 
+            const categories1 = await Category1.findAll();//chamando metodo findall do model
+            const categories2 = await Category2.findAll();//chamando metodo findall do model
+            const num_number = parseInt(num);
+
+            const articles = await Article.findAllCategory2(slug, num); 
             if(articles === undefined){
                 res.redirect("/");
             }
             res.render("category2One", {  
-                categories,
+                categories1,
                 categories2,
-                categories3,
-                articles
-                
-
-            });   
-           
-        }catch(error){
-            next(error);
-        }
-    }
-
-    async getOneCategory3(req, res, next) {//algo errado/ precisa dar um join
-        try{
-            const slug = req.params.slug;
-            const categories = await Category.findAll();//chamando metodo findall do model
-            const categories2 = await Category2.findAll();//chamando metodo findall do model
-            const categories3 = await Category3.findAll();//chamando metodo findall do model
-            const articles = await Article.findAllCategory3(slug); 
-
-            
-
-            if(articles === undefined){
-                res.redirect("/");
-            }
-            res.render("category3One", {  
-                categories,
-                categories2,
-                categories3,
-                articles
-                
-
+                articles,
+                slug: slug,
+                count_articles: num_number + 1
             });   
            
         }catch(error){

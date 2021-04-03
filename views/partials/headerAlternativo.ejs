@@ -19,28 +19,8 @@
                                 
                                 <div class="row">
                                     <div class="column">
-                                        <% categories.forEach(category => { %>
-                                            <a href="/category/<%= category.slug %>/1"><%= category.title %></a>                                           
-                                        <% }) %>
-                                        
-                                    </div>
-                                    
-                                </div>
-                            </div>
-                    </div>
-
-                    <div class="dropdown">
-                        <li><button class="dropbtn">Por preço</button></li>
-
-                            <div class="dropdown-content">
-                                <div class="header">
-                                    <h2>Experiências por preços</h2>
-                                </div>
-                                
-                                <div class="row">
-                                    <div class="column">
-                                        <% categories2.forEach(category2 => { %>
-                                            <a href="/category2/<%= category2.slug %>/1"><%= category2.title %></a>                                           
+                                        <% categories1.forEach(category1 => { %>
+                                            <a href="/category/<%= category1.slug %>/1"><%= category1.title %></a>                                           
                                         <% }) %>
                                         
                                     </div>
@@ -59,8 +39,8 @@
                                 
                                 <div class="row">
                                     <div class="column">
-                                        <% categories3.forEach(category3 => { %>
-                                            <a href="/category3/<%= category3.slug %>/1""><%= category3.title %></a>                                           
+                                        <% categories2.forEach(category2 => { %>
+                                            <a href="/category2/<%= category2.slug %>/1""><%= category2.title %></a>                                           
                                         <% }) %>
                                         
                                     </div>
@@ -79,9 +59,7 @@
                                 
                                 <div class="row">
                                     <div class="column">
-                                        <a href="#">Sobre</a>  
-                                        <a href="#">Contato</a>                                                                                   
-
+                                        <a href="#">Saiba mais e entre em contato</a>  
                                     </div>
                                     
                                 </div>

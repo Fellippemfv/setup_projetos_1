@@ -16,7 +16,6 @@ routes.get("/articles/page/:num", User.getArticlePage);//PAGINA INICIAL DO BLOG
 routes.get("/article/:slug", User.getOneArticle);//PAGINA DE LEITURA DE UM ARTIGO
 routes.get("/category/:slug/:num", User.getOneCategory);//PAGINA DE ARTIGOS EM RELAÇÃO A UMA CATEGORIA
 routes.get("/category2/:slug/:num", User.getOneCategory2);//PAGINA DE ARTIGOS EM RELAÇÃO A UMA CATEGORIA
-routes.get("/category3/:slug/:num", User.getOneCategory3);//PAGINA DE ARTIGOS EM RELAÇÃO A UMA CATEGORIA 
 
 
  
