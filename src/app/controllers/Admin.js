@@ -17,7 +17,6 @@ class AdminController{
                 name: user.name,
                 email: user.email,
                 photo: user.img_file,
-
             });
 
         }catch(error){
@@ -30,9 +29,19 @@ class AdminController{
 
     async getUsers(req, res, next) {
         try{ 
-            const users = await Admin.findAll();//chamando metodo findall do model
+            const num = req.params.num;
+            if(isNaN(num)){
+                res.redirect("/")
+            }
+
+            const num_number = parseInt(num);
+            const users = await Admin.findAll(num);//chamando metodo findall do model
+            if(users === undefined){
+                res.redirect("/");
+            }
             res.render("usersList", {
                 users,
+                count_articles: num_number + 1
             });   
         }catch(error){
             next(error);
@@ -45,11 +54,11 @@ class AdminController{
             const user = await User.findUserById(id)
 
             if(!user) {
-                return res.redirect("/admin/dashboard/users/deleted");
+                return res.redirect("/admin/dashboard/users/deleted/1");
             }
 
             await Admin.softDelete(id)
-            return res.redirect("/admin/dashboard/users/deleted")
+            return res.redirect("/admin/dashboard/users/deleted/1")
         }catch(error){
             next(error);
         }
@@ -78,21 +87,31 @@ class AdminController{
             const user = await User.findById(id)
 
             if(!user) {
-                return res.redirect("/admin/dashboard/users");
+                return res.redirect("/admin/dashboard/users/1");
             }
 
             await Admin.update(id, provider);
-            res.redirect("/admin/dashboard/users")
+            res.redirect("/admin/dashboard/users/1")
         }catch(error){
             next(error);
         }
     }
     
     async getUsersDeleted(req, res, next) {
-        try{ 
-            const users = await Admin.findAllDeleted();//chamando metodo findall do model
+        try{
+            const num = req.params.num;
+            if(isNaN(num)){
+                res.redirect("/") 
+            }
+
+            const num_number = parseInt(num);
+            const users = await Admin.findAllDeleted(num);//chamando metodo findall do model
+            if(users === undefined){
+                res.redirect("/");
+            }
             res.render("usersDeleted", {
                 users,
+                count_articles: num_number + 1
             });
         }catch(error){
             next(error);
@@ -105,11 +124,11 @@ class AdminController{
             const user = await User.findUserById(id)
 
             if(!user) {
-                return res.redirect("/admin/dashboard/users/deleted");
+                return res.redirect("/admin/dashboard/users/deleted/1");
             }
 
             await Admin.hardDelete(id)
-            return res.redirect("/admin/dashboard/users/deleted")
+            return res.redirect("/admin/dashboard/users/deleted/1")
         }catch(error){
             next(error);
         }
@@ -121,19 +140,16 @@ class AdminController{
             const user = await User.findUserById(id)
 
             if(!user) {
-                return res.redirect("/admin/dashboard/users/deleted");
+                return res.redirect("/admin/dashboard/users/deleted/1");
             }
 
             await Admin.backDelete(id)
-            return res.redirect("/admin/dashboard/users/deleted")
+            return res.redirect("/admin/dashboard/users/deleted/1")
         }catch(error){
             next(error);
         }
     } 
 
-    
-
-    
 /*-------//-----------//-------ARTIGOS------//------------//---------- */
 
     async getArticles(req, res, next) {
@@ -164,11 +180,11 @@ class AdminController{
             const article = await Article.findById(id);
 
             if(!article) {
-                return res.redirect("/admin/dashboard/articles/deleted");
+                return res.redirect("/admin/dashboard/articles/deleted/1");
             }
 
             await Article.softDelete(id)
-            return res.redirect("/admin/dashboard/articles/deleted")
+            return res.redirect("/admin/dashboard/articles/deleted/1")
         }catch(error){
             next(error);
         }
@@ -200,9 +216,6 @@ class AdminController{
                 cat_title: article.cat_title,
                 categories2: categories2,
                 cat2_title: article.cat2_title,
-               
-
-
             });
         }catch(error){
             next(error);
@@ -215,11 +228,11 @@ class AdminController{
             const article = await Article.findById(id)
 
             if(!article) { 
-                return res.redirect("/admin/dashboard/articles");
+                return res.redirect("/admin/dashboard/articles/1");
             }
 
             await Article.update(id, title, exp_image_home, description_home, materials, steps_by_step, exp_video, exp_image_done, exp_image_initial, tips_important, tips_ead, category_id, category2_id);//falta ajeitar update
-            res.redirect("/admin/dashboard/articles")
+            res.redirect("/admin/dashboard/articles/1")
         }catch(error){
             next(error);
         }
@@ -252,11 +265,11 @@ class AdminController{
             const article = await Article.findById(id);
 
             if(!article) {
-                return res.redirect("/admin/dashboard/articles/deleted");
+                return res.redirect("/admin/dashboard/articles/deleted/1");
             }
 
             await Article.hardDelete(id);
-            return res.redirect("/admin/dashboard/articles/deleted")
+            return res.redirect("/admin/dashboard/articles/deleted/1")
         }catch(error){
             next(error);
         }
@@ -268,21 +281,20 @@ class AdminController{
             const article = await Article.findById(id);
 
             if(!article) {
-                return res.redirect("/admin/dashboard/articles/deleted");
+                return res.redirect("/admin/dashboard/articles/deleted/1");
             }
 
             await Article.backDelete(id);
-            return res.redirect("/admin/dashboard/articles/deleted")
+            return res.redirect("/admin/dashboard/articles/deleted/1")
         }catch(error){
             next(error);
         }
     } 
 
-
     async getArticlesNew(req, res, next) {
         try{
-            const categories1 = await Category1.findAll();//chamando metodo findall do model
-            const categories2 = await Category2.findAll();//chamando metodo findall do model
+            const categories1 = await Category1.findAllForView();//chamando metodo findall do model
+            const categories2 = await Category2.findAllForView();//chamando metodo findall do model
             res.render("articlesNewAdmin", { 
                 categories1,
                 categories2,
@@ -302,7 +314,7 @@ class AdminController{
                 res.redirect("/admin/dashboard")
             }
             await Article.create(title, slug, exp_image_home, description_home, materials, steps_by_step, exp_video, exp_image_done, exp_image_initial, tips_important, tips_ead, category1, category2, user_id )
-            res.redirect("/admin/dashboard/articles/new");
+            res.redirect("/admin/dashboard/new/article");
         }catch(error){
             next(error);
         }
@@ -351,12 +363,12 @@ class AdminController{
             const category = await Category1.findById(id)
 
             if(!category) {
-                return res.redirect("/admin/dashboard/categories");
+                return res.redirect("/admin/dashboard/categories/1");
             }
 
-            const slug = slugify(title)
-            await Category1.update(id, title, slug, exp_image_home, description_home, materials, steps_by_step, exp_video, exp_image_done, exp_image_initial, tips_important, tips_ead)
-            res.redirect("/admin/dashboard/categories")
+            const slug = slugify(title);
+            await Category1.update(id, title, slug);
+            res.redirect("/admin/dashboard/categories/1")
         }catch(error){
             next(error);
         }
@@ -380,7 +392,7 @@ class AdminController{
             const slug = slugify(title)
             await Category1.create(title, slug)
 
-            res.redirect("/admin/dashboard/categories")
+            res.redirect("/admin/dashboard/categories/1")
         }catch(error){
             next(error);
         }
@@ -392,11 +404,11 @@ class AdminController{
             const category = await Category1.findById(id);
 
             if(!category) {
-                return res.redirect("/admin/dashboard/categories");
+                return res.redirect("/admin/dashboard/categories/1");
             }
 
-            await Category.deleteHard(id)
-            return res.redirect("/admin/dashboard/categories")
+            await Category1.deleteHard(id)
+            return res.redirect("/admin/dashboard/categories/1")
         }catch(error){
             next(error);
         }
@@ -445,12 +457,12 @@ class AdminController{
             const category = await Category2.findById(id)
 
             if(!category) {
-                return res.redirect("/admin/dashboard/categories2");
+                return res.redirect("/admin/dashboard/categories2/1");
             }
 
             const slug = slugify(title)
             await Category2.update(id, title, slug)
-            res.redirect("/admin/dashboard/categories2")
+            res.redirect("/admin/dashboard/categories2/1")
         }catch(error){
             next(error);
         }
@@ -474,7 +486,7 @@ class AdminController{
             const slug = slugify(title)
             await Category2.create(title, slug)
 
-            res.redirect("/admin/dashboard/categories2")
+            res.redirect("/admin/dashboard/categories2/1")
         }catch(error){
             next(error);
         }
@@ -486,17 +498,15 @@ class AdminController{
             const category = await Category2.findById(id);
 
             if(!category) {
-                return res.redirect("/admin/dashboard/categories2");
+                return res.redirect("/admin/dashboard/categories2/1");
             }
 
             await Category2.deleteHard(id)
-            return res.redirect("/admin/dashboard/categories2")
+            return res.redirect("/admin/dashboard/categories2/1")
         }catch(error){
             next(error);
         }
     }
-
-
 
 
 }

@@ -3,6 +3,16 @@ import knex from "../../database";
 
 //criando classe
 class Category1{
+
+    async findAllForView(){//retorna lista de usuarios
+        try{
+            let result = await knex("categories1").select("id" ,"title", "slug");
+            return result;
+        }catch(error){
+            console.log(error);
+        }
+    }
+
     async findAll(num){//retorna lista de usuarios
         try{
             let result = await knex("categories1").orderBy("id", "desc").select("id" ,"title", "slug").paginate({ perPage: 5, currentPage: num });
