@@ -195,8 +195,8 @@ class AdminController{
             const id = req.params.id;           
             const article = await Article.findByIdArticle(id)
            
-            const categories1 = await Category1.findAll();//chamando metodo findall do model
-            const categories2 = await Category2.findAll();//chamando metodo findall do model
+            const categories1 = await Category1.findAllForView();//chamando metodo findall do model
+            const categories2 = await Category2.findAllForView();//chamando metodo findall do model
 
             res.render("articlesEditAdmin" , {
                 message: "", 

@@ -12,8 +12,8 @@ import { localsName } from "ejs";
 env.config();
 
 //Falta ver rolamento infinito de view de user do--> ok
-//Falta ver rolamento infinito de artigos/users/categorys --> admin
-//Falta ver rolamento infinito de artigos --> subadmin
+//Falta ver rolamento infinito de artigos/users/categorys do admin --> ok
+//Falta ver rolamento infinito de artigos do subadmin --> faltaw
 //Falta ver visual: css
 //Falta testar num site real
 //Falta refatorar database 

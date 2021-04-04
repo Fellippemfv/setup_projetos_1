@@ -10,8 +10,8 @@ class UserController{
         try{
             let num = 1;
             //Talvez consiga juntar todas as categorias nnuma querie
-            const categories1 = await Category1.findAll();
-            const categories2 = await Category2.findAll();
+            const categories1 = await Category1.findAllForView();
+            const categories2 = await Category2.findAllForView();
             
             const articles = await Article.findAllPages(num);
             if(articles === undefined){
@@ -63,8 +63,8 @@ class UserController{
     async getOneArticle(req, res, next) {
         try{
             const slug = req.params.slug;
-            const categories1 = await Category1.findAll();//chamando metodo findall do model
-            const categories2 = await Category2.findAll();//chamando metodo findall do model
+            const categories1 = await Category1.findAllForView();//chamando metodo findall do model
+            const categories2 = await Category2.findAllForView();//chamando metodo findall do model
             const article = await Article.findOneArticle(slug)
 
             if(article === undefined){
@@ -106,8 +106,8 @@ class UserController{
                 res.redirect("/")
             }
             
-            const categories1 = await Category1.findAll();
-            const categories2 = await Category2.findAll();
+            const categories1 = await Category1.findAllForView();
+            const categories2 = await Category2.findAllForView();
             const num_number = parseInt(num);
             
             const articles = await Article.findAllCategory(slug, num);
@@ -135,8 +135,8 @@ class UserController{
                 res.redirect("/")
             }
 
-            const categories1 = await Category1.findAll();//chamando metodo findall do model
-            const categories2 = await Category2.findAll();//chamando metodo findall do model
+            const categories1 = await Category1.findAllForView();//chamando metodo findall do model
+            const categories2 = await Category2.findAllForView();//chamando metodo findall do model
             const num_number = parseInt(num);
 
             const articles = await Article.findAllCategory2(slug, num); 
