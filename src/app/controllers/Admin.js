@@ -312,9 +312,19 @@ class AdminController{
 /*-------//-----------//-------CATEGORIAS------//------------//---------- */
     async getCategories(req, res, next) {
         try{
-            const categories = await Category1.findAll();//chamando metodo findall do model
+            const num = req.params.num;
+            if(isNaN(num)){
+                res.redirect("/")
+            }
+
+            const num_number = parseInt(num); 
+            const categories = await Category1.findAll(num);//chamando metodo findall do model
+            if(categories === undefined){
+                res.redirect("/");
+            }
             res.render("categoriesList", {  
                 categories,
+                count_articles: num_number + 1
             });   
         }catch(error){
             next(error);
@@ -396,9 +406,19 @@ class AdminController{
 /*-------//-----------//-------CATEGORIAS 2------//------------//---------- */
     async getCategories2(req, res, next) {
         try{
-            const categories = await Category2.findAll();//chamando metodo findall do model
+            const num = req.params.num;
+            if(isNaN(num)){
+                res.redirect("/")
+            }
+
+            const num_number = parseInt(num); 
+            const categories = await Category2.findAll(num);//chamando metodo findall do model
+            if(categories === undefined){
+                res.redirect("/");
+            }
             res.render("categoriesList2", {  
                 categories,
+                count_articles: num_number + 1
             });   
         }catch(error){
             next(error);

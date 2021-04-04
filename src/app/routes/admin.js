@@ -7,12 +7,12 @@ const routes = new Router();
 routes.get("/dashboard",authAdmin.requireAuth, Admin.getDashboard);//PAGINA DE DASHBOARD DE ADMIN DO BLOG
 
 /* -------///-------USUARIOS------///--------------- */ 
-routes.get("/dashboard/users",authAdmin.requireAuth, Admin.getUsers);//PAGINA DE LISTA DE USUÁRIOS DO BLOG
+routes.get("/dashboard/users/:num",authAdmin.requireAuth, Admin.getUsers);//PAGINA DE LISTA DE USUÁRIOS DO BLOG
 routes.get("/dashboard/users/edit/:id",authAdmin.requireAuth, Admin.getUsersEdit);//PAGINA DE LISTA DE USUÁRIOS DO BLOG
 routes.post("/dashboard/users/edit/:id",authAdmin.requireAuth, Admin.usersEdit);//PAGINA DE LISTA DE USUÁRIOS DO BLOG
 routes.post("/dashboard/users/soft/:id",authAdmin.requireAuth, Admin.userSoftdDel);//PAGINA DE LISTA DE USUÁRIOS DO BLOG
 
-routes.get("/dashboard/users/deleted",authAdmin.requireAuth, Admin.getUsersDeleted);//PAGINA DE LISTA DE USUÁRIOS DO BLOG
+routes.get("/dashboard/users/deleted/:num",authAdmin.requireAuth, Admin.getUsersDeleted);//PAGINA DE LISTA DE USUÁRIOS DO BLOG
 routes.post("/dashboard/users/hard/:id",authAdmin.requireAuth, Admin.usersHardDel);//PAGINA DE LISTA DE USUÁRIOS DO BLOG
 routes.post("/dashboard/users/back/:id",authAdmin.requireAuth, Admin.usersBackDel);//PAGINA DE LISTA DE USUÁRIOS DO BLOG
  
@@ -30,7 +30,7 @@ routes.get("/dashboard/articles/new",authAdmin.requireAuth, Admin.getArticlesNew
 routes.post("/dashboard/articles/new",authAdmin.requireAuth, Admin.articlesNew);//PAGINA DE CRIAR ARTIGOS DO BLOG
 
 /* -------///-------CATEGORIA1------///--------------- */
-routes.get("/dashboard/categories",authAdmin.requireAuth, Admin.getCategories);//PAGINA DE LISTA DE CATEGORIAS DO BLOG
+routes.get("/dashboard/categories/:num",authAdmin.requireAuth, Admin.getCategories);//PAGINA DE LISTA DE CATEGORIAS DO BLOG
 routes.get("/dashboard/categories/edit/:id",authAdmin.requireAuth, Admin.getCategoriesEdit);//PAGINA DE EDITAR CATEGORIAS DO BLOG
 routes.post("/dashboard/categories/edit/:id",authAdmin.requireAuth, Admin.categoriesEdit);//PAGINA DE EDITAR CATEGORIAS DO BLOG
 routes.post("/dashboard/categories/del/:id",authAdmin.requireAuth, Admin.categoriesHardDelete);//PAGINA DE EDITAR CATEGORIAS DO BLOG
@@ -38,7 +38,7 @@ routes.get("/dashboard/categories/new",authAdmin.requireAuth, Admin.getCategorie
 routes.post("/dashboard/categories/new",authAdmin.requireAuth, Admin.categoriesNew);//PAGINA DE CRIAR CATEGORIAS DO BLOG
 
 /* -------///-------CATEGORIA2------///--------------- */
-routes.get("/dashboard/categories2",authAdmin.requireAuth, Admin.getCategories2);//PAGINA DE LISTA DE CATEGORIAS DO BLOG
+routes.get("/dashboard/categories2/:num",authAdmin.requireAuth, Admin.getCategories2);//PAGINA DE LISTA DE CATEGORIAS DO BLOG
 routes.get("/dashboard/categories2/edit/:id",authAdmin.requireAuth, Admin.getCategoriesEdit2);//PAGINA DE EDITAR CATEGORIAS DO BLOG
 routes.post("/dashboard/categories2/edit/:id",authAdmin.requireAuth, Admin.categoriesEdit2);//PAGINA DE EDITAR CATEGORIAS DO BLOG
 routes.post("/dashboard/categories2/del/:id",authAdmin.requireAuth, Admin.categoriesHardDelete2);//PAGINA DE EDITAR CATEGORIAS DO BLOG

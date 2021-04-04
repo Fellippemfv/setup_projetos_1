@@ -3,10 +3,10 @@ import knex from "../../database";
 
 //criando classe
 class Category1{
-    async findAll(){//retorna lista de usuarios
+    async findAll(num){//retorna lista de usuarios
         try{
-            let result = await knex("categories1").select([ "id", "title", "slug" ])
-            return result;
+            let result = await knex("categories1").orderBy("id", "desc").select("id" ,"title", "slug").paginate({ perPage: 5, currentPage: num });
+            return result.data;
         }catch(error){
             console.log(error);
         }
