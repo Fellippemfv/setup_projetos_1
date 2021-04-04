@@ -22,7 +22,7 @@ routes.get("/dashboard/articles/edit/:id",authAdmin.requireAuth, Admin.getArticl
 routes.post("/dashboard/articles/edit/:id",authAdmin.requireAuth, Admin.articlesEdit);//PAGINA DE LISTA DE USUÁRIOS DO BLOG
 routes.post("/dashboard/articles/soft/:id",authAdmin.requireAuth, Admin.articleSoftdDel);//PAGINA DE LISTA DE USUÁRIOS DO BLOG
 
-routes.get("/dashboard/articles/deleted",authAdmin.requireAuth, Admin.getArticlesDeleted);//PAGINA DE LISTA DE ARTIGOS DO BLOG
+routes.get("/dashboard/articles/deleted/:num",authAdmin.requireAuth, Admin.getArticlesDeleted);//PAGINA DE LISTA DE ARTIGOS DO BLOG
 routes.post("/dashboard/articles/hard/:id",authAdmin.requireAuth, Admin.articlesHardDel);//PAGINA DE LISTA DE USUÁRIOS DO BLOG
 routes.post("/dashboard/articles/back/:id",authAdmin.requireAuth, Admin.articlesBackDel);//PAGINA DE LISTA DE USUÁRIOS DO BLOG
  

@@ -58,10 +58,10 @@ class Article{
         }
     }
 
-    async findAllDeleted(){//retorna lista de usuarios
+    async findAllDeleted(num){//retorna lista de usuarios
         try{
-            let result = await knex("articles").whereNot("deleted_at", "0000-00-00 00:00:00")
-            return result;
+            let result = await knex("articles").orderBy("id", "desc").select("id" ,"title", "slug", "description_home").whereNot( "deleted_at", "0000-00-00 00:00:00").paginate({ perPage: 5, currentPage: num });
+            return result.data;
         }catch(error){
             console.log(error);
         }

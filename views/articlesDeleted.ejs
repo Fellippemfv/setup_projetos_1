@@ -9,7 +9,6 @@
 
         <%- include("partials/navbarAdmin") %>
 
-
         <div class="admin__content">
                 
             <!-- form handling -->
@@ -38,19 +37,24 @@
                                 </form>
                             </td>
 
-
+                            <div class="pagination">
+                                <a href="/admin/dashboard/articles/deleted/<%= count_articles %>" class="next">Next</a>
+                            </div>
                             
                         </tr>
                     </tbody>
                     <% }) %>
 
                 </table>
+                <button class="load-more">Carregar mais</button>
+                <div class="no-more">Sem mais artigos :(</div>
 
         </div>
         
     </main>
     
-
+    <script src="https://unpkg.com/@webcreate/infinite-ajax-scroll/dist/infinite-ajax-scroll.min.js"></script>
+    <script src="/js/infinitescrollAdmin.js" ></script>
     <%- include("partials/footer.ejs") %>
 
 </body>

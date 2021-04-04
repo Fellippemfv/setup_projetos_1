@@ -144,9 +144,8 @@ class AdminController{
             }
             
             const num_number = parseInt(num);
-            console.log(num_number)
             const articles = await Article.findAll(num);//chamando metodo findall do model
-             if(articles === undefined){
+            if(articles === undefined){
                 res.redirect("/");
             }
 
@@ -228,9 +227,19 @@ class AdminController{
 
     async getArticlesDeleted(req, res, next) {
         try{
-            const articles = await Article.findAllDeleted();//chamando metodo findall do model
+            const num = req.params.num;
+            if(isNaN(num)){
+                res.redirect("/")
+            }
+
+            const num_number = parseInt(num); 
+            const articles = await Article.findAllDeleted(num);//chamando metodo findall do model
+            if(articles === undefined){
+                res.redirect("/");
+            }
             res.render("articlesDeleted", {
                 articles,
+                count_articles: num_number + 1
             });
         }catch(error){
             next(error);
