@@ -40,6 +40,31 @@
 
                 <div class="user__block">
                     <div class="user__info">
+                        <h2 class="user__title">Cargo</h2>
+                    </div>
+
+                    <% if (provider === 0) { %>
+                        <div class="user__info">
+                            <p>Usuário</p>
+                        </div>
+                    <% } %>
+
+                    <% if (provider === 1) { %>
+                        <div class="user__info">
+                            <p>Subadministrador</p>
+                        </div>
+                    <% } %>
+
+                    <% if (provider === 2) { %>
+                        <div class="user__info">
+                            <p>Administrador</p>
+                        </div>
+                    <% } %>
+                   
+                </div>
+
+                <div class="user__block">
+                    <div class="user__info">
                         <h2 class="user__title">Descrição</h2>
                     </div>
                     <div class="user__info">

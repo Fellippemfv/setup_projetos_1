@@ -15,10 +15,20 @@
                 <p><%= name %></p>
 
                 <h3>Email</h3>
-               <p><%= email %></p>
+                <p><%= email %></p>
 
                 <h3>Cargo</h3>
-                <p><%= provider %></p>
+                <% if (provider === 0) { %>
+                    <p>Usuário</p>
+                <% } %>
+
+                <% if (provider === 1) { %>
+                    <p>Subadiministrador</p>
+                <% } %>
+
+                <% if (provider === 2) { %>
+                    <p>Adiministrador</p>
+                <% } %>
 
                 <form action="/admin/dashboard/users/edit/<%= id %>" method="post">
                     <select name="provider" id="">

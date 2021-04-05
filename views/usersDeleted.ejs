@@ -28,7 +28,19 @@
                                 <td>exemplo</td>
                                 <td><%= user.name %></td>
                                 <td><%= user.email %></td>
-                                <td><%= user.provider %></td>
+                                
+                                <% if (user.provider === 0) { %>
+                                    <td>Usuário</td>
+                                <% } %>
+    
+                                <% if (user.provider === 1) { %>
+                                    <td>Subadministrador</td>
+                                <% } %>
+    
+                                <% if (user.provider === 2) { %>
+                                    <td>Administrador</td>
+                                <% } %>
+                               
                                 <td>
                                     <form action="/admin/dashboard/users/hard/<%= user.id %>" method="POST">
                                         <input type="image" src="/assets/lixeira.svg" class="img-users">
@@ -49,7 +61,7 @@
 
                     </table>
                     <button class="load-more">Carregar mais</button>
-                    <div class="no-more">Sem mais artigos :(</div>
+                    <div class="no-more">Sem mais usuários :(</div>
 
             </div>
 

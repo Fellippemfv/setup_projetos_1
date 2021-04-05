@@ -67,7 +67,6 @@ db.connect((err) => {
                         
                                     res.cookie('jwt', token, { httpOnly: true, maxAge: 24 * 60 * 60 * 1000 });
                                     if(user.provider === 2) {
-                                        console.log("redirecionando")
                                         res.redirect('/admin/dashboard');
                                     }
                                     if(user.provider === 1) {

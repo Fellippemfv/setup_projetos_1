@@ -249,7 +249,8 @@ class UserController{
                 name: user.name,
                 photo: user.img_file,
                 description: user.description,
-                created: user.created_at
+                created: user.created_at,
+                provider: user.provider
 
             });
         
