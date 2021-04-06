@@ -1,0 +1,437 @@
+/*----------//--------------CONFIGURAÇÕES GERAIS DO MENU/HEADER------------------//------------*/
+.menu {
+  padding: 0.2rem;
+  display: flex;
+  justify-content: center;
+  box-shadow: rgb(75 75 75 / 25%) 0px 0.0625rem 0.025rem 0px, rgb(75 75 75 / 15%) 0px 0.0625rem 0.1875rem 0px;
+}
+
+.menu__section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1366px;
+  width: 100vw;
+  margin: 0rem 0.4rem;
+}
+
+.dropdown .dropbtn{
+  border: none;
+  margin: 0px;
+}
+
+.menu__section a, .dropdown .dropbtn {
+  color: Black;
+  text-decoration: none;
+  font-size: 1.3rem; 
+  background: inherit;
+  padding: 14px 20px;
+
+}
+
+.menu__section a:hover{
+  background-color: red;
+}
+
+.menu__section ul {
+  display: flex;
+  list-style-type: none;
+  align-items: center;
+}
+
+.menu__section ul li {
+  margin-left: 0.4rem;
+}
+
+.menu__icon {
+  width: 33px;
+  cursor: pointer;
+}
+
+.menu__logo {
+  width: 12rem;
+  cursor: pointer;
+
+}
+
+/*----------//--------------CONFIGURAÇÕES do menu gigante teste------------------//------------*/ 
+
+/* The dropdown container */
+.dropdown {
+  overflow: hidden;
+}
+
+.dropdown, li.drop__links {
+  display: none;
+}
+
+/* Add a red background color to navbar links on hover */
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: red;
+}
+
+/* Dropdown content (hidden by default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  width: 100%;
+  top: 4.5rem;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Mega Menu header, if needed */
+.dropdown-content .header {
+  background: red;
+  padding: 16px;
+  color: white;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+  width: 50%;
+}
+
+/* Create three equal columns that floats next to each other */
+.column {
+  padding: 10px;
+  background-color: #ccc;
+}
+
+/* Style links inside the columns */
+.column a {
+  float: none;
+  color: black;
+  padding: 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+/* Add a background color on hover */
+.column a:hover {
+  background-color: #ddd;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+  /*Terminou*/
+
+
+/*----------//--------------CONFIGURAÇÕES do menu__right------------------//------------*/ 
+
+.menu__avatar{
+    width: 2.1rem;
+    height: auto;
+    cursor: pointer;
+}
+
+.menu__search {
+    display: flex;
+    align-items: center;
+}
+
+.menu__search .menu__input{
+  display: none;
+  border: 1px solid #bbb;
+  padding: 1rem;
+  border-radius: 1rem;
+  height: 2.7rem;
+  width: 12vw;
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
+}
+
+.menu__search .menu__input:focus {
+  width: 32vw;
+}
+
+
+ .menu__button__search{
+  width: 2.3rem;  
+  display: block;
+  cursor: pointer;
+}
+
+/*TERMINA*/
+
+/*----------//--------------MODAL DE LOGIN------------------//------------*/
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100vw; /* Full width */
+    height: 100vh; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    padding-top: 60px;
+    cursor: pointer;
+  }
+  
+  /* Modal Content/Box */
+  .modal-content {
+    background-color: #fefefe;
+    margin: 5px auto; /* 15% from the top and centered */
+    border: 1px solid #888;
+    border-radius: 2rem;
+    width: 40rem;/*porcentagem da tela do modal*/
+    padding: 2rem;
+  }
+  
+  /* Add Zoom Animation */
+  .animate {
+    -webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 0.6s
+  }
+  
+  @-webkit-keyframes animatezoom {
+    from {-webkit-transform: scale(0)}
+    to {-webkit-transform: scale(1)}
+  }
+  
+  @keyframes animatezoom {
+    from {transform: scale(0)}
+    to {transform: scale(1)}
+  }
+
+  /*TERMINA*/
+
+/*----------//--------------FORMULARIO DE LOGIN------------------//------------*/
+.form__container {
+    width: 100%;
+    cursor: auto;
+}
+
+.form__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.text__heading {
+    margin-bottom: 1rem;
+    font-size: 2.8rem;
+    text-align: center;
+}
+
+.text__field {
+    margin-bottom: 2rem;
+    border-radius: 1.3125rem;;
+    border: 0.0625rem solid #bbb;
+    width: 100%;
+    padding: 1.2rem;
+}
+
+.button_login {
+    width: 100%;
+    cursor: pointer;
+    padding: 1.2rem 0rem 1.2rem 0rem;
+    font-size: 2rem;
+    border-radius: 0.3125rem;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(34, 64, 245);
+    color: white;
+    border-style: none;
+}
+
+.button_login:hover {
+    background-color:  rgb(47, 73, 223);
+}
+
+.alternative__options{
+  display: flex;
+  align-items: center;
+  margin: 1rem;
+}
+ /* Extra style for the cancel button (red) */
+ .cancelbtn {
+  width: auto;
+  padding: 10px 18px;
+  background-color: #f44336;
+  cursor: pointer;
+}
+
+.text__forgot, .text__footer {
+  width: 100%;
+  font-size: 1.4rem;
+}
+
+/*TERMINA*/
+
+/*----------//--------------CONFIGURAÇÕES DO MENU-MOBILE------------------//------------*/ 
+/* Style the navigation menu */
+.topnav {
+    background-color: #333;
+    position: absolute;
+    top: 5.2rem;
+    left: 0;
+    width: 50%;
+  }
+  
+  /* Hide the links inside the navigation menu (except for logo/home) */
+  .topnav #myLinks {
+    display: none;
+  }
+  
+  /* Style navigation menu links */
+  .topnav a {
+    color: white;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    display: block;
+  }
+  
+  /* Style the hamburger menu */
+  .topnav a.icon {
+    background: black;
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  
+  /* Add a grey background color on mouse-over */
+  .topnav a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+  
+  /* Style the active link (or home/logo) */
+  .active {
+    background-color: #4CAF50;
+    color: white;
+  }
+  /*Terminou*/
+
+  /*----------//--------------CONFIGURAÇÕES DO MODAL DE PERFIL------------------//------------*/ 
+  /* Style the navigation menu */
+.topnav-2 {
+  background-color: #333;
+    position: absolute;
+    right: 0rem;
+    top: 5.2rem;
+    width: 14rem;
+  }
+  
+  /* Hide the links inside the navigation menu (except for logo/home) */
+  .topnav-2 #myLinks-2 {
+    display: none;
+  }
+  
+  /* Style navigation menu links */
+  .topnav-2 a {
+    color: white;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    display: block;
+  }
+  
+  /* Style the hamburger menu */
+  .topnav-2 a.icon {
+    background: black;
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  
+  /* Add a grey background color on mouse-over */
+  .topnav-2 a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+  
+  /* Style the active link (or home/logo) */
+  .active {
+    background-color: #4CAF50;
+    color: white;
+  }
+    /*Terminou*/
+
+  /*----------//--------------MODAL DE PESQUISA MOBILE------------------//------------*/
+/* The overlay effect with black background */
+.search__content__mobile {
+  padding: 1.3rem;  
+  width: 100%;
+  display: none;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  /* left: 0; */
+  background: white;
+}
+
+/* The content */
+.search__content__input {
+  width: 100%;
+  
+}
+
+.search__form {
+    display: flex;
+    width: 100%;
+}
+
+.search__form__input {
+  display: flex;
+  width: 100%;
+  padding: 0.5rem;
+}
+
+/* Close button */
+.search__content__button {
+    /* top: 20px; */
+    /* right: 0px; */
+    cursor: pointer;
+    color: white;
+    width: 1.9rem;
+    height: auto;
+    margin-right: 1rem;
+    /* background: black; */
+    display: flex;
+}
+  /*Terminou*/
+
+
+/*TERMINA*//* FALTA SIMPLIFICAR */
+
+/*----------//--------------CONFIGURAÇÕES DAS MEDIA QUERIES------------------//------------*/ 
+@media (min-width: 763px) {
+  .dropdown, li.drop__links {/*ocultar links no menu mobile*/
+    display: flex;
+  }
+
+  .menu__button__search {/*ocultar icone de pesquisa no menu normal*/
+    display: none;
+  }
+
+  .menu__section ul li .menu__icon{ /*ocultar icone de hamburguer no menu normal*/
+        display: none;
+  }
+  
+  .menu__section ul li .menu__link{/*ocultar links do menu mobile */
+        display: initial;
+  }
+  
+  .menu__search .menu__input{/*mostra imput de pesquisa no menu normal*/
+      display:  block;
+      
+  }
+    
+} 

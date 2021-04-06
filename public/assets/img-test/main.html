@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<!-- saved from url=(0032)http://localhost:4444/profile/39 -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com/">
+    <link href="./main_files/css2" rel="stylesheet">
+    <link rel="stylesheet" href="./main_files/users.css">
+    <link rel="stylesheet" href="./main_files/profile.css">
+    <link rel="stylesheet" href="./main_files/dashboard.css">
+    <link rel="stylesheet" href="./main_files/header.css">
+    <link rel="stylesheet" href="./main_files/navbarDash.css">
+    <link rel="stylesheet" href="./main_files/style.css">
+    <link rel="stylesheet" href="./main_files/index.css">
+    <link rel="stylesheet" href="./main_files/articleOne.css">
+    <link rel="stylesheet" href="./main_files/articlePage.css">
+    <link rel="stylesheet" href="./main_files/profileUser.css">
+    <title>main</title>
+<style type="text/css"></style></head>
+
+
+<body>
+        <!--menu principal-->
+    <header class="menu">
+        <!--navbar-->
+        <div class="menu__section"><!--Falta alinhar os links-->
+            <div class="menu__section__left">
+                <ul>
+                    <li><img class="menu__icon" src="./main_files/burger-icon.svg" alt="Burger" onclick="myFunction()"></li>
+                    <li><img class="menu__logo" src="./main_files/logo.bmp" alt=""></li>
+                
+                    <!--menu grande de teste-->
+                    <li class="drop__links"><a href="http://localhost:4444/">Home</a></li>              
+                </ul>
+            </div>
+    
+            <div class="menu__section__right">
+                <ul>
+                    <li><form class="menu__search" action="http://localhost:4444/action_page.php"><input class="menu__input" type="text" placeholder="Pesquisar.." name="search"></form></li>
+                    <li><img onclick="openSearch()" class="menu__button__search" src="./main_files/lupa.svg" alt=""></li>
+                    
+                        <li><button onclick="myFunction2()">Opções</button></li>
+                    
+                </ul>
+            </div>
+        </div>
+
+        <!-- The Modal login -->
+        <div id="id01" class="modal">
+            <!-- Modal Content -->
+            <div class="modal-content animate ">
+                <div class="form__container">
+
+                    <div class="form__header">
+                        <h1 class="text__heading">Entrar</h1>
+                    </div>
+                            
+                    <form class="form__login" action="http://localhost:4444/login" method="post"><!--content__field__text//content__button__submit//content__footer__text-->
+                        <input class="text__field" type="email" name="email" id="email" placeholder="Email" minlength="5" maxlength="150" required="">
+                        <input class="text__field" type="password" name="password" id="password" placeholder="Senha" minlength="5" maxlength="30" required=""> 
+                        <input class="button_login" type="submit" value="Entrar">
+                    </form>
+
+                    <div class="alternative__options" style="background-color:#f1f1f1">
+                        <a class="text__forgot" href="http://localhost:4444/forgot-password">Esqueceu senha?</a>
+                        <h2 class="text__footer">Não tem?<a href="http://localhost:4444/register">Registre-se</a></h2>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        
+        <!--menu mobile-->
+        <div class="topnav">
+        <!-- Navigation links (hidden by default) -->
+        <div id="myLinks">
+            <a href="http://localhost:4444/profile/39#news">Experiências</a>
+            <a href="http://localhost:4444/profile/39#contact">Sobre</a>
+            <a href="http://localhost:4444/profile/39#about">Contato</a>
+        </div>
+        </div>
+
+        <!--menu perfil-->
+        <div class="topnav-2">
+            <!-- Navigation links (hidden by default) -->
+
+            
+            <div id="myLinks-2">
+                    <li><a href="http://localhost:4444/myprofile">Perfil</a></li>
+                    <li><a href="http://localhost:4444/logout">Sair
+                            <img src="./main_files/signout_106525.svg" alt="">
+                            </a>
+                    </li>
+            </div>
+            
+
+        </div>
+
+        <!--modal de pesquisa mobile-->
+        <div id="myOverlay" class="search__content__mobile">
+            <div class="search__content__button">
+                <img onclick="closeSearch()" src="./main_files/seta-esquerda.svg" alt="">
+            </div>
+            <div class="search__content__input">
+            <form class="search__form" action="http://localhost:4444/profile/action_page.php">
+                <input class="search__form__input" type="text" placeholder="Search.." name="search">
+            </form>
+            </div>
+        </div>
+        
+        
+        <script src="./main_files/script.js.download"></script>
+
+    </header>
+
+    
+
+
+
+
+
+    <main class="content">
+
+
+        <div class="profile__content">
+
+            <div class="users__section__header">
+                <h1 class="title__header">Perfil</h1>
+            </div>
+
+            <div class="users__section__body">
+
+                <div class="block__left">
+
+                    <div class="user__item">
+                        <div class="user__block">
+                            <div class="user__info">
+                                <h2 class="user__title">Nome</h2>
+                            </div>
+                            <div class="user__info">
+                                <p>subadmin</p>
+                            </div>
+                        </div>
+
+                        <div class="user__block">
+                            <div class="user__info">
+                                <h2 class="user__title">Descrição</h2>
+                            </div>
+                            <div class="user__info">
+                                <p>sem descriçãosem descriçãosem descriçãosem descriçãosem descriçãosem descrição</p>
+                            </div>
+                        </div>
+    
+                        <div class="user__block">
+                            <div class="user__info">
+                                <h2 class="user__title">Cargo</h2>
+                            </div>
+        
+                            
+        
+                            
+                                <div class="user__info">
+                                    <p>Subadministrador</p>
+                                </div>
+                            
+        
+                            
+                           
+                        </div>
+    
+                        <div class="user__block">
+                            <div class="user__info">
+                                <h2 class="user__title">Usuário desde:</h2>
+                            </div>
+                            <div class="user__info">
+                                <p>2021-03-18 20:06:37</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="block__right">
+
+                    <div class="user__item">
+
+                    <div class="user__block">
+                        
+                        <div class="user__info">
+                            <div class="profile__round__container">
+                                
+                                    <img class="profile__image" src="./main_files/male-user-shadow-svgrepo-com.svg" alt="">
+                                
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+                
+            </div>
+
+        </div>
+        
+    </main>
+    
+
+    <footer class="footer">
+    <div class="footer__section footer__location">
+
+    </div>
+    <div class="footer__section footer__links">
+        <ul>
+            <li><a href="http://localhost:4444/profile/39"></a>Telefone: 11312445145</li>
+            <li><a href="http://localhost:4444/profile/39"></a>Email: teste@hotmail.com</li>
+            <li><a href="http://localhost:4444/profile/39"></a>Site desenvolido por: 24fggdg</li>
+            <li><a href="http://localhost:4444/profile/39"></a>Agradiment9os a : fkfhfhfh757</li>
+        </ul>
+    </div>
+</footer>
+
+
+
+
+</body></html>

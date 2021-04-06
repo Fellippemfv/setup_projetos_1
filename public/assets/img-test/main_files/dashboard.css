@@ -1,0 +1,42 @@
+
+.admin__infos {
+    height: 11rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    margin: 1rem 0rem;}
+
+.infos__left {
+    margin-right: 3rem;
+}
+
+.round-container {
+    width: 9rem;
+    height: 9rem;
+    align-self: center;
+    border-radius: 100%;
+    margin: 2.3rem auto 2.5rem auto;
+    overflow: hidden;
+    position: relative;
+}
+.round-container img {
+    width: initial;
+    height: inherit;
+    max-width: none;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+
+
+
+
+/* Style the tab content */
+.admin__content {
+  float: left;
+  padding: 0px 12px;
+  width: 75%;
+  border-left: none;
+}
