@@ -13,8 +13,8 @@ env.config();
 
 //Falta ver rolamento infinito de view de user do--> ok
 //Falta ver rolamento infinito de artigos/users/categorys do admin --> ok
-//Falta ver rolamento infinito de artigos do subadmin --> faltaw
-//Falta ver visual: css
+//Falta ver rolamento infinito de artigos do subadmin --> ok
+//Falta ver visual: css --> falta
 //Falta testar num site real
 //Falta refatorar database 
 //Falta ver sistema de email

@@ -10,8 +10,9 @@
         <div class="article__content">
 
             <div class="article__section__header">
-                <h3 class="article__user__photo">Publicado por:</h3>
 
+                <div class="article__section__header__right">
+                    <h3 class="article__user__photo">Por:</h3>
                     <div class="article__round-container">
                         <%if(us_img === null){%>
                             <img src="/assets/male-user-shadow-svgrepo-com.svg" alt="">
@@ -20,89 +21,90 @@
                         <%}%>
                     </div>   
                     <a href="/profile/<%= us_id %>"><%= us_name %></a>
-
-                <h3 class="article__date__title">Em:</h3>
-                <p class="article__date"><%= created_at %></p>
+                    <h3 class="article__date__title">Em:</h3>
+                    <p class="article__date"><%= created_at %></p>
+                </div>
                 
-                <h3 class="article__date__update">Atualizado em: </h3>
-                <p class="article__update" ><%= updated_at %></p>
                 
+                <div class="article__section__header__left">
+                    <h3 class="article__date__update">Atualizado em: </h3>
+                    <p class="article__update" ><%= updated_at %></p>
+                </div>
                 
             </div>
 
             <div class="article__section_body">
                 
-                <h1><%= title %></h3>
-                <p><%= description_home %></p>
+                <div class="section__body__header">
+                        <h1 class="article__title"><%= title %></h3>
+                        <img class="article__main__photo" src="<%= exp_image_home %>"  loading="lazy">
+                        <p class="article__desciption"><%= description_home %></p>
+                </div>
+                
 
-                <h3>Materiais utilizados</h3>
-                <p><%= materials %></p>
+                <div class="section__body__content">
+                    <h2 class="article__title__body">Materiais utilizados</h2>
+                    <p><%- materials %></p>
 
-                <h3>Passo a passo</h3>
-                <p><%= steps_by_step %></p>
+                    <h2 class="article__title__body">Instruções</h2>
+                    <p><%- steps_by_step %></p>
 
-                <h3>Video de demonstração</h3>
-                <!-- video bugando no opera
-                    <iframe height="240" src="https://www.youtube.com/embed/kVlcGpXqZ8Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                -->
-               
-               <!-- <img src="<%= exp_image_initial %>" alt=""> -->
+                    <h2 class="article__title__body">Explicação</h2>
+                    <p>Isso ocorre devido Isso ocorre devido Isso ocorre devido Isso ocorre devido</p>
 
-                <h3>Imagens de demonstração</h3>
-                <!-- Slideshow container -->
-                <div class="slideshow-container">
 
-                    <!-- Full-width images with number and caption text -->
-                    <div class="mySlides fade">
-                    <div class="numbertext">1 / 3</div>
-                    <img class="slide__img" src="<%= exp_image_home %>"  loading="lazy">
-                    <div class="text">Caption One</div>
+                    <h2 class="article__title__body diff">Video de demonstração</h2>
+                    <div class="article__video__content">
+                        <iframe class="article__video" src="https://www.youtube.com/embed/kVlcGpXqZ8Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
+                    
                 
-                    <div class="mySlides fade">
-                    <div class="numbertext">2 / 3</div>
-                    <img class="slide__img" src="<%= exp_image_initial %>"  loading="lazy">
-                    <div class="text">Caption Two</div>
+                    <h2 class="article__title__body diff">Imagens de demonstração</h2>
+                    <!-- Slideshow container -->
+                    <div class="slideshow-container">
+
+                        <!-- Full-width images with number and caption text -->
+                    
+                        <div class="mySlides fade">
+                        <div class="numbertext">1 / 2</div>
+                        <img class="slide__img" src="<%= exp_image_initial %>"  loading="lazy">
+                        <div class="text">Inicio da experiência</div>
+                        </div>
+                    
+                        <div class="mySlides fade">
+                        <div class="numbertext">2 / 2</div>
+                        <img class="slide__img" src="<%= exp_image_done %>"  loading="lazy">
+                        <div class="text">Final da experiência</div>
+                        </div>
+                    
+                        <!-- Next and previous buttons -->
+                        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                        <a class="next" onclick="plusSlides(1)">&#10095;</a>
                     </div>
-                
-                    <div class="mySlides fade">
-                    <div class="numbertext">3 / 3</div>
-                    <img class="slide__img" src="<%= exp_image_done %>"  loading="lazy">
-                    <div class="text">Caption Three</div>
+                    <br>
+                    
+                    <!-- The dots/circles -->
+                    <div style="text-align:center">
+                        <span class="dot" onclick="currentSlide(1)"></span>
+                        <span class="dot" onclick="currentSlide(2)"></span>
                     </div>
-                
-                    <!-- Next and previous buttons -->
-                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
-                </div>
-                <br>
-                
-                <!-- The dots/circles -->
-                <div style="text-align:center">
-                    <span class="dot" onclick="currentSlide(1)"></span>
-                    <span class="dot" onclick="currentSlide(2)"></span>
-                    <span class="dot" onclick="currentSlide(3)"></span>
-                </div>
 
-                <h3>Categorias</h3>
-                <p>Assunto: <span><%= cat_title %></span></p>
-                <p>BNCC: <span><%= cat2_title %></span></p>
+                    <h2 class="article__title__body">Categorias</h2>
+                    <p>Assunto: <span><%= cat_title %></span></p>
+                    <p>BNCC: <span><%= cat2_title %></span></p>
 
-                
-                <h3>Para professores</h3>
-                <button type="button" class="collapsible">Orientações importantes</button>
-                <div class="button__content">
-                <p><%= tips_important %></p>
-                </div>
+                    
+                    <h2 class="article__title__body">Para professores</h2>
+                    <button type="button" class="collapsible">Orientações importantes</button>
+                    <div class="button__content">
+                    <p><%= tips_important %></p>
+                    </div>
 
-                <button type="button" class="collapsible">Dicas para o EaD</button>
-                <div class="button__content">
-                <p><%= tips_ead %></p>
-                </div>
-
-               
-
-                
+                    <button type="button" class="collapsible">Dicas para o EaD</button>
+                    <div class="button__content">
+                    <p><%= tips_ead %></p>
+                    </div>
+                    </div>
                 
             </div>
 

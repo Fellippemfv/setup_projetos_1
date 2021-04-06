@@ -7,13 +7,37 @@
 .article__section__header{
     display: flex;
     align-items: center;
-    background-color: red;
+    justify-content: space-between;
+    background-color: #fefefe;
+    border-bottom: 1px solid #ccc;
+    padding: 0rem 1rem;
 
+}
+
+.section__body__header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.section__body__content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.article__section__header__right, .article__section__header__left {
+  display: flex;
+  align-items: center;
 }
 
 .article__user__photo, .article__date__title, .article__date__update{
     font-size: 1.4rem;
-    margin-left: 1rem;
+}
+
+.article__date__title{
+  margin-left: 1rem;
 }
 
 
@@ -22,7 +46,7 @@
     min-height: 3rem;
     align-self: center;
     border-radius: 100%;
-    margin: 1rem;
+    margin: 0.4rem;
     overflow: hidden;
     position: relative;
 }
@@ -44,19 +68,47 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: antiquewhite;
+    background-color: #fefefe;
+    padding: 1rem;
 }
 
 .article__title{
-    font-size: 3rem;
+  font-size: 4rem;
+  text-align: center;
+  width: 100%;
+  text-align: center;
+}
+
+.article__title__body {
+  margin-top: 3rem;
+}
+
+.diff {
+  text-align: center;
+}
+
+.article__main__photo {
+    margin: 2rem 0rem;
+    height: 22rem;
+    border-radius: 3rem;
 }
 
 .article__desciption {
     color: black;
+    margin-bottom: 3rem;
+    width: 100%;
+    text-align: center;
 }
 
+.article__video__content {
+  display: flex;
+  justify-content: center;
+}
 
-
+.article__video {
+    height: 21rem;
+    width: 37rem;
+}
 
 
 
