@@ -7,85 +7,95 @@
 
     <main class="content">
         
-        <div class="perfil__section">
-            <div class="perfil__section__left">
-
-               
-
-                <form action="/files" enctype="multipart/form-data" method="post">
-                    <label for="file">Foto atual</label>
-                    <figure>
-                        <div class="round-container">
-                            <img src="<%= photo %>">
-                        </div>    
-                    </figure>
-
-                    <input type="file" name="file">
-                    <input type="submit" value="Trocar de foto" >            
-                </form>
-
-                <form action="/myprofile" method="POST">
-                    <div class="perfil__content">
-                        <label class="perfil__title" for="description">Descrição</label>
-                        <input class="perfil__input" type="text" name="description" id="description" value="<%= description %>" minlength="5" maxlength="250" >
-                        <input class="button_login" type="submit" value="Atualizar Descrição">
+        <div class="myprofile__section">
+            
+            <div class="myprofile__header">
+                <div class="myprofile__top__content">
+                    <div class="perfil_content">
+                        <h2>ultima atualização em:</h2>
+                        <p><%= updated_at %></p>
                     </div>
-                </form>
-              
+    
+                    <div class="myprofile_content">
+                        <h2>conta criada em:</h2>
+                        <p><%= created_at %></p>
+                    </div>
+                </div>
             </div>
 
-            <div class="perfil__section__right">
-                <div class="perfil_content">
-                    <h2>ultima atualização:</h2>
-                    <p><%= updated_at %></p>
+            <div class="myprofile__body">
+                
+                <div class="myprofile__body__content">
+                    <form action="/files" enctype="multipart/form-data" method="post">
+                        <label class="myprofile__label" for="file">Foto atual</label>
+                        <figure>
+                            <div class="round-container">
+                                <img src="<%= photo %>">
+                            </div>    
+                        </figure>
+    
+                        <input type="file" name="file">
+                        <input class="button_update" type="submit" value="Trocar de foto" >            
+                    </form>
                 </div>
 
-                <div class="perfil_content">
-                    <h2>conta criada em:</h2>
-                    <p><%= created_at %></p>
+                <div class="myprofile__body__content">
+                    <form action="/myprofile" method="POST">
+                        <div class="perfil__content">
+                            <label class="myprofile__label" for="description">Descrição</label>
+                            <input class="myprofile__input" type="text" name="description" id="description" value="<%= description %>" minlength="5" maxlength="250" >
+                            <input class="button_update" type="submit" value="Atualizar Descrição">
+                        </div>
+                    </form>
                 </div>
-
+                
                 <div class="perfil__content">
                     <% if (message) { %>
                         <h2 class="error"><%= message %> </h2>
                     <% } %>
                 </div>
 
-                <form action="/myprofile" method="POST">
-                    <div class="perfil__content">
-                        <label class="perfil__title" for="name">Nome</label>
-                        <input class="perfil__input" type="text" name="name" id="name" value="<%= name %>" minlength="5" maxlength="60" >
-                        <input class="button_login" type="submit" value="Atualizar nome">
-                    </div>
-                </form>
+                <div class="myprofile__body__content">
+                    <form action="/myprofile" method="POST">
+                        <div class="perfil__content">
+                            <label class="myprofile__label" for="name">Nome</label>
+                            <input class="myprofile__input" type="text" name="name" id="name" value="<%= name %>" minlength="5" maxlength="60" >
+                            <input class="button_update" type="submit" value="Atualizar nome">
+                        </div>
+                    </form>
+                </div>
 
+                <div class="myprofile__body__content">
+                    <form action="/myprofile" method="POST">
+                        <div class="perfil__content">
+                            <label class="myprofile__label" for="email">Email</label>
+                            <input class="myprofile__input" type="email" name="email" id="email" value="<%= email %>" minlength="5" maxlength="150" >
+                            <input class="button_update" type="submit" value="Atualizar email">
+                        </div>
+                    </form>
+                </div>
 
-                <form action="/myprofile" method="POST">
-                    <div class="perfil__content">
-                        <label class="perfil__title" for="email">Email</label>
-                        <input class="perfil__input" type="email" name="email" id="email" value="<%= email %>" minlength="5" maxlength="150" >
-                        <input class="button_login" type="submit" value="Atualizar email">
-                    </div>
-                </form>
+                <div class="myprofile__body__content">
+                    <form action="/myprofile" method="POST">
+                        <div class="perfil__content">
+                            <label class="myprofile__label" for="oldPassword">Digite a senha atual</label>
+                            <input class="myprofile__input" type="password" name="oldPassword" id="oldPassword" placeholder="Senha atual" minlength="5" maxlength="30" > 
+                            <label class="myprofile__label" for="password">Digite a nova senha</label>
+                            <input class="myprofile__input" type="password" name="password" id="password" placeholder="senha nova" minlength="5" maxlength="30" > 
+                            <input class="button_update" type="submit" value="Atualizar senha">
+                        </div>
+                    </form>
+                </div>
 
-
-                <form action="/myprofile" method="POST">
-                    <div class="perfil__content">
-                        <label class="perfil__title" for="oldPassword">Digite a senha atual</label>
-                        <input class="perfil__input" type="password" name="oldPassword" id="oldPassword" placeholder="Senha atual" minlength="5" maxlength="30" > 
-                        <label class="perfil__title" for="password">Digite a nova senha</label>
-                        <input class="perfil__input" type="password" name="password" id="password" placeholder="senha nova" minlength="5" maxlength="30" > 
-                        <input class="button_login" type="submit" value="Atualizar senha">
-                    </div>
-                </form>
-
-
-                <form action="/myprofile" method="POST">
-                    <div class="perfil__content">
-                        <label class="perfil__title" for="deleted">Deletar conta</label>
-                        <input class="button_login" type="submit" name="deleted" id="deleted" value="Deletar">
-                    </div>
-                </form>
+                <div class="myprofile__body__content">
+                    <form action="/myprofile" method="POST">
+                        <div class="perfil__content">
+                            <label class="myprofile__label" for="deleted">Deletar conta</label>
+                            <input class="button_update" type="submit" name="deleted" id="deleted" value="Deletar">
+                        </div>
+                    </form>
+                </div>
+            
             </div>
         </div>
         
