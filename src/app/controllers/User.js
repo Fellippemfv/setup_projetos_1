@@ -245,7 +245,7 @@ class UserController{
             if(!user) {
                 return res.redirect("/");
             }
-            return res.render("user" , { 
+            return res.render("userProfile" , { 
                 name: user.name,
                 photo: user.img_file,
                 description: user.description,
