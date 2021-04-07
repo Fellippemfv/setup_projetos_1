@@ -85,16 +85,16 @@ class Article{
         }
     }
 
-    async create(title, slug, exp_image_home, description_home, materials, steps_by_step, exp_video, exp_image_done, exp_image_initial, tips_important, tips_ead, category1, category2, user_id){//retorna lista de usuarios
+    async create(title, slug, exp_image_home, description_home, materials, steps_by_step, explanation, exp_video, exp_image_done, exp_image_initial, tips_important, tips_ead, category1, category2, user_id){//retorna lista de usuarios
         try{
-            let result = await knex("articles").insert({ title, slug, exp_image_home, description_home, materials, steps_by_step, exp_video, exp_image_done, exp_image_initial, tips_important, tips_ead, "category_id": category1, "category2_id": category2, user_id ,"created_at": dateFormat(new Date(), "dateBr"), "updated_at": dateFormat(new Date(), "dateBr") })
+            let result = await knex("articles").insert({ title, slug, exp_image_home, description_home, materials, steps_by_step, explanation, exp_video, exp_image_done, exp_image_initial, tips_important, tips_ead, "category_id": category1, "category2_id": category2, user_id ,"created_at": dateFormat(new Date(), "dateBr"), "updated_at": dateFormat(new Date(), "dateBr") })
             return result;
         }catch(error){
             console.log(error);
         }
     }
 
-    async update(id, title, exp_image_home, description_home, materials, steps_by_step, exp_video, exp_image_done, exp_image_initial, tips_important, tips_ead, category_id, category2_id){//retorna lista de usuarios
+    async update(id, title, exp_image_home, description_home, materials, steps_by_step, explanation, exp_video, exp_image_done, exp_image_initial, tips_important, tips_ead, category_id, category2_id){//retorna lista de usuarios
         try{
             if(title){
                 const slug = slugify(title)
@@ -120,6 +120,11 @@ class Article{
 
             if(steps_by_step){
                 let result = await knex("articles").where({ id }).update({ steps_by_step, "updated_at":  dateFormat(new Date(), "dateBr") });
+                return true;
+            }
+
+            if(explanation){
+                let result = await knex("articles").where({ id }).update({ explanation, "updated_at":  dateFormat(new Date(), "dateBr") });
                 return true;
             }
 

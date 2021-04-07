@@ -56,7 +56,7 @@
                         <fieldset>
                             <legend>Corpo do experimento</legend>
                             <div class="article__item">
-                                <label for="">Materiais</label>
+                                <label for="">Materiais utilizados</label>
                                 <textarea name="materials" id="" placeholder="Primeiro é preciso encher o balde com água com bom ar, depois misturar muito bem..." required><%= materials %></textarea>
                                 <input class="article__id" name="id" type="number" value="<%= id %>" readonly>
                                 <input type="submit" value="Atualizar">
@@ -65,11 +65,20 @@
 
                     <form action="/subadmin/dashboard/articles/edit/<%= id %>" method="POST">
                             <div class="article__item">
-                                <label for="steps_by_step">Passo a passo</label>
+                                <label for="steps_by_step">Instruções</label>
                                 <textarea name="steps_by_step" id="" required><%= steps_by_step %></textarea>
                                 <input class="article__id" name="id" type="number" value="<%= id %>" readonly>
                                 <input type="submit" value="Atualizar">
                             </div>
+                    </form>
+
+                    <form action="/subadmin/dashboard/articles/edit/<%= id %>" method="POST">
+                        <div class="article__item">
+                            <label for="explanation">Explicação</label>
+                            <textarea name="explanation" id="" required><%= explanation %></textarea>
+                            <input class="article__id" name="id" type="number" value="<%= id %>" readonly>
+                            <input type="submit" value="Atualizar">
+                        </div>
                     </form>
 
                     <form action="/subadmin/dashboard/articles/edit/<%= id %>" method="POST">
@@ -132,7 +141,7 @@
                         <fieldset>
                             <legend>Orientações para professores</legend>
                             <div class="article__item">
-                                <label for="tips_important">Dicas importantes</label>
+                                <label for="tips_important">Orientações importantes</label>
                                 <textarea name="tips_important" id="" required><%= tips_important %></textarea>
                                 <input class="article__id" name="id" type="number" value="<%= id %>" readonly>
                                 <input type="submit" value="Atualizar">

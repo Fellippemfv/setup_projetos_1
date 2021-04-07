@@ -78,6 +78,7 @@ class UserController{
                 description_home: article.description_home,
                 materials: article.materials,
                 steps_by_step: article.steps_by_step,
+                explanation: article.explanation,
                 exp_video: article.exp_video,
                 exp_image_initial: article.exp_image_initial,
                 exp_image_done: article.exp_image_done,
