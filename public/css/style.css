@@ -3,7 +3,12 @@
     --color-text-base: black;
     --color-page-background: #ffffff;
     font-size: 70%;
-    font-family: 'Poppins', sans-serif;}
+    font-family: 'Poppins', sans-serif;
+    --width-size-main: 1080px; /*Largura minima do bloco principal da pagina*/
+    --shadow-box-main: rgb(75 75 75 / 25%) 0px 0rem 0rem 0.5px, rgb(75 75 75 / 15%) 0px 0.0625rem 0.1875rem 0px;
+    --shadow-box-header: rgb(75 75 75 / 25%) 0px 0rem 0rem 0.5px, #b5aeae 0px 0.0625rem 0.1875rem 0px;
+    
+}
 
 *{
     margin: 0;
@@ -21,6 +26,7 @@ body {
     font-size: 1.8rem;
     color: var(--color-text-base);
     line-height: 1.5;
+
 }
 
 
@@ -31,6 +37,7 @@ body {
     justify-content: center;
     padding-top: 2rem;
     background-color: #f1f1f1;
+    
     
 }
 

@@ -1,10 +1,29 @@
+.content__home__section {
+    width: var(--width-size-main);
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    box-shadow: var(--shadow-box-main);
+    padding: 1rem;
+}
+
+.content__home__header, .content__home__footer {
+    margin: 2rem;
+    text-align: center;
+}
+
+.content__home__body {
+    margin: 3rem 2rem;
+}
+
+
 /*Configurações do principal */
 .wrapper {
     display: flex;
     flex-wrap: wrap;
-    max-width: 900px;
-    width: 100%;
-    margin: 50px auto;
+    /* max-width: 900px; */
+    /* width: 100%; */
+    margin-top: 1rem;
 }
  /*Termina Configurações do principal */
  

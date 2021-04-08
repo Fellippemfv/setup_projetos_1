@@ -1,21 +1,17 @@
     <!--menu principal-->
-    <header class="menu">
+    <header class="main__header">
         <!--navbar-->
-        <div class="menu__section"><!--Falta alinhar os links-->
+        <div class="content__header__section"><!--Falta alinhar os links-->
             <div class="menu__section__left">
                 <ul>
                     <li><img  class="menu__icon" src="/assets/burger-icon.svg" alt="Burger" onclick="myFunction()"></li>
-                    <li><img class="menu__logo" src="/assets/logo.bmp" alt=""></li>
-                
-                    <!--menu grande de teste-->
-                    <li class="drop__links"><a href="/">Home</a></li>              
+                    <li class="drop__links"><a href="/">Logo</a></li>   
+                    <li class="drop__links"><a href="/">Inicial</a></li>              
                 </ul>
             </div>
     
             <div class="menu__section__right">
                 <ul>
-                    <li><form class="menu__search" action="/action_page.php"><input class="menu__input" type="text" placeholder="Pesquisar.." name="search"></form></li>
-                    <li><img onclick="openSearch()" class="menu__button__search" src="/assets/lupa.svg" alt=""></li>
                     <%if(!isAuthenticated){%>
                         <li><button onclick="open_modal()">Entrar</button></li>
                     <%}else{%>
@@ -23,9 +19,9 @@
                     <%}%>
                 </ul>
             </div>
-        </div>
 
-        <!-- The Modal login -->
+
+            <!-- The Modal login -->
         <div id="id01" class="modal">
             <!-- Modal Content -->
             <div class="modal-content animate ">
@@ -75,21 +71,13 @@
             <%}%>
 
         </div>
-
-        <!--modal de pesquisa mobile-->
-        <div id="myOverlay" class="search__content__mobile">
-            <div class="search__content__button">
-                <img onclick="closeSearch()" src="/assets/seta-esquerda.svg" alt="">
-            </div>
-            <div class="search__content__input">
-            <form class="search__form" action="action_page.php">
-                <input class="search__form__input" type="text" placeholder="Search.." name="search">
-            </form>
-            </div>
-        </div>
-        
         
         <script src="/js/script.js"></script>
+
+
+        </div>
+
+
 
     </header>
 

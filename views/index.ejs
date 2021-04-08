@@ -5,38 +5,51 @@
     <%- include("partials/headerAlternativo.ejs") %>
 
     <main class="content">
+
+        <div class="content__home__section">
+
+            <div class="content__home__header">
+                <h1>Bem vindo(a)! Aqui você encontra as principais experiências de ciências ;)</h1>
+                <p>Você pode selecionar as experiências com base na categoria no menu acima, pesquisando ou pode visualizar as ultimas experiências adicionadas logo abaixo </p>
+            </div>
     
-        <!--Principal-->
-    <div class="wrapper">
-        <!--Itens-->
-        <!--vai ter um for each e pra cada "block" um titulo, foto, descrição-->
-      
+            <div class="content__home__body">
+                <h2>Ultimas experiências adicionadas:</h1>
+                
+                <div class="wrapper">
+                        <% articles.forEach(article => { %>
+            
+                                    <div class="block">     
+                                        <div class="block-img">
+                                            <img src="/assets/img-test/copos-coloridos.jpg" alt="HTML5">
+                                        </div>
+                                        <div class="block-desc">
+                                            <h3><%= article.title %></h3>
+                                            <p><%= article.description_home  %></p>
+                                        </div>
+                                        <div class="block-link">
+                                            <a href="/article/<%= article.slug %>">Ver mais</a>
+                                        </div>
+                                    </div>
+            
+                                    <div class="pagination">
+                                        <a href="/articles/page/<%= count_articles %>" class="next">Next</a>
+                                    </div>
+            
+                        <% }) %>
+                        <button class="load-more">Carregar mais</button>
+                        <div class="no-more">Sem mais artigos :(</div>
+            
+                </div>
+            </div>
 
-        <% articles.forEach(article => { %>
-
-                    <div class="block">     
-                        <div class="block-img">
-                            <img src="/assets/img-test/copos-coloridos.jpg" alt="HTML5">
-                        </div>
-                        <div class="block-desc">
-                            <h2><%= article.title %></h2>
-                            <p><%= article.description_home  %></p>
-                        </div>
-                        <div class="block-link">
-                            <a href="/article/<%= article.slug %>">Ver mais</a>
-                        </div>
-                    </div>
-
-                    <div class="pagination">
-                        <a href="/articles/page/<%= count_articles %>" class="next">Next</a>
-                    </div>
-
-        <% }) %>
-        <button class="load-more">Carregar mais</button>
-        <div class="no-more">Sem mais artigos :(</div>
-
-    </div>
-       
+            <div class="content__home__footer">
+                <h2>Quer entrar em contato?</h2>
+                <p>Basta enviar sua mensagem pelo <a href="">link</a></p>
+            </div>
+        
+        </div>
+   
     </main>
     
     <script src="https://unpkg.com/@webcreate/infinite-ajax-scroll/dist/infinite-ajax-scroll.min.js"></script>

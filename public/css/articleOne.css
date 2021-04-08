@@ -1,7 +1,8 @@
 .article__content {
-    width: 980px;
+    width: var(--width-size-main);
     display: flex;
     flex-direction: column;
+    box-shadow: var(--shadow-box-main);
 }
 
 .article__section__header{
@@ -9,7 +10,6 @@
     align-items: center;
     justify-content: space-between;
     background-color: #fefefe;
-    border-bottom: 1px solid #ccc;
     padding: 0rem 1rem;
 
 }

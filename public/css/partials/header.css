@@ -1,18 +1,26 @@
 /*----------//--------------CONFIGURAÇÕES GERAIS DO MENU/HEADER------------------//------------*/
-.menu {
-  padding: 0.2rem;
-  display: flex;
-  justify-content: center;
-  box-shadow: rgb(75 75 75 / 25%) 0px 0.0625rem 0.025rem 0px, rgb(75 75 75 / 15%) 0px 0.0625rem 0.1875rem 0px;
+.main__header {
+    display: flex;
+    justify-content: space-around;  
+    background-color: #f1f1f1;  
 }
 
-.menu__section {
+.content__header__section {
+  width: var(--width-size-main);
+  padding: 0rem 1rem;  
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  max-width: 1366px;
-  width: 100vw;
-  margin: 0rem 0.4rem;
+  justify-content: space-between;
+  background-color: white;
+  box-shadow: var(--shadow-box-header);
+}
+
+.menu__section__left {
+  display: flex;
+}
+
+.menu__section__right {
+  margin: 1rem 0rem;
 }
 
 .dropdown .dropbtn{
@@ -20,7 +28,7 @@
   margin: 0px;
 }
 
-.menu__section a, .dropdown .dropbtn {
+.content__header__section a, .dropdown .dropbtn {
   color: Black;
   text-decoration: none;
   font-size: 1.3rem; 
@@ -29,17 +37,17 @@
 
 }
 
-.menu__section a:hover{
+.content__header__section a:hover{
   background-color: red;
 }
 
-.menu__section ul {
+.content__header__section ul {
   display: flex;
   list-style-type: none;
   align-items: center;
 }
 
-.menu__section ul li {
+.content__header__section ul li {
   margin-left: 0.4rem;
 }
 
@@ -417,15 +425,11 @@
     display: flex;
   }
 
-  .menu__button__search {/*ocultar icone de pesquisa no menu normal*/
-    display: none;
-  }
-
-  .menu__section ul li .menu__icon{ /*ocultar icone de hamburguer no menu normal*/
+  .content__header__section ul li .menu__icon{ /*ocultar icone de hamburguer no menu normal*/
         display: none;
   }
   
-  .menu__section ul li .menu__link{/*ocultar links do menu mobile */
+  .content__header__section ul li .menu__link{/*ocultar links do menu mobile */
         display: initial;
   }
   

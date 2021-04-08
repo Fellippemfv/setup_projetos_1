@@ -1,138 +1,122 @@
-    <!--menu principal-->
-    <header class="menu">
-        <!--navbar-->
-        <div class="menu__section"><!--Falta alinhar os links-->
-            <div class="menu__section__left">
-                <ul>
-                    <li><img  class="menu__icon" src="/assets/burger-icon.svg" alt="Burger" onclick="myFunction()"></li>
-                    <li><img class="menu__logo" src="/assets/logo.bmp" alt=""></li>
-                    <li><a href="/">Principal</a></li>
-                
-                    <!--menu grande de teste-->
-                    <div class="dropdown">
-                        <li><button class="dropbtn">Por assunto</button></li>
+    <header class="main__header">
 
-                            <div class="dropdown-content">
-                                <div class="header">
-                                    <h2>Experiências por assuntos</h2>
-                                </div>
-                                
-                                <div class="row">
-                                    <div class="column">
-                                        <% categories1.forEach(category1 => { %>
-                                            <a href="/category/<%= category1.slug %>/1"><%= category1.title %></a>                                           
-                                        <% }) %>
-                                        
+        <div class="content__header__section">
+
+                <div class="menu__section__left">
+                    <ul>
+                        <li><img  class="menu__icon" src="/assets/burger-icon.svg" alt="Burger" onclick="myFunction()"></li>
+                        <li ><a href="/" >Logo</a></li>
+                    
+                        <!--menu grande de teste-->
+                        <div class="dropdown">
+                            <li><button class="dropbtn">Por assunto</button></li>
+
+                                <div class="dropdown-content">
+                                    <div class="header">
+                                        <h2>Experiências por assuntos</h2>
                                     </div>
                                     
-                                </div>
-                            </div>
-                    </div>
-
-                    <div class="dropdown">
-                        <li><button class="dropbtn">Pela BNCC</button></li>
-
-                            <div class="dropdown-content">
-                                <div class="header">
-                                    <h2>Experiências pela BNCC</h2>
-                                </div>
-                                
-                                <div class="row">
-                                    <div class="column">
-                                        <% categories2.forEach(category2 => { %>
-                                            <a href="/category2/<%= category2.slug %>/1""><%= category2.title %></a>                                           
-                                        <% }) %>
+                                    <div class="row">
+                                        <div class="column">
+                                            <% categories1.forEach(category1 => { %>
+                                                <a href="/category/<%= category1.slug %>/1"><%= category1.title %></a>                                           
+                                            <% }) %>
+                                            
+                                        </div>
                                         
                                     </div>
-                                    
                                 </div>
-                            </div>
-                    </div>
+                        </div>
 
-                </ul>
-            </div>
-    
-            <div class="menu__section__right">
-                <ul>
-                    <li><form class="menu__search" action="/action_page.php"><input class="menu__input" type="text" placeholder="Pesquisar.." name="search"></form></li>
-                    <li><img onclick="openSearch()" class="menu__button__search" src="/assets/lupa.svg" alt=""></li>
-                    <%if(!isAuthenticated){%>
-                        <li><button onclick="open_modal()">Entrar</button></li>
-                    <%}else{%>
-                        <li><button onclick="myFunction2()">Opções</button></li>
-                    <%}%>
-                        
+                        <div class="dropdown">
+                            <li><button class="dropbtn">Pela BNCC</button></li>
 
-                   
-                </ul>
-            </div>
-        </div>
+                                <div class="dropdown-content">
+                                    <div class="header">
+                                        <h2>Experiências pela BNCC</h2>
+                                    </div>
+                                    
+                                    <div class="row">
+                                        <div class="column">
+                                            <% categories2.forEach(category2 => { %>
+                                                <a href="/category2/<%= category2.slug %>/1""><%= category2.title %></a>                                           
+                                            <% }) %>
+                                            
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                        </div>
 
-        <!-- The Modal login -->
-        <div id="id01" class="modal">
-            <!-- Modal Content -->
-            <div class="modal-content animate ">
-                <div class="form__container">
-
-                    <div class="form__header">
-                        <h1 class="text__heading">Entrar</h2>
-                    </div>
+                    </ul>
+                </div>
+        
+                <div class="menu__section__right">
+                    <ul>
+                    
+                        <%if(!isAuthenticated){%>
+                            <li><button onclick="open_modal()">Entrar</button></li>
+                        <%}else{%>
+                            <li><button onclick="myFunction2()">Opções</button></li>
+                        <%}%>
                             
-                    <form class="form__login" action="/login" method="post"><!--content__field__text//content__button__submit//content__footer__text-->
-                        <input class="text__field" type="email" name="email" id="email" placeholder="Email" minlength="5" maxlength="150" required>
-                        <input class="text__field" type="password" name="password" id="password" placeholder="Senha" minlength="5" maxlength="30" required> 
-                        <input class="button_login" type="submit" value="Entrar">
-                    </form>
-
-                    <div class="alternative__options" style="background-color:#f1f1f1">
-                        <a class="text__forgot" href="/forgot-password">Esqueceu senha?</a>
-                        <h2 class="text__footer">Não tem?<a href="/register">Registre-se</a></h3>
-                    </div>
+                    </ul>
                 </div>
 
-            </div>
-        </div>
-        
-        <!--menu mobile-->
-        <div class="topnav">
-        <!-- Navigation links (hidden by default) -->
-        <div id="myLinks">
-            <a href="#news">Experiências</a>
-            <a href="#contact">Sobre</a>
-            <a href="#about">Contato</a>
-        </div>
-        </div>
+            <!-- The Modal login -->
+            <div id="id01" class="modal">
+                <!-- Modal Content -->
+                <div class="modal-content animate ">
+                    <div class="form__container">
 
-        <!--menu perfil-->
-        <div class="topnav-2">
+                        <div class="form__header">
+                            <h1 class="text__heading">Entrar</h2>
+                        </div>
+                                
+                        <form class="form__login" action="/login" method="post"><!--content__field__text//content__button__submit//content__footer__text-->
+                            <input class="text__field" type="email" name="email" id="email" placeholder="Email" minlength="5" maxlength="150" required>
+                            <input class="text__field" type="password" name="password" id="password" placeholder="Senha" minlength="5" maxlength="30" required> 
+                            <input class="button_login" type="submit" value="Entrar">
+                        </form>
+
+                        <div class="alternative__options" style="background-color:#f1f1f1">
+                            <a class="text__forgot" href="/forgot-password">Esqueceu senha?</a>
+                            <h2 class="text__footer">Não tem?<a href="/register">Registre-se</a></h3>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            
+            <!--menu mobile-->
+            <div class="topnav">
             <!-- Navigation links (hidden by default) -->
-
-            <%if(isAuthenticated){%>
-            <div id="myLinks-2">
-                    <li><a href="/myprofile">Perfil</a></li>
-                    <li><a href="/logout">Sair
-                            <img src="/assets/signout_106525.svg" alt="">
-                            </a>
-                    </li>
+            <div id="myLinks">
+                <a href="#news">Experiências</a>
+                <a href="#contact">Sobre</a>
+                <a href="#about">Contato</a>
             </div>
-            <%}%>
+            </div>
+
+            <!--menu perfil-->
+            <div class="topnav-2">
+                <!-- Navigation links (hidden by default) -->
+
+                <%if(isAuthenticated){%>
+                <div id="myLinks-2">
+                        <li><a href="/myprofile">Perfil</a></li>
+                        <li><a href="/logout">Sair
+                                <img src="/assets/signout_106525.svg" alt="">
+                                </a>
+                        </li>
+                </div>
+                <%}%>
+
+            </div>
+            
+            <script src="/js/script.js"></script>
 
         </div>
-
-        <!--modal de pesquisa mobile-->
-        <div id="myOverlay" class="search__content__mobile">
-            <div class="search__content__button">
-                <img onclick="closeSearch()" src="/assets/seta-esquerda.svg" alt="">
-            </div>
-            <div class="search__content__input">
-            <form class="search__form" action="action_page.php">
-                <input class="search__form__input" type="text" placeholder="Search.." name="search">
-            </form>
-            </div>
-        </div>
-        
-        
-        <script src="/js/script.js"></script>
 
     </header>
 

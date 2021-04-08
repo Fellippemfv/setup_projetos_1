@@ -1,8 +1,9 @@
 .myprofile__section {
-    width: 980px;
+    width: var(--width-size-main);
     display: flex;
     flex-direction: column;
     background-color: white;
+    box-shadow: var(--shadow-box-main);
 }
 
 .myprofile__header {
