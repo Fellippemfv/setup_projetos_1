@@ -205,11 +205,18 @@ class AdminController{
                 exp_image_home: article.exp_image_home,
                 description_home: article.description_home,
                 materials: article.materials,
-                steps_by_step: article.steps_by_step,
+                step1_text: article.step1_text,
+                step1_img: article.step1_img,
+                step2_text: article.step2_text,
+                step2_img: article.step2_img,
+                step3_text: article.step3_text,
+                step3_img: article.step3_img,
+                step4_text: article.step4_text,
+                step4_img: article.step4_img,
+                step5_text: article.step5_text,
+                step5_img: article.step5_img,
                 explanation: article.explanation,
                 exp_video: article.exp_video,
-                exp_image_initial: article.exp_image_initial,
-                exp_image_done: article.exp_image_done,
                 tips_important: article.tips_important,
                 tips_ead: article.tips_ead,
                 updated_at: article.updated_at,
@@ -225,14 +232,14 @@ class AdminController{
 
     async articlesEdit(req, res, next) {
         try{ 
-            const {id, title, exp_image_home, description_home, materials, steps_by_step, explanation, exp_video, exp_image_done, exp_image_initial, tips_important, tips_ead, category_id, category2_id } = req.body;
+            const {id, title, exp_image_home, description_home, materials, step1_text, step1_img, step2_text, step2_img, step3_text, step3_img, step4_text, step4_img, step5_text, step5_img, explanation, exp_video, tips_important, tips_ead, category_id, category2_id } = req.body;
             const article = await Article.findById(id)
 
             if(!article) { 
                 return res.redirect("/admin/dashboard/articles/1");
-            }
+            } 
 
-            await Article.update(id, title, exp_image_home, description_home, materials, steps_by_step, explanation, exp_video, exp_image_done, exp_image_initial, tips_important, tips_ead, category_id, category2_id);//falta ajeitar update
+            await Article.update(id, title, exp_image_home, description_home, materials, step1_text, step1_img, step2_text, step2_img, step3_text, step3_img, step4_text, step4_img, step5_text, step5_img, explanation, exp_video, tips_important, tips_ead, category_id, category2_id);//falta ajeitar update
             res.redirect("/admin/dashboard/articles/1")
         }catch(error){
             next(error);
@@ -307,14 +314,14 @@ class AdminController{
 
     async articlesNew(req, res, next) { 
         try{
-            const { title, exp_image_home, description_home, materials, steps_by_step, explanation, exp_video, exp_image_done, exp_image_initial, tips_important, tips_ead, category1, category2 } = req.body;
+            const { title, exp_image_home, description_home, materials, step1_text, step1_img, step2_text, step2_img, step3_text, step3_img, step4_text, step4_img, step5_text, step5_img, explanation, exp_video, tips_important, tips_ead, category1, category2 } = req.body;
             const user_id = req.user
             const slug = slugify(title)
 
-            if(!title || !description_home || !materials || !steps_by_step || !tips_important || !tips_ead) {
+            if(!title || !description_home || !materials || !tips_important || !tips_ead) {
                 res.redirect("/admin/dashboard")
             }
-            await Article.create(title, slug, exp_image_home, description_home, materials, steps_by_step, explanation, exp_video, exp_image_done, exp_image_initial, tips_important, tips_ead, category1, category2, user_id )
+            await Article.create(title, slug, exp_image_home, description_home, materials, step1_text, step1_img, step2_text, step2_img, step3_text, step3_img, step4_text, step4_img, step5_text, step5_img, explanation, exp_video, tips_important, tips_ead, category1, category2, user_id )
             res.redirect("/admin/dashboard/new/article");
         }catch(error){
             next(error);

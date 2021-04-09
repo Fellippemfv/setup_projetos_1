@@ -69,7 +69,7 @@ class Article{
 
     async findById(id){//retorna lista de usuarios
         try{
-            let result = await knex("articles").where({ id }).select(["id", "title", "exp_image_home", "description_home", "materials", "steps_by_step", "exp_video", "exp_image_done", "exp_image_initial", "tips_important", "tips_ead", "updated_at" ])
+            let result = await knex("articles").where({ id }).select(["id", "title", "updated_at" ])
             return result[0];
         }catch(error){
             console.log(error);
@@ -85,16 +85,16 @@ class Article{
         }
     }
 
-    async create(title, slug, exp_image_home, description_home, materials, steps_by_step, explanation, exp_video, exp_image_done, exp_image_initial, tips_important, tips_ead, category1, category2, user_id){//retorna lista de usuarios
+    async create(title, slug, exp_image_home, description_home, materials, step1_text, step1_img, step2_text, step2_img, step3_text, step3_img, step4_text, step4_img, step5_text, step5_img, explanation, exp_video, tips_important, tips_ead, category1, category2, user_id){//retorna lista de usuarios
         try{
-            let result = await knex("articles").insert({ title, slug, exp_image_home, description_home, materials, steps_by_step, explanation, exp_video, exp_image_done, exp_image_initial, tips_important, tips_ead, "category_id": category1, "category2_id": category2, user_id ,"created_at": dateFormat(new Date(), "dateBr"), "updated_at": dateFormat(new Date(), "dateBr") })
+            let result = await knex("articles").insert({ title, slug, exp_image_home, description_home, materials, step1_text, step1_img, step2_text, step2_img, step3_text, step3_img, step4_text, step4_img, step5_text, step5_img, explanation, exp_video, tips_important, tips_ead, "category_id": category1, "category2_id": category2, user_id ,"created_at": dateFormat(new Date(), "dateBr"), "updated_at": dateFormat(new Date(), "dateBr") })
             return result;
         }catch(error){
             console.log(error);
         }
     }
 
-    async update(id, title, exp_image_home, description_home, materials, steps_by_step, explanation, exp_video, exp_image_done, exp_image_initial, tips_important, tips_ead, category_id, category2_id){//retorna lista de usuarios
+    async update(id, title, exp_image_home, description_home, materials, step1_text, step1_img, step2_text, step2_img, step3_text, step3_img, step4_text, step4_img, step5_text, step5_img, explanation, exp_video, tips_important, tips_ead, category_id, category2_id){//retorna lista de usuarios
         try{
             if(title){
                 const slug = slugify(title)
@@ -118,8 +118,28 @@ class Article{
                 return true;
             }
 
-            if(steps_by_step){
-                let result = await knex("articles").where({ id }).update({ steps_by_step, "updated_at":  dateFormat(new Date(), "dateBr") });
+            if(step1_text || step1_img){
+                let result = await knex("articles").where({ id }).update({ step1_text, step1_img, "updated_at":  dateFormat(new Date(), "dateBr") });
+                return true;
+            }
+
+            if(step2_text || step2_img){
+                let result = await knex("articles").where({ id }).update({ step2_text, step2_img, "updated_at":  dateFormat(new Date(), "dateBr") });
+                return true;
+            }
+
+            if(step3_text || step3_img){
+                let result = await knex("articles").where({ id }).update({ step3_text, step3_img, "updated_at":  dateFormat(new Date(), "dateBr") });
+                return true;
+            }
+
+            if(step4_text || step4_img){
+                let result = await knex("articles").where({ id }).update({ step4_text, step4_img, "updated_at":  dateFormat(new Date(), "dateBr") });
+                return true;
+            }
+
+            if(step5_text || step5_img){
+                let result = await knex("articles").where({ id }).update({ step5_text, step5_img, "updated_at":  dateFormat(new Date(), "dateBr") });
                 return true;
             }
 
@@ -130,16 +150,6 @@ class Article{
 
             if(exp_video){
                 let result = await knex("articles").where({ id }).update({ exp_video, "updated_at":  dateFormat(new Date(), "dateBr") });
-                return true;
-            }
-
-            if(exp_image_done){
-                let result = await knex("articles").where({ id }).update({ exp_image_done, "updated_at":  dateFormat(new Date(), "dateBr") });
-                return true;
-            }
-
-             if(exp_image_initial){
-                let result = await knex("articles").where({ id }).update({ exp_image_initial, "updated_at":  dateFormat(new Date(), "dateBr") });
                 return true;
             }
 
