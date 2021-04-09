@@ -9,7 +9,7 @@ import cors from "cors";
 import env from "dotenv";
 import path from "path";
 import { localsName } from "ejs";
-env.config();
+env.config(); 
 
 //Falta ver rolamento infinito de view de user do--> ok
 //Falta ver rolamento infinito de artigos/users/categorys do admin --> ok

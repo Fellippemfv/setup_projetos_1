@@ -1,5 +1,6 @@
 .article__content {
-    width: var(--width-size-main);
+    width: 100%;
+    max-width: var(--width-size-main);
     display: flex;
     flex-direction: column;
     box-shadow: var(--shadow-box-main);
@@ -46,25 +47,54 @@
 .article__section__body {
     display: flex;
     flex-direction: column;
-    align-items: center;
     background-color: #fefefe;
     padding: 1rem;
 }
 
 .section__body__header {
-  width: 80%;
-}
-
-section__body__content {
-  
+  justify-content: center;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .section__body__round__img {
-
+  width: 100%;
 }
 
-.section__body__intro {
+.section__body__round__img img {
+  width: 100%;
+}
 
+.section__body__content {
+  justify-content: center;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.body__content__item {
+  width: 100%;
+  max-width: var(--width-size-main);
+  margin-bottom: 1rem;
+}
+
+.content__item__block {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2rem;
+}
+
+.article__img__content {
+  width: 50%;
+  align-self: center;
+}
+
+.article__img__content img {
+  width: 100%;
 }
 
 
@@ -75,13 +105,10 @@ section__body__content {
 
 .article__video__content {
   display: flex;
-  justify-content: center;
+    width: 100%;
+    justify-content: center;
 }
 
-.article__video {
-    height: 21rem;
-    width: 37rem;
-}
   
 /*-----//-----------/-------PARA PROFESSORES---/----------/-----------*/
 /* Style the button that is used to open and close the collapsible content */

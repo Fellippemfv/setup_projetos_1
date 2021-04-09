@@ -65,7 +65,7 @@ class UserController{
             const slug = req.params.slug;
             const categories1 = await Category1.findAllForView();//chamando metodo findall do model
             const categories2 = await Category2.findAllForView();//chamando metodo findall do model
-            const article = await Article.findOneArticle(slug)
+            const article = await Article.findOneArticle(slug); 
 
             if(article === undefined){
                 res.redirect("/");

@@ -62,39 +62,58 @@
                             <div class="article__img__content">
                                 <img src="<%- step1_img %>" loading="lazy" alt="">
                             </div>
-                        </div>                        
+                        </div>       
+                        
+                        <%if(step2_text !== "vazio" ){%>
+                            <div class="content__item__block">
+                                <h3>Passo 2</h3>
+                                <p><%- step2_text %></p>
+                                <%if(step2_img !== "vazio" ){%>
+                                    <div class="article__img__content">
+                                        <img src="<%- step2_img %>" loading="lazy" alt="">
+                                    </div>
+                                <%}%>
 
-                        <div class="content__item__block">
-                            <h3>Passo 2</h3>
-                            <p><%- step2_text %></p>
-                            <div class="article__img__content">
-                                <img src="<%- step2_img %>" loading="lazy" alt="">
                             </div>
-                        </div>
+                        <%}%>
 
-                        <div class="content__item__block">
-                            <h3>Passo 3</h3>
-                            <p><%- step3_text %></p>
-                            <div class="article__img__content">
-                                <img src="<%- step3_img %>" loading="lazy" alt="">
-                            </div>
-                        </div>
 
-                        <div class="content__item__block">
-                            <h3>Passo 4</h3>
-                            <p><%- step4_text %></p>
-                            <div class="article__img__content">
-                                <img src="<%- step4_img %>" loading="lazy" alt="">
+                        <%if(step3_text !== "vazio" ){%>
+                            <div class="content__item__block">
+                                <h3>Passo 3</h3>
+                                <p><%- step3_text %></p>
+                                <%if(step3_img !== "vazio" ){%>
+                                    <div class="article__img__content">
+                                        <img src="<%- step3_img %>" loading="lazy" alt="">
+                                    </div>
+                                <%}%>
                             </div>
-                        </div>
+                        <%}%>
+                        
 
-                        <div class="content__item__block">
-                            <h3>Passo 5</h3>
-                            <p><%- step5_text %></p>
-                            <div class="article__img__content">
-                                <img src="<%- step5_img %>" loading="lazy" alt="">
+                        <%if(step4_text !== "vazio" ){%>
+                            <div class="content__item__block">
+                                <h3>Passo 4</h3>
+                                <p><%- step4_text %></p>
+                                <%if(step4_img !== "vazio" ){%>
+                                    <div class="article__img__content">
+                                        <img src="<%- step4_img %>" loading="lazy" alt="">
+                                    </div>
+                                <%}%>
                             </div>
-                        </div>
+                        <%}%>
+
+                        <%if(step5_text !== "vazio" ){%>
+                            <div class="content__item__block">
+                                <h3>Passo 5</h3>
+                                <p><%- step5_text %></p>
+                                <%if(step5_img !== "vazio" ){%>
+                                    <div class="article__img__content">
+                                        <img src="<%- step5_img %>" loading="lazy" alt="">
+                                    </div>
+                                <%}%>
+                            </div>
+                        <%}%>
 
                     </div>
 
@@ -104,36 +123,41 @@
                         <p><%- explanation %></p>    
                     </div>
 
-                    <div class="body__content__item"></div>
+                    <%if(exp_video !== "vazio" ){%>
+                        <div class="body__content__item">
 
-                    <h2 class="article__title__body diff">Video de demonstração</h2>
-                    <div class="article__video__content">
-                        <iframe class="article__video" src="https://www.youtube.com/embed/kVlcGpXqZ8Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </div>
+                            <h2 class="article__title__body diff">Video de demonstração</h2>
+                            <div class="article__video__content">
+                                <iframe class="article__video" src="<%- exp_video %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                    <%}%>
                     
+            <div class="body__content__item">
 
-                    <div class="body__content__item"></div>
-
-                    <h2 class="article__title__body">Categorias</h2>
-                    <p>Assunto: <span><%= cat_title %></span></p>
-                    <p>BNCC: <span><%= cat2_title %></span></p>
+                        <h2 class="article__title__body">Categorias</h2>
+                        <p>Assunto: <span><%= cat_title %></span></p>
+                        <p>BNCC: <span><%= cat2_title %></span></p>
+                    
+                    </div>
 
                     
-                    <div class="body__content__item"></div>
+                    <div class="body__content__item">
 
-                    <h2 class="article__title__body">Para professores</h2>
-                    <button type="button" class="collapsible">Orientações importantes</button>
-                    <div class="button__content">
-                    <p><%= tips_important %></p>
+                        <h2 class="article__title__body">Para professores</h2>
+                        <button type="button" class="collapsible">Orientações importantes</button>
+                        <div class="button__content">
+                        <p><%= tips_important %></p>
+                        </div>
                     </div>
 
 
-                    <div class="body__content__item"></div>
+                    <div class="body__content__item">
 
-                    <button type="button" class="collapsible">Dicas para o EaD</button>
-                    <div class="button__content">
-                    <p><%= tips_ead %></p>
-                    </div>
+                        <button type="button" class="collapsible">Dicas para o EaD</button>
+                        <div class="button__content">
+                        <p><%= tips_ead %></p>
+                        </div>
                     </div>
                 
             </div>
