@@ -17,7 +17,7 @@
                 <form action="/admin/dashboard/categories/edit/<%= id %>" method="post">
                     
                     <h2>Titulo</h2>
-                    <input type="text" value="<%= title %>" name="title">
+                    <input type="text" minlength="5" maxlength="150" value="<%= title %>" name="title">
                     <h2>Id</h2>
                     <input type="number" name="id" value="<%= id %>" readonly>
                     <input type="submit" value="Editar categoria">

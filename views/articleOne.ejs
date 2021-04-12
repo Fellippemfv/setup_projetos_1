@@ -36,13 +36,12 @@
             <div class="article__section__body">
                 
                 <div class="section__body__header">
-                        <div class="section__body__round__img">
-                            <img class="article__main__photo" src="<%- exp_image_home %>" loading="lazy" alt="">
-                        </div>
+            
                         <div class="section__body__intro">
                             <h1 class="article__title"><%= title %></h3>
                             <p class="article__desciption"><%= description_home %></p>
                         </div>
+
                 </div>
                 
 
@@ -135,7 +134,7 @@
                     
             <div class="body__content__item">
 
-                        <h2 class="article__title__body">Categorias</h2>
+                        <h2 class="article__title__body">Categorias desta experiência</h2>
                         <p>Assunto: <span><%= cat_title %></span></p>
                         <p>BNCC: <span><%= cat2_title %></span></p>
                     
@@ -147,17 +146,19 @@
                         <h2 class="article__title__body">Para professores</h2>
                         <button type="button" class="collapsible">Orientações importantes</button>
                         <div class="button__content">
-                        <p><%= tips_important %></p>
+                            <p><%= tips_important %></p>
+                        </div>
+
+                        <button type="button" class="collapsible">Dicas para o EaD</button>
+                        <div class="button__content">
+                            <p><%= tips_ead %></p>
                         </div>
                     </div>
 
 
                     <div class="body__content__item">
 
-                        <button type="button" class="collapsible">Dicas para o EaD</button>
-                        <div class="button__content">
-                        <p><%= tips_ead %></p>
-                        </div>
+                        
                     </div>
                 
             </div>

@@ -19,26 +19,26 @@
 
                     <legend>Tela inicial</legend>
                     <div class="article__item">
-                        <label for=""> Titulo do experimento</label>
-                        <input type="text" name="title" placeholder="Ex: Fogo na mão" required>     
+                        <label for=""> Titulo do experimento <span>*Obrigatório</span></label>
+                        <input type="text" name="title" minlength="5" maxlength="80" placeholder="Ex: Fogo na mão" required>     
                     </div>
                    
                     <div class="article__item">
-                        <label for="">Link da foto que representa o experimento</label>
-                        <input type="text" name="exp_image_home" placeholder="Ex: https://lh3.googleusercontent.com/Hv">
+                        <label for="">Link da foto que representa o experimento <span>*Obrigatório</span></label>
+                        <input type="text" name="exp_image_home" minlength="3" maxlength="1250" placeholder="Ex: https://lh3.googleusercontent.com/Hv">
                     </div>
                    
                     <div class="article__item">
-                        <label for="">Descrição resumida do experimento</label>
-                        <textarea name="description_home" id="" placeholder="Experiência envolvendo fogo na mão usando maiseza" required></textarea>    
+                        <label for="">Descrição resumida do experimento <span>*Obrigatório</span></label>
+                        <textarea name="description_home" id="" minlength="10" maxlength="160" placeholder="Experiência envolvendo fogo na mão usando maiseza" required></textarea>    
                     </div>
                 </fieldset>
 
                 <fieldset>
                     <legend>Corpo do experimento</legend>
                     <div class="article__item">
-                        <label for="">Materiais utilizados</label>
-                        <textarea name="materials" id="" placeholder="Primeiro é preciso encher o balde com água com bom ar, depois misturar muito bem..." required>2 - Palitos
+                        <label for="">Materiais utilizados <span>*Obrigatório</span></label>
+                        <textarea name="materials" id="" minlength="10" maxlength="550" placeholder="Primeiro é preciso encher o balde com água com bom ar, depois misturar muito bem..." required>2 - Palitos
 5 - Papeis
 ....
                         </textarea>
@@ -48,69 +48,71 @@
                     <div class="article__item">
 
                         <h3>Instruções</h3>
+
                         <ol>
-                            <li><p>Caso não queira usar todos os 5 passos, basta deixar em branco!</p></li>
+                            <h4>dicas</h4>
+                            <li><p>Caso não queira usar todos os 5 passos, basta deixar escrito "vazio" em minusculo</p></li>
                             <li><p>Texto corrido em paragrafo unico</p></li>
-                            <li><p>Cada passo deve ter o limite de 1000 caracteres</p></li>
+                            <li><p>Cada passo deve ter o limite de 800 caracteres</p></li>
                         </ol>
-                        <label for="step1_text">Passo 1</label>
-                        <textarea name="step1_text" id="" placeholder="Primeiro é preciso juntar todos os materiais em um balde e misturar bem" required></textarea>
+                        <label for="step1_text">Passo 1 <span>*Obrigatório</span></label>
+                        <textarea name="step1_text" id="" minlength="5" maxlength="800" placeholder="Primeiro é preciso juntar todos os materiais em um balde e misturar bem" required></textarea>
                         <label for="step1_img">Link da foto que representa passo 1</label>
-                        <input type="text" name="step1_img" id="" placeholder="Ex: https://lh3.googleusercontent.com/Hv">
+                        <input type="text" name="step1_img" id="" minlength="5" maxlength="1250" placeholder="Ex: https://lh3.googleusercontent.com/Hv">
                     
                     </div>
 
                     <div class="article__item">
 
-                        <label for="step2_text">Passo 2</label>
-                        <textarea name="step2_text" id="" required>vazio</textarea>
+                        <label for="step2_text">Passo 2 <span>*Opcional</span></label>
+                        <textarea name="step2_text" id="" minlength="5" maxlength="800" required>vazio</textarea>
                         <label for="step2_img">Link da foto que representa passo 2</label>
-                        <input type="text" name="step2_img" id="" required value="vazio">
+                        <input type="text" name="step2_img" id="" minlength="5" maxlength="1250" required value="vazio">
                     
                     </div>
 
                     <div class="article__item">
 
-                        <label for="step3_text">Passo 3</label>
-                        <textarea name="step3_text" id="" required>vazio</textarea>
+                        <label for="step3_text">Passo 3 <span>*Opcional</span></label>
+                        <textarea name="step3_text" id="" minlength="5" maxlength="800" required>vazio</textarea>
                         <label for="step3_img">Link da foto que representa passo 3</label>
-                        <input type="text" name="step3_img" id="" required value="vazio">
+                        <input type="text" name="step3_img" id="" minlength="5" maxlength="1250" required value="vazio">
                     
                     </div>
 
                     <div class="article__item">
 
-                        <label for="step4_text">Passo 4</label>
-                        <textarea name="step4_text" id="" required>vazio</textarea>
+                        <label for="step4_text">Passo 4 <span>*Opcional</span></label>
+                        <textarea name="step4_text" id="" minlength="5" maxlength="800" required>vazio</textarea>
                         <label for="step4_img">Link da foto que representa passo 4</label>
-                        <input type="text" name="step4_img" id=""required value="vazio">
+                        <input type="text" name="step4_img" id="" minlength="5" maxlength="1250" required value="vazio">
                     
                     </div>
 
                     <div class="article__item">
 
-                        <label for="step5_text">Passo 5</label>
-                        <textarea name="step5_text" id=""  required>vazio</textarea>
+                        <label for="step5_text">Passo 5 <span>*Opcional</span></label>
+                        <textarea name="step5_text" id="" minlength="5" maxlength="800" required>vazio</textarea>
                         <label for="step5_img">Link da foto que representa passo 5</label>
-                        <input type="text" name="step5_img" id="" required value="vazio">
+                        <input type="text" name="step5_img" id=""  minlength="5" maxlength="1250" required value="vazio">
                     
                     </div>
 
                     <div class="article__item">
-                        <label for="">Explicação</label>
-                        <textarea name="explanation" id="" placeholder="Primeiro é preciso encher o balde com água com bom ar, depois misturar muito bem..." required>Isso ocorre devido...</textarea>
+                        <label for="">Explicação <span>*Obrigatório</span></label>
+                        <textarea name="explanation" id="" minlength="5" maxlength="1000" placeholder="Primeiro é preciso encher o balde com água com bom ar, depois misturar muito bem..." required>Isso ocorre devido...</textarea>
                     </div>
 
                     <div class="article__item">
-                        <label for="">Link do video do experimento</label>
-                        <input type="text" name="exp_video" required value="vazio">
+                        <label for="">Link do video do experimento <span>*Opcional</span></label>
+                        <input type="text" name="exp_video" minlength="5" maxlength="1250" required value="vazio">
                     </div>
 
                 </fieldset>
 
                     <fieldset>
                         <legend>Categorias</legend>
-                        <label for="category1">Assunto</label>
+                        <label for="category1">Assunto <span>*Obrigatório</span></label>
                         <select name="category1" required>
                             <option value="" disabled selected>Escolha uma opção</option>
                             <% categories1.forEach((category1) => {  %>
@@ -118,7 +120,7 @@
                             <% }) %>
                         </select>
 
-                        <label for="category2">BNCC</label>
+                        <label for="category2">BNCC <span>*Obrigatório</span></label>
                         <select name="category2" required>
                             <option value="" disabled selected>Escolha uma opção</option>
                             <% categories2.forEach((category2) => {  %>
@@ -130,13 +132,13 @@
                 <fieldset>
                     <legend>Orientações para professores</legend>
                     <div class="article__item">
-                        <label for="">Orientações importantes</label>
-                        <textarea name="tips_important" id="" placeholder="Um ponto negativo deste experimento é que se deve ter cuidado na hora de colocar fogo na mão" required></textarea>
+                        <label for="">Orientações importantes <span>*Obrigatório</span></label>
+                        <textarea name="tips_important" id="" minlength="5" maxlength="1000" placeholder="Um ponto negativo deste experimento é que se deve ter cuidado na hora de colocar fogo na mão" required></textarea>
                     </div>
 
                     <div class="article__item">
-                        <label for="">Dicas para o EaD</label>
-                        <textarea name="tips_ead" id="" placeholder="No EaD, é preciso muita atenção a orientação para o aluno não cometer erros..." required></textarea>
+                        <label for="">Dicas para o EaD <span>*Obrigatório</span></label>
+                        <textarea name="tips_ead" id="" minlength="5" maxlength="1000" placeholder="No EaD, é preciso muita atenção a orientação para o aluno não cometer erros..." required></textarea>
                     </div>
 
                     <input type="submit" value="Enviar experimento">
