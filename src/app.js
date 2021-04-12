@@ -24,7 +24,7 @@ env.config();
 //Falta ver detalhes de tudo e descobrir bugs
 
 class App { 
-    constructor() {
+    constructor() { 
         //chama o servidor
         this.server = express();
 

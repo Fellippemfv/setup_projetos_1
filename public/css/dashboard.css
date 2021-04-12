@@ -1,11 +1,24 @@
+.dashboard__content__main {
+    width: var(--width-size-main);
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    box-shadow: var(--shadow-box-main);
+    padding: 1rem;
+}
 
 .admin__infos {
     height: 11rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid black;
-    margin: 1rem 0rem;}
+    border: 1px solid #ddd;
+    margin: 1rem 0rem;
+}
+
+.admin__options {
+    display: flex;
+}
 
 .infos__left {
     margin-right: 3rem;
@@ -29,14 +42,9 @@
     transform: translateX(-50%);
 }
 
-
-
-
-
 /* Style the tab content */
 .admin__content {
-  float: left;
-  padding: 0px 12px;
-  width: 75%;
-  border-left: none;
+    margin-left: 1rem;
+    width: 75%;
+    border: 1px solid #ddd;
 }

@@ -1,26 +1,27 @@
 /* Style the tab */
 .tab {
-    float: left;
-    border: 1px solid #ccc;
-    background-color: #f1f1f1;
-    width: 25%;
-    box-shadow: rgb(75 75 75 / 25%) 0px 0.0625rem 0.025rem 0px, rgb(75 75 75 / 15%) 0px 0.0625rem 0.1875rem;
+       border: 1px solid #ccc;
+       width: 25%;
+       height: fit-content;
+       box-shadow: rgb(75 75 75 / 25%) 0px 0.0625rem 0.025rem 0px, rgb(75 75 75 / 15%) 0px 0.0625rem 0.1875rem;
   }
   
   .tab h2{
-        font-size: 1.4rem;
-        padding: 0.5rem 1rem;
-        color: #fff;
-        background-color: var(--dark);
-        border-color: #32383e;    
-        text-align: center;
+    font-size: 1.4rem;
+    padding: 0.5rem 1rem;
+    color: #fff;
+    background-color: blue;
+    text-align: center;
+    font-weight: 600;
+
   
   }
 
   .tab a{
       font-size: 1.6rem;
+      text-decoration: none;
+      color: black;
   }
-  
   
   /* Style the buttons inside the tab */
   .tab button {
@@ -39,7 +40,7 @@
   
   /* Change background color of buttons on hover */
   .tab button:hover {
-    background-color: #ddd;
+    background-color: #3390ef40;
   }
   
   /* Create an active/current "tab button" class */

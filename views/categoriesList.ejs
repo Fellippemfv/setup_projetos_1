@@ -6,46 +6,52 @@
 
     <main class="content">
 
+        <div class="dashboard__content__main">
 
-        <%- include("partials/navbarAdmin") %>
+            <div class="admin__options">
+                <%- include("partials/navbarAdmin") %>
 
-        <div class="admin__content">
+                <div class="admin__content">
+                        
+                    <!-- form handling -->
+                        <table class="table">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Title</th>
+                                    <th>Slug</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <% categories.forEach(category => { %>
+                            <tbody>
+                                <tr>
+                                    <td><%= category.id %></td> 
+                                    <td><%= category.title %></td>
+                                    <td><%= category.slug %></td>
+                                    <td>
+                                        <a href="/admin/dashboard/categories/edit/<%= category.id %>"><img class="img-users" src="/assets/pencil-striped.svg" alt=""></a>
+                                        <form action="/admin/dashboard/categories/del/<%= category.id %>" method="post">
+                                            <input type="image" src="/assets/lixeira.svg" class="img-users">
+                                        </form>
+                                    </td>
+        
+                                    <div class="pagination">
+                                        <a href="/admin/dashboard/categories/<%= count_articles %>" class="next">Next</a>
+                                    </div>
+                                    
+                                </tr>
+                            </tbody>
+                            <% }) %>
+        
+                        </table>
+                        <button class="load-more">Carregar mais</button>
+                        <div class="no-more">Sem mais categorias :(</div>
+        
+        
+                </div>
                 
-            <!-- form handling -->
-                <table class="table">
-                    <thead class="thead-dark">
-                        <tr>
-                            <th>ID</th>
-                            <th>Title</th>
-                            <th>Slug</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <% categories.forEach(category => { %>
-                    <tbody>
-                        <tr>
-                            <td><%= category.id %></td> 
-                            <td><%= category.title %></td>
-                            <td><%= category.slug %></td>
-                            <td>
-                                <a href="/admin/dashboard/categories/edit/<%= category.id %>"><img class="img-users" src="/assets/pencil-striped.svg" alt=""></a>
-                                <form action="/admin/dashboard/categories/del/<%= category.id %>" method="post">
-                                    <input type="image" src="/assets/lixeira.svg" class="img-users">
-                                </form>
-                            </td>
-
-                            <div class="pagination">
-                                <a href="/admin/dashboard/categories/<%= count_articles %>" class="next">Next</a>
-                            </div>
-                            
-                        </tr>
-                    </tbody>
-                    <% }) %>
-
-                </table>
-                <button class="load-more">Carregar mais</button>
-                <div class="no-more">Sem mais categorias :(</div>
-
+            </div>
 
         </div>
         

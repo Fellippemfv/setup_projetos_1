@@ -5,65 +5,73 @@
     <%- include("partials/header.ejs") %>
 
     <main class="content">
-          
-        <%- include("partials/navbarAdmin") %>
 
-            <div class="admin__content">
-                <!-- form handling -->
-                    <table class="table">
-                        <thead class="thead-dark">
-                            <tr>
-                                <th>ID</th>
-                                <th>Foto</th>
-                                <th>Name</th>
-                                <th>Email</th>
-                                <th>cargo</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <% users.forEach(user => { %>
-                        <tbody>
-                            <tr>
-                                <td><%= user.id %></td>
-                                <td>exemplo</td>
-                                <td><%= user.name %></td>
-                                <td><%= user.email %></td>
-                                
-                                <% if (user.provider === 0) { %>
-                                    <td>Usuário</td>
-                                <% } %>
-    
-                                <% if (user.provider === 1) { %>
-                                    <td>Subadministrador</td>
-                                <% } %>
-    
-                                <% if (user.provider === 2) { %>
-                                    <td>Administrador</td>
-                                <% } %>
-                               
-                                <td>
-                                    <form action="/admin/dashboard/users/hard/<%= user.id %>" method="POST">
-                                        <input type="image" src="/assets/lixeira.svg" class="img-users">
-                                    </form>
-                                   
-                                    <form action="/admin/dashboard/users/back/<%= user.id %>" method="POST">
-                                        <input type="image" src="/assets/signin_106368.svg" class="img-users">
-                                    </form>
-                                </td>
-    
-                                <div class="pagination">
-                                    <a href="/admin/dashboard/users/deleted/<%= count_articles %>" class="next">Next</a>
-                                </div>
-                                
-                            </tr>
-                        </tbody>
-                        <% }) %>
+        <div class="dashboard__content__main">
 
-                    </table>
-                    <button class="load-more">Carregar mais</button>
-                    <div class="no-more">Sem mais usuários :(</div>
+            <div class="admin__options">
+                
+                <%- include("partials/navbarAdmin") %>
+
+                <div class="admin__content">
+                        <!-- form handling -->
+                            <table class="table">
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Foto</th>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>cargo</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <% users.forEach(user => { %>
+                                <tbody>
+                                    <tr>
+                                        <td><%= user.id %></td>
+                                        <td>exemplo</td>
+                                        <td><%= user.name %></td>
+                                        <td><%= user.email %></td>
+                                        
+                                        <% if (user.provider === 0) { %>
+                                            <td>Usuário</td>
+                                        <% } %>
+            
+                                        <% if (user.provider === 1) { %>
+                                            <td>Subadministrador</td>
+                                        <% } %>
+            
+                                        <% if (user.provider === 2) { %>
+                                            <td>Administrador</td>
+                                        <% } %>
+                                       
+                                        <td>
+                                            <form action="/admin/dashboard/users/hard/<%= user.id %>" method="POST">
+                                                <input type="image" src="/assets/lixeira.svg" class="img-users">
+                                            </form>
+                                           
+                                            <form action="/admin/dashboard/users/back/<%= user.id %>" method="POST">
+                                                <input type="image" src="/assets/signin_106368.svg" class="img-users">
+                                            </form>
+                                        </td>
+            
+                                        <div class="pagination">
+                                            <a href="/admin/dashboard/users/deleted/<%= count_articles %>" class="next">Next</a>
+                                        </div>
+                                        
+                                    </tr>
+                                </tbody>
+                                <% }) %>
+        
+                            </table>
+                            <button class="load-more">Carregar mais</button>
+                            <div class="no-more">Sem mais usuários :(</div>
+        
+                </div>
 
             </div>
+
+        </div>
 
     </main>
     

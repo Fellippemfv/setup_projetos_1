@@ -1,0 +1,17 @@
+.articleCategory__content__section {
+    width: var(--width-size-main);
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    box-shadow: var(--shadow-box-main);
+    padding: 1rem;
+}
+
+.ac__content__header {
+    margin: 2rem;
+    text-align: center;
+}
+
+.ac__content__body {
+    margin: 3rem 2rem;
+}

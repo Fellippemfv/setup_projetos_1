@@ -2,38 +2,45 @@
 
 <body>
     <%- include("partials/header.ejs") %>
+    <main class="content">
 
-    <div class="container">
-            
-        <div class="admin__infos">
-            <div class="infos__left">
-                <%if(photo === null){%>
-                    <figure>
-                        <div class="round-container">
-                            <img src="/assets/male-user-shadow-svgrepo-com.svg">
-                        </div>    
-                    </figure>
-                <%}else{%>
-                    <figure>
-                        <div class="round-container">
-                            <img src="<%= photo %>">
-                        </div>    
-                    </figure>
-                <%}%>
+        <div class="dashboard__content__main">
+                    
+            <div class="admin__infos">
+                <div class="infos__left">
+                    <%if(photo === null){%>
+                        <figure>
+                            <div class="round-container">
+                                <img src="/assets/male-user-shadow-svgrepo-com.svg">
+                            </div>    
+                        </figure>
+                    <%}else{%>
+                        <figure>
+                            <div class="round-container">
+                                <img src="<%= photo %>">
+                            </div>    
+                        </figure>
+                    <%}%>
+                    
+                
+                </div>
+                <div class="info__right">
+                    <p>Bem vindo(a): <%= name %></p>
+                </div>
             </div>
-            <div class="info__right">
-                <p>Bem vindo(a): <%= name %></p>
+            
+            <div class="admin__options">
+                <%- include("partials/navbarSubAdmin") %>
+                
+                <div class="admin__content">
+                    <h2>Para criar artigo siga os passos</h2>
+                </div>
             </div>
-        </div>
-            
-        <%- include("partials/navbarSubAdmin") %>
-            
-        <div class="admin__content">
-            <h2>teste</h2>
+
+        
         </div>
 
-           
-    </div>
+    </main>
     
 
 <!-- <%- include("partials/footer.ejs") %> -->   

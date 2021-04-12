@@ -6,22 +6,28 @@
 
     <main class="content">
 
-        <%- include("partials/navbarAdmin") %>
+        <div class="dashboard__content__main">
 
-        <div class="admin__content">
+            <div class="admin__options">
+                <%- include("partials/navbarAdmin") %>
 
-            <div class="users__section__header">
-                <h1 class="title__header">Criar nova categoria</h1>
+                <div class="admin__content">
+
+                    <div class="users__section__header">
+                        <h1 class="title__header">Criar nova categoria</h1>
+                    </div>
+
+                    <form action="/admin/dashboard/new/categorie" method="post">
+                        <label for="title">Nome da categoria</label>
+                        <input type="text"  minlength="5" maxlength="150" placeholder="Ex: Até 5 reais" name="title">
+                        <input type="submit" value="Cadastrar categoria">
+                    </form>
+                    
+
+                </div>
             </div>
 
-            <form action="/admin/dashboard/new/categorie" method="post">
-                <label for="title">Nome da categoria</label>
-                <input type="text"  minlength="5" maxlength="150" placeholder="Ex: Até 5 reais" name="title">
-                <input type="submit" value="Cadastrar categoria">
-            </form>
-            
-
-            </div>
+        </div>
 
         </div>
         

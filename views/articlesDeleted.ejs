@@ -6,48 +6,53 @@
 
     <main class="content">
 
+        <div class="dashboard__content__main">
 
-        <%- include("partials/navbarAdmin") %>
+            <div class="admin__options">
+                <%- include("partials/navbarAdmin") %>
 
-        <div class="admin__content">
+                <div class="admin__content">
                 
-            <!-- form handling -->
-                <table class="table">
-                    <thead class="thead-dark">
-                        <tr>
-                            <th>ID</th>
-                            <th>Titulo</th>
-                            <th>Descrição</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <% articles.forEach(article => { %>
-                    <tbody>
-                        <tr>
-                            <td><%= article.id %></td> 
-                            <td><%= article.title %></td> 
-                            <td><%= article.description_home %></td>
-                            <td>
-                                <form action="/admin/dashboard/articles/hard/<%= article.id %>" method="POST">
-                                    <input type="image" src="/assets/lixeira.svg" class="img-users">
-                                </form>
-                               
-                                <form action="/admin/dashboard/articles/back/<%= article.id %>" method="POST">
-                                    <input type="image" src="/assets/signin_106368.svg" class="img-users">
-                                </form>
-                            </td>
-
-                            <div class="pagination">
-                                <a href="/admin/dashboard/articles/deleted/<%= count_articles %>" class="next">Next</a>
-                            </div>
-                            
-                        </tr>
-                    </tbody>
-                    <% }) %>
-
-                </table>
-                <button class="load-more">Carregar mais</button>
-                <div class="no-more">Sem mais artigos :(</div>
+                    <!-- form handling -->
+                        <table class="table">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Titulo</th>
+                                    <th>Descrição</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <% articles.forEach(article => { %>
+                            <tbody>
+                                <tr>
+                                    <td><%= article.id %></td> 
+                                    <td><%= article.title %></td> 
+                                    <td><%= article.description_home %></td>
+                                    <td>
+                                        <form action="/admin/dashboard/articles/hard/<%= article.id %>" method="POST">
+                                            <input type="image" src="/assets/lixeira.svg" class="img-users">
+                                        </form>
+                                       
+                                        <form action="/admin/dashboard/articles/back/<%= article.id %>" method="POST">
+                                            <input type="image" src="/assets/signin_106368.svg" class="img-users">
+                                        </form>
+                                    </td>
+        
+                                    <div class="pagination">
+                                        <a href="/admin/dashboard/articles/deleted/<%= count_articles %>" class="next">Next</a>
+                                    </div>
+                                    
+                                </tr>
+                            </tbody>
+                            <% }) %>
+        
+                        </table>
+                        <button class="load-more">Carregar mais</button>
+                        <div class="no-more">Sem mais artigos :(</div>
+        
+                </div>
+            </div>
 
         </div>
         

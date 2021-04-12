@@ -6,24 +6,32 @@
 
     <main class="content">
 
-        <%- include("partials/navbarAdmin") %>
+        <div class="dashboard__content__main">
 
-        <div class="admin__content">
+            <div class="admin__options">
+                
+                <%- include("partials/navbarAdmin") %>
 
-            <div class="users__section__header">
-                <h1 class="title__header">Editar categoria</h1>
-            </div>
-
-                <form action="/admin/dashboard/categories/edit/<%= id %>" method="post">
+                <div class="admin__content">
+        
+                    <div class="users__section__header">
+                        <h1 class="title__header">Editar categoria</h1>
+                    </div>
+        
+                        <form action="/admin/dashboard/categories/edit/<%= id %>" method="post">
+                            
+                            <h2>Titulo</h2>
+                            <input type="text" minlength="5" maxlength="150" value="<%= title %>" name="title">
+                            <h2>Id</h2>
+                            <input type="number" name="id" value="<%= id %>" readonly>
+                            <input type="submit" value="Editar categoria">
+                        </form>
+        
                     
-                    <h2>Titulo</h2>
-                    <input type="text" minlength="5" maxlength="150" value="<%= title %>" name="title">
-                    <h2>Id</h2>
-                    <input type="number" name="id" value="<%= id %>" readonly>
-                    <input type="submit" value="Editar categoria">
-                </form>
+        
+                </div>
 
-            
+            </div>
 
         </div>
         

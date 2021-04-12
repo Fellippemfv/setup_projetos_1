@@ -6,211 +6,218 @@
 
     <main class="content">
 
-        <%- include("partials/navbarAdmin") %>
+        <div class="dashboard__content__main">
 
-
-        <div class="admin__content">
-
-            <div class="users__section__header">
-                <h1 class="title__header">Editar artigo</h1>
-                <h2>Ultima atualização: <%= updated_at %></h2>
-            </div>
-
-            <div class="users__section__body">
-                
-
+            <div class="admin__options">
+                <%- include("partials/navbarAdmin") %>
 
                 <div class="admin__content">
-                    <form action="/admin/dashboard/articles/edit/<%= id %>" method="POST">
-                        <fieldset>
-                            <legend>Tela inicial</legend>
-                            <div class="article__item">
-                                <label for="title"> Titulo do experimento</label>
-                                <input type="text" name="title" minlength="5" maxlength="80" value="<%= title %>" required>
-                                <input class="article__id" name="id" type="number" value="<%= id %>" readonly>
-                                <input type="submit" value="Atualizar">
-                            </div>
-                    </form>
-                           
-                    <form action="/admin/dashboard/articles/edit/<%= id %>" method="POST">
-                            <div class="article__item">
-                                <label for="exp_image_home">Link da foto que representa o experimento</label>
-                                <input type="text" value="<%= exp_image_home %>" name="exp_image_home" minlength="5" maxlength="1250">
-                                <input class="article__id" name="id" type="number" value="<%= id %>" readonly>
-                                <input type="submit" value="Atualizar">
-                            </div>
-                    </form>
 
-                    <form action="/admin/dashboard/articles/edit/<%= id %>" method="POST">
-                            <div class="article__item">
-                                <label for="description_home">Descrição resumida do experimento</label>
-                                <textarea name="description_home" minlength="10" maxlength="160" required><%= description_home %></textarea>    
-                                <input class="article__id" name="id" type="number" value="<%= id %>" readonly>
-                                <input type="submit" value="Atualizar">
-                            </div>
-                    </form>
-                        </fieldset>
+                    <div class="users__section__header">
+                        <h1 class="title__header">Editar artigo</h1>
+                        <h2>Ultima atualização: <%= updated_at %></h2>
+                    </div>
 
-        
-                    <form action="/admin/dashboard/articles/edit/<%= id %>" method="POST">
-                        <fieldset>
-                            <legend>Corpo do experimento</legend>
-                            <div class="article__item">
-                                <label for="">Materiais utilizados</label>
-                                <textarea name="materials" id="" minlength="10" maxlength="550" placeholder="Primeiro é preciso encher o balde com água com bom ar, depois misturar muito bem..." required><%= materials %></textarea>
-                                <input class="article__id" name="id" type="number" value="<%= id %>" readonly>
-                                <input type="submit" value="Atualizar">
-                            </div>
-                    </form>
+                    <div class="users__section__body">
+                        
 
-                    <form action="/admin/dashboard/articles/edit/<%= id %>" method="POST">
-                            <div class="article__item">
-                                <h3>Instruções</h3>
-                                <ol>
-                                    <li><p>Caso não queira usar todos os 5 passos, basta deixar em branco!</p></li>
-                                    <li><p>Texto corrido em paragrafo unico</p></li>
-                                    <li><p>Cada passo deve ter o limite de 1000 caracteres</p></li>
-                                </ol>
-                                <label for="step1_text">Passo 1</label>
-                                <textarea name="step1_text" id="" minlength="5" maxlength="800" placeholder="Primeiro é preciso encher o balde com água com bom ar, depois misturar muito bem..." required><%= step1_text %></textarea>
+
+                        <div class="admin__content">
+                            <form action="/admin/dashboard/articles/edit/<%= id %>" method="POST">
+                                <fieldset>
+                                    <legend>Tela inicial</legend>
+                                    <div class="article__item">
+                                        <label for="title"> Titulo do experimento</label>
+                                        <input type="text" name="title" minlength="5" maxlength="80" value="<%= title %>" required>
+                                        <input class="article__id" name="id" type="number" value="<%= id %>" readonly>
+                                        <input type="submit" value="Atualizar">
+                                    </div>
+                            </form>
                                 
-                                <label for="step1_img">Link da foto que representa passo 1</label>
-                                <input type="text" name="step1_img" id="" minlength="5" maxlength="1250" value="<%= step1_img %>">
-                            
-                                <input class="article__id" name="id" type="number" value="<%= id %>" readonly>
-                                <input type="submit" value="Atualizar">
-                            </div>
-                    </form>
+                            <form action="/admin/dashboard/articles/edit/<%= id %>" method="POST">
+                                    <div class="article__item">
+                                        <label for="exp_image_home">Link da foto que representa o experimento</label>
+                                        <input type="text" value="<%= exp_image_home %>" name="exp_image_home" minlength="5" maxlength="1250">
+                                        <input class="article__id" name="id" type="number" value="<%= id %>" readonly>
+                                        <input type="submit" value="Atualizar">
+                                    </div>
+                            </form>
 
-                    <form action="/admin/dashboard/articles/edit/<%= id %>" method="POST">
-                        <div class="article__item">
-                        
-                            <label for="step2_text">Passo 2</label>
-                            <textarea name="step2_text" id="" minlength="5" maxlength="800" placeholder="Primeiro é preciso encher o balde com água com bom ar, depois misturar muito bem..." required><%= step2_text %></textarea>
-                            
-                            <label for="step2_img">Link da foto que representa passo 1</label>
-                            <input type="text" name="step2_img" id="" minlength="5" maxlength="1250" value="<%= step2_img %>">
-                        
-                            <input class="article__id" name="id" type="number" value="<%= id %>" readonly>
-                            <input type="submit" value="Atualizar">
-                        </div>
-                    </form>
+                            <form action="/admin/dashboard/articles/edit/<%= id %>" method="POST">
+                                    <div class="article__item">
+                                        <label for="description_home">Descrição resumida do experimento</label>
+                                        <textarea name="description_home" minlength="10" maxlength="160" required><%= description_home %></textarea>    
+                                        <input class="article__id" name="id" type="number" value="<%= id %>" readonly>
+                                        <input type="submit" value="Atualizar">
+                                    </div>
+                            </form>
+                                </fieldset>
 
-                    <form action="/admin/dashboard/articles/edit/<%= id %>" method="POST">
-                        <div class="article__item">
-                        
-                            <label for="step3_text">Passo 3</label>
-                            <textarea name="step3_text" id="" minlength="5" maxlength="800" placeholder="Primeiro é preciso encher o balde com água com bom ar, depois misturar muito bem..." required><%= step3_text %></textarea>
-                            
-                            <label for="step3_img">Link da foto que representa passo 1</label>
-                            <input type="text" name="step3_img" id="" minlength="5" maxlength="1250" value="<%= step3_img %>">
-                        
-                            <input class="article__id" name="id" type="number" value="<%= id %>" readonly>
-                            <input type="submit" value="Atualizar">
-                        </div>
-                    </form>
-
-                    <form action="/admin/dashboard/articles/edit/<%= id %>" method="POST">
-                        <div class="article__item">
-                        
-                            <label for="step4_text">Passo 4</label>
-                            <textarea name="step4_text" id="" minlength="5" maxlength="800" placeholder="Primeiro é preciso encher o balde com água com bom ar, depois misturar muito bem..." required><%= step4_text %></textarea>
-                            
-                            <label for="step4_img">Link da foto que representa passo 1</label>
-                            <input type="text" name="step4_img" id="" minlength="5" maxlength="1250" value="<%= step4_img %>">
-                        
-                            <input class="article__id" name="id" type="number" value="<%= id %>" readonly>
-                            <input type="submit" value="Atualizar">
-                        </div>
-                    </form>
-
-                    <form action="/admin/dashboard/articles/edit/<%= id %>" method="POST">
-                        <div class="article__item">
-                        
-                            <label for="step5_text">Passo 5</label>
-                            <textarea name="step5_text" id="" minlength="5" maxlength="800" placeholder="Primeiro é preciso encher o balde com água com bom ar, depois misturar muito bem..." required><%= step5_text %></textarea>
-                            
-                            <label for="step5_img">Link da foto que representa passo 1</label>
-                            <input type="text" name="step5_img" id="" minlength="5" maxlength="1250" value="<%= step5_img %>">
-                        
-                            <input class="article__id" name="id" type="number" value="<%= id %>" readonly>
-                            <input type="submit" value="Atualizar">
-                        </div>
-                    </form>
-
-                    <form action="/admin/dashboard/articles/edit/<%= id %>" method="POST">
-                        <div class="article__item">
-                            <label for="explanation">Explicação</label>
-                            <textarea name="explanation" id=""  minlength="5" maxlength="1000" required><%= explanation %></textarea>
-                            <input class="article__id" name="id" type="number" value="<%= id %>" readonly>
-                            <input type="submit" value="Atualizar">
-                        </div>
-                    </form>
-
-                    <form action="/admin/dashboard/articles/edit/<%= id %>" method="POST">
-                            <div class="article__item">
-                                <label for="exp_video">Link do video do experimento</label>
-                                <input type="text" name="exp_video"  minlength="5" maxlength="1250" value="<%= exp_video %>">
-                                <input class="article__id" name="id" type="number" value="<%= id %>" readonly>
-                                <input type="submit" value="Atualizar">
-                            </div>
-                    </form>
-
-                        </fieldset>
-
-                    <form action="/admin/dashboard/articles/edit/<%= id %>" method="post">
-                        <fieldset>
-                            <legend>Categorias</legend>
-                            <label for="category_id">Assunto</label>
-                            <h3>Atual: <span><%= cat_title %></span></h3>
-                            <select name="category_id" id="" required>
-                                <option value="" disabled selected>Escolha uma opção</option>
-                                <% categories1.forEach((category1) => {  %>
-                                    <option value="<%= category1.id %>"><%= category1.title %></option>
-                                <% }) %>
-                            </select>
-                            <input class="article__id" name="id" type="number"  name="id" value="<%= id %>" readonly>
-                            <input type="submit" value="Atualizar">
-                    </form>
-
-                    <form action="/admin/dashboard/articles/edit/<%= id %>" method="post">
-                            <label for="category2_id">BNCC</label>
-                            <h3>Atual: <span><%= cat2_title %></span></h3>
-                            <select name="category2_id" id="" required>
-                                <option value="" disabled selected>Escolha uma opção</option>
-                                <% categories2.forEach((category2) => {  %>
-                                    <option value="<%= category2.id %>"><%= category2.title %></option>
-                                <% }) %>
-                            </select>
-                            <input class="article__id" name="id" type="number"  name="id" value="<%= id %>" readonly>
-                            <input type="submit" value="Atualizar">
-                    </form>   
-        
-                    <form action="/admin/dashboard/articles/edit/<%= id %>" method="POST">
-                        <fieldset>
-                            <legend>Orientações para professores</legend>
-                            <div class="article__item">
-                                <label for="tips_important">Orientações importantes</label>
-                                <textarea name="tips_important" id="" minlength="5" maxlength="1000" required><%= tips_important %></textarea>
-                                <input class="article__id" name="id" type="number" value="<%= id %>" readonly>
-                                <input type="submit" value="Atualizar">
-                            </div>
-                    </form>  
-
-                    <form action="/admin/dashboard/articles/edit/<%= id %>" method="POST">
-                            <div class="article__item">
-                                <label for="tips_ead">Dicas para o EaD</label>
-                                <textarea name="tips_ead" id="" minlength="5" maxlength="1000" required><%= tips_ead %></textarea>
-                                <input class="article__id" name="id" type="number"  name="id" value="<%= id %>" readonly>
-                                <input type="submit" value="Atualizar">
-                            </div>
-                    </form>  
-                        </fieldset>
-                   
-                </div>
                 
+                            <form action="/admin/dashboard/articles/edit/<%= id %>" method="POST">
+                                <fieldset>
+                                    <legend>Corpo do experimento</legend>
+                                    <div class="article__item">
+                                        <label for="">Materiais utilizados</label>
+                                        <textarea name="materials" id="" minlength="10" maxlength="550" placeholder="Primeiro é preciso encher o balde com água com bom ar, depois misturar muito bem..." required><%= materials %></textarea>
+                                        <input class="article__id" name="id" type="number" value="<%= id %>" readonly>
+                                        <input type="submit" value="Atualizar">
+                                    </div>
+                            </form>
 
+                            <form action="/admin/dashboard/articles/edit/<%= id %>" method="POST">
+                                    <div class="article__item">
+                                        <h3>Instruções</h3>
+                                        <ol>
+                                            <li><p>Caso não queira usar todos os 5 passos, basta deixar em branco!</p></li>
+                                            <li><p>Texto corrido em paragrafo unico</p></li>
+                                            <li><p>Cada passo deve ter o limite de 1000 caracteres</p></li>
+                                        </ol>
+                                        <label for="step1_text">Passo 1</label>
+                                        <textarea name="step1_text" id="" minlength="5" maxlength="800" placeholder="Primeiro é preciso encher o balde com água com bom ar, depois misturar muito bem..." required><%= step1_text %></textarea>
+                                        
+                                        <label for="step1_img">Link da foto que representa passo 1</label>
+                                        <input type="text" name="step1_img" id="" minlength="5" maxlength="1250" value="<%= step1_img %>">
+                                    
+                                        <input class="article__id" name="id" type="number" value="<%= id %>" readonly>
+                                        <input type="submit" value="Atualizar">
+                                    </div>
+                            </form>
+
+                            <form action="/admin/dashboard/articles/edit/<%= id %>" method="POST">
+                                <div class="article__item">
+                                
+                                    <label for="step2_text">Passo 2</label>
+                                    <textarea name="step2_text" id="" minlength="5" maxlength="800" placeholder="Primeiro é preciso encher o balde com água com bom ar, depois misturar muito bem..." required><%= step2_text %></textarea>
+                                    
+                                    <label for="step2_img">Link da foto que representa passo 1</label>
+                                    <input type="text" name="step2_img" id="" minlength="5" maxlength="1250" value="<%= step2_img %>">
+                                
+                                    <input class="article__id" name="id" type="number" value="<%= id %>" readonly>
+                                    <input type="submit" value="Atualizar">
+                                </div>
+                            </form>
+
+                            <form action="/admin/dashboard/articles/edit/<%= id %>" method="POST">
+                                <div class="article__item">
+                                
+                                    <label for="step3_text">Passo 3</label>
+                                    <textarea name="step3_text" id="" minlength="5" maxlength="800" placeholder="Primeiro é preciso encher o balde com água com bom ar, depois misturar muito bem..." required><%= step3_text %></textarea>
+                                    
+                                    <label for="step3_img">Link da foto que representa passo 1</label>
+                                    <input type="text" name="step3_img" id="" minlength="5" maxlength="1250" value="<%= step3_img %>">
+                                
+                                    <input class="article__id" name="id" type="number" value="<%= id %>" readonly>
+                                    <input type="submit" value="Atualizar">
+                                </div>
+                            </form>
+
+                            <form action="/admin/dashboard/articles/edit/<%= id %>" method="POST">
+                                <div class="article__item">
+                                
+                                    <label for="step4_text">Passo 4</label>
+                                    <textarea name="step4_text" id="" minlength="5" maxlength="800" placeholder="Primeiro é preciso encher o balde com água com bom ar, depois misturar muito bem..." required><%= step4_text %></textarea>
+                                    
+                                    <label for="step4_img">Link da foto que representa passo 1</label>
+                                    <input type="text" name="step4_img" id="" minlength="5" maxlength="1250" value="<%= step4_img %>">
+                                
+                                    <input class="article__id" name="id" type="number" value="<%= id %>" readonly>
+                                    <input type="submit" value="Atualizar">
+                                </div>
+                            </form>
+
+                            <form action="/admin/dashboard/articles/edit/<%= id %>" method="POST">
+                                <div class="article__item">
+                                
+                                    <label for="step5_text">Passo 5</label>
+                                    <textarea name="step5_text" id="" minlength="5" maxlength="800" placeholder="Primeiro é preciso encher o balde com água com bom ar, depois misturar muito bem..." required><%= step5_text %></textarea>
+                                    
+                                    <label for="step5_img">Link da foto que representa passo 1</label>
+                                    <input type="text" name="step5_img" id="" minlength="5" maxlength="1250" value="<%= step5_img %>">
+                                
+                                    <input class="article__id" name="id" type="number" value="<%= id %>" readonly>
+                                    <input type="submit" value="Atualizar">
+                                </div>
+                            </form>
+
+                            <form action="/admin/dashboard/articles/edit/<%= id %>" method="POST">
+                                <div class="article__item">
+                                    <label for="explanation">Explicação</label>
+                                    <textarea name="explanation" id=""  minlength="5" maxlength="1000" required><%= explanation %></textarea>
+                                    <input class="article__id" name="id" type="number" value="<%= id %>" readonly>
+                                    <input type="submit" value="Atualizar">
+                                </div>
+                            </form>
+
+                            <form action="/admin/dashboard/articles/edit/<%= id %>" method="POST">
+                                    <div class="article__item">
+                                        <label for="exp_video">Link do video do experimento</label>
+                                        <input type="text" name="exp_video"  minlength="5" maxlength="1250" value="<%= exp_video %>">
+                                        <input class="article__id" name="id" type="number" value="<%= id %>" readonly>
+                                        <input type="submit" value="Atualizar">
+                                    </div>
+                            </form>
+
+                                </fieldset>
+
+                            <form action="/admin/dashboard/articles/edit/<%= id %>" method="post">
+                                <fieldset>
+                                    <legend>Categorias</legend>
+                                    <label for="category_id">Assunto</label>
+                                    <h3>Atual: <span><%= cat_title %></span></h3>
+                                    <select name="category_id" id="" required>
+                                        <option value="" disabled selected>Escolha uma opção</option>
+                                        <% categories1.forEach((category1) => {  %>
+                                            <option value="<%= category1.id %>"><%= category1.title %></option>
+                                        <% }) %>
+                                    </select>
+                                    <input class="article__id" name="id" type="number"  name="id" value="<%= id %>" readonly>
+                                    <input type="submit" value="Atualizar">
+                            </form>
+
+                            <form action="/admin/dashboard/articles/edit/<%= id %>" method="post">
+                                    <label for="category2_id">BNCC</label>
+                                    <h3>Atual: <span><%= cat2_title %></span></h3>
+                                    <select name="category2_id" id="" required>
+                                        <option value="" disabled selected>Escolha uma opção</option>
+                                        <% categories2.forEach((category2) => {  %>
+                                            <option value="<%= category2.id %>"><%= category2.title %></option>
+                                        <% }) %>
+                                    </select>
+                                    <input class="article__id" name="id" type="number"  name="id" value="<%= id %>" readonly>
+                                    <input type="submit" value="Atualizar">
+                            </form>   
+                
+                            <form action="/admin/dashboard/articles/edit/<%= id %>" method="POST">
+                                <fieldset>
+                                    <legend>Orientações para professores</legend>
+                                    <div class="article__item">
+                                        <label for="tips_important">Orientações importantes</label>
+                                        <textarea name="tips_important" id="" minlength="5" maxlength="1000" required><%= tips_important %></textarea>
+                                        <input class="article__id" name="id" type="number" value="<%= id %>" readonly>
+                                        <input type="submit" value="Atualizar">
+                                    </div>
+                            </form>  
+
+                            <form action="/admin/dashboard/articles/edit/<%= id %>" method="POST">
+                                    <div class="article__item">
+                                        <label for="tips_ead">Dicas para o EaD</label>
+                                        <textarea name="tips_ead" id="" minlength="5" maxlength="1000" required><%= tips_ead %></textarea>
+                                        <input class="article__id" name="id" type="number"  name="id" value="<%= id %>" readonly>
+                                        <input type="submit" value="Atualizar">
+                                    </div>
+                            </form>  
+                                </fieldset>
+                        
+                        </div>
+                        
+
+                    </div>
+
+                </div>
             </div>
+
+        
 
         </div>
         

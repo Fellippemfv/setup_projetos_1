@@ -6,47 +6,53 @@
 
     <main class="content">
 
-        <%- include("partials/navbarAdmin") %>
+        <div class="dashboard__content__main">
+
+            <div class="admin__options">
+
+                <%- include("partials/navbarAdmin") %>
           
-            <div class="container">
-              
-                <p>Pagina de editar um usuario</p>
-                <h2>Nome</h2>
-                <p><%= name %></p>
+                <div class="admin__content">
+                    
+                        <p>Pagina de editar um usuario</p>
+                        <h2>Nome</h2>
+                        <p><%= name %></p>
 
-                <h3>Email</h3>
-                <p><%= email %></p>
+                        <h3>Email</h3>
+                        <p><%= email %></p>
 
-                <h3>Cargo</h3>
-                <% if (provider === 0) { %>
-                    <p>Usuário</p>
-                <% } %>
+                        <h3>Cargo</h3>
+                        <% if (provider === 0) { %>
+                            <p>Usuário</p>
+                        <% } %>
 
-                <% if (provider === 1) { %>
-                    <p>Subadiministrador</p>
-                <% } %>
+                        <% if (provider === 1) { %>
+                            <p>Subadiministrador</p>
+                        <% } %>
 
-                <% if (provider === 2) { %>
-                    <p>Adiministrador</p>
-                <% } %>
+                        <% if (provider === 2) { %>
+                            <p>Adiministrador</p>
+                        <% } %>
 
-                <form action="/admin/dashboard/users/edit/<%= id %>" method="post">
-                    <select name="provider" id="">
-                        <option value="" disabled selected>Selecione uma opção</option>
-                        <option value="0">Usuário</option>
-                        <option value="1">SubAdiministrador</option>
-                        <option value="2">Adiministrador</option>
-                    </select>
-                    <!--falta ver permissões-->
-                    <input type="number" name="id" value="<%= id %>" readonly>
+                        <form action="/admin/dashboard/users/edit/<%= id %>" method="post">
+                            <select name="provider" id="">
+                                <option value="" disabled selected>Selecione uma opção</option>
+                                <option value="0">Usuário</option>
+                                <option value="1">SubAdiministrador</option>
+                                <option value="2">Adiministrador</option>
+                            </select>
+                            <!--falta ver permissões-->
+                            <input type="number" name="id" value="<%= id %>" readonly>
 
-                    <input type="submit" value="Trocar permissões">
-                </form>
+                            <input type="submit" value="Trocar permissões">
+                        </form>
+                        
+
+                </div>
                 
-
             </div>
 
-
+        </div>
 
     </main>
     

@@ -6,46 +6,52 @@
 
     <main class="content">
 
-
-        <%- include("partials/navbarAdmin") %>
-
-        <div class="admin__content">
+        <div class="dashboard__content__main">
+            
+            <div class="admin__options">
+                <%- include("partials/navbarAdmin") %>
                 
-            <!-- form handling -->
-                <table class="table">
-                    <thead class="thead-dark">
-                        <tr>
-                            <th>ID</th>
-                            <th>Titulo</th>
-                            <th>Descrição</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <% articles.forEach(article => { %>
-                    <tbody>
-                        <tr>
-                            <td><%= article.id %></td> 
-                            <td><%= article.title %></td> 
-                            <td><%= article.description_home %></td>
-                            <td>
-                                <a href="/admin/dashboard/articles/edit/<%= article.id %>"><img class="img-users" src="/assets/pencil-striped.svg" alt=""></a>
-                                <form action="/admin/dashboard/articles/soft/<%= article.id %>" method="post">
-                                    <input type="image" src="/assets/lixeira.svg" class="img-users">
-                                </form>
-                            </td>
-
-                            <div class="pagination">
-                                <a href="/admin/dashboard/articles/<%= count_articles %>" class="next">Next</a>
-                            </div>
-                            
-                        </tr>
-                    </tbody>
-                    <% }) %>
+                <div class="admin__content">
                 
-                </table>
-                    <button class="load-more">Carregar mais</button>
-                    <div class="no-more">Sem mais artigos :(</div>
-
+                    <!-- form handling -->
+                        <table class="table">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Titulo</th>
+                                    <th>Descrição</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <% articles.forEach(article => { %>
+                            <tbody>
+                                <tr>
+                                    <td><%= article.id %></td> 
+                                    <td><%= article.title %></td> 
+                                    <td><%= article.description_home %></td>
+                                    <td>
+                                        <a href="/admin/dashboard/articles/edit/<%= article.id %>"><img class="img-users" src="/assets/pencil-striped.svg" alt=""></a>
+                                        <form action="/admin/dashboard/articles/soft/<%= article.id %>" method="post">
+                                            <input type="image" src="/assets/lixeira.svg" class="img-users">
+                                        </form>
+                                    </td>
+        
+                                    <div class="pagination">
+                                        <a href="/admin/dashboard/articles/<%= count_articles %>" class="next">Next</a>
+                                    </div>
+                                    
+                                </tr>
+                            </tbody>
+                            <% }) %>
+                        
+                        </table>
+                            <button class="load-more">Carregar mais</button>
+                            <div class="no-more">Sem mais artigos :(</div>
+        
+        
+                </div>
+                
+            </div>
 
         </div>
         

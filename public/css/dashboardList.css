@@ -1,11 +1,4 @@
 
-.container{
-    max-width: 1024px;
-    margin: auto;
-}
-
-
-
 .d-flex{
     display: flex;
     flex-wrap: wrap;
@@ -50,10 +43,11 @@ table{
 }
 
 .table td, .table th{
-    padding: .75em;
-    vertical-align: top;
+    padding: 0.5rem;
+    font-size: 1.4rem;
+    vertical-align: middle;
     text-align: center;
-    border-top: 1px solid var(--border);
+    border-bottom: 1px solid #ddd;
 }
 
 .table td > a.btn{
@@ -63,8 +57,7 @@ table{
 }
 
 .table tr:hover{
-    background-color:#06d6a0 ;
-}
+    background-color: #06c3d61f;}
 
 .table tr:hover td > a{
     box-shadow: none;
@@ -72,8 +65,7 @@ table{
 
 .table .thead-dark th{
     color: #fff;
-    background-color: var(--dark) ;
-    border-color: #32383e;
+    background-color: #3390efbd;
 }
 /* MOBILE
 @media only screen and (max-width: 1024px){

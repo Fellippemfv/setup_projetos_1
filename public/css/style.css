@@ -34,9 +34,11 @@ body {
     min-height: 100vh;
     display: flex;
     justify-content: center;
-    padding-top: 2rem;
+    padding: 2rem 0rem 2rem 0rem;    
     background-color: #f1f1f1;
-    
-    
+}
+
+.pagination {
+    display: none;
 }
 
