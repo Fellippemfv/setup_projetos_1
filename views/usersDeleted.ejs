@@ -29,7 +29,21 @@
                                 <tbody>
                                     <tr>
                                         <td><%= user.id %></td>
-                                        <td>exemplo</td>
+                                        <td>
+                                            <%if(user.img_file === null){%>
+
+                                                <div class="user__thumb__content">
+                                                    <img src="/assets/male-user-shadow-svgrepo-com.svg" alt="">                                                    
+                                                </div>
+                                            
+                                            <%}else{%>
+
+                                                <div class="user__thumb__content">
+                                                    <img src="<%= user.img_file %>">                                                    
+                                                </div>
+                                                
+                                            <%}%>
+                                        </td>
                                         <td><%= user.name %></td>
                                         <td><%= user.email %></td>
                                         

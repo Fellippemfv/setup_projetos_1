@@ -1,0 +1,8 @@
+.form__content__main {
+    width: 100%;
+    max-width: var(--width-size-main);
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--shadow-box-main);
+    background-color: white;
+}

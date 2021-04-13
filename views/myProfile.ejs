@@ -34,7 +34,7 @@
                             </div>    
                         </figure>
     
-                        <input type="file" name="file">
+                        <input type="file" name="file" minlength="1" maxlength="300">
                         <input class="button_update" type="submit" value="Trocar de foto" >            
                     </form>
                 </div>
@@ -43,7 +43,7 @@
                     <form action="/myprofile" method="POST">
                         <div class="perfil__content">
                             <label class="myprofile__label" for="description">Descrição</label>
-                            <input class="myprofile__input" type="text" name="description" id="description" value="<%= description %>" minlength="5" maxlength="250" >
+                            <input class="myprofile__input" type="text" name="description" id="description" value="<%= description %>" minlength="5" maxlength="1000" >
                             <input class="button_update" type="submit" value="Atualizar Descrição">
                         </div>
                     </form>
@@ -59,7 +59,7 @@
                     <form action="/myprofile" method="POST">
                         <div class="perfil__content">
                             <label class="myprofile__label" for="name">Nome</label>
-                            <input class="myprofile__input" type="text" name="name" id="name" value="<%= name %>" minlength="5" maxlength="60" >
+                            <input class="myprofile__input" type="text" name="name" id="name" value="<%= name %>" minlength="5" maxlength="150" >
                             <input class="button_update" type="submit" value="Atualizar nome">
                         </div>
                     </form>

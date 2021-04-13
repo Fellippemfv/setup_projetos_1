@@ -15,12 +15,11 @@
     -webkit-text-fill-color: transparent;
 }
 
+/*icones de edicao/excluir devo mudar o nome--------importante*/
 .img-users {
     width: 2.3rem;
     cursor: pointer;
-    margin: 0rem 1rem;
 }
-
 
 
 #site-main{
@@ -75,6 +74,17 @@ table{
 .article__thumb__content img {
     height: 5rem;
 }
+
+.user__thumb__content {
+    height: 5rem;
+}
+
+.user__thumb__content img {
+    height: 5rem;
+}
+
+
+
 /* MOBILE
 @media only screen and (max-width: 1024px){
     table, thead, tbody, th, td, tr{

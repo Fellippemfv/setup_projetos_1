@@ -2,7 +2,7 @@
 
 <body>
     <main class="content">
-        <div class="form__container">
+        <div class="form__content__main">
 
             <div class="form__header">
                 <h1 class="text__heading">Cadastrar</h2>
@@ -12,9 +12,16 @@
                 <% if (message) { %>
                     <h2><%= message %> </h2>
                 <% } %>
-                <input class="text__field" type="text" name="name" id="name" placeholder="Nome e sobrenome" minlength="5" maxlength="150" required>
-                <input class="text__field" type="email" name="email" id="email" placeholder="Email" minlength="5" maxlength="150" required>
+                <label for="name">Nome e sobrenome <span>*Obrigatório</span></label>
+                <input class="text__field" type="text" name="name" id="name" placeholder="Ex: Lucas de morais" minlength="5" maxlength="150" required>
+                
+                <label for="email">Email <span>*Obrigatório</span></label>
+                <input class="text__field" type="email" name="email" id="email" placeholder="Ex: MeuEmail@gmail.com" minlength="5" maxlength="150" required>
+                
+                <label for="password">Insira sua senha <span>*Obrigatório</span></label>
                 <input class="text__field" type="password" name="password" id="password" placeholder="Senha" minlength="5" maxlength="30" required> 
+                
+                <label for="passwordConfirm">Insira sua senha novamente <span>*Obrigatório</span></label>
                 <input class="text__field" type="password" name="passwordConfirm" id="passwordConfirm" placeholder="Repita Senha" minlength="5" maxlength="30" required> 
                 <input class="button_login" type="submit" value="Criar nova conta">
             </form> 

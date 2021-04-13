@@ -4,7 +4,7 @@
 <body>
    
     <main class="content">
-        <div class="form__container">
+        <div class="form__content__main">
 
             <div class="form__header">
                 <h1 class="text__heading">Entrar</h2>
@@ -14,8 +14,8 @@
                 <% if (message) { %>
                     <h2><%= message %> </h2>
                 <% } %>
-                <input class="text__field" type="email" name="email" id="email" placeholder="Email" minlength="3" maxlength="150" required>
-                <input class="text__field" type="password" name="password" id="password" placeholder="Senha" minlength="3" maxlength="30" required> 
+                <input class="text__field" type="email" name="email" id="email" placeholder="Email"  minlength="5" maxlength="150" required>
+                <input class="text__field" type="password" name="password" id="password" placeholder="Senha" minlength="5" maxlength="30" required> 
                 <input class="button_login" type="submit" value="Entrar">
             </form>
 

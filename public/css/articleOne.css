@@ -1,4 +1,4 @@
-.article__content {
+.article__content__main {
     width: 100%;
     max-width: var(--width-size-main);
     display: flex;

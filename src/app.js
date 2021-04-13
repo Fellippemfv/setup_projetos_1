@@ -19,9 +19,9 @@ env.config();
 //pessoa terá até 5 passo a passo com uma imagem representando ela --> ok
 //Falta tirar descrição e colocar a foto principal do experimento --> ok
 //Falta ver validações do usuario
-//Falta ajeitar view da lista de usuarios/deletados
+//Falta ajeitar view da lista de usuarios/deletados 
 //Falta ver visual: css --> falta index/listas 
-//Falta testar num site real
+//Falta testar num site real 
 //Falta refatorar database 
 //Falta ver sistema de email
 //Falta ver detalhes de tudo e descobrir bugs

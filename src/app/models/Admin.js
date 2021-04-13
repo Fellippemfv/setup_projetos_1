@@ -8,7 +8,7 @@ class User{
 
     async findAll(num){//retorna lista de usuarios
         try{
-            let result = await knex("users").orderBy("id", "desc").select("id" ,"name", "email", "provider").where( "deleted_at", "0000-00-00 00:00:00").paginate({ perPage: 5, currentPage: num });
+            let result = await knex("users").orderBy("id", "desc").select("id", "img_file","name", "email", "provider").where( "deleted_at", "0000-00-00 00:00:00").paginate({ perPage: 5, currentPage: num });
             return result.data;
         }catch(error){
             console.log(error);
@@ -17,7 +17,7 @@ class User{
 
     async findAllDeleted(num){//retorna lista de usuarios
         try{
-            let result = await knex("users").orderBy("id", "desc").select("id" ,"name", "email", "provider").whereNot( "deleted_at", "0000-00-00 00:00:00").paginate({ perPage: 5, currentPage: num });
+            let result = await knex("users").orderBy("id", "desc").select("id", "img_file" ,"name", "email", "provider").whereNot( "deleted_at", "0000-00-00 00:00:00").paginate({ perPage: 5, currentPage: num });
             return result.data;
         }catch(error){
             console.log(error);
