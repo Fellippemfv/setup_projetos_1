@@ -112,7 +112,6 @@
     width: 100%;
     padding: 0 16px;
     border: 1px solid #aaa;
-    border-radius: 4px;
     opacity: 0;
     font-family: Lucida Grande,Lucida Sans Unicode,Lucida Sans,Geneva,Arial,sans-serif;
     font-size: 14px;
@@ -122,6 +121,11 @@
     background-color: #fff;
     cursor: pointer;
     transition: opacity .4s;
+  }
+
+  .no-more {
+    opacity: 0;
+    text-align: center;
   }
   
   .load-more:hover {

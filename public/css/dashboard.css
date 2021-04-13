@@ -44,6 +44,7 @@
 /* Style the tab content */
 .admin__content {
     margin-left: 1rem;
+    min-height: 75vh;
     width: 75%;
     border: 1px solid #ddd;
 }

@@ -18,8 +18,11 @@ env.config();
 //Falta adcionar 5 campos para passo a passo, onde ele deve aceitar valores null... ou seja a 
 //pessoa terá até 5 passo a passo com uma imagem representando ela --> ok
 //Falta tirar descrição e colocar a foto principal do experimento --> ok
-//Falta ver validações do usuario
-//Falta ajeitar view da lista de usuarios/deletados 
+//Falta ver validações do usuario --> ok
+//Falta ajeitar view da lista de usuarios/deletados --> ok
+//Falta ver bugs visuais na listagem e algumas paginas --> ok
+//Falta atualizar navbar de subadmin e admin com orientações
+//Falta passar todas as paginas para a view mobile (celular)
 //Falta ver visual: css --> falta index/listas 
 //Falta testar num site real 
 //Falta refatorar database 
