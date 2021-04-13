@@ -16,7 +16,10 @@ env.config();
 //Falta ver rolamento infinito de artigos do subadmin --> ok
 //Falta adicionar "Explicação" ao new admin e subadmin --> ok
 //Falta adcionar 5 campos para passo a passo, onde ele deve aceitar valores null... ou seja a 
-//pessoa terá até 5 passo a passo com uma imagem representando ela
+//pessoa terá até 5 passo a passo com uma imagem representando ela --> ok
+//Falta tirar descrição e colocar a foto principal do experimento --> ok
+//Falta ver validações do usuario
+//Falta ajeitar view da lista de usuarios/deletados
 //Falta ver visual: css --> falta index/listas 
 //Falta testar num site real
 //Falta refatorar database 

@@ -18,8 +18,8 @@
                             <thead class="thead-dark">
                                 <tr>
                                     <th>ID</th>
+                                    <th>Foto</th>
                                     <th>Titulo</th>
-                                    <th>Descrição</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -27,8 +27,12 @@
                             <tbody>
                                 <tr>
                                     <td><%= article.id %></td> 
+                                    <td>
+                                        <div class="article__thumb__content">
+                                            <img src="<%= article.exp_image_home %>" alt="">
+                                        </div>
+                                    </td>
                                     <td><%= article.title %></td> 
-                                    <td><%= article.description_home %></td>
                                     <td>
                                         <form action="/admin/dashboard/articles/hard/<%= article.id %>" method="POST">
                                             <input type="image" src="/assets/lixeira.svg" class="img-users">

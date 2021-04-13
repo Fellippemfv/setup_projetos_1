@@ -67,6 +67,14 @@ table{
     color: #fff;
     background-color: #3390efbd;
 }
+
+.article__thumb__content {
+    height: 5rem;
+}
+
+.article__thumb__content img {
+    height: 5rem;
+}
 /* MOBILE
 @media only screen and (max-width: 1024px){
     table, thead, tbody, th, td, tr{

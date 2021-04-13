@@ -9,7 +9,7 @@ dateFormat.masks.dateBr = 'dd/mm/yyyy "às" HH:MM:ss';//Modelo de data ao estilo
 class Article{
     async findAll(num){//retorna lista de usuarios
         try{
-            let result = await knex("articles").orderBy("id", "desc").select("id" ,"title", "slug", "description_home").where( "deleted_at", "0000-00-00 00:00:00").paginate({ perPage: 5, currentPage: num });
+            let result = await knex("articles").orderBy("id", "desc").select("id" ,"title", "slug", "exp_image_home").where( "deleted_at", "0000-00-00 00:00:00").paginate({ perPage: 5, currentPage: num });
             return result.data;
         }catch(error){
             console.log(error);
@@ -60,7 +60,7 @@ class Article{
 
     async findAllDeleted(num){//retorna lista de usuarios
         try{
-            let result = await knex("articles").orderBy("id", "desc").select("id" ,"title", "slug", "description_home").whereNot( "deleted_at", "0000-00-00 00:00:00").paginate({ perPage: 5, currentPage: num });
+            let result = await knex("articles").orderBy("id", "desc").select("id" ,"title", "slug", "exp_image_home").whereNot( "deleted_at", "0000-00-00 00:00:00").paginate({ perPage: 5, currentPage: num });
             return result.data;
         }catch(error){
             console.log(error);
