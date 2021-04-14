@@ -45,3 +45,9 @@ li {
     list-style-type: none;
 }
 
+@media (max-width: 763px) {
+    .content {
+        padding: 0rem;
+    }
+
+  }

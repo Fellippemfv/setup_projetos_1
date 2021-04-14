@@ -140,3 +140,10 @@
     color: #F63840;
     border: solid 1px #F63840;
   }
+
+  @media (max-width: 763px) {
+    .content__home__section {
+        padding: 1rem;
+    }
+
+  }
