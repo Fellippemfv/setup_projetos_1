@@ -9,6 +9,7 @@
   display: flex;
   justify-content: center;
   width: 100%;
+  height: 4rem;
   box-shadow: var(--shadow-box-header);
   background-color: white;
 }
@@ -24,21 +25,38 @@
   display: flex;
 }
 
-.menu__section__left a, .dropdown .dropbtn {
+img#menu__burguer {
+  background-color: white;
+}
+
+.menu__section__left a, .dropdown .dropbtn, .dropdown__mobile .dropbtn {
   padding: 1rem;
   font-size: 2rem;
 }
 
 .menu__section__right {
   margin: inherit;
+  position: relative;
 }
 
-.dropdown .dropbtn{
+.button__header {
+  margin-right: 1rem;
+}
+
+.dropdown .dropbtn , .dropdown__mobile .dropbtn{
   border: none;
   margin: 0px;
 }
 
-.content__header__section a, .dropdown .dropbtn {
+.content__header__section ul li .menu__icon{ /*ocultar icone de hamburguer no menu normal*/
+  display: none;
+}
+
+.content__header__section ul li .menu__link{/*ocultar links do menu mobile */
+  display: initial;
+}
+
+.content__header__section a, .dropdown .dropbtn, .dropdown__mobile .dropbtn {
     color: Black;
     text-decoration: none;
     background: inherit;
@@ -68,17 +86,22 @@
 /*----------//--------------CONFIGURAÇÕES do menu gigante teste------------------//------------*/ 
 
 /* The dropdown container */
-.dropdown {
+.dropdown, .dropdown__mobile {
   overflow: hidden;
 }
 
 .dropdown, li.drop__links {
+  display: flex;
+}
+
+.dropdown__mobile {
   display: none;
 }
 
 /* Add a red background color to navbar links on hover */
-.navbar a:hover, .dropdown:hover .dropbtn {
+.navbar a:hover, .dropdown:hover .dropbtn, .dropdown__mobile:hover .dropbtn {
   background-color: red;
+  width: 13rem;
 }
 
 /* Dropdown content (hidden by default) */
@@ -92,6 +115,16 @@
   z-index: 1;
 }
 
+.dropdown-content__mobile {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  width: 100%;
+  left: 13rem;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
 /* Mega Menu header, if needed */
 .dropdown-content .header {
   background: red;
@@ -99,10 +132,23 @@
   color: white;
 }
 
+.dropdown-content__mobile .header {
+  background: red;
+  color: white;
+  width: 100%;
+}
+
+.dropdown-content__mobile .row {
+  width: 100%;
+}
+
 /* Show the dropdown menu on hover */
-.dropdown:hover .dropdown-content {
+.dropdown:hover .dropdown-content, .dropdown__mobile:hover .dropdown-content__mobile {
   display: block;
-  width: 50%;
+}
+
+.dropdown__mobile:hover .dropdown-content__mobile {
+  width: 100%;
 }
 
 /* Create three equal columns that floats next to each other */
@@ -288,9 +334,9 @@
 .topnav {
     background-color: #333;
     position: absolute;
-    top: 5.2rem;
+    top: 4rem;
     left: 0;
-    width: 50%;
+    width: 13rem;
   }
   
   /* Hide the links inside the navigation menu (except for logo/home) */
@@ -335,13 +381,15 @@
   background-color: #333;
     position: absolute;
     right: 0rem;
-    top: 5.2rem;
-    width: 14rem;
+    top: 3.4rem;    
+    width: 11rem;
   }
   
   /* Hide the links inside the navigation menu (except for logo/home) */
   .topnav-2 #myLinks-2 {
     display: none;
+    flex-direction: column;
+    align-items: center;
   }
   
   /* Style navigation menu links */
@@ -423,22 +471,49 @@
 /*TERMINA*//* FALTA SIMPLIFICAR */
 
 /*----------//--------------CONFIGURAÇÕES DAS MEDIA QUERIES------------------//------------*/ 
-@media (min-width: 763px) {
+@media (max-width: 763px) {
   .dropdown, li.drop__links {/*ocultar links no menu mobile*/
+    display: none;
+  }
+
+  .dropdown__mobile {
     display: flex;
+    width: 13rem;
   }
 
   .content__header__section ul li .menu__icon{ /*ocultar icone de hamburguer no menu normal*/
-        display: none;
+    display: flex;
   }
   
-  .content__header__section ul li .menu__link{/*ocultar links do menu mobile */
-        display: initial;
-  }
-  
-  .menu__search .menu__input{/*mostra imput de pesquisa no menu normal*/
-      display:  block;
-      
+  .dropdown__mobile:hover .dropdown-content__mobile {
+    width: 33rem;
   }
     
 } 
+
+@media (max-width: 500px) {
+  .dropdown__mobile:hover .dropdown-content__mobile {
+    width: 16rem;
+  }
+
+  .dropdown__mobile .dropbtn {
+    font-size: 1.2rem;
+  }
+
+  .topnav {
+    width: 8rem;
+  }
+
+  .dropdown__mobile {
+    width: 8rem;
+  }
+
+  .navbar a:hover, .dropdown:hover .dropbtn, .dropdown__mobile:hover .dropbtn {
+    width: 8rem;
+  }
+
+  .dropdown-content__mobile {
+    left: 8rem;
+  }
+
+}

@@ -81,6 +81,14 @@
     .block-img {
         height: calc((100vw /2 - 20px) /2);
     }
+
+    .content__home__header, .content__home__footer {
+        margin: 0;
+    }
+
+    .content__home__body {
+        margin: 0;
+    }
 }
  
  

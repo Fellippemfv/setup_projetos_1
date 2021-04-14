@@ -29,7 +29,6 @@ body {
 
 }
 
-
 .content {
     min-height: 100vh;
     display: flex;
@@ -40,5 +39,9 @@ body {
 
 .pagination {
     display: none;
+}
+
+li {
+    list-style-type: none;
 }
 

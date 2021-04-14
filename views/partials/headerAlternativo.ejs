@@ -5,7 +5,7 @@
 
                 <div class="menu__section__left">
                     <ul>
-                        <li><img  class="menu__icon" src="/assets/burger-icon.svg" alt="Burger" onclick="myFunction()"></li>
+                        <li><img  class="menu__icon" id="menu__burguer" src="/assets/burger-icon.svg" alt="Burger" onclick="myFunction()"></li>
                         <li ><a href="/" >Logo</a></li>
                     
                         <!--menu grande de teste-->
@@ -56,9 +56,39 @@
                     <ul>
                     
                         <%if(!isAuthenticated){%>
-                            <li><button onclick="open_modal()">Entrar</button></li>
+                            <li><button class="button__header" onclick="open_modal()">Entrar</button></li>
+
+                            <div class="topnav-2">
+                <!-- Navigation links (hidden by default) -->
+
+                <%if(isAuthenticated){%>
+                <div id="myLinks-2">
+                        <li><a href="/myprofile">Perfil</a></li>
+                        <li><a href="/logout">Sair
+                                <img src="/assets/signout_106525.svg" alt="">
+                                </a>
+                        </li>
+                </div>
+                <%}%>
+
+                            </div>
                         <%}else{%>
-                            <li><button onclick="myFunction2()">Opções</button></li>
+                            <li><button class="button__header" onclick="myFunction2()">Opções</button></li>
+
+                            <div class="topnav-2">
+                                <!-- Navigation links (hidden by default) -->
+
+                                <%if(isAuthenticated){%>
+                                <div id="myLinks-2">
+                                        <li><a href="/myprofile">Perfil</a></li>
+                                        <li><a href="/logout">Sair
+                                                <img src="/assets/signout_106525.svg" alt="">
+                                                </a>
+                                        </li>
+                                </div>
+                                <%}%>
+
+                            </div>
                         <%}%>
                             
                     </ul>
@@ -93,26 +123,48 @@
             <div class="topnav">
             <!-- Navigation links (hidden by default) -->
             <div id="myLinks">
-                <a href="#news">Experiências</a>
-                <a href="#contact">Sobre</a>
-                <a href="#about">Contato</a>
-            </div>
-            </div>
 
-            <!--menu perfil-->
-            <div class="topnav-2">
-                <!-- Navigation links (hidden by default) -->
+                <div class="dropdown__mobile">
+                    <li><button class="dropbtn">ASSUNTOS</button></li>
 
-                <%if(isAuthenticated){%>
-                <div id="myLinks-2">
-                        <li><a href="/myprofile">Perfil</a></li>
-                        <li><a href="/logout">Sair
-                                <img src="/assets/signout_106525.svg" alt="">
-                                </a>
-                        </li>
+                        <div class="dropdown-content__mobile">
+                            <div class="header">
+                                <h2>Experiências por assuntos</h2>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="column">
+                                    <% categories1.forEach(category1 => { %>
+                                        <a href="/category/<%= category1.slug %>/1"><%= category1.title %></a>                                           
+                                    <% }) %>
+                                    
+                                </div>
+                                
+                            </div>
+                        </div>
+                </div> 
+
+                <div class="dropdown__mobile">
+                    <li><button class="dropbtn">BNCC</button></li>
+
+                        <div class="dropdown-content__mobile">
+                            <div class="header">
+                                <h2>Experiências pela BNCC</h2>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="column">
+                                    <% categories2.forEach(category2 => { %>
+                                        <a href="/category2/<%= category2.slug %>/1""><%= category2.title %></a>                                           
+                                    <% }) %>
+                                    
+                                </div>
+                                
+                            </div>
+                        </div>
                 </div>
-                <%}%>
 
+            </div>
             </div>
             
             <script src="/js/script.js"></script>

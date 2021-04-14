@@ -1,20 +1,23 @@
 //----------//-----------MENU MOBILE------------//-----------//
 function myFunction() {
   var x = document.getElementById("myLinks");
+  var y = document.getElementById("menu__burguer")
   if (x.style.display === "block") {
-    x.style.display = "none";
+    x.style.display = "none"
+    y.style.backgroundColor = "white";
   } else {
     x.style.display = "block";
+    y.style.backgroundColor = "#ccc";
   }
 }
 
 //----------//-----------MENU PERFIL------------//-----------//
 function myFunction2() {
   var x = document.getElementById("myLinks-2");
-  if (x.style.display === "block") {
+  if (x.style.display === "flex") {
     x.style.display = "none";
   } else {
-    x.style.display = "block";
+    x.style.display = "flex";
   }
 }
 
