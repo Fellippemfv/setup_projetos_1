@@ -496,7 +496,7 @@ img#menu__burguer {
     width: 16rem;
   }
 
-  .dropdown__mobile .dropbtn {
+  .dropdown__mobile .dropbtn, .topnav a  {
     font-size: 1.2rem;
   }
 
@@ -515,5 +515,6 @@ img#menu__burguer {
   .dropdown-content__mobile {
     left: 8rem;
   }
+
 
 }

@@ -7,41 +7,35 @@
 }
 
 .myprofile__header {
-    margin: 2rem 1rem;
+
 }
 
 .myprofile__top__content {
-    display: flex;
-    justify-content: space-between;
+  
 }
 
 .myprofile_content {
-    text-align: center;
+
 }
 
 .myprofile__body {
-    display: flex;
-    margin: 2rem 1rem;
-    flex-direction: column;
-    align-items: center;
+   
 }
 
 .myprofile__body__content {
-    margin-top: 3rem;
-    width: 100%;
-    display: flex;
-    justify-content: center;
+    
+}
+
+.file {
+    font-size: 1rem;
 }
 
 .myprofile__label {
-    font-size: 2.4rem;
+
 }
 
 .myprofile__input {
-    width: 53rem;
-    height: 4.5rem;
-    padding: 1rem;
-    margin-bottom: 2rem;
+   
 }
 
 .button_update {
