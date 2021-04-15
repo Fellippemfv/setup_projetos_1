@@ -22,6 +22,7 @@ env.config();
 //Falta ajeitar view da lista de usuarios/deletados --> ok
 //Falta ver bugs visuais na listagem e algumas paginas --> ok
 //Falta atualizar navbar de subadmin e admin com orientações --> ok
+//Falta ver a pagina de artigo/
 //Falta passar todas as paginas para a view mobile (celular) 
 //Falta ver visual: css --> falta index/listas 
 //Falta testar num site real 

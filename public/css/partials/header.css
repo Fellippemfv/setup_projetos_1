@@ -337,6 +337,7 @@ img#menu__burguer {
     top: 4rem;
     left: 0;
     width: 13rem;
+    z-index: 3;
   }
   
   /* Hide the links inside the navigation menu (except for logo/home) */

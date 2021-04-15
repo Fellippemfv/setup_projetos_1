@@ -146,4 +146,8 @@
         padding: 1rem;
     }
 
+    .block-desc {
+        padding: 0rem; 
+    }
+
   }
