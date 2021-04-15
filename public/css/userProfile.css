@@ -44,3 +44,25 @@
     max-width: 50%;
     flex-direction: column;
 }
+
+
+@media (max-width: 763px) {
+
+    .users__section__body {
+        flex-direction: column;
+    }
+
+    .block__right, .block__left {
+        max-width: inherit;
+    }
+
+    .profile__round__container {
+        min-height: 15rem;
+        min-width: 15rem;
+    }
+
+    .profile__image {
+        width: 15rem;
+    }
+
+}

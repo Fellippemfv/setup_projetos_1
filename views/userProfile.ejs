@@ -18,6 +18,27 @@
                 <div class="block__left">
 
                     <div class="user__item">
+
+                        <div class="user__block">
+                            
+                            <div class="user__info">
+                                <div class="profile__round__container">
+                                    <%if(photo === null){%>
+                                        <img class="profile__image" src="/assets/male-user-shadow-svgrepo-com.svg" alt="">
+                                    <%}else{%>
+                                        <img class="profile__image" src="<%= photo %>" alt="">
+                                    <%}%>
+                                </div>
+                            </div>
+                        </div>
+    
+                        </div>
+
+                </div>
+
+                <div class="block__right">
+
+                    <div class="user__item">
                         <div class="user__block">
                             <div class="user__info">
                                 <h2 class="user__title">Nome</h2>
@@ -72,27 +93,6 @@
                     </div>
 
                 </div>
-
-                <div class="block__right">
-
-                    <div class="user__item">
-
-                    <div class="user__block">
-                        
-                        <div class="user__info">
-                            <div class="profile__round__container">
-                                <%if(photo === null){%>
-                                    <img class="profile__image" src="/assets/male-user-shadow-svgrepo-com.svg" alt="">
-                                <%}else{%>
-                                    <img class="profile__image" src="<%= photo %>" alt="">
-                                <%}%>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
                 
             </div>
 

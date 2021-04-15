@@ -4,7 +4,6 @@
     flex-direction: column;
     background-color: white;
     box-shadow: var(--shadow-box-main);
-    padding: 1rem;
 }
 
 .content__home__header, .content__home__footer {
@@ -21,9 +20,8 @@
 .wrapper {
     display: flex;
     flex-wrap: wrap;
-    /* max-width: 900px; */
-    /* width: 100%; */
     margin-top: 1rem;
+    padding: 1rem;
 }
  /*Termina Configurações do principal */
  
@@ -143,7 +141,7 @@
 
   @media (max-width: 763px) {
     .content__home__section {
-        padding: 1rem;
+        padding: 0rem;
     }
 
     .block-desc {
