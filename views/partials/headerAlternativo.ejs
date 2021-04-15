@@ -1,6 +1,7 @@
     <header class="main__header">
 
         <div class="content__header__content">
+
             <div class="content__header__section">
 
                 <div class="menu__section__left">
@@ -94,81 +95,14 @@
                     </ul>
                 </div>
 
-            <!-- The Modal login -->
-            <div id="id01" class="modal">
-                <!-- Modal Content -->
-                <div class="modal-content animate ">
-                    <div class="form__container">
+                <%- include("__modalLogin") %>
+        
+                <%- include("__menuMobile_2") %>
 
-                        <div class="form__header">
-                            <h1 class="text__heading">Entrar</h2>
-                        </div>
-                                
-                        <form class="form__login" action="/login" method="post"><!--content__field__text//content__button__submit//content__footer__text-->
-                            <input class="text__field" type="email" name="email" id="email" placeholder="Email" minlength="5" maxlength="150" required>
-                            <input class="text__field" type="password" name="password" id="password" placeholder="Senha" minlength="5" maxlength="30" required> 
-                            <input class="button_login" type="submit" value="Entrar">
-                        </form>
-
-                        <div class="alternative__options" style="background-color:#f1f1f1">
-                            <a class="text__forgot" href="/forgot-password">Esqueceu senha?</a>
-                            <h2 class="text__footer">Não tem?<a href="/register">Registre-se</a></h3>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-            
-            <!--menu mobile-->
-            <div class="topnav">
-                <div id="myLinks">
-
-                    <div class="dropdown__mobile">
-                        <li><button class="dropbtn">ASSUNTOS</button></li>
-
-                            <div class="dropdown-content__mobile">
-                                <div class="header">
-                                    <h2>Experiências por assuntos</h2>
-                                </div>
-                                
-                                <div class="row">
-                                    <div class="column">
-                                        <% categories1.forEach(category1 => { %>
-                                            <a href="/category/<%= category1.slug %>/1"><%= category1.title %></a>                                           
-                                        <% }) %>
-                                        
-                                    </div>
-                                    
-                                </div>
-                            </div>
-                    </div> 
-
-                    <div class="dropdown__mobile">
-                        <li><button class="dropbtn">BNCC</button></li>
-
-                            <div class="dropdown-content__mobile">
-                                <div class="header">
-                                    <h2>Experiências pela BNCC</h2>
-                                </div>
-                                
-                                <div class="row">
-                                    <div class="column">
-                                        <% categories2.forEach(category2 => { %>
-                                            <a href="/category2/<%= category2.slug %>/1""><%= category2.title %></a>                                           
-                                        <% }) %>
-                                        
-                                    </div>
-                                    
-                                </div>
-                            </div>
-                    </div>
-
-                </div>
-            </div>
-            
-            <script src="/js/script.js"></script>
+                <%- include("__scriptHeader") %>
 
             </div>
+
         </div>
         
 

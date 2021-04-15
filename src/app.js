@@ -18,7 +18,7 @@ env.config();
 //Falta adcionar 5 campos para passo a passo, onde ele deve aceitar valores null... ou seja a 
 //pessoa terá até 5 passo a passo com uma imagem representando ela --> ok
 //Falta tirar descrição e colocar a foto principal do experimento --> ok
-//Falta ver validações do usuario --> ok
+//Falta ver validações do usuario --> ok 
 //Falta ajeitar view da lista de usuarios/deletados --> ok
 //Falta ver bugs visuais na listagem e algumas paginas --> ok
 //Falta atualizar navbar de subadmin e admin com orientações --> ok
