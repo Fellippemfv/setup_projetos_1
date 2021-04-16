@@ -25,11 +25,10 @@ class Article{
         }
     }
 
-
 //--------//----------//------CATEGORIA-----//------------//------------//
     async findAllCategory(slug, num){//retorna lista de usuarios//reformar a tabela => id deve ser slug
         try{
-            let result = await knex.select("articles.id", "articles.title", "articles.description_home", "articles.slug", "categories1.title as cat_title").table("articles").orderBy("id", "desc").innerJoin("categories1", "articles.category_id", "categories1.id").where({  "categories1.slug": slug  }).paginate({ perPage: 6, currentPage: num })
+            let result = await knex.select("articles.id", "articles.title", "articles.description_home", "articles.slug", "categories1.title as cat_title").table("articles").orderBy("id", "desc").innerJoin("categories1", "articles.category_id", "categories1.id").where({  "categories1.slug": slug , "deleted_at": "0000-00-00 00:00:00"  }).paginate({ perPage: 6, currentPage: num })
             return result.data;
         }catch(error){
             console.log(error);
@@ -38,7 +37,7 @@ class Article{
 
     async findAllCategory2(slug, num){//retorna lista de usuarios//reformar a tabela => id deve ser slug
         try{
-            let result = await knex.select("articles.id", "articles.title", "articles.description_home", "articles.slug", "categories2.title as cat_title").table("articles").orderBy("id", "desc").innerJoin("categories2", "articles.category2_id", "categories2.id").where({  "categories2.slug": slug  }).paginate({ perPage: 6, currentPage: num })
+            let result = await knex.select("articles.id", "articles.title", "articles.description_home", "articles.slug", "categories2.title as cat_title").table("articles").orderBy("id", "desc").innerJoin("categories2", "articles.category2_id", "categories2.id").where({  "categories2.slug": slug , "deleted_at": "0000-00-00 00:00:00" }).paginate({ perPage: 6, currentPage: num })
             
             //let result = await knex.select("articles.id", "articles.title", "articles.description_home", "articles.slug", "categories2.id as cat2_id").table("articles").innerJoin("categories2", "articles.category2_id", "categories2.id").where({  "categories2.slug": slug  })
             return result.data;

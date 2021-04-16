@@ -24,7 +24,6 @@ class AdminController{
         }
     }
 
-
 /*-------//-----------//-------USUÁRIOS------//------------//---------- */
 
     async getUsers(req, res, next) {
