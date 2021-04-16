@@ -9,7 +9,7 @@ import cors from "cors";
 import env from "dotenv";
 import path from "path";
 import { localsName } from "ejs";
-env.config(); 
+env.config();  
 
 //Falta ver rolamento infinito de view de user do--> ok
 //Falta ver rolamento infinito de artigos/users/categorys do admin --> ok
@@ -22,8 +22,8 @@ env.config();
 //Falta ajeitar view da lista de usuarios/deletados --> ok
 //Falta ver bugs visuais na listagem e algumas paginas --> ok
 //Falta atualizar navbar de subadmin e admin com orientações --> ok
-//Falta ver a pagina de artigo/
-//Falta passar todas as paginas para a view mobile (celular) 
+//Falta ver a pagina de artigo --> ok
+//Falta passar todas as paginas para a view mobile (celular) --> ok
 //Falta ver visual: css --> falta index/listas 
 //Falta testar num site real 
 //Falta refatorar database 
