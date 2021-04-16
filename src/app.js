@@ -26,7 +26,7 @@ env.config();
 //Falta passar todas as paginas para a view mobile (celular) --> ok
 //Falta ver visual: css --> falta index/listas 
 // bugs na istagemm de artigos
-// Ver os nome dos arquivos ejs
+// Ver os nome dos arquivos ejs --> ok
 // ver os nomes dos arquivos css
 //refatorar css ao minimo que der
 //Falta testar num site real 
