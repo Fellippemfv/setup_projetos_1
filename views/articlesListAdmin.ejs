@@ -2,7 +2,7 @@
 
 
 <body>
-    <%- include("partials/header.ejs") %>
+    <%- include("partials/headerDashAdmin.ejs") %>
 
     <main class="content">
 
@@ -13,7 +13,7 @@
                 
                 <div class="admin__content">
                 
-                    <!-- form handling -->
+                        <!-- form handling -->
                         <table class="table">
                             <thead class="thead-dark">
                                 <tr>
@@ -49,9 +49,8 @@
                             <% }) %>
                         
                         </table>
-                            <button class="load-more">Carregar mais</button>
-                            <div class="no-more">Sem mais artigos :(</div>
-        
+                        <button class="load-more">Carregar mais</button>
+                        <div class="no-more">Sem mais artigos :(</div>
         
                 </div>
                 
@@ -61,8 +60,8 @@
         
     </main>
     
-    <script src="https://unpkg.com/@webcreate/infinite-ajax-scroll/dist/infinite-ajax-scroll.min.js"></script>
-    <script src="/js/infinitescrollAdmin.js" ></script>
+    <%- include("partials/__scriptInfinitScroll_limited_dashboard.ejs") %>
+    
     <%- include("partials/footer.ejs") %>
 
 </body>

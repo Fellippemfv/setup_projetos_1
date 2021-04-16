@@ -14,34 +14,7 @@
 
             <div class="ac__content__body">
 
-                <div class="wrapper">
-
-                        <% articles.forEach(article => { %>
-                            <div class="block">
-                               
-                                <div class="block-img">
-                                    <img src="/assets/img-test/copos-coloridos.jpg" alt="HTML5">
-                                </div>
-                                <div class="block-desc">
-                                    <h2><%= article.title %></h2>
-                                    <p><%= article.description_home  %></p>
-                                </div>
-                                <div class="block-link">
-                                    <a href="/article/<%= article.slug %>">Ver mais</a>
-                                </div>
-                            </div>
-                
-                            <div class="pagination">
-                                <a href="/category/<%= slug %>/<%= count_articles %>" class="next">Next</a>
-                            </div>
-                        <% }) %>
-                
-                        <button class="load-more">Carregar mais</button>
-                        <div class="no-more">Sem mais artigos :(</div>
-                
-                                    
-                        <!--Termina Itens-->
-                </div>
+                <%- include("partials/__blockListArticle") %>
 
             </div>
 
@@ -49,10 +22,7 @@
        
     </main>
 
-    <script src="https://unpkg.com/@webcreate/infinite-ajax-scroll/dist/infinite-ajax-scroll.min.js"></script>
-
-    <script src="/js/infinitescroll2.js" ></script>
-    
+    <%- include("partials/__scriptInfintScroll_ilimited") %>
 
     <%- include("partials/footer.ejs") %>
 

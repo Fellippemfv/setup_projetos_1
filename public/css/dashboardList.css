@@ -83,27 +83,22 @@ table{
     height: 5rem;
 }
 
-
-
-/* MOBILE
-@media only screen and (max-width: 1024px){
-    table, thead, tbody, th, td, tr{
-        display: block;
+@media (max-width: 763px) {
+    .table td, .table th {
+        border-bottom: initial;
     }
 
-    thead tr{
-        position: absolute;
-        top: -9999px;
-        left: -9999px;
+    th {
+        display: none;
     }
 
-    tr { border: 1px solid var(--border);}
-
-    td{
-        border: none;
-        position: relative;
+    tr {
+        display: flex;
+        flex-direction: column;
+        border-bottom: 1px solid #ddd;
     }
-
+    
 }
-*/
+
+
 

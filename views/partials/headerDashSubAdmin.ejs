@@ -1,0 +1,73 @@
+    <header class="main__header">
+
+        <div class="content__header__content">
+
+            <div class="content__header__section">
+
+                <div class="menu__section__left">
+                    <ul>
+                        <li><img  class="menu__icon" id="menu__burguer" src="/assets/burger-icon.svg" alt="Burger" onclick="myFunction()"></li>
+                        <li ><a href="/" >Logo</a></li>
+
+                    </ul>
+                </div>
+        
+                <div class="menu__section__right">
+                    <ul>
+                    
+                        <%if(!isAuthenticated){%>
+                            <li><button class="button__header" onclick="open_modal()">Entrar</button></li>
+
+                            <div class="topnav-2">
+                <!-- Navigation links (hidden by default) -->
+
+                <%if(isAuthenticated){%>
+                <div id="myLinks-2">
+                        <li><a href="/myprofile">Perfil</a></li>
+                        <li><a href="/logout">Sair
+                                <img src="/assets/signout_106525.svg" alt="">
+                                </a>
+                        </li>
+                </div>
+                <%}%>
+
+                            </div>
+                        <%}else{%>
+                            <li><button class="button__header" onclick="myFunction2()">Opções</button></li>
+
+                            <div class="topnav-2">
+                                <!-- Navigation links (hidden by default) -->
+
+                                <%if(isAuthenticated){%>
+                                <div id="myLinks-2">
+                                        <li><a href="/myprofile">Perfil</a></li>
+                                        <li><a href="/logout">Sair
+                                                <img src="/assets/signout_106525.svg" alt="">
+                                                </a>
+                                        </li>
+                                </div>
+                                <%}%>
+
+                            </div>
+                        <%}%>
+                            
+                    </ul>
+                </div>
+
+                <%- include("__modalLogin") %>
+        
+                <%- include("__menuMobileSubAdmin") %>
+
+                <%- include("__scriptHeader") %>
+
+            </div>
+
+        </div>
+        
+
+    </header>
+
+    
+
+
+
