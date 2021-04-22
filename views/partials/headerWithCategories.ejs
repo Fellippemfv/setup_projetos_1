@@ -11,7 +11,7 @@
                     
                         <!--menu grande de teste-->
                         <div class="dropdown">
-                            <li><button class="dropbtn">ASSUNTOS</button></li>
+                            <li><button class="dropbtn">Assuntos<span class="seta-baixo-2" id="seta-baixo-2"></span></button></li>
 
                                 <div class="dropdown-content">
                                     <div class="header">
@@ -31,7 +31,7 @@
                         </div>
 
                         <div class="dropdown">
-                            <li><button class="dropbtn">BNCC</button></li>
+                            <li><button class="dropbtn">Bncc<span class="seta-baixo-2" id="seta-baixo-2"></span></button></li>
 
                                 <div class="dropdown-content">
                                     <div class="header">
@@ -57,7 +57,7 @@
                     <ul>
                     
                         <%if(!isAuthenticated){%>
-                            <li><button class="button__header" onclick="open_modal()">Entrar</button></li>
+                            <li><button class="button__header" id="button__header" onclick="open_modal()">Entrar<span class="seta-baixo" id="seta-baixo"></span></button></li>
 
                             <div class="topnav-2">
                 <!-- Navigation links (hidden by default) -->
@@ -74,7 +74,7 @@
 
                             </div>
                         <%}else{%>
-                            <li><button class="button__header" onclick="myFunction2()">Opções</button></li>
+                            <li><button class="button__header" id="button__header" onclick="myFunction2()">Opções<span class="seta-baixo" id="seta-baixo"></span></button></li>
 
                             <div class="topnav-2">
                                 <!-- Navigation links (hidden by default) -->
@@ -82,9 +82,7 @@
                                 <%if(isAuthenticated){%>
                                 <div id="myLinks-2">
                                         <li><a href="/myprofile">Perfil</a></li>
-                                        <li><a href="/logout">Sair
-                                                <img src="/assets/signout_106525.svg" alt="">
-                                                </a>
+                                        <li><a href="/logout">Sair</a>
                                         </li>
                                 </div>
                                 <%}%>

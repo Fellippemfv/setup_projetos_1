@@ -1,13 +1,24 @@
 /*----------//--------------CONFIGURAÇÕES GLOBAIS------------------//------------*/
 :root{
-    --color-text-base: black;
-    --color-page-background: #ffffff;
     font-size: 70%;
     font-family: 'Poppins', sans-serif;
+    --color-text-base: black;
+    --color-page-background: #ffffff;
+    --color-header-button: #00BCD4;
+    --color-header-button-hover: #006dd4;
+    --color-dropdown-header: #00BCD4;
+    --color-dropdown-options: #f9f9f9;
+    --color-dropdown-options-hover: #0027d4;
+    --color-box-options-background: #08c9dc;
     --width-size-main: 1080px; /*Largura minima do bloco principal da pagina*/
     --shadow-box-main: rgb(75 75 75 / 25%) 0px 0rem 0rem 0.5px, rgb(75 75 75 / 15%) 0px 0.0625rem 0.1875rem 0px;
     --shadow-box-header: rgb(75 75 75 / 25%) 0px 0rem 0rem 0.5px, #b5aeae 0px 0.0625rem 0.1875rem 0px;
-    
+    --shadow--box-options: 0px 8px 16px 0px rgb(0 0 0 / 20%);
+    --font-size-menu-title-desktop: 2.4rem;
+    --font-size-menu-title-mobile: ;
+    --font-size-menu-options-desktop: 1.8rem;
+    --font-size-menu-options-mobile: ;
+
 }
 
 *{

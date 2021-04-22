@@ -27,6 +27,7 @@ env.config();
 //Falta ver visual: css --> falta index/listas 
 // bugs na istagemm de artigos
 // Ver os nome dos arquivos ejs --> ok
+//Falta ver , logo, cor de fundo do menu , e mobile
 // ver os nomes dos arquivos css
 //refatorar css ao minimo que der
 //Falta testar num site real 

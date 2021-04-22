@@ -13,11 +13,19 @@ function myFunction() {
 
 //----------//-----------MENU PERFIL------------//-----------//
 function myFunction2() {
+  var z = document.getElementById("seta-baixo")
+  var y = document.getElementById("button__header");
   var x = document.getElementById("myLinks-2");
   if (x.style.display === "flex") {
     x.style.display = "none";
+    y.style.backgroundColor = "#00BCD4"
+    z.style.borderBottom = "none";
+    z.style.borderTop = "5px solid white";
   } else {
     x.style.display = "flex";
+    y.style.backgroundColor = "#006dd4"
+    z.style.borderBottom = "5px solid white";
+    z.style.borderTop = "none";
   }
 }
 
@@ -39,17 +47,6 @@ window.onclick = function(event) {
   if (event.target === modal) {
     modal.style.display = "none";
   }
-}
-
-//----------//-----------MODAL DE PESQUISA MOBILE------------//-----------//
-// Open the full screen search box
-function openSearch() {
-  document.getElementById("myOverlay").style.display = "flex";
-}
-
-// Close the full screen search box
-function closeSearch() {
-  document.getElementById("myOverlay").style.display = "none";
 }
 
 //----------//----------PARA PROFESSORES------------//-----------//
